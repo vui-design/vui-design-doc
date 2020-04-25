@@ -1,0 +1,54 @@
+@vui-menu: ~"@{vui}-menu";
+
+.@{vui-menu} {
+	box-sizing:border-box;
+	line-height:@menu-line-height;
+	transition:all 0.2s;
+
+	&-root {
+
+	}
+	&-root&-light {
+		background-color:@menu-light-background-color;
+	}
+	&-root&-dark {
+		background-color:@menu-dark-background-color;
+	}
+
+	&-inline {
+
+	}
+	&-inline&-light {
+		background-color:@menu-light-background-color;
+	}
+	&-inline&-dark {
+		background-color:rgba(0, 0, 0, 0.25);
+	}
+
+	&-popup {
+		min-width:150px;
+		border-radius:2px;
+		box-shadow:0 1px 6px rgba(0,0,0,0.1);
+		padding:5px 0;
+		overflow:hidden;
+	}
+	&-popup&-light {
+		background-color:@menu-light-background-color;
+	}
+	&-popup&-dark {
+		background-color:@menu-dark-background-color;
+	}
+
+	&-horizontal {
+		display:flex;
+		width:auto;
+	}
+	&-vertical {
+		display:block;
+		width:100%;
+	}
+
+	&-collapsed {
+		width:@menu-collapsed-width;
+	}
+}

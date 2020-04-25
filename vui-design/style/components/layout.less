@@ -1,0 +1,118 @@
+@vui-layout: ~"@{vui}-layout";
+@vui-header: ~"@{vui}-header";
+@vui-sider: ~"@{vui}-sider";
+@vui-content: ~"@{vui}-content";
+@vui-footer: ~"@{vui}-footer";
+
+.@{vui-layout} {
+	flex:auto;
+	display:flex;
+	box-sizing:border-box;
+	min-height:0;
+	background-color:#f4f6f8;
+	flex-direction:column;
+
+	&-with-sider {
+		flex-direction:row;
+
+		.@{vui-layout},
+		.@{vui-content} {
+			overflow-x:hidden;
+		}
+	}
+}
+
+.@{vui-header} {
+	flex:0 0 auto;
+	box-sizing:border-box;
+	height:64px;
+	padding:0 50px;
+	line-height:64px;
+
+	&-light {
+		background-color:#fff;
+	}
+	&-dark {
+		background-color:#1a2035;
+	}
+}
+
+.@{vui-sider} {
+	position:relative;
+	box-sizing:border-box;
+	min-width:0;
+	transition:all 0.2s;
+
+	& &-children {
+		box-sizing:border-box;
+		height:100%;
+		overflow:hidden;
+	}
+	& &-children-scrollbar {
+		box-sizing:border-box;
+		height:100%;
+		overflow-x:hidden;
+		overflow-y:scroll;
+	}
+	& &-trigger {
+		position:absolute;
+		bottom:0;
+		cursor:pointer;
+		box-sizing:border-box;
+		width:100%;
+		height:48px;
+		padding:0 20px;
+		font-size:14px;
+		line-height:48px;
+		transition:all 0.2s;
+	}
+
+	&-with-trigger &-children {
+		padding-bottom:48px;
+	}
+
+	&-light {
+		background-color:#fff;
+	}
+	&-light &-trigger {
+		background-color:#fff;
+		box-shadow:0 1px 0 rgba(0, 0, 0, 0.05) inset;
+		color:#595959;
+	}
+	&-light &-trigger:hover {
+		color:#262626;
+	}
+	&-light &-trigger:active {
+		color:#262626;
+	}
+
+	&-dark {
+		background-color:#1a2035;
+	}
+	&-dark &-trigger {
+		background-color:#1a2035;
+		box-shadow:0 1px 0 rgba(255, 255, 255, 0.025) inset;
+		color:#b3b3b3;
+	}
+	&-dark &-trigger:hover {
+		color:#fff;
+	}
+	&-dark &-trigger:active {
+		color:#fff;
+	}
+}
+
+.@{vui-content} {
+	flex:auto;
+	box-sizing:border-box;
+	min-height:0;
+}
+
+.@{vui-footer} {
+	flex:0 0 auto;
+	box-sizing:border-box;
+	padding:25px 50px;
+	color:@font-color;
+	font-size:@font-size;
+	line-height:@line-height;
+}

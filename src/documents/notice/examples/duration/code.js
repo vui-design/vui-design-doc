@@ -1,0 +1,21 @@
+const code =
+`<template>
+  <vui-button type="primary" @click="showDurationNotice">Customized duration</vui-button>
+</template>
+
+<script>
+  export default {
+    methods: {
+      showDurationNotice() {
+        this.$notice.info({
+          title: "I'll be gone in 10 seconds..",
+          description: "This is the description of the notice. This is the description of the notice. This is the description of the notice.",
+          duration: 10
+        });
+      }
+    }
+  };
+</script>
+`;
+
+export default code;

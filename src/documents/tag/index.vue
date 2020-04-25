@@ -1,0 +1,130 @@
+<template>
+	<div>
+		<Markdown>
+			<h1>Tag 标签</h1>
+			<p>进行标记和分类的小标签。</p>
+			<h2>何时使用</h2>
+			<ul>
+				<li>用于标记事物的属性和维度。</li>
+				<li>进行分类。</li>
+			</ul>
+			<h2>代码演示</h2>
+		</Markdown>
+		<vui-row :gutter="20">
+			<vui-col :span="12">
+				<ExampleTagBasicUsage />
+				<ExampleTagClosable />
+				<ExampleTagControl />
+				<ExampleTagCheckable />
+			</vui-col>
+			<vui-col :span="12">
+				<ExampleTagHotTags />
+				<ExampleTagColor />
+			</vui-col>
+		</vui-row>
+		<Markdown>
+			<h2 id="example-api">API</h2>
+			<h3>Tag 属性</h3>
+			<table class="example-api-props">
+				<thead>
+					<tr>
+						<th width="80">属性</th>
+						<th>说明</th>
+						<th width="120">类型</th>
+						<th width="100">默认值</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>closable</td>
+						<td>标签是否可以关闭</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>checkable</td>
+						<td>标签是否可以选择</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>checked</td>
+						<td>标签选中状态，仅在 <code>checkable</code> 为 <code>true</code> 时有效</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>color</td>
+						<td>标签颜色，预设颜色详见示例〔标签颜色〕</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>animation</td>
+						<td>自定义显示和关闭动画</td>
+						<td>String</td>
+						<td><code>vui-tag-zoom</code></td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Tag 事件</h3>
+			<table class="example-api-events">
+				<thead>
+					<tr>
+						<th width="80">事件名</th>
+						<th>说明</th>
+						<th width="120">类型</th>
+						<th width="100">回调参数</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>click</td>
+						<td>点击标签时的事件回调</td>
+						<td>Function</td>
+						<td><code>event</code></td>
+					</tr>
+					<tr>
+						<td>close</td>
+						<td>点击关闭按钮时的事件回调</td>
+						<td>Function</td>
+						<td><code>event</code></td>
+					</tr>
+					<tr>
+						<td>change</td>
+						<td>切换选中状态时的事件回调</td>
+						<td>Function</td>
+						<td><code>checked</code></td>
+					</tr>
+				</tbody>
+			</table>
+		</Markdown>
+	</div>
+</template>
+
+<script>
+	import MixinCatalogue from "@/mixins/catalogue";
+	import Markdown from "@/components/markdown"
+	import ExampleTagBasicUsage from "./examples/basic-usage";
+	import ExampleTagClosable from "./examples/closable";
+	import ExampleTagControl from "./examples/control";
+	import ExampleTagCheckable from "./examples/checkable";
+	import ExampleTagHotTags from "./examples/hot-tags";
+	import ExampleTagColor from "./examples/color";
+
+	export default {
+		name: "TagZhCN",
+		mixins: [
+			MixinCatalogue
+		],
+		components: {
+			Markdown,
+			ExampleTagBasicUsage,
+			ExampleTagClosable,
+			ExampleTagControl,
+			ExampleTagCheckable,
+			ExampleTagHotTags,
+			ExampleTagColor
+		}
+	};
+</script>

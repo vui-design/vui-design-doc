@@ -1,0 +1,143 @@
+<template>
+	<div>
+		<Markdown>
+			<h1>Message 消息提示</h1>
+			<p>全局展示操作反馈信息。</p>
+			<h2>何时使用</h2>
+			<ul>
+			<li>可提供信息、警告、成功和失败等反馈信息。</li>
+			<li>顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。</li>
+			</ul>
+			<h2>代码演示</h2>
+		</Markdown>
+		<vui-row :gutter="20">
+			<vui-col :span="12">
+				<ExampleMessageBasicUsage />
+				<ExampleMessageType />
+				<ExampleMessageLoading />
+			</vui-col>
+			<vui-col :span="12">
+				<ExampleMessageDuration />
+				<ExampleMessageClosable />
+				<ExampleMessageMoreContent />
+			</vui-col>
+		</vui-row>
+		<Markdown>
+			<h2 id="example-api">API</h2>
+			<p><code>Vui</code> 为 <code>Vue.prototype</code> 添加了全局方法 <code>$message</code>，可以直接通过以下方式来使用：</p>
+			<ul>
+				<li><code>this.$message.open(options)</code></li>
+				<li><code>this.$message.info(options)</code></li>
+				<li><code>this.$message.warning(options)</code></li>
+				<li><code>this.$message.success(options)</code></li>
+				<li><code>this.$message.error(options)</code></li>
+				<li><code>this.$message.loading(options)</code></li>
+			</ul>
+			<p>以上方式隐式的创建及维护 Vue 组件，参数 <code>options</code> 可以是字符串、函数或对象。当为字符串或函数时，仅仅表示提示内容或返回内容的函数；当为对象时，具体说明如下：</p>
+			<table class="example-api-props">
+				<thead>
+					<tr>
+						<th width="100">选项</th>
+						<th>说明</th>
+						<th width="200">类型</th>
+						<th width="100">默认值</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>type</td>
+						<td>提示类型，可选值为 <code>info</code>、<code>warning</code>、<code>success</code>、<code>error</code>、<code>loading</code> 或者不设</td>
+						<td>String</td>
+						<td><code>info</code></td>
+					</tr>
+					<tr>
+						<td>content</td>
+						<td>提示内容</td>
+						<td>String | VNode | Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>icon</td>
+						<td>自定义图标类型</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>closable</td>
+						<td>是否显示关闭按钮</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>closeText</td>
+						<td>关闭按钮文本，仅在 <code>closable</code> 为 <code>true</code> 时有效</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>duration</td>
+						<td>停留时长，单位秒。设为 <code>0</code> 时不会自动关闭</td>
+						<td>Number</td>
+						<td><code>3</code></td>
+					</tr>
+					<tr>
+						<td>onOpen</td>
+						<td>提示打开时触发的回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>onAfterOpen</td>
+						<td>提示完全打开时（打开动画完成后）触发的事件回调</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>onClose</td>
+						<td>提示关闭时触发的事件回调</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>onAfterClose</td>
+						<td>提示完全关闭时（关闭动画完成后）触发的事件回调</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>以上方法调用后，均会返回一个引用，可以通过该引用更新和关闭消息提示。</p>
+			<ul>
+				<li><code>message.update(options)</code></li>
+				<li><code>message.close()</code></li>
+			</ul>
+			<p>其中 <code>message.upadte</code> 方法的参数 <code>options</code> 同 <code>this.$message[type]</code> 方法一致。</p>
+		</Markdown>
+	</div>
+</template>
+
+<script>
+	import MixinCatalogue from "@/mixins/catalogue";
+	import Markdown from "@/components/markdown";
+	import ExampleMessageBasicUsage from "./examples/basic-usage";
+	import ExampleMessageType from "./examples/type";
+	import ExampleMessageLoading from "./examples/loading";
+	import ExampleMessageDuration from "./examples/duration";
+	import ExampleMessageClosable from "./examples/closable";
+	import ExampleMessageMoreContent from "./examples/more-content";
+
+	export default {
+		mixins: [
+			MixinCatalogue
+		],
+		components: {
+			Markdown,
+			ExampleMessageBasicUsage,
+			ExampleMessageType,
+			ExampleMessageLoading,
+			ExampleMessageDuration,
+			ExampleMessageClosable,
+			ExampleMessageMoreContent
+		}
+	};
+</script>

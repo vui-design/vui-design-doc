@@ -1,0 +1,24 @@
+@vui-empty: ~"@{vui}-empty";
+
+.@{vui-empty} {
+	text-align:center;
+
+	&-image {
+		svg, img {
+			display:block;
+			height:@empty-image-height;
+			margin:0 auto;
+		}
+	}
+
+	&-description {
+		margin-top:10px;
+		color:@empty-description-font-color;
+		font-size:@empty-description-font-size;
+		line-height:@empty-description-line-height;
+	}
+
+	&-main {
+		margin-top:20px;
+	}
+}

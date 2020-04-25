@@ -1,0 +1,70 @@
+@vui-breadcrumb: ~"@{vui}-breadcrumb";
+@vui-breadcrumb-item: ~"@{vui}-breadcrumb-item";
+
+.@{vui-breadcrumb} {
+	box-sizing:border-box;
+	font-size:@font-size;
+	line-height:@line-height;
+
+	.clearfix;
+}
+
+.@{vui-breadcrumb-item} {
+	float:left;
+	display:block;
+	box-sizing:border-box;
+
+	& &-link,
+	& a {
+		float:left;
+		cursor:pointer;
+		outline:none;
+		color:@font-secondary-color;
+		text-decoration:none;
+		transition:color 0.2s;
+
+		&:hover {
+			color:@link-hover-color;
+		}
+		&:active {
+			color:@link-active-color;
+		}
+	}
+
+	& &-label {
+		float:left;
+		color:@font-secondary-color;
+	}
+
+	& &-separator {
+		float:left;
+		margin:0 8px;
+		color:@border-color;
+	}
+
+	& .vui-icon {
+		margin-right:5px;
+	}
+
+	&:last-child {
+		.@{vui-breadcrumb-item}-link,
+		a {
+			color:@font-color;
+
+			&:hover {
+				color:@link-hover-color;
+			}
+			&:active {
+				color:@link-active-color;
+			}
+		}
+
+		.@{vui-breadcrumb-item}-label {
+			color:@font-color;
+		}
+
+		.@{vui-breadcrumb-item}-separator {
+			display:none;
+		}
+	}
+}
