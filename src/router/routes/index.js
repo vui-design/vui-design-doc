@@ -24,7 +24,7 @@ export default [
 				path: "/guide/installation",
 				name: "installation",
 				meta: {
-					title: "installation"
+					title: "Installation"
 				},
 				component: () => import("@/documents/installation/index")
 			},
@@ -32,7 +32,7 @@ export default [
 				path: "/guide/getting-started",
 				name: "getting-started",
 				meta: {
-					title: "getting-started"
+					title: "Getting Started"
 				},
 				component: () => import("@/documents/getting-started/index")
 			},
@@ -46,7 +46,7 @@ export default [
 			},
 			{
 				path: "/guide/customize-theme",
-				name: "customize-theme",
+				name: "Customize Theme",
 				meta: {
 					title: "customize-theme"
 				},
@@ -54,7 +54,7 @@ export default [
 			},
 			{
 				path: "/guide/change-log",
-				name: "change-log",
+				name: "Change Log",
 				meta: {
 					title: "change-log"
 				},

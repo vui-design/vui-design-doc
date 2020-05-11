@@ -3,16 +3,16 @@ const code =
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>VUI Example</title>
-  <link type="text/css" rel="stylesheet" href="http://unpkg.com/vui-design/dist/styles/vui.css" />
+  <title>Vui Design Example</title>
+  <link type="text/css" rel="stylesheet" href="http://unpkg.com/vui-design/dist/style/vui-design.css" />
   <script src="http://vuejs.org/js/vue.min.js"></script>
-  <script src="http://unpkg.com/vui-design/dist/vui.min.js"></script>
+  <script src="http://unpkg.com/vui-design/dist/vui-design.min.js"></script>
 </head>
 
 <body>
   <div id="app">
     <vui-button @click="showModal">Click me!</vui-button>
-    <vui-modal v-model="visible" title="Welcome">Welcome to VUI!</vui-modal>
+    <vui-modal v-model="visible" title="Welcome">Welcome to Vui Design!</vui-modal>
   </div>
   <script>
     new Vue({
