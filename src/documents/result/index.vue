@@ -11,6 +11,7 @@
 		<ExampleResultWarning />
 		<ExampleResultSuccess />
 		<ExampleResultError />
+		<ExampleResultComingsoon />
 		<ExampleResult403 />
 		<ExampleResult404 />
 		<ExampleResult500 />
@@ -71,6 +72,7 @@
 	import ExampleResultWarning from "./examples/warning";
 	import ExampleResultSuccess from "./examples/success";
 	import ExampleResultError from "./examples/error";
+	import ExampleResultComingsoon from "./examples/comingsoon";
 	import ExampleResult403 from "./examples/403";
 	import ExampleResult404 from "./examples/404";
 	import ExampleResult500 from "./examples/500";
@@ -86,6 +88,7 @@
 			ExampleResultWarning,
 			ExampleResultSuccess,
 			ExampleResultError,
+			ExampleResultComingsoon,
 			ExampleResult403,
 			ExampleResult404,
 			ExampleResult500,

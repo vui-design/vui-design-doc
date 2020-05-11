@@ -24,7 +24,7 @@ const VuiResult = {
 		status: {
 			type: String,
 			default: "info",
-			validator: value => ["info", "warning", "success", "error", "403", "404", "500"].indexOf(value) > -1
+			validator: value => ["info", "warning", "success", "error", "comingsoon", "403", "404", "500"].indexOf(value) > -1
 		},
 		icon: {
 			type: String,

@@ -415,6 +415,7 @@ export default {
         "example-result-warning": "警告类型",
         "example-result-success": "成功类型",
         "example-result-error": "错误类型",
+        "example-result-comingsoon": "敬请期待",
         "example-result-403": "403",
         "example-result-404": "404",
         "example-result-500": "500",

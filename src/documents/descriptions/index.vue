@@ -8,10 +8,10 @@
 			<h2>代码演示</h2>
 		</Markdown>
 		<DescriptionsBasicUsage />
-		<DescriptionsBordered />
+<!-- 		<DescriptionsBordered />
 		<DescriptionsVertical />
 		<DescriptionsVerticalBordered />
-		<DescriptionsSize />
+		<DescriptionsSize /> -->
 		<Markdown>
 			<h2 id="example-api">API</h2>
 			<h3>Descriptions 属性</h3>
