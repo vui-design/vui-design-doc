@@ -76,6 +76,7 @@ const createModalInstance = function(options) {
 			let attrs = {
 				props: {
 					visible,
+					showNotice: true,
 					showCancelButton,
 					cancelButtonProps,
 					cancelText,

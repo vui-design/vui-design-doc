@@ -46,7 +46,7 @@ export default [
 			},
 			{
 				path: "/guide/customize-theme",
-				name: "Customize Theme",
+				name: "customize-theme",
 				meta: {
 					title: "customize-theme"
 				},
@@ -54,7 +54,7 @@ export default [
 			},
 			{
 				path: "/guide/change-log",
-				name: "Change Log",
+				name: "change-log",
 				meta: {
 					title: "change-log"
 				},

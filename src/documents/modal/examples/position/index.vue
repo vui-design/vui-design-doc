@@ -3,7 +3,7 @@
 		<template slot="source">
 			<div class="example-modal-position">
 				<vui-button type="primary" @click="showModal1">Open modal at 50px to top</vui-button>
-				<vui-modal v-model="visible1" title="Modal Title" top="50">
+				<vui-modal v-model="visible1" title="Modal Title" :top="50">
 					<p>Some contents...</p>
 					<p>Some contents...</p>
 					<p>Some contents...</p>

@@ -3,7 +3,7 @@
 		<template slot="source">
 			<div class="example-modal-width">
 				<vui-button type="primary" @click="showModal">Modal width</vui-button>
-				<vui-modal v-model="visible" title="Modal Title" width="360">
+				<vui-modal v-model="visible" title="Modal Title" :width="360">
 					<p>Some contents...</p>
 					<p>Some contents...</p>
 					<p>Some contents...</p>
