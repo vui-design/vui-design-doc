@@ -1,5 +1,5 @@
 <template>
-	<Example vertical id="example-alert-banner">
+	<Example id="example-alert-banner">
 		<template slot="source">
 			<Browser>
 				<div class="example-alert-banner">
@@ -37,5 +37,5 @@
 </script>
 
 <style>
-	.example-alert-banner > .vui-alert + .vui-alert { margin-top:15px; }
+	.example-alert-banner .vui-alert + .vui-alert { margin-top:16px; }
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<Example vertical id="example-alert-basic-usage">
+	<Example id="example-alert-basic-usage">
 		<template slot="source">
 			<vui-alert message="Infomation" />
 		</template>

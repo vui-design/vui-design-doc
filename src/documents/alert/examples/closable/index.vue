@@ -1,5 +1,5 @@
 <template>
-	<Example vertical id="example-alert-closable">
+	<Example id="example-alert-closable">
 		<template slot="source">
 			<div class="example-alert-closable">
 				<vui-alert type="warning" message="Warning" closable />
@@ -29,3 +29,7 @@
 		}
 	};
 </script>
+
+<style>
+	.example-alert-closable .vui-alert + .vui-alert { margin-top:16px; }
+</style>

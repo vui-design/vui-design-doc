@@ -129,10 +129,17 @@ const VuiModal = {
 		return {
 			state: {
 				visible: props.visible,
+				zIndex: Popup.nextZIndex(),
 				cancelLoading: false,
 				okLoading: false
 			}
 		};
+	},
+
+	computed: {
+		visibility() {
+			return this.state.visible;
+		}
 	},
 
 	watch: {
@@ -142,6 +149,13 @@ const VuiModal = {
 			}
 
 			this.state.visible = value;
+		},
+		visibility(value) {
+			if (!value) {
+				return;
+			}
+
+			this.state.zIndex = Popup.nextZIndex();
 		}
 	},
 
@@ -154,7 +168,6 @@ const VuiModal = {
 			this.state.visible = false;
 			this.$emit("change", false);
 		},
-
 		handleBackdropClick() {
 			let { $props: props } = this;
 
@@ -217,7 +230,6 @@ const VuiModal = {
 				this.close();
 			}
 		},
-
 		handleEnter() {
 			this.addScrollbarEffect();
 			this.$emit("open");
@@ -237,7 +249,6 @@ const VuiModal = {
 	render() {
 		let { $slots: slots, state, $props: props } = this;
 		let { handleBackdropClick, handleWrapperClick, handleCancel, handleOk, handleEnter, handleAfterEnter, handleLeave, handleAfterLeave } = this;
-		let zIndex = state.visible ? Popup.nextZIndex() : undefined;
 		let showHeader = slots.title || props.title;
 		let portal = props.getPopupContainer();
 
@@ -271,10 +282,10 @@ const VuiModal = {
 		let styles = {};
 
 		styles.elBackdrop = {
-			zIndex
+			zIndex: state.zIndex
 		};
 		styles.elWrapper = {
-			zIndex,
+			zIndex: state.zIndex,
 			paddingTop: is.string(props.top) ? props.top : `${props.top}px`,
 			paddingBottom: is.string(props.top) ? props.top : `${props.top}px`
 		};

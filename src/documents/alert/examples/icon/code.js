@@ -19,6 +19,10 @@ const code =
 
   };
 </script>
+
+<style>
+  .example-alert-icon .vui-alert + .vui-alert { margin-top:16px; }
+</style>
 `;
 
 export default code;

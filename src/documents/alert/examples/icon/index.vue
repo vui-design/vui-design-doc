@@ -1,5 +1,5 @@
 <template>
-	<Example vertical id="example-alert-icon">
+	<Example id="example-alert-icon">
 		<template slot="source">
 			<div class="example-alert-icon">
 				<vui-alert showIcon message="Infomation" />
@@ -37,3 +37,7 @@
 		}
 	};
 </script>
+
+<style>
+	.example-alert-icon .vui-alert + .vui-alert { margin-top:16px; }
+</style>

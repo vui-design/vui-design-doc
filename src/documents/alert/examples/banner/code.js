@@ -15,7 +15,7 @@ const code =
 </script>
 
 <style>
-  .example-alert-banner > .vui-alert + .vui-alert { margin-top:15px; }
+  .example-alert-banner .vui-alert + .vui-alert { margin-top:16px; }
 </style>
 `;
 

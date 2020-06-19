@@ -31,7 +31,7 @@
 				<tbody>
 					<tr>
 						<td>status</td>
-						<td>结果状态，决定图标和颜色，可选值为 <code>info</code>、<code>warning</code>、<code>success</code>、<code>error</code>、<code>403</code>、<code>404</code>、<code>500</code> 或者不设</td>
+						<td>结果状态，决定图标和颜色，可选值为 <code>info</code>、<code>warning</code>、<code>success</code>、<code>error</code>、<code>comingsoon</code>、<code>403</code>、<code>404</code>、<code>500</code> 或者不设</td>
 						<td>String</td>
 						<td><code>info</code></td>
 					</tr>

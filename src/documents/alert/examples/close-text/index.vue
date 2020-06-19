@@ -1,5 +1,5 @@
 <template>
-	<Example vertical id="example-alert-close-text">
+	<Example id="example-alert-close-text">
 		<template slot="source">
 			<vui-alert type="success" message="Success" closable closeText="Close" />
 		</template>

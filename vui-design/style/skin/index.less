@@ -483,6 +483,53 @@
 
 // 反馈组件 --------------------------------------------------------------------------------
 
+// Alert
+@alert-border: @border-width @border-style @border-color;
+@alert-border-radius: @border-radius;
+@alert-background-color: @background-color;
+@alert-line-height: @line-height;
+
+@alert-info-border-color: ~`colorPalette("@{primary-color}", 3) `;
+@alert-info-background-color: ~`colorPalette("@{primary-color}", 1) `;
+@alert-info-icon-color: @primary-color;
+@alert-warning-border-color: ~`colorPalette("@{warning-color}", 3) `;
+@alert-warning-background-color: ~`colorPalette("@{warning-color}", 1) `;
+@alert-warning-icon-color: @warning-color;
+@alert-success-border-color: ~`colorPalette("@{success-color}", 3) `;
+@alert-success-background-color: ~`colorPalette("@{success-color}", 1) `;
+@alert-success-icon-color: @success-color;
+@alert-error-border-color: ~`colorPalette("@{error-color}", 3) `;
+@alert-error-background-color: ~`colorPalette("@{error-color}", 1) `;
+@alert-error-icon-color: @error-color;
+
+@alert-padding-vertical: 10px;
+@alert-padding-horizontal: 16px;
+@alert-with-icon-padding-left: @font-size + @alert-padding-horizontal + 10px;
+@alert-closable-padding-right: @font-size-sm + @alert-padding-horizontal + 10px;
+
+@alert-icon-top: @alert-padding-vertical + floor((@font-size * @alert-line-height - @font-size) / 2);
+@alert-icon-left: @alert-padding-horizontal;
+@alert-icon-font-size: @font-size;
+@alert-message-color: @font-color;
+@alert-message-font-size: @font-size;
+@alert-btn-close-top: @alert-padding-vertical + floor((@font-size * @alert-line-height - @font-size-sm) / 2);
+@alert-btn-close-right: @alert-padding-horizontal;
+@alert-btn-close-font-size: @font-size-sm;
+
+@alert-with-description-padding-vertical: 16px;
+@alert-with-description-padding-horizontal: 16px;
+@alert-with-description-with-icon-padding-left: floor(@font-size-lg * @alert-line-height) + @alert-with-description-padding-horizontal + 14px;
+@alert-with-description-closable-padding-right: @font-size-sm + @alert-with-description-padding-horizontal + 14px;
+
+@alert-with-description-icon-top: @alert-with-description-padding-vertical;
+@alert-with-description-icon-left: @alert-with-description-padding-horizontal;
+@alert-with-description-icon-font-size: floor(@font-size-lg * @alert-line-height);
+@alert-with-description-message-color: @font-primary-color;
+@alert-with-description-message-font-size: @font-size-lg;
+@alert-with-description-btn-close-top: @alert-with-description-padding-vertical + floor((@font-size-lg * @alert-line-height - @font-size-sm) / 2);
+@alert-with-description-btn-close-right: @alert-with-description-padding-horizontal;
+@alert-with-description-btn-close-font-size: @font-size-sm;
+
 // Tooltip
 @tooltip-border-radius: @border-radius;
 @tooltip-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
