@@ -8,6 +8,7 @@
 	border-radius:@alert-border-radius;
 	background-color:@alert-background-color;
 	line-height:@alert-line-height;
+	transform-origin:50% 0;
 
 	&-icon {
 		position:absolute;
@@ -155,7 +156,6 @@
 		padding-top:0 !important;
 		padding-bottom:0 !important;
 		opacity:0;
-		transform-origin:50% 0;
 		transform:scaleY(0);
 		transition:all @transition-duration @transition-timing-function;
 	}

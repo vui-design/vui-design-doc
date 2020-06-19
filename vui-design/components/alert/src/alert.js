@@ -108,7 +108,8 @@ const VuiAlert = {
 					);
 				}
 				else {
-					let iconType = (slots.description || props.description) ? defaultIconTypes[props.type] : (defaultIconTypes[props.type] + "-filled");
+					let defaultIconType = defaultIconTypes[props.type];
+					let iconType = (slots.description || props.description) ? defaultIconType : (defaultIconType + "-filled");
 
 					icon = (
 						<VuiIcon type={iconType} />
