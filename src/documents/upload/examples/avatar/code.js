@@ -11,7 +11,7 @@ const code =
       <img v-if="image" v-bind:src="image" alt="avatar" style="width: 90px; height: 90px; object-fit: cover; object-position: center;" />
       <template v-else>
         <vui-icon v-bind:type="loading ? 'loading' : 'plus'" style="font-size: 20px;" />
-        <div style="font-size: 14px; white-space: nowrap;">Upload</div>
+        <div style="margin-top: 10px; font-size: 14px; white-space: nowrap;">Upload</div>
       </template>
     </vui-upload>
   </div>

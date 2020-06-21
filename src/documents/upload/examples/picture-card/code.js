@@ -11,7 +11,7 @@ const code =
     >
       <template v-if="list.length < 4">
         <vui-icon type="plus" style="font-size: 20px;" />
-        <div style="font-size: 14px;">Upload</div>
+        <div style="margin-top: 10px; font-size: 14px;">Upload</div>
       </template>
     </vui-upload>
     <vui-modal v-model="visible" headless footless centered>

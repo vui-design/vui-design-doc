@@ -247,7 +247,7 @@ const VuiModal = {
 	},
 
 	render() {
-		let { $slots: slots, state, $props: props } = this;
+		let { $slots: slots, $props: props, state } = this;
 		let { handleBackdropClick, handleWrapperClick, handleCancel, handleOk, handleEnter, handleAfterEnter, handleLeave, handleAfterLeave } = this;
 		let showHeader = slots.title || props.title;
 		let portal = props.getPopupContainer();

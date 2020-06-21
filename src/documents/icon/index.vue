@@ -511,7 +511,6 @@
 <style>
 	.icon { cursor:pointer; box-sizing:border-box; border-radius:2px; border:1px solid #fff; background-color:#fdfdfd; padding:10px; }
 	.icon .icon-gallery { padding:10px 0;color:#595959; font-size:24px; text-align:center; line-height:1; }
-	.icon .icon-gallery .vui-icon { display:inline-block; vertical-align:middle; }
 	.icon .icon-type { padding:10px 0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; color:#a6a6a6; font-size:14px; text-align:center; line-height:1; }
 
 	.icon:hover { border-color:#2d8cf0; }

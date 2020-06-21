@@ -140,7 +140,7 @@
 
 .@{vui-modal-notice} {
 	position:relative;
-	padding-left:round(@font-size-lg * @line-height) + 10px;
+	padding-left:floor(@font-size-lg * @line-height) + 10px;
 	color:@font-color;
 	font-size:@font-size;
 	line-height:@line-height;
@@ -158,7 +158,7 @@
 		position:absolute;
 		top:0;
 		left:0;
-		font-size:round(@font-size-lg * @line-height);
+		font-size:floor(@font-size-lg * @line-height);
 		line-height:1;
 
 		.@{vui}-icon {

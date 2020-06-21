@@ -71,20 +71,20 @@
 
 
 // 阴影
-@box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+@box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 
 
 // 属性过度
 @transition-duration: 0.2s;
-@transition-timing-function: cubic-bezier(.645, .045, .355, 1);
+@transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 
 
 // 动画
 @animation-in-duration: 0.2s;
-@animation-in-timing-function: cubic-bezier(.645, .045, .355, 1);
+@animation-in-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 
 @animation-out-duration: 0.2s;
-@animation-out-timing-function: cubic-bezier(.645, .045, .355, 1);
+@animation-out-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 
 
 // 媒体查询
@@ -467,6 +467,18 @@
 @empty-description-line-height: @line-height;
 
 
+// Tooltip
+@tooltip-border-radius: @border-radius;
+@tooltip-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+@tooltip-padding: 10px 12px;
+@tooltip-font-size: @font-size;
+@tooltip-line-height: @line-height;
+@tooltip-arrow-size: 6px;
+@tooltip-distance: @tooltip-arrow-size + 4px;
+@tooltip-light-background-color: #fff;
+@tooltip-light-font-color: @font-color;
+@tooltip-dark-background-color: #1a2035;
+@tooltip-dark-font-color: #fff;
 
 
 
@@ -530,19 +542,6 @@
 @alert-with-description-btn-close-right: @alert-with-description-padding-horizontal;
 @alert-with-description-btn-close-font-size: @font-size-sm;
 
-// Tooltip
-@tooltip-border-radius: @border-radius;
-@tooltip-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
-@tooltip-padding: 10px 12px;
-@tooltip-font-size: @font-size;
-@tooltip-line-height: @line-height;
-@tooltip-arrow-size: 6px;
-@tooltip-distance: @tooltip-arrow-size + 4px;
-@tooltip-light-background-color: #fff;
-@tooltip-light-font-color: @font-color;
-@tooltip-dark-background-color: #1a2035;
-@tooltip-dark-font-color: #fff;
-
 // Drawer
 @drawer-background-color: #fff;
 @drawer-box-shadow: @box-shadow;
@@ -562,14 +561,45 @@
 @modal-footer-border-top: 1px solid #ececec;
 @modal-footer-padding: 20px;
 
+// Notice
+@notice-max-width: 360px;
+@notice-border-radius: @border-radius;
+@notice-background-color: @background-color;
+@notice-box-shadow: @box-shadow;
+@notice-line-height: @line-height;
 
+@notice-info-icon-color: @primary-color;
+@notice-warning-icon-color: @warning-color;
+@notice-success-icon-color: @success-color;
+@notice-error-icon-color: @error-color;
 
+@notice-padding-vertical: 10px;
+@notice-padding-horizontal: 16px;
+@notice-with-icon-padding-left: @font-size + @notice-padding-horizontal + 10px;
+@notice-closable-padding-right: @font-size-sm + @notice-padding-horizontal + 10px;
 
+@notice-icon-top: @notice-padding-vertical + floor((@font-size * @notice-line-height - @font-size) / 2);
+@notice-icon-left: @notice-padding-horizontal;
+@notice-icon-font-size: @font-size;
+@notice-title-color: @font-color;
+@notice-title-font-size: @font-size;
+@notice-btn-close-top: @notice-padding-vertical + floor((@font-size * @notice-line-height - @font-size-sm) / 2);
+@notice-btn-close-right: @notice-padding-horizontal;
+@notice-btn-close-font-size: @font-size-sm;
 
+@notice-with-description-padding-vertical: 16px;
+@notice-with-description-padding-horizontal: 16px;
+@notice-with-description-with-icon-padding-left: floor(@font-size-lg * @notice-line-height) + @notice-with-description-padding-horizontal + 14px;
+@notice-with-description-closable-padding-right: @font-size-sm + @notice-with-description-padding-horizontal + 14px;
 
-
-
-
+@notice-with-description-icon-top: @notice-with-description-padding-vertical;
+@notice-with-description-icon-left: @notice-with-description-padding-horizontal;
+@notice-with-description-icon-font-size: floor(@font-size-lg * @notice-line-height);
+@notice-with-description-title-color: @font-primary-color;
+@notice-with-description-title-font-size: @font-size-lg;
+@notice-with-description-btn-close-top: @notice-with-description-padding-vertical + floor((@font-size-lg * @notice-line-height - @font-size-sm) / 2);
+@notice-with-description-btn-close-right: @notice-with-description-padding-horizontal;
+@notice-with-description-btn-close-font-size: @font-size-sm;
 
 
 
