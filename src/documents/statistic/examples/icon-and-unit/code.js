@@ -7,7 +7,7 @@ const code = `
       </vui-statistic>
     </vui-col>
     <vui-col :span="12">
-      <vui-statistic title="Unmerged" :value="70">
+      <vui-statistic title="Unmerged" :value="88">
         <template slot="suffix">/ 100</template>
       </vui-statistic>
     </vui-col>

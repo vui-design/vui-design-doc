@@ -1,5 +1,5 @@
 <template>
-	<Example vertical id="example-statistic-basic-usage">
+	<Example id="example-statistic-basic-usage">
 		<template slot="source">
 			<vui-row :gutter="16">
 				<vui-col :span="12">

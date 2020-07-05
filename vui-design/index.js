@@ -67,6 +67,7 @@ import List from "./components/list";
 import ListItem from "./components/list-item";
 import ListItemMeta from "./components/list-item-meta";
 import Popover from "./components/popover";
+import Ratio from "./components/ratio";
 import Statistic from "./components/statistic";
 import Table from "./components/table";
 import Tag from "./components/tag";
@@ -160,6 +161,7 @@ const components = [
 	ListItem,
 	ListItemMeta,
 	Popover,
+	Ratio,
 	Statistic,
 	Table,
 	Tag,
@@ -282,6 +284,7 @@ export default {
 	ListItem,
 	ListItemMeta,
 	Popover,
+	Ratio,
 	Statistic,
 	Table,
 	Tag,

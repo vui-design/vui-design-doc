@@ -35,18 +35,12 @@
 					<tr>
 						<td>title</td>
 						<td>数值标题说明</td>
-						<td>String</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>prefix</td>
-						<td>数值前缀，一般通过此属性设置图标</td>
 						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>suffix</td>
-						<td>数值后缀，一般通过此属性设置单位</td>
+						<td>extra</td>
+						<td>附加内容，位于标题右侧</td>
 						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
@@ -63,9 +57,51 @@
 						<td>--</td>
 					</tr>
 					<tr>
+						<td>prefix</td>
+						<td>数值前缀，一般通过此属性设置前置图标</td>
+						<td>String | Slot</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>suffix</td>
+						<td>数值后缀，一般通过此属性设置后置单位</td>
+						<td>String | Slot</td>
+						<td>--</td>
+					</tr>
+					<tr>
 						<td>formatter</td>
 						<td>自定义数值展示，如 <code>(h, value) => VNode</code></td>
 						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>decimalSeparator</td>
+						<td>设置小数点</td>
+						<td>String</td>
+						<td><code>.</code></td>
+					</tr>
+					<tr>
+						<td>groupSeparator</td>
+						<td>设置千分位标识符</td>
+						<td>String</td>
+						<td><code>,</code></td>
+					</tr>
+					<tr>
+						<td>headerStyle</td>
+						<td>设置头部样式</td>
+						<td>String | Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>bodyStyle</td>
+						<td>设置主体样式</td>
+						<td>String | Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>footerStyle</td>
+						<td>设置底部样式</td>
+						<td>String | Object</td>
 						<td>--</td>
 					</tr>
 				</tbody>
