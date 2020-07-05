@@ -1,22 +1,22 @@
 const code =
 `<template>
   <div class="example-badge-type">
-    <vui-badge type="default" :count="10">
+    <vui-badge type="default" v-bind:count="10">
       <img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
     </vui-badge>
-    <vui-badge type="primary" :count="10">
+    <vui-badge type="primary" v-bind:count="10">
       <img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
     </vui-badge>
-    <vui-badge type="info" :count="10">
+    <vui-badge type="info" v-bind:count="10">
       <img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
     </vui-badge>
-    <vui-badge type="warning" :count="10">
+    <vui-badge type="warning" v-bind:count="10">
       <img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
     </vui-badge>
-    <vui-badge type="success" :count="10">
+    <vui-badge type="success" v-bind:count="10">
       <img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
     </vui-badge>
-    <vui-badge type="error" :count="10">
+    <vui-badge v-bind:count="10">
       <img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
     </vui-badge>
   </div>

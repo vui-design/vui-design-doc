@@ -1,5 +1,5 @@
 <template>
-	<Example vertical id="example-badge-status">
+	<Example id="example-badge-status">
 		<template slot="source">
 			<div class="example-badge-status">
 				<vui-badge status="default" />
@@ -32,7 +32,6 @@
 	import code from "./code";
 
 	export default {
-		name: "ExampleBadgeStatus",
 		components: {
 			Example
 		},
@@ -45,5 +44,5 @@
 </script>
 
 <style>
-	.example-badge-status > .vui-badge-status { margin-right:10px; }
+	.example-badge-status > .vui-badge { margin-right:10px; }
 </style>

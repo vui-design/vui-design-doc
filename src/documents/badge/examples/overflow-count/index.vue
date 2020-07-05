@@ -1,14 +1,14 @@
 <template>
-	<Example vertical id="example-badge-overflow-count">
+	<Example id="example-badge-overflow-count">
 		<template slot="source">
 			<div class="example-badge-overflow-count">
-				<vui-badge :count="99">
+				<vui-badge v-bind:count="99">
 					<img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
 				</vui-badge>
-				<vui-badge :count="100">
+				<vui-badge v-bind:count="100">
 					<img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
 				</vui-badge>
-				<vui-badge :count="1000" :overflowCount="999">
+				<vui-badge v-bind:count="1000" v-bind:overflowCount="999">
 					<img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
 				</vui-badge>
 			</div>
@@ -26,7 +26,6 @@
 	import code from "./code";
 
 	export default {
-		name: "ExampleBadgeOverflowCount",
 		components: {
 			Example
 		},

@@ -1,11 +1,11 @@
 <template>
-	<Example vertical id="example-badge-basic-usage">
+	<Example id="example-badge-basic-usage">
 		<template slot="source">
 			<div class="example-badge-basic-usage">
-				<vui-badge :count="10">
+				<vui-badge v-bind:count="10">
 					<img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
 				</vui-badge>
-				<vui-badge :count="0">
+				<vui-badge v-bind:count="0">
 					<img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
 				</vui-badge>
 			</div>
@@ -23,7 +23,6 @@
 	import code from "./code";
 
 	export default {
-		name: "ExampleBadgeBasicUsage",
 		components: {
 			Example
 		},

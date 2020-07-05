@@ -1,5 +1,5 @@
 <template>
-	<Example vertical id="example-badge-text">
+	<Example id="example-badge-text">
 		<template slot="source">
 			<div class="example-badge-text">
 				<vui-badge text="new">
@@ -23,7 +23,6 @@
 	import code from "./code";
 
 	export default {
-		name: "ExampleBadgeText",
 		components: {
 			Example
 		},

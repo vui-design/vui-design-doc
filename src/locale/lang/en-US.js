@@ -296,6 +296,7 @@ export default {
         "example-badge-alone": "独立使用",
         "example-badge-type": "预设类型",
         "example-badge-status": "状态点",
+        "example-badge-colorful": "多彩徽标",
 
         "example-descriptions-basic-usage": "基本用法",
         "example-descriptions-bordered": "带边框的",

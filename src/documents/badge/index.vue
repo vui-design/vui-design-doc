@@ -7,17 +7,18 @@
 			<p>一般出现在通知图标或头像的右上角，用于显示需要处理的消息条数，通过醒目视觉形式吸引用户处理。</p>
 			<h2>代码演示</h2>
 		</Markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleBadgeBasicUsage />
 				<ExampleBadgeOverflowCount />
 				<ExampleBadgeText />
 				<ExampleBadgeDot />
-			</vui-col>
-			<vui-col :span="12">
 				<ExampleBadgeAlone />
+			</vui-col>
+			<vui-col v-bind:span="12">
 				<ExampleBadgeType />
 				<ExampleBadgeStatus />
+				<ExampleBadgeColorful />
 			</vui-col>
 		</vui-row>
 		<Markdown>
@@ -42,6 +43,12 @@
 					<tr>
 						<td>status</td>
 						<td>设置徽标为状态点，可选值为 <code>default</code>、<code>processing</code>、<code>warning</code>、<code>success</code>、<code>error</code> 或者不设</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>color</td>
+						<td>自定义状态点的颜色，预设颜色详见示例〔多彩徽标〕</td>
 						<td>String</td>
 						<td>--</td>
 					</tr>
@@ -91,6 +98,7 @@
 	import ExampleBadgeAlone from "./examples/alone";
 	import ExampleBadgeType from "./examples/type";
 	import ExampleBadgeStatus from "./examples/status";
+	import ExampleBadgeColorful from "./examples/colorful";
 
 	export default {
 		name: "BadgeZhCN",
@@ -105,7 +113,8 @@
 			ExampleBadgeDot,
 			ExampleBadgeAlone,
 			ExampleBadgeType,
-			ExampleBadgeStatus
+			ExampleBadgeStatus,
+			ExampleBadgeColorful
 		}
 	};
 </script>
