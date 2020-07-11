@@ -42,13 +42,13 @@
 	}
 
 	&-alone &-dot {
-		position:relative;
+		position:unset;
 		top:unset;
 		right:unset;
 		transform:translate(0,0);
 	}
 	&-alone &-count {
-		position:relative;
+		position:unset;
 		top:unset;
 		right:unset;
 		transform:translate(0,0);
@@ -125,6 +125,7 @@
 	}
 
 	&-status-default &-status-dot {
+		border-color:@badge-status-default-color;
 		background-color:@badge-status-default-color;
 	}
 	&-status-default &-status-text {
@@ -132,6 +133,7 @@
 	}
 
 	&-status-processing &-status-dot {
+		border-color:@badge-status-processing-color;
 		background-color:@badge-status-processing-color;
 
 		&:after {
@@ -145,7 +147,9 @@
 			box-sizing:border-box;
 			width:100%;
 			height:100%;
-			border:1px solid @badge-status-processing-color;
+			border-width:1px;
+			border-style:solid;
+			border-color:inherit;
 			border-radius:50%;
 			animation:vuiBadgeStatusProcessing 1.2s infinite ease-in-out;
 		}
@@ -155,6 +159,7 @@
 	}
 
 	&-status-warning &-status-dot {
+		border-color:@badge-status-warning-color;
 		background-color:@badge-status-warning-color;
 	}
 	&-status-warning &-status-text {
@@ -162,12 +167,15 @@
 	}
 
 	&-status-success &-status-dot {
-		background-color:@badge-status-success-color; }
+		border-color:@badge-status-success-color;
+		background-color:@badge-status-success-color;
+	}
 	&-status-success &-status-text {
 		color:@badge-status-success-font-color;
 	}
 
 	&-status-error &-status-dot {
+		border-color:@badge-status-error-color;
 		background-color:@badge-status-error-color;
 	}
 	&-status-error &-status-text {
@@ -175,6 +183,7 @@
 	}
 
 	&-status-blue &-status-dot {
+		border-color:@badge-status-blue-color;
 		background-color:@badge-status-blue-color;
 	}
 	&-status-blue &-status-text {
@@ -182,6 +191,7 @@
 	}
 
 	&-status-green &-status-dot {
+		border-color:@badge-status-green-color;
 		background-color:@badge-status-green-color;
 	}
 	&-status-green &-status-text {
@@ -189,6 +199,7 @@
 	}
 
 	&-status-red &-status-dot {
+		border-color:@badge-status-red-color;
 		background-color:@badge-status-red-color;
 	}
 	&-status-red &-status-text {
@@ -196,6 +207,7 @@
 	}
 
 	&-status-yellow &-status-dot {
+		border-color:@badge-status-yellow-color;
 		background-color:@badge-status-yellow-color;
 	}
 	&-status-yellow &-status-text {
@@ -203,6 +215,7 @@
 	}
 
 	&-status-pink &-status-dot {
+		border-color:@badge-status-pink-color;
 		background-color:@badge-status-pink-color;
 	}
 	&-status-pink &-status-text {
@@ -210,6 +223,7 @@
 	}
 
 	&-status-magenta &-status-dot {
+		border-color:@badge-status-magenta-color;
 		background-color:@badge-status-magenta-color;
 	}
 	&-status-magenta &-status-text {
@@ -217,6 +231,7 @@
 	}
 
 	&-status-volcano &-status-dot {
+		border-color:@badge-status-volcano-color;
 		background-color:@badge-status-volcano-color;
 	}
 	&-status-volcano &-status-text {
@@ -224,6 +239,7 @@
 	}
 
 	&-status-orange &-status-dot {
+		border-color:@badge-status-orange-color;
 		background-color:@badge-status-orange-color;
 	}
 	&-status-orange &-status-text {
@@ -231,6 +247,7 @@
 	}
 
 	&-status-gold &-status-dot {
+		border-color:@badge-status-gold-color;
 		background-color:@badge-status-gold-color;
 	}
 	&-status-gold &-status-text {
@@ -238,6 +255,7 @@
 	}
 
 	&-status-lime &-status-dot {
+		border-color:@badge-status-lime-color;
 		background-color:@badge-status-lime-color;
 	}
 	&-status-lime &-status-text {
@@ -245,6 +263,7 @@
 	}
 
 	&-status-cyan &-status-dot {
+		border-color:@badge-status-cyan-color;
 		background-color:@badge-status-cyan-color;
 	}
 	&-status-cyan &-status-text {
@@ -252,6 +271,7 @@
 	}
 
 	&-status-geekblue &-status-dot {
+		border-color:@badge-status-geekblue-color;
 		background-color:@badge-status-geekblue-color;
 	}
 	&-status-geekblue &-status-text {
@@ -259,6 +279,7 @@
 	}
 
 	&-status-purple &-status-dot {
+		border-color:@badge-status-purple-color;
 		background-color:@badge-status-purple-color;
 	}
 	&-status-purple &-status-text {

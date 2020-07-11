@@ -70,6 +70,7 @@ const VuiBadge = {
 
 			if (props.color && colors.indexOf(props.color) === -1) {
 				styles.elDot = {
+					borderColor: props.color,
 					backgroundColor: props.color
 				};
 			}
@@ -120,7 +121,9 @@ const VuiBadge = {
 			// render
 			let children = [];
 
-			children.push(slots.default);
+			if (!alone) {
+				children.push(slots.default);
+			}
 
 			if (props.dot) {
 				if (props.count || props.text) {
