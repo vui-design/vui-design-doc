@@ -88,6 +88,7 @@ import Result from "./components/result";
 import Spin from "./components/spin";
 // Other
 import Loading from "./components/loading";
+import TransitionCollapse from "./components/transition-collapse";
 // Language
 import locale from "./locale";
 
@@ -179,7 +180,9 @@ const components = [
 	Popconfirm,
 	Progress,
 	Result,
-	Spin
+	Spin,
+	// Other
+	TransitionCollapse
 ];
 
 const install = function(Vue, options = {}) {
@@ -304,5 +307,6 @@ export default {
 	Result,
 	Spin,
 	// Other
-	Loading
+	Loading,
+	TransitionCollapse
 };
