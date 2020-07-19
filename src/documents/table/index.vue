@@ -294,9 +294,9 @@
 				<tbody>
 					<tr>
 						<td>order</td>
-						<td>默认排序方式，可选值为 <code>normal</code>、<code>asc</code>、<code>desc</code> 或者不设</td>
+						<td>默认排序方式，可选值为 <code>none</code>、<code>asc</code>、<code>desc</code> 或者不设</td>
 						<td>String</td>
-						<td><code>normal</code></td>
+						<td><code>none</code></td>
 					</tr>
 					<tr>
 						<td>method</td>
@@ -305,8 +305,8 @@
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>server</td>
-						<td>是否启用服务端排序。如果设置为 <code>true</code>，则表示用户希望服务端排序，此时需要监听 <code>Table</code> 的 <code>sorter</code> 事件</td>
+						<td>useServerSort</td>
+						<td>是否使用服务端排序。如果设置为 <code>true</code>，则表示用户希望服务端排序，此时需要监听 <code>Table</code> 的 <code>sort</code> 事件</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
 					</tr>
@@ -349,7 +349,7 @@
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>server</td>
+						<td>useServerFilter</td>
 						<td>是否启用服务端筛选。如果设置为 <code>true</code>，则表示用户希望服务端筛选，此时需要监听 <code>Table</code> 的 <code>filter</code> 事件</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
