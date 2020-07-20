@@ -44,7 +44,7 @@
 					</tr>
 					<tr>
 						<td>data</td>
-						<td>数据数组。注意，每条数据中的 <code>columnClassNames</code> 字段用于设置对应行中任意单元格的样式类型，因此数据不能使用该字段，<a href="javascript:;">详见示例</a></td>
+						<td>数据数组。注意，每条数据中的 <code>columnClassNames</code> 字段用于设置对应行中任意单元格的样式类型，因此数据项不能使用该字段，<a href="javascript:;">详见示例</a></td>
 						<td>Array</td>
 						<td><code>[]</code></td>
 					</tr>
@@ -79,16 +79,16 @@
 						<td><code>false</code></td>
 					</tr>
 					<tr>
-						<td>scroll</td>
-						<td>设置横向或纵向滚动，格式：<code>{ x: number, y: number }</code></td>
-						<td>Object</td>
-						<td>--</td>
-					</tr>
-					<tr>
 						<td>size</td>
 						<td>表格尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
 						<td>String</td>
 						<td><code>medium</code></td>
+					</tr>
+					<tr>
+						<td>scroll</td>
+						<td>设置横向或纵向滚动，格式：<code>{ x: number, y: number }</code></td>
+						<td>Object</td>
+						<td>--</td>
 					</tr>
 					<tr>
 						<td>loading</td>
@@ -97,14 +97,14 @@
 						<td><code>false</code></td>
 					</tr>
 					<tr>
-						<td>getRowKey</td>
-						<td>指定表格行的 <code>key</code> 属性，可以是字符串或一个函数</td>
+						<td>rowKey</td>
+						<td>指定表格行的 <code>key</code> 属性，可以是字符串或一个函数，为函数式接收 <code>row</code>、<code>rowIndex</code> 作为参数</td>
 						<td>String | Function</td>
 						<td><code>key</code></td>
 					</tr>
 					<tr>
-						<td>getRowClassName</td>
-						<td>指定表格行的样式类名，可以是字符串或一个函数</td>
+						<td>rowClassName</td>
+						<td>指定表格行的样式类名，可以是字符串或一个函数，为函数式接收 <code>row</code>、<code>rowIndex</code>、<code>rowKey</code> 作为参数</td>
 						<td>String | Function</td>
 						<td>--</td>
 					</tr>
@@ -120,11 +120,11 @@
 					</tr>
 				</tbody>
 			</table>
-			<p>注意：在 <code>Table</code> 中，<code>columns</code> 和 <code>data</code> 里的数据项都需要指定 <code>key</code> 值。对于 <code>data</code>，其数据项的 <code>key</code> 值会与行展开、行选择，以及行的渲染有着密切的关系。组件内部默认会将每项数据的 <code>key</code> 属性作为唯一的标识。如果你的数据没有这个属性，请务必使用 <code>getRowKey</code> 来指定数据项的主键，不同数据项的主键不允许重复。若没有指定，表格组件可能会出现各类奇怪的错误。</p>
+			<p>注意：在 <code>Table</code> 中，<code>columns</code> 和 <code>data</code> 里的数据项都需要指定 <code>key</code> 值。对于 <code>data</code>，其数据项的 <code>key</code> 值会与行展开、行选择，以及行的渲染有着密切的关系。组件内部默认会将每项数据的 <code>key</code> 属性作为唯一的标识。如果你的数据没有这个属性，请务必使用 <code>rowKey</code> 来指定数据项的主键，不同数据项的主键不允许重复。若没有指定，表格组件可能会出现意想不到的错误。</p>
 			<p>比如你的数据主键是 uid，请按如下方式指定：</p>
-			<p><code>&lt;vui-table getRowKey="uid" /&gt;</code></p>
+			<p><code>&lt;vui-table rowKey="uid" /&gt;</code></p>
 			<p>或</p>
-			<p><code>&lt;vui-table v-bind:getRowKey="row => row.uid" /&gt;</code></p>
+			<p><code>&lt;vui-table v-bind:rowKey="row => row.uid" /&gt;</code></p>
 			<h3>Table 事件</h3>
 			<table class="example-api-events">
 				<thead>
@@ -138,7 +138,7 @@
 				<tbody>
 					<tr>
 						<td>collapse</td>
-						<td>折叠行变化时触发</td>
+						<td>折叠行变化时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>
 							<div><code>collapsedRowKeys</code> - 已展开行的 key 值集合</div>
@@ -146,15 +146,15 @@
 					</tr>
 					<tr>
 						<td>select</td>
-						<td>选择行变化时触发</td>
+						<td>选择行变化时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>
 							<div><code>selectedRowKeys</code> - 已选择行的 key 值集合</div>
 						</td>
 					</tr>
 					<tr>
-						<td>sorter</td>
-						<td>点击排序时触发</td>
+						<td>sort</td>
+						<td>确认排序时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>
 							<div><code>column</code> - 当前列数据</div>
@@ -163,7 +163,7 @@
 					</tr>
 					<tr>
 						<td>filter</td>
-						<td>点击筛选时触发</td>
+						<td>确认筛选时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>
 							<div><code>column</code> - 当前列数据</div>
@@ -171,50 +171,74 @@
 						</td>
 					</tr>
 					<tr>
-						<td>rowClick</td>
-						<td>点击行时触发</td>
+						<td>rowMouseenter</td>
+						<td>鼠标移入行时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>
 							<div><code>row</code> - 当前行数据</div>
+							<div><code>rowIndex</code> - 当前行索引</div>
+							<div><code>rowKey</code> - 当前行 key 值</div>
+						</td>
+					</tr>
+					<tr>
+						<td>rowMouseleave</td>
+						<td>鼠标移出行时触发的事件回调函数</td>
+						<td>Function</td>
+						<td>
+							<div><code>row</code> - 当前行数据</div>
+							<div><code>rowIndex</code> - 当前行索引</div>
+							<div><code>rowKey</code> - 当前行 key 值</div>
+						</td>
+					</tr>
+					<tr>
+						<td>rowClick</td>
+						<td>点击行时触发的事件回调函数</td>
+						<td>Function</td>
+						<td>
+							<div><code>row</code> - 当前行数据</div>
+							<div><code>rowIndex</code> - 当前行索引</div>
+							<div><code>rowKey</code> - 当前行 key 值</div>
 						</td>
 					</tr>
 					<tr>
 						<td>rowDblclick</td>
-						<td>双击行时触发</td>
+						<td>双击行时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>
 							<div><code>row</code> - 当前行数据</div>
+							<div><code>rowIndex</code> - 当前行索引</div>
+							<div><code>rowKey</code> - 当前行 key 值</div>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<h3>Column 属性</h3>
-			<p>列描述数据对象，是 columns 中的一项。</p>
+			<p>列描述数据对象，是 <code>columns</code> 中的一项。</p>
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="120">属性</th>
+						<th width="140">属性</th>
 						<th>说明</th>
-						<th width="120">类型</th>
-						<th width="140">默认值</th>
+						<th width="170">类型</th>
+						<th width="80">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>key</td>
-						<td>Vue 循环所需要的 key，如果已经设置了唯一的 <code>dataIndex</code>，可以忽略这个属性</td>
+						<td><code>Vue</code> 循环所需要的 <code>key</code>，如果已经设置了唯一的 <code>dataIndex</code>，可以忽略这个属性</td>
 						<td>String</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>dataIndex</td>
-						<td>列数据在数据项中对应的字段名称</td>
+						<td>列数据在数据项中对应的路径，支持通过 <code>.</code> 点号连接符查询嵌套路径</td>
 						<td>String</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>title</td>
-						<td>列头显示文本。如果设置为 Function 类型，则表示用户希望自定义渲染列头，此时将使用 Vue 的 render 函数，接收两个参数：<code>h</code>、<code>column</code>，其中 <code>column</code> 表示当前列的数据，<a href="https://cn.vuejs.org/v2/guide/render-function.html" target="_blank">学习 render 函数 & JSX</a></td>
+						<td>列头显示文本。设置为 <code>Function</code> 类型时允许自定义渲染列头，此时将使用 <code>Vue</code> 的 <code>render</code> 函数，接收 <code>h</code>、<code>column</code>、<code>columnIndex</code> 作为参数，其中 <code>column</code> 表示当前列数据，<code>columnIndex</code> 表示当前列索引，<a href="https://cn.vuejs.org/v2/guide/render-function.html" target="_blank">学习 render 函数 & JSX</a></td>
 						<td>String | Function</td>
 						<td>--</td>
 					</tr>
@@ -250,15 +274,9 @@
 					</tr>
 					<tr>
 						<td>tooltip</td>
-						<td>开启后，文本将不换行，超出部分显示为省略号，并用 <code>Tooltip</code> 组件显示完整内容</td>
+						<td>开启后，文本将不换行，超出部分显示为省略号，并使用 <code>Tooltip</code> 组件显示完整内容</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
-					</tr>
-					<tr>
-						<td>render</td>
-						<td>自定义渲染列内容，使用 Vue 的 render 函数，接收三个参数：<code>h</code>、<code>column</code>、<code>row</code>，其中 <code>column</code> 和 <code>row</code> 分别表示当前列和当前行的数据，<a href="https://cn.vuejs.org/v2/guide/render-function.html" target="_blank">学习 render 函数 & JSX</a></td>
-						<td>Function</td>
-						<td>--</td>
 					</tr>
 					<tr>
 						<td>sorter</td>
@@ -270,6 +288,24 @@
 						<td>filter</td>
 						<td>对应列是否启用筛选功能，<a href="javascript:;">详细配置见下表</a></td>
 						<td>Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>getCellProps</td>
+						<td>用于获取列单元格属性配置，可通过返回 <code>{ rowSpan, colSpan }</code> 实现表格行/列合并。允许设置为 <code>Function</code> 类型，接收 <code>{ column, columnIndex, row, rowIndex }</code> 作为参数</td>
+						<td>Object | Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>render</td>
+						<td>自定义渲染列内容，使用 <code>Vue</code> 的 <code>render</code> 函数，接收 <code>h</code>、<code>{ column, columnIndex, row, rowIndex }</code> 作为参数，其中 <code>column</code> 和 <code>row</code> 分别表示当前列和当前行数据，<a href="https://cn.vuejs.org/v2/guide/render-function.html" target="_blank">学习 render 函数 & JSX</a></td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>slot</td>
+						<td>列单元格插槽，设置该属性后，允许在 <code>Table</code> 组件的 <code>slot</code> 中使用 <code>slot-scope</code> 实现自定义渲染列内容；优先级高于 <code>render</code> 属性</td>
+						<td>String</td>
 						<td>--</td>
 					</tr>
 					<tr>
@@ -285,10 +321,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="120">属性</th>
+						<th width="140">属性</th>
 						<th>说明</th>
-						<th width="120">类型</th>
-						<th width="140">默认值</th>
+						<th width="170">类型</th>
+						<th width="80">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -300,13 +336,13 @@
 					</tr>
 					<tr>
 						<td>method</td>
-						<td>自定义排序函数，接受三个参数：<code>a</code>、<code>b</code>、<code>order</code></td>
+						<td>自定义排序函数，接收 <code>a</code>、<code>b</code>、<code>order</code> 作为参数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>useServerSort</td>
-						<td>是否使用服务端排序。如果设置为 <code>true</code>，则表示用户希望服务端排序，此时需要监听 <code>Table</code> 的 <code>sort</code> 事件</td>
+						<td>是否使用服务端排序。设置为 <code>true</code> 时表示启用服务端排序，此时需要监听 <code>Table</code> 的 <code>sort</code> 事件</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
 					</tr>
@@ -317,10 +353,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="120">属性</th>
+						<th width="140">属性</th>
 						<th>说明</th>
-						<th width="120">类型</th>
-						<th width="140">默认值</th>
+						<th width="170">类型</th>
+						<th width="80">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -344,13 +380,13 @@
 					</tr>
 					<tr>
 						<td>method</td>
-						<td>自定义筛选函数，必填；接受两个参数：<code>value</code>、<code>row</code></td>
+						<td>自定义筛选函数，必填，接收 <code>value</code>、<code>row</code> 作为参数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>useServerFilter</td>
-						<td>是否启用服务端筛选。如果设置为 <code>true</code>，则表示用户希望服务端筛选，此时需要监听 <code>Table</code> 的 <code>filter</code> 事件</td>
+						<td>是否启用服务端筛选。设置为 <code>true</code> 时表示启用服务端筛选，此时需要监听 <code>Table</code> 的 <code>filter</code> 事件</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
 					</tr>
@@ -361,10 +397,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="120">属性</th>
+						<th width="140">属性</th>
 						<th>说明</th>
-						<th width="120">类型</th>
-						<th width="140">默认值</th>
+						<th width="170">类型</th>
+						<th width="80">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -400,7 +436,7 @@
 					</tr>
 					<tr>
 						<td>render</td>
-						<td>自定义展开行的内容，使用 Vue 的 render 函数。接收两个参数：<code>h</code> 和 <code>row</code>；<a href="https://cn.vuejs.org/v2/guide/render-function.html" target="_blank">学习 render 函数 & JSX</a></td>
+						<td>自定义展开行的内容，使用 <code>Vue</code> 的 <code>render</code> 函数，接收 <code>h</code>、<code>row</code>、<code>rowIndex</code>、<code>rowKey</code> 作为参数，<a href="https://cn.vuejs.org/v2/guide/render-function.html" target="_blank">学习 render 函数 & JSX</a></td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
@@ -411,10 +447,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="120">属性</th>
+						<th width="140">属性</th>
 						<th>说明</th>
-						<th width="120">类型</th>
-						<th width="140">默认值</th>
+						<th width="170">类型</th>
+						<th width="80">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -449,8 +485,8 @@
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>getCompnentProps</td>
-						<td>用于获取选择框属性配置的回调函数。接受 <code>row</code> 作为参数</td>
+						<td>getComponentProps</td>
+						<td>用于获取选择框属性配置，接收 <code>row</code>、<code>rowIndex</code>、<code>rowKey</code> 作为参数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
@@ -478,7 +514,6 @@
 	import ExampleTableLoading from "./examples/loading";
 
 	export default {
-		name: "table-zh-cn",
 		mixins: [
 			MixinCatalogue
 		],

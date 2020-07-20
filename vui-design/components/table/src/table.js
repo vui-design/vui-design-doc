@@ -55,14 +55,14 @@ const VuiTable = {
 			type: Boolean,
 			default: false
 		},
-		scroll: {
-			type: Object,
-			default: undefined
-		},
 		size: {
 			type: String,
 			default: "medium",
 			validator: value => ["small", "medium", "large"].indexOf(value) > -1
+		},
+		scroll: {
+			type: Object,
+			default: undefined
 		},
 		loading: {
 			type: Boolean,
@@ -74,10 +74,6 @@ const VuiTable = {
 		},
 		rowClassName: {
 			type: [String, Function],
-			default: undefined
-		},
-		pagination: {
-			type: Object,
 			default: undefined
 		},
 		locale: {
@@ -230,16 +226,24 @@ const VuiTable = {
 		// 行鼠标移入事件回调函数
 		handleRowMouseenter(row, rowIndex, rowKey) {
 			this.state.hoveredRowKey = rowKey;
-			this.$emit("mouseenter", row, rowIndex, rowKey);
+			this.$emit("rowMouseenter", row, rowIndex, rowKey);
 		},
 		// 行鼠标移出事件回调函数
 		handleRowMouseleave(row, rowIndex, rowKey) {
 			this.state.hoveredRowKey = undefined;
-			this.$emit("mouseenter", row, rowIndex, rowKey);
+			this.$emit("rowMouseleave", row, rowIndex, rowKey);
 		},
 		// 行点击事件回调函数
 		handleRowClick(row, rowIndex, rowKey) {
-			this.$emit("click", row, rowIndex, rowKey);
+			this.$emit("rowClick", row, rowIndex, rowKey);
+		},
+		// 行点击事件回调函数
+		handleRowClick(row, rowIndex, rowKey) {
+			this.$emit("rowClick", row, rowIndex, rowKey);
+		},
+		// 行双击事件回调函数
+		handleRowDblclick(row, rowIndex, rowKey) {
+			this.$emit("rowDblclick", row, rowIndex, rowKey);
 		},
 		// 展开事件回调函数
 		handleRowCollapse(row, rowIndex, rowKey) {

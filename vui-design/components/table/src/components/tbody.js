@@ -5,6 +5,7 @@ import Locale from "vui-design/mixins/locale";
 import is from "vui-design/utils/is";
 import noop from "vui-design/utils/noop";
 import clone from "vui-design/utils/clone";
+import getTargetByPath from "vui-design/utils/getTargetByPath";
 
 const VuiTableTbody = {
 	name: "vui-table-tbody",
@@ -250,6 +251,11 @@ const VuiTableTbody = {
 				vuiTable.handleRowCollapse(row, rowIndex, rowKey);
 			}
 		},
+		handleRowDblclick(row, rowIndex, rowKey) {
+			let { vuiTable } = this;
+
+			vuiTable.handleRowDblclick(row, rowIndex, rowKey);
+		},
 		handleRowCollapse(row, rowIndex, rowKey) {
 			let { vuiTable, $props: props } = this;
 			let { rowCollapsion } = props;
@@ -380,6 +386,24 @@ const VuiTableTbody = {
 				}
 
 				props.colgroup.forEach((column, columnIndex) => {
+					let columnCellProps = {};
+
+					if (is.plainObject(column.getCellProps)) {
+						columnCellProps.attrs = column.getCellProps;
+					}
+					else if (is.function(column.getCellProps)) {
+						columnCellProps.attrs = column.getCellProps({
+							row: clone(row),
+							rowIndex: rowIndex,
+							column: clone(column),
+							columnIndex: columnIndex
+						});
+					}
+
+					if (columnCellProps.attrs && (columnCellProps.attrs.rowSpan === 0 || columnCellProps.attrs.colSpan === 0)) {
+						return;
+					}
+
 					let columnKey = column.key || columnIndex;
 					let content;
 
@@ -402,11 +426,13 @@ const VuiTableTbody = {
 						});
 					}
 					else {
-						content = row[column.dataIndex];
+						let target = getTargetByPath(row, column.dataIndex);
+
+						content = target.value;
 					}
 
 					tds.push(
-						<td key={columnKey} class={this.getColumnClassName("", column, columnKey, row, rowKey)}>
+						<td key={columnKey} class={this.getColumnClassName("", column, columnKey, row, rowKey)} {...columnCellProps}>
 							{content}
 						</td>
 					);
@@ -419,6 +445,7 @@ const VuiTableTbody = {
 						onMouseenter={e => this.handleRowMouseenter(row, rowIndex, rowKey)}
 						onMouseleave={e => this.handleRowMouseleave(row, rowIndex, rowKey)}
 						onClick={e => this.handleRowClick(row, rowIndex, rowKey)}
+						onDblclick={e => this.handleRowDblclick(row, rowIndex, rowKey)}
 					>
 						{tds}
 					</tr>
