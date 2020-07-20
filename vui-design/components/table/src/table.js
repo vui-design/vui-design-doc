@@ -4,6 +4,7 @@ import VuiTableTbody from "./components/tbody";
 import is from "vui-design/utils/is";
 import clone from "vui-design/utils/clone";
 import getScrollbarSize from "vui-design/utils/getScrollbarSize";
+import csv from "vui-design/utils/csv";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 import utils from "./utils";
 
@@ -148,6 +149,49 @@ const VuiTable = {
 	},
 
 	methods: {
+		// 下载或导出
+		download(options) {
+			let { state } = this;
+			let settings = clone(options);
+
+			if (settings.filename) {
+				settings.filename = settings.filename.indexOf(".csv") > -1 ? settings.filename : (settings.filename + ".csv");
+			}
+			else {
+				settings.filename = "table.csv";
+			}
+
+			if (!("original" in settings)) {
+				settings.original = true;
+			}
+
+			if (!("showHeader" in settings)) {
+				settings.showHeader = true;
+			}
+
+			let columns = [];
+			let data = [];
+
+			if (settings.columns && settings.data) {
+				columns = settings.columns;
+				data = settings.data;
+			}
+			else {
+				columns = utils.getFlattenedColumns(state.columns);
+				data = settings.original ? state.data : state.body;
+			}
+
+			let dataSource = csv(columns, data, settings);
+
+			console.log(typeof dataSource);
+
+			if (is.function(settings.callback)) {
+				settings.callback(dataSource);
+			}
+			else {
+				csv.download(settings.filename, dataSource);
+			}
+		},
 		// 更新筛选列的状态
 		changeFilterColumnState(columns, key, value) {
 			columns = utils.getFlattenedColumns(columns, true);
