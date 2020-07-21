@@ -181,15 +181,13 @@ const VuiTable = {
 				data = settings.original ? state.data : state.body;
 			}
 
-			let dataSource = csv(columns, data, settings);
-
-			console.log(typeof dataSource);
+			let content = csv(columns, data, settings);
 
 			if (is.function(settings.callback)) {
-				settings.callback(dataSource);
+				settings.callback(content);
 			}
 			else {
-				csv.download(settings.filename, dataSource);
+				csv.download(settings.filename, content);
 			}
 		},
 		// 更新筛选列的状态

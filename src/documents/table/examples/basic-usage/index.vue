@@ -1,8 +1,7 @@
 <template>
 	<Example vertical id="example-table-basic-usage">
 		<template slot="source">
-			<vui-button v-on:click="handleDownload">导出</vui-button>
-			<vui-table ref="table" :columns="columns" :data="data">
+			<vui-table :columns="columns" :data="data">
 				<template slot="action" slot-scope="{ row, index }">
 					<a href="javascript:;">Edit</a>
 					<vui-divider type="vertical" />
@@ -86,14 +85,6 @@
 				columns,
 				data
 			};
-		},
-		methods: {
-			handleDownload() {
-				this.$refs.table.download({
-                    filename: "The original data",
-                    quoted: true
-                });
-			}
 		}
 	};
 </script>

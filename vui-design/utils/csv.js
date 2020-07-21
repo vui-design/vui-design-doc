@@ -5,43 +5,22 @@ const defaults = {
     separator: ","
 };
 
-const newLine = "\r\n";
+const newline = "\r\n";
+
+const bom = "\uFEFF";
+
 const appendLine = (content, row, options) => {
     const line = row.map(data => {
         if (!options.quoted) {
             return data;
         }
 
-        data = typeof data === "string" ? data.replace(/"/g, '"') : data;
+        data = is.string(data) ? data.replace(/"/g, '"') : data;
 
         return `"${data}"`;
     });
 
     content.push(line.join(options.separator));
-};
-
-const isIE11 = () => {
-    let iev = 0;
-    const ieold = (/MSIE (\d+\.\d+);/.test(navigator.userAgent));
-    const trident = !!navigator.userAgent.match(/Trident\/7.0/);
-    const rv = navigator.userAgent.indexOf("rv:11.0");
-
-    if (ieold) {
-        iev = Number(RegExp.$1);
-    }
-
-    if (navigator.appVersion.indexOf("MSIE 10") > -1) {
-        iev = 10;
-    }
-
-    if (trident && rv !== -1) {
-        iev = 11;
-    }
-
-    return iev === 11;
-};
-const isEdge = () => {
-    return /Edge/.test(navigator.userAgent);
 };
 
 const has = browser => {
@@ -66,15 +45,38 @@ const has = browser => {
     }
 };
 
-const getDownloadUrl = text => {
-    const bom = "\uFEFF";
+const isIE11 = () => {
+    let iev = 0;
+    const ieold = (/MSIE (\d+\.\d+);/.test(navigator.userAgent));
+    const trident = !!navigator.userAgent.match(/Trident\/7.0/);
+    const rv = navigator.userAgent.indexOf("rv:11.0");
 
+    if (ieold) {
+        iev = Number(RegExp.$1);
+    }
+
+    if (navigator.appVersion.indexOf("MSIE 10") > -1) {
+        iev = 10;
+    }
+
+    if (trident && rv !== -1) {
+        iev = 11;
+    }
+
+    return iev === 11;
+};
+
+const isEdge = () => {
+    return /Edge/.test(navigator.userAgent);
+};
+
+const getDownloadUrl = text => {
     if (window.Blob && window.URL && window.URL.createObjectURL) {
-        const csvData = new Blob([bom + text], {
+        const data = new Blob([bom + text], {
             type: "text/csv"
         });
 
-        return URL.createObjectURL(csvData);
+        return URL.createObjectURL(data);
     }
     else {
         return "data:attachment/csv;charset=utf-8," + bom + encodeURIComponent(text);
@@ -84,41 +86,40 @@ const getDownloadUrl = text => {
 const csv = (columns, data, options) => {
     let settings = { ...defaults, ...options };
 
-    let order;
-    const content = [];
-    const aaa = [];
+    let cols = [];
+    let content = [];
 
     if (columns) {
-        order = columns.map(column => {
+        let row = [];
+
+        cols = columns.map(column => {
             if (is.string(column)) {
                 return column;
             }
 
             if (settings.showHeader) {
-                aaa.push(is.undefined(column.title) ? column.key : column.title);
+                row.push(is.undefined(column.title) ? column.key : column.title);
             }
 
             return column.key;
         });
 
-        if (aaa.length > 0) {
-            appendLine(content, aaa, settings);
+        if (row.length > 0) {
+            appendLine(content, row, settings);
         }
     }
     else {
-        order = [];
-
         data.forEach(row => {
             if (!is.array(row)) {
-                order = order.concat(Object.keys(row));
+                cols = cols.concat(Object.keys(row));
             }
         });
 
-        if (order.length > 0) {
-            order = order.filter((value, index, self) => self.indexOf(value) === index);
+        if (cols.length > 0) {
+            cols = cols.filter((value, index, self) => self.indexOf(value) === index);
 
             if (settings.showHeader) {
-                appendLine(content, order, settings);
+                appendLine(content, cols, settings);
             }
         }
     }
@@ -126,14 +127,14 @@ const csv = (columns, data, options) => {
     if (is.array(data)) {
         data.forEach(row => {
             if (!is.array(row)) {
-                row = order.map(k => (is.undefined(row[k]) ? "" : row[k]));
+                row = cols.map(key => (is.undefined(row[key]) ? "" : row[key]));
             }
 
             appendLine(content, row, settings);
         });
     }
 
-    return content.join(newLine);
+    return content.join(newline);
 };
 
 csv.download = (filename, text) => {
@@ -147,7 +148,6 @@ csv.download = (filename, text) => {
         win.close();
     }
     else if (has("ie") === 10 || isIE11() || isEdge()) {
-        const bom = "\uFEFF";
         const data = new Blob([bom + text], {
             type: "text/csv"
         });
