@@ -34,7 +34,10 @@ const code =
 
       const rowCollapsion = {
         title: "#",
-        value: [1],
+        clickRowToCollapse: true,
+        ignoreElements(element) {
+          return element && element.tagName.toLowerCase() == "a";
+        },
         render(h, row) {
           return row.name + ", " + row.age + ", " + row.address;
         }

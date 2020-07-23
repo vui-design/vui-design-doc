@@ -1,5 +1,5 @@
 <template>
-	<Example vertical id="example-table-collapsion">
+	<Example vertical id="example-table-click-row-to-collapse">
 		<template slot="source">
 			<vui-table
 				v-bind:columns="columns"
@@ -15,9 +15,9 @@
 				</template>
 			</vui-table>
 		</template>
-		<template slot="title">可展示</template>
+		<template slot="title">点击行展开</template>
 		<template slot="describe">
-			<p>当表格内容较多，不能一次性完全展示时使用。</p>
+			<p>点击行来展开子行，展开子行的行为默认是由图标控制的。通过 <code>ignoreElements</code> 方法过滤需要忽略的元素，如本例中的操作按钮。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>
@@ -48,7 +48,10 @@
 
 			const rowCollapsion = {
 				title: "#",
-				value: [1],
+				clickRowToCollapse: true,
+				ignoreElements(element) {
+					return element && element.tagName.toLowerCase() == "a";
+				},
 				render(h, row) {
 					return row.name + ", " + row.age + ", " + row.address;
 				}

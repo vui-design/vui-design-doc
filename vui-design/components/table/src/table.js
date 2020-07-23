@@ -279,10 +279,6 @@ const VuiTable = {
 		handleRowClick(row, rowIndex, rowKey) {
 			this.$emit("rowClick", row, rowIndex, rowKey);
 		},
-		// 行点击事件回调函数
-		handleRowClick(row, rowIndex, rowKey) {
-			this.$emit("rowClick", row, rowIndex, rowKey);
-		},
 		// 行双击事件回调函数
 		handleRowDblclick(row, rowIndex, rowKey) {
 			this.$emit("rowDblclick", row, rowIndex, rowKey);
@@ -298,11 +294,16 @@ const VuiTable = {
 			let collapsedRowKeys = clone(state.collapsedRowKeys);
 			let index = collapsedRowKeys.indexOf(rowKey);
 
-			if (index === -1) {
-				collapsedRowKeys.push(rowKey);
+			if (props.rowCollapsion.accordion) {
+				collapsedRowKeys = index === -1 ? [rowKey] : [];
 			}
 			else {
-				collapsedRowKeys.splice(index, 1);
+				if (index === -1) {
+					collapsedRowKeys.push(rowKey);
+				}
+				else {
+					collapsedRowKeys.splice(index, 1);
+				}
 			}
 
 			this.state.collapsedRowKeys = collapsedRowKeys;

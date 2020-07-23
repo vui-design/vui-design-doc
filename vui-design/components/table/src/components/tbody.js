@@ -231,38 +231,64 @@ const VuiTableTbody = {
 				[`${props.classNamePrefix}-column-selected`]: selected
 			};
 		},
-		handleRowMouseenter(row, rowIndex, rowKey) {
+		handleRowMouseenter(event, row, rowIndex, rowKey) {
 			let { vuiTable } = this;
 
 			vuiTable.handleRowMouseenter(row, rowIndex, rowKey);
 		},
-		handleRowMouseleave(row, rowIndex, rowKey) {
+		handleRowMouseleave(event, row, rowIndex, rowKey) {
 			let { vuiTable } = this;
 
 			vuiTable.handleRowMouseleave(row, rowIndex, rowKey);
 		},
-		handleRowClick(row, rowIndex, rowKey) {
+		handleRowClick(event, row, rowIndex, rowKey) {
 			let { vuiTable, $props: props } = this;
 			let { rowCollapsion } = props;
 
 			vuiTable.handleRowClick(row, rowIndex, rowKey);
 
 			if (rowCollapsion && rowCollapsion.clickRowToCollapse) {
+				let isRowCollapsable = is.function(rowCollapsion.rowCollapsable) ? rowCollapsion.rowCollapsable(row, rowIndex, rowKey) : true;
+
+				if (!isRowCollapsable) {
+					return;
+				}
+
+				let e = event || window.event;
+				let target = e.target || e.srcElement;
+				let isIgnoreElements = is.function(rowCollapsion.ignoreElements) ? rowCollapsion.ignoreElements(target) : false;
+
+				if (isIgnoreElements) {
+					return;
+				}
+
 				vuiTable.handleRowCollapse(row, rowIndex, rowKey);
 			}
 		},
-		handleRowDblclick(row, rowIndex, rowKey) {
+		handleRowDblclick(event, row, rowIndex, rowKey) {
 			let { vuiTable } = this;
 
 			vuiTable.handleRowDblclick(row, rowIndex, rowKey);
 		},
-		handleRowCollapse(row, rowIndex, rowKey) {
+		handleRowCollapse(event, row, rowIndex, rowKey) {
 			let { vuiTable, $props: props } = this;
 			let { rowCollapsion } = props;
 
-			if (rowCollapsion && !rowCollapsion.clickRowToCollapse) {
-				vuiTable.handleRowCollapse(row, rowIndex, rowKey);
+			if (!rowCollapsion) {
+				return;
 			}
+
+			if (rowCollapsion.clickRowToCollapse) {
+				return;
+			}
+
+			let isRowCollapsable = is.function(rowCollapsion.rowCollapsable) ? rowCollapsion.rowCollapsable(row, rowIndex, rowKey) : true;
+
+			if (!isRowCollapsable) {
+				return;
+			}
+
+			vuiTable.handleRowCollapse(row, rowIndex, rowKey);
 		},
 		handleRowSelect(checked, row, rowIndex, rowKey) {
 			let { vuiTable } = this;
@@ -340,14 +366,19 @@ const VuiTableTbody = {
 				let tds = [];
 
 				if (props.rowCollapsion) {
+					let isRowCollapsable = is.function(props.rowCollapsion.rowCollapsable) ? props.rowCollapsion.rowCollapsable(row, rowIndex, rowKey) : true;
 					let isRowCollapsed = this.isRowCollapsed(rowKey);
 
 					tds.push(
 						<td key="collapsion" class={this.getColumnClassName("collapsion", props.rowCollapsion)}>
-							<button
-								class={this.getColumnCollapsionClassName(props.rowCollapsion, isRowCollapsed)}
-								onClick={e => this.handleRowCollapse(row, rowIndex, rowKey)}
-							></button>
+							{
+								isRowCollapsable ? (
+									<button
+										class={this.getColumnCollapsionClassName(props.rowCollapsion, isRowCollapsed)}
+										onClick={e => this.handleRowCollapse(e, row, rowIndex, rowKey)}
+									></button>
+								) : null
+							}
 						</td>
 					);
 				}
@@ -442,10 +473,10 @@ const VuiTableTbody = {
 					<tr
 						key={rowKey || rowIndex}
 						class={this.getRowClassName("", row, rowIndex, rowKey)}
-						onMouseenter={e => this.handleRowMouseenter(row, rowIndex, rowKey)}
-						onMouseleave={e => this.handleRowMouseleave(row, rowIndex, rowKey)}
-						onClick={e => this.handleRowClick(row, rowIndex, rowKey)}
-						onDblclick={e => this.handleRowDblclick(row, rowIndex, rowKey)}
+						onMouseenter={e => this.handleRowMouseenter(e, row, rowIndex, rowKey)}
+						onMouseleave={e => this.handleRowMouseleave(e, row, rowIndex, rowKey)}
+						onClick={e => this.handleRowClick(e, row, rowIndex, rowKey)}
+						onDblclick={e => this.handleRowDblclick(e, row, rowIndex, rowKey)}
 					>
 						{tds}
 					</tr>

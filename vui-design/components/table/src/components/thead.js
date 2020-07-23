@@ -177,12 +177,11 @@ const VuiTableThead = {
 		},
 		getColumnSorterCaretClassName(type, column) {
 			let { $props: props } = this;
-			let status =  column.sorter.order === type ? "on" : "off";
 
 			return {
 				[`${props.classNamePrefix}-column-sorter-caret`]: true,
 				[`${props.classNamePrefix}-column-sorter-caret-${type}`]: true,
-				[`${status}`]: status
+				[`on`]: column.sorter.order === type
 			};
 		},
 		handleSelectAll(checked) {

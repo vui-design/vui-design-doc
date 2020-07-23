@@ -83,7 +83,6 @@
 			];
 
 			const rowSelection = {
-				value: [3],
 				getComponentProps(row) {
 					return {
 						disabled: row.name === "Joe Black"

@@ -19,6 +19,7 @@
 		<ExampleTableSorter />
 		<ExampleTableFilter />
 		<ExampleTableCollapsion />
+		<ExampleTableClickRowToCollapse />
 		<ExampleTableMultipleSelection />
 		<ExampleTableSingleSelection />
 		<ExampleTableGroupingColumns />
@@ -423,10 +424,28 @@
 						<td><code>center</code></td>
 					</tr>
 					<tr>
+						<td>accordion</td>
+						<td>是否开启手风琴模式，开启后每次至多展开一行</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
 						<td>clickRowToCollapse</td>
 						<td>通过点击行来展开子行，展开子行的行为默认是由图标控制的</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>ignoreElements</td>
+						<td>忽略指定元素（即点击行内指定元素禁止触发展开行为），返回 <code>true</code> 时不会进行折叠；仅在 <code>clickRowToCollapse</code> 为 <code>true</code> 时有效</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>rowCollapsable</td>
+						<td>是否允许行展开，返回 <code>true</code> 时允许展开，反之不允许，接收 <code>row</code>、<code>rowIndex</code>、<code>rowKey</code> 作为参数</td>
+						<td>Function</td>
+						<td>--</td>
 					</tr>
 					<tr>
 						<td>value</td>
@@ -508,6 +527,7 @@
 	import ExampleTableSorter from "./examples/sorter";
 	import ExampleTableFilter from "./examples/filter";
 	import ExampleTableCollapsion from "./examples/collapsion";
+	import ExampleTableClickRowToCollapse from "./examples/click-row-to-collapse";
 	import ExampleTableMultipleSelection from "./examples/multiple-selection";
 	import ExampleTableSingleSelection from "./examples/single-selection";
 	import ExampleTableGroupingColumns from "./examples/grouping-columns";
@@ -528,6 +548,7 @@
 			ExampleTableSorter,
 			ExampleTableFilter,
 			ExampleTableCollapsion,
+			ExampleTableClickRowToCollapse,
 			ExampleTableMultipleSelection,
 			ExampleTableSingleSelection,
 			ExampleTableGroupingColumns,
