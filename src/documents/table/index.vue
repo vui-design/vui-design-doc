@@ -138,22 +138,6 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>collapse</td>
-						<td>折叠行变化时触发的事件回调函数</td>
-						<td>Function</td>
-						<td>
-							<div><code>collapsedRowKeys</code> - 已展开行的 key 值集合</div>
-						</td>
-					</tr>
-					<tr>
-						<td>select</td>
-						<td>选择行变化时触发的事件回调函数</td>
-						<td>Function</td>
-						<td>
-							<div><code>selectedRowKeys</code> - 已选择行的 key 值集合</div>
-						</td>
-					</tr>
-					<tr>
 						<td>sort</td>
 						<td>确认排序时触发的事件回调函数</td>
 						<td>Function</td>
@@ -209,6 +193,22 @@
 							<div><code>row</code> - 当前行数据</div>
 							<div><code>rowIndex</code> - 当前行索引</div>
 							<div><code>rowKey</code> - 当前行 key 值</div>
+						</td>
+					</tr>
+					<tr>
+						<td>rowCollapse</td>
+						<td>展开或折叠行时触发的事件回调函数</td>
+						<td>Function</td>
+						<td>
+							<div><code>collapsedRowKeys</code> - 已展开行的 key 值集合</div>
+						</td>
+					</tr>
+					<tr>
+						<td>rowSelect</td>
+						<td>选择或取消选择行时触发的事件回调函数</td>
+						<td>Function</td>
+						<td>
+							<div><code>selectedRowKeys</code> - 已选择行的 key 值集合</div>
 						</td>
 					</tr>
 				</tbody>

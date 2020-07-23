@@ -307,7 +307,7 @@ const VuiTable = {
 			}
 
 			this.state.collapsedRowKeys = collapsedRowKeys;
-			this.$emit("collapse", clone(this.state.collapsedRowKeys));
+			this.$emit("rowCollapse", clone(this.state.collapsedRowKeys));
 		},
 		// 选择事件回调函数
 		handleRowSelect(checked, row, rowIndex, rowKey) {
@@ -329,7 +329,7 @@ const VuiTable = {
 			}
 
 			this.state.selectedRowKeys = selectedRowKeys;
-			this.$emit("select", clone(this.state.selectedRowKeys));
+			this.$emit("rowSelect", clone(this.state.selectedRowKeys));
 		},
 		// 全选&取消全选事件回调函数
 		handleSelectAll(checked) {
@@ -378,7 +378,7 @@ const VuiTable = {
 			});
 
 			this.state.selectedRowKeys = selectedRowKeys;
-			this.$emit("select", clone(this.state.selectedRowKeys));
+			this.$emit("rowSelect", clone(this.state.selectedRowKeys));
 		},
 		// 筛选事件回调函数
 		handleFilter(column, value) {
