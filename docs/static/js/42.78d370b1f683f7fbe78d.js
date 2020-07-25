@@ -1,2 +1,0 @@
-webpackJsonp([42],{SpRs:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var u={name:"customize-theme",components:{Example:t("RLuK").a},data:function(){return{}}},r={render:function(){var e=this.$createElement;return(this._self._c||e)("div",[this._v("\n  Customize Theme\n")])},staticRenderFns:[]};var s=t("VU/8")(u,r,!1,function(e){t("ZLAP")},null,null);n.default=s.exports},ZLAP:function(e,n){}});
-//# sourceMappingURL=42.78d370b1f683f7fbe78d.js.map
