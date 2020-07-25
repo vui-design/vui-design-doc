@@ -1,161 +1,52 @@
 const code =
 `<template>
-  <vui-table :columns="columns" :data="data" :scroll="scroll" />
+  <vui-table v-bind:columns="columns" v-bind:data="data" v-bind:scroll="scroll" rowKey="id">
+    <vui-action-group slot="action" slot-scope="{ row, rowIndex }">
+      <a href="javascript:;">Edit</a>
+      <a href="javascript:;">Delete</a>
+    </vui-action-group>
+  </vui-table>
 </template>
 
 <script>
   export default {
     data() {
       const columns = [
-        {
-          key: "name",
-          dataIndex: "name",
-          title: "Name",
-          fixed: "left",
-          width: 150
-        },
-        {
-          key: "age",
-          dataIndex: "age",
-          title: "Age",
-          width: 100
-        },
-        {
-          key: "gender",
-          dataIndex: "gender",
-          title: "Gender",
-          width: 100
-        },
-        {
-          key: "country",
-          dataIndex: "country",
-          title: "Country",
-          width: 150
-        },
-        {
-          key: "city",
-          dataIndex: "city",
-          title: "City",
-          width: 150
-        },
-        {
-          key: "address",
-          dataIndex: "address",
-          title: "Address"
-        },
-        {
-          key: "postcode",
-          dataIndex: "postcode",
-          title: "Postcode",
-          width: 100
-        },
-        {
-          key: "action",
-          title: "Action",
-          fixed: "right",
-          width: 150,
-          render(h, { column, row, index }) {
-            return (
-              <div>
-                <a href="javascript:;">Edit</a>
-                <vui-divider type="vertical" />
-                <a href="javascript:;">Delete</a>
-              </div>
-            );
-          }
-        }
+        { key: "name", dataIndex: "name", fixed: "left", width: 200, title: "Name" },
+        { key: "age", dataIndex: "age", width: 140, title: "Age" },
+        { key: "gender", dataIndex: "gender", width: 100, title: "Gender" },
+        { key: "country", dataIndex: "country", width: 160, title: "Country" },
+        { key: "city", dataIndex: "city", width: 160, title: "City" },
+        { key: "address", dataIndex: "address", title: "Address" },
+        { key: "postcode", dataIndex: "postcode", width: 100, title: "Postcode" },
+        { key: "action", fixed: "right", width: 140, slot: "action", title: "Action" }
       ];
 
       const data = [
-        {
-          key: 1,
-          name: "John Brown",
-          age: 20,
-          gender: "M",
-          country: "America",
-          city: "New York",
-          address: "New York No. 1 Lake Park",
-          postcode: 100000
-        },
-        {
-          key: 2,
-          name: "Jim Green",
-          age: 24,
-          gender: "M",
-          country: "France",
-          city: "London",
-          address: "London No. 1 Lake Park",
-          postcode: 100000
-        },
-        {
-          key: 3,
-          name: "Joe Black",
-          age: 30,
-          gender: "M",
-          country: "Australia",
-          city: "Sidney",
-          address: "Sidney No. 1 Lake Park",
-          postcode: 100000
-        },
-        {
-          key: 4,
-          name: "Jon Snow",
-          age: 26,
-          gender: "M",
-          country: "Canada",
-          city: "Ottawa",
-          address: "Ottawa No. 2 Lake Park",
-          postcode: 100000
-        },
-        {
-          key: 5,
-          name: "John Brown",
-          age: 20,
-          gender: "M",
-          country: "America",
-          city: "New York",
-          address: "New York No. 1 Lake Park",
-          postcode: 100000
-        },
-        {
-          key: 6,
-          name: "Jim Green",
-          age: 24,
-          gender: "M",
-          country: "France",
-          city: "London",
-          address: "London No. 1 Lake Park",
-          postcode: 100000
-        },
-        {
-          key: 7,
-          name: "Joe Black",
-          age: 30,
-          gender: "M",
-          country: "Australia",
-          city: "Sidney",
-          address: "Sidney No. 1 Lake Park",
-          postcode: 100000
-        },
-        {
-          key: 8,
-          name: "Jon Snow",
-          age: 26,
-          gender: "M",
-          country: "Canada",
-          city: "Ottawa",
-          address: "Ottawa No. 2 Lake Park",
-          postcode: 100000
-        }
+        { id: 1, name: "John Brown", age: 20, gender: "M", country: "America", city: "New York", address: "New York No. 1 Lake Park", postcode: 100000 },
+        { id: 2, name: "Jim Green", age: 24, gender: "M", country: "France", city: "London", address: "London No. 1 Lake Park", postcode: 100000 },
+        { id: 3, name: "Joe Black", age: 30, gender: "M", country: "Australia", city: "Sidney", address: "Sidney No. 1 Lake Park", postcode: 100000 },
+        { id: 4, name: "Jon Snow", age: 26, gender: "M", country: "Canada", city: "Ottawa", address: "Ottawa No. 2 Lake Park", postcode: 100000 },
+        { id: 5, name: "John Brown", age: 20, gender: "M", country: "America", city: "New York", address: "New York No. 1 Lake Park", postcode: 100000 },
+        { id: 6, name: "Jim Green", age: 24, gender: "M", country: "France", city: "London", address: "London No. 1 Lake Park", postcode: 100000 },
+        { id: 7, name: "Joe Black", age: 30, gender: "M", country: "Australia", city: "Sidney", address: "Sidney No. 1 Lake Park", postcode: 100000 },
+        { id: 8, name: "Jon Snow", age: 26, gender: "M", country: "Canada", city: "Ottawa", address: "Ottawa No. 2 Lake Park", postcode: 100000 },
+        { id: 9, name: "John Brown", age: 20, gender: "M", country: "America", city: "New York", address: "New York No. 1 Lake Park", postcode: 100000 },
+        { id: 10, name: "Jim Green", age: 24, gender: "M", country: "France", city: "London", address: "London No. 1 Lake Park", postcode: 100000 },
+        { id: 11, name: "Joe Black", age: 30, gender: "M", country: "Australia", city: "Sidney", address: "Sidney No. 1 Lake Park", postcode: 100000 },
+        { id: 12, name: "Jon Snow", age: 26, gender: "M", country: "Canada", city: "Ottawa", address: "Ottawa No. 2 Lake Park", postcode: 100000 },
+        { id: 13, name: "John Brown", age: 20, gender: "M", country: "America", city: "New York", address: "New York No. 1 Lake Park", postcode: 100000 },
+        { id: 14, name: "Jim Green", age: 24, gender: "M", country: "France", city: "London", address: "London No. 1 Lake Park", postcode: 100000 },
+        { id: 15, name: "Joe Black", age: 30, gender: "M", country: "Australia", city: "Sidney", address: "Sidney No. 1 Lake Park", postcode: 100000 },
+        { id: 16, name: "Jon Snow", age: 26, gender: "M", country: "Canada", city: "Ottawa", address: "Ottawa No. 2 Lake Park", postcode: 100000 }
       ];
 
       const scroll = {
-        x: 1200,
-        y: 180
+        x: 1400,
+        y: 360
       };
 
       return {
-        code,
         columns,
         data,
         scroll

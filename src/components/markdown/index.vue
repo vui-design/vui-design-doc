@@ -33,12 +33,12 @@
 	.markdown table td:last-child { white-space:nowrap; }
 	.markdown table.example-api-props td:nth-child(3) { color:#c7254e; }
 	.markdown table.example-api-events td:nth-child(3) { color:#c7254e; }
-	.markdown ul { list-style:disc; margin-bottom:20px; padding-left:15px; }
+	.markdown ul { list-style:disc; margin-bottom:20px; padding-left:18px; }
 	.markdown ul:last-child { margin-bottom:0; }
 	.markdown ul li { margin-bottom:5px; }
 	.markdown ul li:last-child { margin-bottom:0; }
 	.markdown ul li p { margin-bottom:0; }
-	.markdown ol { list-style:decimal; margin-bottom:20px; padding-left:15px; }
+	.markdown ol { list-style:decimal; margin-bottom:20px; padding-left:18px; }
 	.markdown ol:last-child { margin-bottom:0; }
 	.markdown ol li { margin-bottom:5px; }
 	.markdown ol li:last-child { margin-bottom:0; }

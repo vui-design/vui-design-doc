@@ -1,6 +1,13 @@
 const code =
 `<template>
-  <vui-table striped v-bind:columns="columns" v-bind:data="data" rowKey="id" />
+  <div class="example-table-size">
+    <vui-radio-group v-model="size">
+      <vui-radio value="small" label="Small" />
+      <vui-radio value="medium" label="Medium" />
+      <vui-radio value="large" label="Large" />
+    </vui-radio-group>
+    <vui-table v-bind:size="size" v-bind:columns="columns" v-bind:data="data" rowKey="id" />
+  </div>
 </template>
 
 <script>
@@ -20,12 +27,17 @@ const code =
       ];
 
       return {
+        size: "small",
         columns,
         data
       };
     }
   };
 </script>
+
+<style>
+  .example-table-size .vui-radio-group { margin-bottom:20px; }
+</style>
 `;
 
 export default code;

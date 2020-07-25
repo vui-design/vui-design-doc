@@ -1,6 +1,11 @@
 const code =
 `<template>
-  <vui-table :columns="columns" :data="data" />
+  <vui-table v-bind:columns="columns" v-bind:data="data" rowKey="id">
+    <vui-action-group slot="action" slot-scope="{ row, rowIndex }">
+      <a href="javascript:;">Edit</a>
+      <a href="javascript:;">Delete</a>
+    </vui-action-group>
+  </vui-table>
 </template>
 
 <script>
@@ -10,17 +15,17 @@ const code =
         {
           key: "name",
           dataIndex: "name",
-          title: "Name",
           width: 200,
+          title: "Name",
           filter: {
             options: [
               {
-                label: "John",
-                value: "John"
+                value: "John",
+                label: "John"
               },
               {
-                label: "Joe",
-                value: "Joe"
+                value: "Joe",
+                label: "Joe"
               }
             ],
             multiple: true,
@@ -30,26 +35,24 @@ const code =
                 return true;
               }
 
-              return value.some(val => {
-                return row.name.indexOf(val) > -1;
-              });
+              return value.some(target => row.name.indexOf(target) > -1);
             }
           }
         },
         {
           key: "age",
           dataIndex: "age",
+          width: 140,
           title: "Age",
-          width: 200,
           filter: {
             options: [
               {
-                label: "Less than 25",
-                value: 1
+                value: 1,
+                label: "Less than 25"
               },
               {
-                label: "Greater tha 25",
-                value: 2
+                value: 2,
+                label: "Greater tha 25"
               }
             ],
             multiple: false,
@@ -74,45 +77,17 @@ const code =
         },
         {
           key: "action",
-          title: "Action",
-          width: 150,
-          render(h, { column, row, index }) {
-            return (
-              <div>
-                <a href="javascript:;">Edit</a>
-                <vui-divider type="vertical" />
-                <a href="javascript:;">Delete</a>
-              </div>
-            );
-          }
+          width: 140,
+          slot: "action",
+          title: "Action"
         }
       ];
 
       const data = [
-        {
-          key: 1,
-          name: "John Brown",
-          age: 20,
-          address: "New York No. 1 Lake Park"
-        },
-        {
-          key: 2,
-          name: "Jim Green",
-          age: 24,
-          address: "London No. 1 Lake Park"
-        },
-        {
-          key: 3,
-          name: "Joe Black",
-          age: 30,
-          address: "Sidney No. 1 Lake Park"
-        },
-        {
-          key: 4,
-          name: "Jon Snow",
-          age: 26,
-          address: "Ottawa No. 2 Lake Park"
-        }
+        { id: 1, name: "John Brown", age: 20, address: "New York No. 1 Lake Park" },
+        { id: 2, name: "Jim Green", age: 24, address: "London No. 1 Lake Park" },
+        { id: 3, name: "Joe Black", age: 30, address: "Sidney No. 1 Lake Park" },
+        { id: 4, name: "Jon Snow", age: 26, address: "Ottawa No. 2 Lake Park" }
       ];
 
       return {

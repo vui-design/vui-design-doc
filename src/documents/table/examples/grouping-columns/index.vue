@@ -1,7 +1,7 @@
 <template>
-	<Example vertical id="example-table-grouping-columns">
+	<Example id="example-table-grouping-columns">
 		<template slot="source">
-			<vui-table bordered :columns="columns" :data="data" :scroll="scroll" />
+			<vui-table bordered v-bind:columns="columns" v-bind:data="data" v-bind:scroll="scroll" rowKey="id" />
 		</template>
 		<template slot="title">表头分组</template>
 		<template slot="describe">
@@ -16,7 +16,6 @@
 	import code from "./code";
 
 	export default {
-		name: "ExampleTableGroupingColumns",
 		components: {
 			Example
 		},
@@ -25,19 +24,19 @@
 				{
 					key: "name",
 					dataIndex: "name",
-					title: "Name",
 					fixed: "left",
-					width: 150,
+					width: 200,
 					align: "center",
+					title: "Name",
 					filter: {
 						options: [
 							{
-								label: "Joe",
-								value: "Joe"
+								value: "Joe",
+								label: "Joe"
 							},
 							{
-								label: "John",
-								value: "John"
+								value: "John",
+								label: "John"
 							}
 						],
 						method(value, row) {
@@ -45,35 +44,33 @@
 								return true;
 							}
 
-							return value.some(val => {
-								return row.name.indexOf(val) > -1;
-							});
+							return value.some(target => row.name.indexOf(target) > -1);
 						}
 					}
 				},
 				{
 					key: "other",
-					title: "Other",
 					align: "center",
+					title: "Other",
 					children: [
 						{
 							key: "age",
 							dataIndex: "age",
-							title: "Age",
 							width: 100,
+							title: "Age",
 							align: "center",
 							sort: {
-								order: "normal"
+								order: "none"
 							},
 							filter: {
 								options: [
 									{
-										label: "Less than 10",
-										value: 1
+										value: 1,
+										label: "Less than 10"
 									},
 									{
-										label: "Greater than 10",
-										value: 2
+										value: 2,
+										label: "Greater than 10"
 									}
 								],
 								multiple: false,
@@ -93,35 +90,35 @@
 						},
 						{
 							key: "address",
-							title: "Address",
 							align: "center",
+							title: "Address",
 							children: [
 								{
 									key: "street",
 									dataIndex: "street",
-									title: "Street",
-									width: 150,
-									align: "center"
+									width: 200,
+									align: "center",
+									title: "Street"
 								},
 								{
 									key: "block",
-									title: "Block",
 									align: "center",
+									title: "Block",
 									children: [
 										{
 											key: "building",
 											dataIndex: "building",
-											title: "Building",
-											width: 100,
-											align: "center"
+											width: 120,
+											align: "center",
+											title: "Building"
 										},
 										{
 											key: "door",
 											dataIndex: "door",
-											title: "Door No.",
-											width: 150,
+											width: 140,
 											align: "center",
-											sort: true
+											sort: true,
+											title: "Door No."
 										}
 									]
 								}
@@ -131,30 +128,30 @@
 				},
 				{
 					key: "company",
-					title: "Company",
 					align: "center",
+					title: "Company",
 					children: [
 						{
 							key: "caddress",
 							dataIndex: "caddress",
-							title: "Company Address",
-							align: "center"
+							align: "center",
+							title: "Company Address"
 						},
 						{
 							key: "cname",
 							dataIndex: "cname",
-							title: "Company Name",
-							align: "center"
+							align: "center",
+							title: "Company Name"
 						}
 					]
 				},
 				{
 					key: "gender",
 					dataIndex: "gender",
-					title: "Gender",
 					fixed: "right",
 					width: 100,
-					align: "center"
+					align: "center",
+					title: "Gender"
 				}
 			];
 
@@ -162,12 +159,12 @@
 
 			for (let i = 0; i < 20; i++) {
 				data.push({
-					key: i,
+					id: i,
 					name: "John Brown",
 					age: i + 1,
 					street: "Lake Park",
-					building: "C",
-					door: 2035,
+					building: "A",
+					door: 1024,
 					caddress: "Lake Street 42",
 					cname: "SoftLake Co",
 					gender: "M"
@@ -175,8 +172,8 @@
 			}
 
 			const scroll = {
-				x: 1200,
-				y: 300
+				x: 1340,
+				y: 360
 			};
 
 			return {

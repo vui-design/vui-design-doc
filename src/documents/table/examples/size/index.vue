@@ -1,11 +1,18 @@
 <template>
-	<Example id="example-table-striped">
+	<Example id="example-table-size">
 		<template slot="source">
-			<vui-table striped v-bind:columns="columns" v-bind:data="data" rowKey="id" />
+			<div class="example-table-size">
+				<vui-radio-group v-model="size">
+					<vui-radio value="small" label="Small" />
+					<vui-radio value="medium" label="Medium" />
+					<vui-radio value="large" label="Large" />
+				</vui-radio-group>
+				<vui-table v-bind:size="size" v-bind:columns="columns" v-bind:data="data" rowKey="id" />
+			</div>
 		</template>
-		<template slot="title">斑马纹</template>
+		<template slot="title">尺寸</template>
 		<template slot="describe">
-			<p>设置属性 <code>striped</code> ，表格行会间隔显示不同颜色，用于区分不同行数据。</p>
+			<p>通过 <code>size</code> 属性控制表格尺寸，默认为 <code>medium</code> 中等尺寸。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>
@@ -35,9 +42,14 @@
 
 			return {
 				code,
+				size: "medium",
 				columns,
 				data
 			};
 		}
 	};
 </script>
+
+<style>
+	.example-table-size .vui-radio-group { margin-bottom:20px; }
+</style>

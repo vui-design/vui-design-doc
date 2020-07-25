@@ -13,27 +13,30 @@
 		<ExampleTableBasicUsage />
 		<ExampleTableBordered />
 		<ExampleTableStriped />
+		<ExampleTableSize />
 		<ExampleTableFixedHeader />
 		<ExampleTableFixedColumns />
 		<ExampleTableFixedHeaderColumns />
-		<ExampleTableSorter />
 		<ExampleTableFilter />
+		<ExampleTableSorter />
 		<ExampleTableCollapsion />
 		<ExampleTableClickRowToCollapse />
 		<ExampleTableMultipleSelection />
 		<ExampleTableSingleSelection />
 		<ExampleTableGroupingColumns />
+		<ExampleTableRowSpanColSpan />
 		<ExampleTableLoading />
+		<ExampleTableExport />
 		<Markdown>
 			<h2 id="example-api">API</h2>
 			<h3>Table 属性</h3>
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="120">属性</th>
+						<th width="140">属性</th>
 						<th>说明</th>
-						<th width="120">类型</th>
-						<th width="140">默认值</th>
+						<th width="170">类型</th>
+						<th width="190">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -130,10 +133,10 @@
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="80">事件名</th>
+						<th width="140">事件名</th>
 						<th>说明</th>
-						<th width="120">类型</th>
-						<th width="140">回调参数</th>
+						<th width="170">类型</th>
+						<th width="360">回调参数</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -213,6 +216,40 @@
 					</tr>
 				</tbody>
 			</table>
+
+
+			<h3>Table 方法</h3>
+			<table class="example-api-methods">
+				<thead>
+					<tr>
+						<th width="140">方法名</th>
+						<th>说明</th>
+						<th width="360">参数</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>export</td>
+						<td>将数据导出为 <code>csv</code> 文件，参数为 <code>Object</code> 类型</td>
+						<td>
+							<div><code>filename</code> - 文件名，默认为 table.csv</div>
+							<div><code>original</code> - 是否导出原始数据，默认为 true</div>
+							<div><code>quoted</code> - 是否为每项数据添加引号，默认为 false</div>
+							<div><code>separator</code> - 数据分隔符，默认为英文逗号 ,</div>
+							<div><code>showHeader</code> - 是否显示表头，默认为 true</div>
+							<div><code>columns</code> - 自定义导出的列数据</div>
+							<div><code>data</code> - 自定义导出的行数据</div>
+							<div><code>callback</code> - 添加此函数后，不会下载，而是返回数据</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+
+
+
+
 			<h3>Column 属性</h3>
 			<p>列描述数据对象，是 <code>columns</code> 中的一项。</p>
 			<table class="example-api-props">
@@ -280,9 +317,9 @@
 						<td><code>false</code></td>
 					</tr>
 					<tr>
-						<td>sorter</td>
-						<td>对应列是否启用排序功能。当设置为 <code>Object</code> 类型时，<a href="javascript:;">详细配置见下表</a></td>
-						<td>Boolean | Object</td>
+						<td>colSpan</td>
+						<td>表头列合并，设置为 <code>0</code> 时，不渲染。注意，由于表头分组将根据嵌套关系自动计算 <code>rowSpan</code> 和 <code>colSpan</code> 等属性，故该属性不能用于表头分组中。</td>
+						<td>Number</td>
 						<td>--</td>
 					</tr>
 					<tr>
@@ -292,7 +329,13 @@
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>getCellProps</td>
+						<td>sorter</td>
+						<td>对应列是否启用排序功能。当设置为 <code>Object</code> 类型时，<a href="javascript:;">详细配置见下表</a></td>
+						<td>Boolean | Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>cellProps</td>
 						<td>用于获取列单元格属性配置，可通过返回 <code>{ rowSpan, colSpan }</code> 实现表格行/列合并。允许设置为 <code>Function</code> 类型，接收 <code>{ column, columnIndex, row, rowIndex }</code> 作为参数</td>
 						<td>Object | Function</td>
 						<td>--</td>
@@ -314,38 +357,6 @@
 						<td>表头分组</td>
 						<td>Array</td>
 						<td>--</td>
-					</tr>
-				</tbody>
-			</table>
-			<h3>Sorter 属性</h3>
-			<p>排序功能的配置描述。</p>
-			<table class="example-api-props">
-				<thead>
-					<tr>
-						<th width="140">属性</th>
-						<th>说明</th>
-						<th width="170">类型</th>
-						<th width="80">默认值</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>order</td>
-						<td>默认排序方式，可选值为 <code>none</code>、<code>asc</code>、<code>desc</code> 或者不设</td>
-						<td>String</td>
-						<td><code>none</code></td>
-					</tr>
-					<tr>
-						<td>method</td>
-						<td>自定义排序函数，接收 <code>a</code>、<code>b</code>、<code>order</code> 作为参数</td>
-						<td>Function</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>useServerSort</td>
-						<td>是否使用服务端排序。设置为 <code>true</code> 时表示启用服务端排序，此时需要监听 <code>Table</code> 的 <code>sort</code> 事件</td>
-						<td>Boolean</td>
-						<td><code>false</code></td>
 					</tr>
 				</tbody>
 			</table>
@@ -388,6 +399,38 @@
 					<tr>
 						<td>useServerFilter</td>
 						<td>是否启用服务端筛选。设置为 <code>true</code> 时表示启用服务端筛选，此时需要监听 <code>Table</code> 的 <code>filter</code> 事件</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Sorter 属性</h3>
+			<p>排序功能的配置描述。</p>
+			<table class="example-api-props">
+				<thead>
+					<tr>
+						<th width="140">属性</th>
+						<th>说明</th>
+						<th width="170">类型</th>
+						<th width="80">默认值</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>order</td>
+						<td>默认排序方式，可选值为 <code>none</code>、<code>asc</code>、<code>desc</code> 或者不设</td>
+						<td>String</td>
+						<td><code>none</code></td>
+					</tr>
+					<tr>
+						<td>method</td>
+						<td>自定义排序函数，接收 <code>a</code>、<code>b</code>、<code>order</code> 作为参数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>useServerSort</td>
+						<td>是否使用服务端排序。设置为 <code>true</code> 时表示启用服务端排序，此时需要监听 <code>Table</code> 的 <code>sort</code> 事件</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
 					</tr>
@@ -521,17 +564,20 @@
 	import ExampleTableBasicUsage from "./examples/basic-usage";
 	import ExampleTableBordered from "./examples/bordered";
 	import ExampleTableStriped from "./examples/striped";
+	import ExampleTableSize from "./examples/size";
 	import ExampleTableFixedHeader from "./examples/fixed-header";
 	import ExampleTableFixedColumns from "./examples/fixed-columns";
 	import ExampleTableFixedHeaderColumns from "./examples/fixed-header-columns";
-	import ExampleTableSorter from "./examples/sorter";
 	import ExampleTableFilter from "./examples/filter";
+	import ExampleTableSorter from "./examples/sorter";
 	import ExampleTableCollapsion from "./examples/collapsion";
 	import ExampleTableClickRowToCollapse from "./examples/click-row-to-collapse";
 	import ExampleTableMultipleSelection from "./examples/multiple-selection";
 	import ExampleTableSingleSelection from "./examples/single-selection";
 	import ExampleTableGroupingColumns from "./examples/grouping-columns";
+	import ExampleTableRowSpanColSpan from "./examples/rowspan-colspan";
 	import ExampleTableLoading from "./examples/loading";
+	import ExampleTableExport from "./examples/export";
 
 	export default {
 		mixins: [
@@ -542,17 +588,20 @@
 			ExampleTableBasicUsage,
 			ExampleTableBordered,
 			ExampleTableStriped,
+			ExampleTableSize,
 			ExampleTableFixedHeader,
 			ExampleTableFixedColumns,
 			ExampleTableFixedHeaderColumns,
-			ExampleTableSorter,
 			ExampleTableFilter,
+			ExampleTableSorter,
 			ExampleTableCollapsion,
 			ExampleTableClickRowToCollapse,
 			ExampleTableMultipleSelection,
 			ExampleTableSingleSelection,
 			ExampleTableGroupingColumns,
-			ExampleTableLoading
+			ExampleTableRowSpanColSpan,
+			ExampleTableLoading,
+			ExampleTableExport
 		}
 	};
 </script>

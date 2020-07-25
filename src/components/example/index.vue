@@ -103,6 +103,16 @@
 	.example .example-case .title:before { content:""; position:absolute; top:50%; left:0; right:0; border-top:1px dashed #e6e6e6; }
 	.example .example-case .title h4 { position:relative; display:inline-block; background-color:#fff; padding:0 10px; vertical-align:middle; font-size:14px; line-height:1; }
 	.example .example-case .describe { position:relative; padding:20px 40px 20px 20px; }
+	.example .example-case .describe ul { list-style:disc; margin-bottom:10px; padding-left:18px; }
+	.example .example-case .describe ul:last-child { margin-bottom:0; }
+	.example .example-case .describe ul li { margin-bottom:5px; }
+	.example .example-case .describe ul li:last-child { margin-bottom:0; }
+	.example .example-case .describe ul li p { margin-bottom:0; }
+	.example .example-case .describe ol { list-style:decimal; margin-bottom:10px; padding-left:18px; }
+	.example .example-case .describe ol:last-child { margin-bottom:0; }
+	.example .example-case .describe ol li { margin-bottom:5px; }
+	.example .example-case .describe ol li:last-child { margin-bottom:0; }
+	.example .example-case .describe ol li p { margin-bottom:0; }
 	.example .example-case .describe p { margin-bottom:10px; }
 	.example .example-case .describe p:last-child { margin-bottom:0; }
 	.example .example-case .describe code { border-radius:2px; border:1px solid #eee; background-color:#f2f4f5; margin:0; padding:2px 4px; color:#595959; font-size:12px; font-family:Consolas; }

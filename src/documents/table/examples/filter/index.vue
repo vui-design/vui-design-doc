@@ -1,14 +1,19 @@
 <template>
-	<Example vertical id="example-table-filter">
+	<Example id="example-table-filter">
 		<template slot="source">
-			<vui-table :columns="columns" :data="data" />
+			<vui-table v-bind:columns="columns" v-bind:data="data" rowKey="id">
+				<vui-action-group slot="action" slot-scope="{ row, rowIndex }">
+					<a href="javascript:;">Edit</a>
+					<a href="javascript:;">Delete</a>
+				</vui-action-group>
+			</vui-table>
 		</template>
 		<template slot="title">筛选</template>
 		<template slot="describe">
-			<p>通过给 <code>columns</code> 数据的项，设置 <code>filter</code> 属性即可对该列数据进行筛选。</p>
+			<p>通过给 <code>columns</code> 配置项设置 <code>filter</code> 属性即可对相应列数据进行筛选。</p>
 			<p><code>filter.options</code> 指定筛选下拉菜单的选项。</p>
-			<p>必须指定一个筛选函数 <code>filter.method</code> 才可以进行筛选，传入两个参数 <code>value</code> 和 <code>row</code>，详见 Demo 和 API。</p>
-			<p>如果指定 <code>filter.multiple</code> 为 <code>false</code>，则表示使用单选，默认为多选。</p>
+			<p>必须指定一个筛选函数 <code>filter.method</code> 才可以进行筛选，接收 <code>value</code>、<code>row</code> 作为参数，详见 Demo 和 API。</p>
+			<p>如果指定 <code>filter.multiple</code> 为 <code>false</code> 则表示使用单选，默认为多选。</p>
 			<p>注意，筛选并不会影响到源数据 <code>data</code>。</p>
 		</template>
 		<template slot="code">{{code}}</template>
@@ -20,7 +25,6 @@
 	import code from "./code";
 
 	export default {
-		name: "ExampleTableFilter",
 		components: {
 			Example
 		},
@@ -29,17 +33,17 @@
 				{
 					key: "name",
 					dataIndex: "name",
-					title: "Name",
 					width: 200,
+					title: "Name",
 					filter: {
 						options: [
 							{
-								label: "John",
-								value: "John"
+								value: "John",
+								label: "John"
 							},
 							{
-								label: "Joe",
-								value: "Joe"
+								value: "Joe",
+								label: "Joe"
 							}
 						],
 						multiple: true,
@@ -49,26 +53,24 @@
 								return true;
 							}
 
-							return value.some(val => {
-								return row.name.indexOf(val) > -1;
-							});
+							return value.some(target => row.name.indexOf(target) > -1);
 						}
 					}
 				},
 				{
 					key: "age",
 					dataIndex: "age",
+					width: 140,
 					title: "Age",
-					width: 200,
 					filter: {
 						options: [
 							{
-								label: "Less than 25",
-								value: 1
+								value: 1,
+								label: "Less than 25"
 							},
 							{
-								label: "Greater tha 25",
-								value: 2
+								value: 2,
+								label: "Greater tha 25"
 							}
 						],
 						multiple: false,
@@ -93,45 +95,17 @@
 				},
 				{
 					key: "action",
-					title: "Action",
-					width: 150,
-					render(h, { column, row, index }) {
-						return (
-							<div>
-								<a href="javascript:;">Edit</a>
-								<vui-divider type="vertical" />
-								<a href="javascript:;">Delete</a>
-							</div>
-						);
-					}
+					width: 140,
+					slot: "action",
+					title: "Action"
 				}
 			];
 
 			const data = [
-				{
-					key: 1,
-					name: "John Brown",
-					age: 20,
-					address: "New York No. 1 Lake Park"
-				},
-				{
-					key: 2,
-					name: "Jim Green",
-					age: 24,
-					address: "London No. 1 Lake Park"
-				},
-				{
-					key: 3,
-					name: "Joe Black",
-					age: 30,
-					address: "Sidney No. 1 Lake Park"
-				},
-				{
-					key: 4,
-					name: "Jon Snow",
-					age: 26,
-					address: "Ottawa No. 2 Lake Park"
-				}
+				{ id: 1, name: "John Brown", age: 20, address: "New York No. 1 Lake Park" },
+				{ id: 2, name: "Jim Green", age: 24, address: "London No. 1 Lake Park" },
+				{ id: 3, name: "Joe Black", age: 30, address: "Sidney No. 1 Lake Park" },
+				{ id: 4, name: "Jon Snow", age: 26, address: "Ottawa No. 2 Lake Park" }
 			];
 
 			return {

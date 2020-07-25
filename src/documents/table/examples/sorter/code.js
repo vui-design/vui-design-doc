@@ -1,6 +1,11 @@
 const code =
 `<template>
-  <vui-table :columns="columns" :data="data" />
+  <vui-table v-bind:columns="columns" v-bind:data="data" rowKey="id">
+    <vui-action-group slot="action" slot-scope="{ row, rowIndex }">
+      <a href="javascript:;">Edit</a>
+      <a href="javascript:;">Delete</a>
+    </vui-action-group>
+  </vui-table>
 </template>
 
 <script>
@@ -10,8 +15,8 @@ const code =
         {
           key: "name",
           dataIndex: "name",
-          title: "Name",
           width: 200,
+          title: "Name",
           sorter: {
             method(a, b, order) {
               if (order === "asc") {
@@ -29,9 +34,9 @@ const code =
         {
           key: "age",
           dataIndex: "age",
-          title: "Age",
-          width: 200,
-          sorter: true
+          width: 140,
+          sorter: true,
+          title: "Age"
         },
         {
           key: "address",
@@ -41,44 +46,16 @@ const code =
         {
           key: "action",
           title: "Action",
-          width: 150,
-          render(h, { column, row, index }) {
-            return (
-              <div>
-                <a href="javascript:;">Edit</a>
-                <vui-divider type="vertical" />
-                <a href="javascript:;">Delete</a>
-              </div>
-            );
-          }
+          slot: "action",
+          width: 140
         }
       ];
 
       const data = [
-        {
-          key: 1,
-          name: "John Brown",
-          age: 20,
-          address: "New York No. 1 Lake Park"
-        },
-        {
-          key: 2,
-          name: "Jim Green",
-          age: 24,
-          address: "London No. 1 Lake Park"
-        },
-        {
-          key: 3,
-          name: "Joe Black",
-          age: 30,
-          address: "Sidney No. 1 Lake Park"
-        },
-        {
-          key: 4,
-          name: "Jon Snow",
-          age: 26,
-          address: "Ottawa No. 2 Lake Park"
-        }
+        { id: 1, name: "John Brown", age: 20, address: "New York No. 1 Lake Park" },
+        { id: 2, name: "Jim Green", age: 24, address: "London No. 1 Lake Park" },
+        { id: 3, name: "Joe Black", age: 30, address: "Sidney No. 1 Lake Park" },
+        { id: 4, name: "Jon Snow", age: 26, address: "Ottawa No. 2 Lake Park" }
       ];
 
       return {
