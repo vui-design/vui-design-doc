@@ -7,6 +7,9 @@ const code =
     v-bind:rowCollapsion="rowCollapsion"
     v-on:rowCollapse="handleRowCollapse"
   >
+    <template slot="collapsion" slot-scope="{ row, rowIndex }">
+      {{row.name}}, {{row.age}}, {{row.address}}
+    </template>
     <vui-action-group slot="action" slot-scope="{ row, rowIndex }">
       <a href="javascript:;">Edit</a>
       <a href="javascript:;">Delete</a>
@@ -33,12 +36,10 @@ const code =
 
       const rowCollapsion = {
         title: "#",
+        slot: "collapsion",
         clickRowToCollapse: true,
         ignoreElements(element) {
           return element && element.tagName.toLowerCase() == "a";
-        },
-        render(h, row) {
-          return row.name + ", " + row.age + ", " + row.address;
         }
       };
 

@@ -28,6 +28,7 @@ export default {
 		"layout-collapse": "Collapse 折叠面板",
 		"layout-cell": "Cell 单元格",
 		"layout-divider": "Divider 分割线",
+		"layout-space": "Space 间距",
 
 		"navigation": "导航",
 		"navigation-breadcrumb": "Breadcrumb 面包屑",
@@ -57,6 +58,7 @@ export default {
 		"data-display-badge": "Badge 徽标",
 		"data-display-descriptions": "Descriptions 描述列表",
 		"data-display-empty": "Empty 空状态",
+		"data-display-image": "Image 图片",
 		"data-display-list": "List 列表",
 		"data-display-popover": "Popover 气泡卡片",
 		"data-display-statistic": "Statistic 统计数值",
@@ -76,7 +78,10 @@ export default {
 		"feedback-popconfirm": "Popconfirm 气泡确认框",
 		"feedback-progress": "Progress 进度条",
 		"feedback-result": "Result 结果",
-		"feedback-spin": "Spin 加载中"
+		"feedback-spin": "Spin 加载中",
+
+		"other": "其它",
+		"other-backtop": "Backtop 回到顶部"
 	},
 
 
@@ -147,6 +152,12 @@ export default {
 		"example-divider-basic-usage": "基本用法",
 		"example-divider-vertical": "垂直方向",
 		"example-divider-with-text": "带文本的分割线",
+
+		"example-space-basic-usage": "基本用法",
+		"example-space-vertical": "垂直方向",
+		"example-space-size": "尺寸",
+		"example-space-align": "对齐",
+		"example-space-gutter": "自定义间距尺寸",
 
 
 		"example-breadcrumb-basic-usage": "基本用法",
@@ -308,6 +319,11 @@ export default {
 		"example-empty-no-description": "无描述",
 		"example-empty-customize": "自定义",
 
+		"example-image-basic-usage": "基本用法",
+		"example-image-placeholder": "占位内容",
+		"example-image-error": "加载失败",
+		"example-image-lazyload": "懒加载",
+
 		"example-popover-basic-usage": "基本用法",
 		"example-popover-placement": "位置",
 		"example-popover-trigger": "触发方式",
@@ -324,8 +340,8 @@ export default {
 		"example-table-fixed-header": "固定表头",
 		"example-table-fixed-columns": "固定列",
 		"example-table-fixed-header-columns": "固定表头和列",
-		"example-table-filter": "筛选",
 		"example-table-sorter": "排序",
+		"example-table-filter": "筛选",
 		"example-table-collapsion": "可展开",
 		"example-table-click-row-to-collapse": "点击行展开",
 		"example-table-multiple-selection": "多选",
@@ -432,6 +448,9 @@ export default {
 		"example-spin-message": "消息文案",
 		"example-spin-custom": "自定义内容",
 		"example-spin-state": "状态切换",
-		"example-spin-fullscreen": "全屏加载"
+		"example-spin-fullscreen": "全屏加载",
+
+		"example-backtop-basic-usage": "基本用法",
+		"example-backtop-custom": "自定义样式"
 	}
 };

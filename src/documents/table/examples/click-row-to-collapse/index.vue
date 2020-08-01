@@ -8,6 +8,9 @@
 				v-bind:rowCollapsion="rowCollapsion"
 				v-on:rowCollapse="handleRowCollapse"
 			>
+				<template slot="collapsion" slot-scope="{ row, rowIndex }">
+					{{row.name}}, {{row.age}}, {{row.address}}
+				</template>
 				<vui-action-group slot="action" slot-scope="{ row, rowIndex }">
 					<a href="javascript:;">Edit</a>
 					<a href="javascript:;">Delete</a>
@@ -17,6 +20,7 @@
 		<template slot="title">点击行展开</template>
 		<template slot="describe">
 			<p>点击行来展开子行，展开子行的行为默认是由图标控制的。通过 <code>ignoreElements</code> 方法过滤需要忽略的元素，如本例中的操作按钮。</p>
+			<p>注意，该示例使用插槽的形式来自定义展开行的内容。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>
@@ -47,12 +51,10 @@
 
 			const rowCollapsion = {
 				title: "#",
+				slot: "collapsion",
 				clickRowToCollapse: true,
 				ignoreElements(element) {
 					return element && element.tagName.toLowerCase() == "a";
-				},
-				render(h, row) {
-					return row.name + ", " + row.age + ", " + row.address;
 				}
 			};
 

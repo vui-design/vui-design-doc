@@ -348,7 +348,7 @@
 					</tr>
 					<tr>
 						<td>slot</td>
-						<td>列单元格插槽，设置该属性后，允许在 <code>Table</code> 组件的 <code>slot</code> 中使用 <code>slot-scope</code> 实现自定义渲染列内容；优先级高于 <code>render</code> 属性</td>
+						<td>通过插槽的形式自定义渲染列内容，设置该属性后，允许在 <code>Table</code> 组件的 <code>slot</code> 中使用 <code>slot-scope</code> 实现自定义渲染列内容；优先级高于 <code>render</code> 属性</td>
 						<td>String</td>
 						<td>--</td>
 					</tr>
@@ -498,8 +498,14 @@
 					</tr>
 					<tr>
 						<td>render</td>
-						<td>自定义展开行的内容，使用 <code>Vue</code> 的 <code>render</code> 函数，接收 <code>h</code>、<code>row</code>、<code>rowIndex</code>、<code>rowKey</code> 作为参数，<a href="https://cn.vuejs.org/v2/guide/render-function.html" target="_blank">学习 render 函数 & JSX</a></td>
+						<td>自定义展开行的内容，使用 <code>Vue</code> 的 <code>render</code> 函数，接收 <code>h</code>、<code>{ row, rowIndex }</code> 作为参数，<a href="https://cn.vuejs.org/v2/guide/render-function.html" target="_blank">学习 render 函数 & JSX</a></td>
 						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>slot</td>
+						<td>通过插槽的形式自定义展开行的内容，设置该属性后，允许在 <code>Table</code> 组件的 <code>slot</code> 中使用 <code>slot-scope</code> 实现自定义展开行的内容；优先级高于 <code>render</code> 属性</td>
+						<td>String</td>
 						<td>--</td>
 					</tr>
 				</tbody>

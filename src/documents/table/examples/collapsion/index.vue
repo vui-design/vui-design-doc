@@ -51,7 +51,7 @@
 				rowCollapsable(row, rowIndex, rowKey) {
 					return row.name !== "Joe Black";
 				},
-				render(h, row) {
+				render(h, { row }) {
 					return row.name + ", " + row.age + ", " + row.address;
 				}
 			};

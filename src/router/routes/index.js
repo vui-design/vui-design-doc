@@ -155,6 +155,15 @@ export default [
 				},
 				component: () => import("@/documents/divider/index")
 			},
+			{
+				path: "/components/space",
+				name: "space",
+				meta: {
+					title: "Space",
+					group: "layout"
+				},
+				component: () => import("@/documents/space/index")
+			},
 			// 导航组件
 			{
 				path: "/components/breadcrumb",
@@ -348,6 +357,15 @@ export default [
 				component: () => import("@/documents/empty/index")
 			},
 			{
+				path: "/components/image",
+				name: "image",
+				meta: {
+					title: "Image",
+					group: "data-display"
+				},
+				component: () => import("@/documents/image/index")
+			},
+			{
 				path: "/components/list",
 				name: "list",
 				meta: {
@@ -509,6 +527,16 @@ export default [
 					group: "feedback"
 				},
 				component: () => import("@/documents/spin/index")
+			},
+			// 其它
+			{
+				path: "/components/backtop",
+				name: "backtop",
+				meta: {
+					title: "Backtop",
+					group: "other"
+				},
+				component: () => import("@/documents/backtop/index")
 			}
 		]
 	}
