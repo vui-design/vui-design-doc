@@ -324,6 +324,12 @@ export default {
         "example-image-error": "加载失败",
         "example-image-lazyload": "懒加载",
 
+        "example-list-simple": "简单列表",
+        "example-list-basic-usage": "基础列表",
+        "example-list-load-more": "加载更多",
+        "example-list-vertical": "竖排列表样式",
+        "example-list-grid": "栅格列表",
+
         "example-popover-basic-usage": "基本用法",
         "example-popover-placement": "位置",
         "example-popover-trigger": "触发方式",

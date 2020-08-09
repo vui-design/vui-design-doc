@@ -8,16 +8,16 @@ const code =
       <article>{{item.content}}</article>
       <template slot="actions">
         <a href="javascript:;">
-          <vui-icon type="star" style="margin-right: 5px;" />{{item.collection}}
+          <vui-icon type="star" style="margin-right: 4px;" />{{item.collection}}
         </a>
         <a href="javascript:;">
-          <vui-icon type="thumb-up" style="margin-right: 5px;" />{{item.like}}
+          <vui-icon type="thumb-up" style="margin-right: 4px;" />{{item.like}}
         </a>
         <a href="javascript:;">
-          <vui-icon type="chat-ellipsis" style="margin-right: 5px;" />{{item.comment}}
+          <vui-icon type="chat-ellipsis" style="margin-right: 4px;" />{{item.comment}}
         </a>
       </template>
-      <img slot="extra" width="280" v-bind:src="item.image" />
+      <img slot="extra" width="280" height="166" v-bind:src="item.image" />
     </vui-list-item>
   </vui-list>
 </template>
@@ -35,7 +35,7 @@ const code =
             collection: 100,
             like: 666,
             comment: 888,
-            image: "https://dummyimage.com/280x160/ececec/595959"
+            image: "https://dummyimage.com/280x166/ececec/595959"
           },
           {
             avatar: "https://dummyimage.com/32x32/2d8cf0/fff",
@@ -45,7 +45,7 @@ const code =
             collection: 100,
             like: 666,
             comment: 888,
-            image: "https://dummyimage.com/280x160/ececec/595959"
+            image: "https://dummyimage.com/280x166/ececec/595959"
           }
         ]
       };

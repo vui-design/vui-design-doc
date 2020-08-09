@@ -36,17 +36,30 @@
 						description: "This is the description!"
 					},
 					{
-						avatar: "https://dummyimage.com/32x32/2d8cf0/fff",
 						title: "List Item Title",
 						description: "This is the description!"
 					},
 					{
-						avatar: "https://dummyimage.com/32x32/2d8cf0/fff",
 						title: "List Item Title",
 						description: "This is the description!"
 					},
 					{
-						avatar: "https://dummyimage.com/32x32/2d8cf0/fff",
+						title: "List Item Title",
+						description: "This is the description!"
+					},
+					{
+						title: "List Item Title",
+						description: "This is the description!"
+					},
+					{
+						title: "List Item Title",
+						description: "This is the description!"
+					},
+					{
+						title: "List Item Title",
+						description: "This is the description!"
+					},
+					{
 						title: "List Item Title",
 						description: "This is the description!"
 					}

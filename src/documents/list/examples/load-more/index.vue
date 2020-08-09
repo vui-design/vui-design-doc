@@ -13,7 +13,7 @@
 				</vui-list-item>
 				<template slot="more">
 					<vui-spin v-if="loading" />
-					<a href="javascript:;" v-else v-on:click="handleLoadMore">Click to load more</a>
+					<a href="javascript:;" v-else v-on:click="handleLoadMore">loading more</a>
 				</template>
 			</vui-list>
 		</template>
@@ -66,7 +66,7 @@
 				this.loading = true;
 
 				setTimeout(() => {
-					let data = [
+					const data = [
 						{
 							avatar: "https://dummyimage.com/32x32/2d8cf0/fff",
 							title: "List Item Title",
@@ -91,7 +91,7 @@
 
 					this.loading = false;
 					this.data = this.data.concat(data);
-				}, 3000);
+				}, 1000);
 			}
 		}
 	};
