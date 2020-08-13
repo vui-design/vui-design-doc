@@ -7,10 +7,10 @@ const code =
       <template slot="tags" slot-scope="{ row, rowIndex }">
         <vui-tag v-for="tag in row.tags" v-bind:key="tag.label" v-bind:color="tag.color" style="margin-right: 8px;">{{tag.label}}</vui-tag>
       </template>
-      <vui-action-group slot="action" slot-scope="{ row, rowIndex }">
+      <vui-separator slot="action" slot-scope="{ row, rowIndex }">
         <a href="javascript:;">Edit</a>
         <a href="javascript:;">Delete</a>
-      </vui-action-group>
+      </vui-separator>
     </vui-table>
   </div>
 </template>

@@ -4,13 +4,13 @@ const code =
     rowKey="id"
     v-bind:columns="columns"
     v-bind:data="data"
-    v-bind:rowCollapsion="rowCollapsion"
-    v-on:rowCollapse="handleRowCollapse"
+    v-bind:rowExpansion="rowExpansion"
+    v-on:rowExpand="handleRowExpand"
   >
-    <vui-action-group slot="action" slot-scope="{ row, rowIndex }">
+    <vui-separator slot="action" slot-scope="{ row, rowIndex }">
       <a href="javascript:;">Edit</a>
       <a href="javascript:;">Delete</a>
-    </vui-action-group>
+    </vui-separator>
   </vui-table>
 </template>
 
@@ -31,13 +31,13 @@ const code =
         { id: 4, name: "Jon Snow", age: 26, address: "Ottawa No. 2 Lake Park" }
       ];
 
-      const rowCollapsion = {
+      const rowExpansion = {
         title: "#",
         value: [1],
-        rowCollapsable(row, rowIndex, rowKey) {
+        expandable(row, rowIndex, rowKey) {
           return row.name !== "Joe Black";
         },
-        render(h, row) {
+        render(h, { row }) {
           return row.name + ", " + row.age + ", " + row.address;
         }
       };
@@ -45,13 +45,13 @@ const code =
       return {
         columns,
         data,
-        rowCollapsion
+        rowExpansion
       };
     },
     methods: {
-      handleRowCollapse(value) {
+      handleRowExpand(value) {
         console.log(value);
-        this.rowCollapsion.value = value;
+        this.rowExpansion.value = value;
       }
     }
   };

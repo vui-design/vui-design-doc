@@ -8,10 +8,10 @@
 				v-bind:rowSelection="rowSelection"
 				v-on:rowSelect="handleRowSelect"
 			>
-				<vui-action-group slot="action" slot-scope="{ row, rowIndex }">
+				<vui-separator slot="action" slot-scope="{ row, rowIndex }">
 					<a href="javascript:;">Edit</a>
 					<a href="javascript:;">Delete</a>
-				</vui-action-group>
+				</vui-separator>
 			</vui-table>
 		</template>
 		<template slot="title">单选</template>

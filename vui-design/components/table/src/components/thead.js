@@ -50,7 +50,11 @@ const VuiTableThead = {
 			type: [String, Function],
 			default: "key"
 		},
-		rowCollapsion: {
+		rowTree: {
+			type: Object,
+			default: undefined
+		},
+		rowExpansion: {
 			type: Object,
 			default: undefined
 		},
@@ -62,7 +66,11 @@ const VuiTableThead = {
 			type: [String, Number],
 			default: undefined
 		},
-		collapsedRowKeys: {
+		openedRowKeys: {
+			type: Array,
+			default: () => []
+		},
+		expandedRowKeys: {
 			type: Array,
 			default: () => []
 		},
@@ -130,9 +138,9 @@ const VuiTableThead = {
 			let align = column.align || "center";
 			let className = column.className;
 
-			if (type === "collapsion") {
+			if (type === "expansion") {
 				return {
-					[`${props.classNamePrefix}-column-with-collapsion`]: true,
+					[`${props.classNamePrefix}-column-with-expansion`]: true,
 					[`${props.classNamePrefix}-column-ellipsis`]: ellipsis,
 					[`${props.classNamePrefix}-column-align-${align}`]: align,
 					[`${className}`]: className
@@ -225,11 +233,11 @@ const VuiTableThead = {
 			let { $props: props } = this;
 			let children = [];
 
-			if (props.rowCollapsion) {
-				let { width = 50 } = props.rowCollapsion;
+			if (props.rowExpansion) {
+				let { width = 50 } = props.rowExpansion;
 
 				children.push(
-					<col key="collapsion" width={width} />
+					<col key="expansion" width={width} />
 				);
 			}
 
@@ -256,15 +264,15 @@ const VuiTableThead = {
 			props.thead.forEach((row, rowIndex) => {
 				let ths = [];
 
-				if (props.rowCollapsion && rowIndex === 0) {
+				if (props.rowExpansion && rowIndex === 0) {
 					ths.push(
 						<th
-							key="collapsion"
+							key="expansion"
 							colspan="1"
 							rowspan={props.thead.length}
-							class={this.getColumnClassName("collapsion", props.rowCollapsion)}
+							class={this.getColumnClassName("expansion", props.rowExpansion)}
 						>
-							{props.rowCollapsion.title}
+							{props.rowExpansion.title}
 						</th>
 					);
 				}

@@ -69,7 +69,11 @@ const VuiTableTbody = {
 			type: [String, Function],
 			default: undefined
 		},
-		rowCollapsion: {
+		rowTree: {
+			type: Object,
+			default: undefined
+		},
+		rowExpansion: {
 			type: Object,
 			default: undefined
 		},
@@ -81,7 +85,11 @@ const VuiTableTbody = {
 			type: [String, Number],
 			default: undefined
 		},
-		collapsedRowKeys: {
+		openedRowKeys: {
+			type: Array,
+			default: () => []
+		},
+		expandedRowKeys: {
 			type: Array,
 			default: () => []
 		},
@@ -105,14 +113,14 @@ const VuiTableTbody = {
 
 			return props.hoveredRowKey === rowKey;
 		},
-		isRowCollapsed(rowKey) {
+		isRowExpanded(rowKey) {
 			let { $props: props } = this;
 
-			if (!props.rowCollapsion) {
+			if (!props.rowExpansion) {
 				return false;
 			}
 
-			return props.collapsedRowKeys.indexOf(rowKey) > -1;
+			return props.expandedRowKeys.indexOf(rowKey) > -1;
 		},
 		isRowSelected(rowKey) {
 			let { $props: props } = this;
@@ -134,10 +142,10 @@ const VuiTableTbody = {
 		getRowClassName(type, row, rowIndex, rowKey) {
 			let { $props: props } = this;
 
-			if (type === "collapsion") {
+			if (type === "expansion") {
 				return {
 					[`${props.classNamePrefix}-row`]: true,
-					[`${props.classNamePrefix}-row-collapsed`]: true
+					[`${props.classNamePrefix}-row-expanded`]: true
 				};
 			}
 			else {
@@ -168,9 +176,9 @@ const VuiTableTbody = {
 			let align = column.align || "center";
 			let className = column.className;
 
-			if (type === "collapsion") {
+			if (type === "expansion") {
 				return {
-					[`${props.classNamePrefix}-column-with-collapsion`]: true,
+					[`${props.classNamePrefix}-column-with-expansion`]: true,
 					[`${props.classNamePrefix}-column-ellipsis`]: ellipsis,
 					[`${props.classNamePrefix}-column-align-${align}`]: align,
 					[`${className}`]: className
@@ -215,12 +223,12 @@ const VuiTableTbody = {
 				};
 			}
 		},
-		getColumnCollapsionClassName(column, collapsed) {
+		getColumnExpansionClassName(column, expanded) {
 			let { $props: props } = this;
 
 			return {
-				[`${props.classNamePrefix}-column-collapsion`]: true,
-				[`${props.classNamePrefix}-column-collapsed`]: collapsed
+				[`${props.classNamePrefix}-column-expansion`]: true,
+				[`${props.classNamePrefix}-column-expanded`]: expanded
 			};
 		},
 		getColumnSelectionClassName(column, selected) {
@@ -243,26 +251,26 @@ const VuiTableTbody = {
 		},
 		handleRowClick(event, row, rowIndex, rowKey) {
 			let { vuiTable, $props: props } = this;
-			let { rowCollapsion } = props;
+			let { rowExpansion } = props;
 
 			vuiTable.handleRowClick(row, rowIndex, rowKey);
 
-			if (rowCollapsion && rowCollapsion.clickRowToCollapse) {
-				let isRowCollapsable = is.function(rowCollapsion.rowCollapsable) ? rowCollapsion.rowCollapsable(row, rowIndex, rowKey) : true;
+			if (rowExpansion && rowExpansion.clickRowToExpand) {
+				let isExpandable = is.function(rowExpansion.expandable) ? rowExpansion.expandable(row, rowIndex, rowKey) : true;
 
-				if (!isRowCollapsable) {
+				if (!isExpandable) {
 					return;
 				}
 
 				let e = event || window.event;
 				let target = e.target || e.srcElement;
-				let isIgnoreElements = is.function(rowCollapsion.ignoreElements) ? rowCollapsion.ignoreElements(target) : false;
+				let isIgnoreElements = is.function(rowExpansion.ignoreElements) ? rowExpansion.ignoreElements(target) : false;
 
 				if (isIgnoreElements) {
 					return;
 				}
 
-				vuiTable.handleRowCollapse(row, rowIndex, rowKey);
+				vuiTable.handleRowExpand(row, rowIndex, rowKey);
 			}
 		},
 		handleRowDblclick(event, row, rowIndex, rowKey) {
@@ -270,25 +278,25 @@ const VuiTableTbody = {
 
 			vuiTable.handleRowDblclick(row, rowIndex, rowKey);
 		},
-		handleRowCollapse(event, row, rowIndex, rowKey) {
+		handleRowExpand(event, row, rowIndex, rowKey) {
 			let { vuiTable, $props: props } = this;
-			let { rowCollapsion } = props;
+			let { rowExpansion } = props;
 
-			if (!rowCollapsion) {
+			if (!rowExpansion) {
 				return;
 			}
 
-			if (rowCollapsion.clickRowToCollapse) {
+			if (rowExpansion.clickRowToExpand) {
 				return;
 			}
 
-			let isRowCollapsable = is.function(rowCollapsion.rowCollapsable) ? rowCollapsion.rowCollapsable(row, rowIndex, rowKey) : true;
+			let isExpandable = is.function(rowExpansion.expandable) ? rowExpansion.expandable(row, rowIndex, rowKey) : true;
 
-			if (!isRowCollapsable) {
+			if (!isExpandable) {
 				return;
 			}
 
-			vuiTable.handleRowCollapse(row, rowIndex, rowKey);
+			vuiTable.handleRowExpand(row, rowIndex, rowKey);
 		},
 		handleRowSelect(checked, row, rowIndex, rowKey) {
 			let { vuiTable } = this;
@@ -299,11 +307,11 @@ const VuiTableTbody = {
 			let { $props: props } = this;
 			let children = [];
 
-			if (props.rowCollapsion) {
-				let { width = 50 } = props.rowCollapsion;
+			if (props.rowExpansion) {
+				let { width = 50 } = props.rowExpansion;
 
 				children.push(
-					<col key="collapsion" width={width} />
+					<col key="expansion" width={width} />
 				);
 			}
 
@@ -331,7 +339,7 @@ const VuiTableTbody = {
 				let colspan = 0;
 				let description = props.locale && props.locale.empty ? props.locale.empty : this.t("vui.table.empty");
 
-				if (props.rowCollapsion) {
+				if (props.rowExpansion) {
 					colspan++;
 				}
 
@@ -365,17 +373,17 @@ const VuiTableTbody = {
 
 				let tds = [];
 
-				if (props.rowCollapsion) {
-					let isRowCollapsable = is.function(props.rowCollapsion.rowCollapsable) ? props.rowCollapsion.rowCollapsable(row, rowIndex, rowKey) : true;
-					let isRowCollapsed = this.isRowCollapsed(rowKey);
+				if (props.rowExpansion) {
+					let isExpandable = is.function(props.rowExpansion.expandable) ? props.rowExpansion.expandable(row, rowIndex, rowKey) : true;
+					let isRowExpanded = this.isRowExpanded(rowKey);
 
 					tds.push(
-						<td key="collapsion" class={this.getColumnClassName("collapsion", props.rowCollapsion)}>
+						<td key="expansion" class={this.getColumnClassName("expansion", props.rowExpansion)}>
 							{
-								isRowCollapsable ? (
+								isExpandable ? (
 									<button
-										class={this.getColumnCollapsionClassName(props.rowCollapsion, isRowCollapsed)}
-										onClick={e => this.handleRowCollapse(e, row, rowIndex, rowKey)}
+										class={this.getColumnExpansionClassName(props.rowExpansion, isRowExpanded)}
+										onClick={e => this.handleRowExpand(e, row, rowIndex, rowKey)}
 									></button>
 								) : null
 							}
@@ -487,26 +495,26 @@ const VuiTableTbody = {
 					</tr>
 				);
 
-				if (props.rowCollapsion && this.isRowCollapsed(rowKey)) {
+				if (props.rowExpansion && this.isRowExpanded(rowKey)) {
 					let content;
 
-					if (props.rowCollapsion.slot) {
-						let scopedSlot = vuiTable.$scopedSlots[props.rowCollapsion.slot];
+					if (props.rowExpansion.slot) {
+						let scopedSlot = vuiTable.$scopedSlots[props.rowExpansion.slot];
 
 						content = scopedSlot && scopedSlot({
 							row: clone(row),
 							rowIndex: rowIndex
 						});
 					}
-					else if (props.rowCollapsion.render) {
-						content = props.rowCollapsion.render(h, {
+					else if (props.rowExpansion.render) {
+						content = props.rowExpansion.render(h, {
 							row: clone(row),
 							rowIndex: rowIndex
 						});
 					}
 
 					children.push(
-						<tr class={this.getRowClassName("collapsion", row, rowIndex, rowKey)}>
+						<tr class={this.getRowClassName("expansion", row, rowIndex, rowKey)}>
 							<td></td>
 							<td colspan={props.colgroup.length}>{content}</td>
 						</tr>

@@ -36,7 +36,11 @@ const VuiTable = {
 			type: Array,
 			default: () => []
 		},
-		rowCollapsion: {
+		rowTree: {
+			type: Object,
+			default: undefined
+		},
+		rowExpansion: {
 			type: Object,
 			default: undefined
 		},
@@ -91,7 +95,8 @@ const VuiTable = {
 			thead: [],
 			tbody: [],
 			hoveredRowKey: undefined,
-			collapsedRowKeys: [],
+			openedRowKeys: [],
+			expandedRowKeys: [],
 			selectedRowKeys: []
 		};
 
@@ -117,16 +122,28 @@ const VuiTable = {
 				this.state.tbody = utils.getDerivedBody(this.state.columns, data);
 			}
 		},
-		rowCollapsion: {
+		rowTree: {
 			deep: true,
 			handler(value) {
-				let collapsedRowKeys = [];
+				let openedRowKeys = [];
 
 				if (value && is.array(value.value)) {
-					collapsedRowKeys = clone(value.value);
+					openedRowKeys = clone(value.value);
 				}
 
-				this.state.collapsedRowKeys = collapsedRowKeys;
+				this.state.openedRowKeys = openedRowKeys;
+			}
+		},
+		rowExpansion: {
+			deep: true,
+			handler(value) {
+				let expandedRowKeys = [];
+
+				if (value && is.array(value.value)) {
+					expandedRowKeys = clone(value.value);
+				}
+
+				this.state.expandedRowKeys = expandedRowKeys;
 			}
 		},
 		rowSelection: {
@@ -287,30 +304,30 @@ const VuiTable = {
 			this.$emit("rowDblclick", row, rowIndex, rowKey);
 		},
 		// 展开事件回调函数
-		handleRowCollapse(row, rowIndex, rowKey) {
+		handleRowExpand(row, rowIndex, rowKey) {
 			let { $props: props, state } = this;
 
-			if (!props.rowCollapsion) {
+			if (!props.rowExpansion) {
 				return;
 			}
 
-			let collapsedRowKeys = clone(state.collapsedRowKeys);
-			let index = collapsedRowKeys.indexOf(rowKey);
+			let expandedRowKeys = clone(state.expandedRowKeys);
+			let index = expandedRowKeys.indexOf(rowKey);
 
-			if (props.rowCollapsion.accordion) {
-				collapsedRowKeys = index === -1 ? [rowKey] : [];
+			if (props.rowExpansion.accordion) {
+				expandedRowKeys = index === -1 ? [rowKey] : [];
 			}
 			else {
 				if (index === -1) {
-					collapsedRowKeys.push(rowKey);
+					expandedRowKeys.push(rowKey);
 				}
 				else {
-					collapsedRowKeys.splice(index, 1);
+					expandedRowKeys.splice(index, 1);
 				}
 			}
 
-			this.state.collapsedRowKeys = collapsedRowKeys;
-			this.$emit("rowCollapse", clone(this.state.collapsedRowKeys));
+			this.state.expandedRowKeys = expandedRowKeys;
+			this.$emit("rowExpand", clone(this.state.expandedRowKeys));
 		},
 		// 选择事件回调函数
 		handleRowSelect(checked, row, rowIndex, rowKey) {
@@ -470,10 +487,12 @@ const VuiTable = {
 								thead={state.thead}
 								tbody={state.tbody}
 								rowKey={props.rowKey}
-								rowCollapsion={props.rowCollapsion}
+								rowTree={props.rowTree}
+								rowExpansion={props.rowExpansion}
 								rowSelection={props.rowSelection}
 								hoveredRowKey={state.hoveredRowKey}
-								collapsedRowKeys={state.collapsedRowKeys}
+								openedRowKeys={state.openedRowKeys}
+								expandedRowKeys={state.expandedRowKeys}
 								selectedRowKeys={state.selectedRowKeys}
 								scroll={props.scroll}
 								locale={props.locale}
@@ -497,10 +516,12 @@ const VuiTable = {
 							tbody={state.tbody}
 							rowKey={props.rowKey}
 							rowClassName={props.rowClassName}
-							rowCollapsion={props.rowCollapsion}
+							rowTree={props.rowTree}
+							rowExpansion={props.rowExpansion}
 							rowSelection={props.rowSelection}
 							hoveredRowKey={state.hoveredRowKey}
-							collapsedRowKeys={state.collapsedRowKeys}
+							openedRowKeys={state.openedRowKeys}
+							expandedRowKeys={state.expandedRowKeys}
 							selectedRowKeys={state.selectedRowKeys}
 							scroll={props.scroll}
 							locale={props.locale}
@@ -564,10 +585,12 @@ const VuiTable = {
 								thead={state.thead}
 								tbody={state.tbody}
 								rowKey={props.rowKey}
-								rowCollapsion={props.rowCollapsion}
+								rowTree={props.rowTree}
+								rowExpansion={props.rowExpansion}
 								rowSelection={props.rowSelection}
 								hoveredRowKey={state.hoveredRowKey}
-								collapsedRowKeys={state.collapsedRowKeys}
+								openedRowKeys={state.openedRowKeys}
+								expandedRowKeys={state.expandedRowKeys}
 								selectedRowKeys={state.selectedRowKeys}
 								scroll={props.scroll}
 								locale={props.locale}
@@ -590,10 +613,12 @@ const VuiTable = {
 							tbody={state.tbody}
 							rowKey={props.rowKey}
 							rowClassName={props.rowClassName}
-							rowCollapsion={props.rowCollapsion}
+							rowTree={props.rowTree}
+							rowExpansion={props.rowExpansion}
 							rowSelection={props.rowSelection}
 							hoveredRowKey={state.hoveredRowKey}
-							collapsedRowKeys={state.collapsedRowKeys}
+							openedRowKeys={state.openedRowKeys}
+							expandedRowKeys={state.expandedRowKeys}
 							selectedRowKeys={state.selectedRowKeys}
 							scroll={props.scroll}
 							locale={props.locale}
@@ -665,10 +690,12 @@ const VuiTable = {
 								thead={state.thead}
 								tbody={state.tbody}
 								rowKey={props.rowKey}
-								rowCollapsion={props.rowCollapsion}
+								rowTree={props.rowTree}
+								rowExpansion={props.rowExpansion}
 								rowSelection={props.rowSelection}
 								hoveredRowKey={state.hoveredRowKey}
-								collapsedRowKeys={state.collapsedRowKeys}
+								openedRowKeys={state.openedRowKeys}
+								expandedRowKeys={state.expandedRowKeys}
 								selectedRowKeys={state.selectedRowKeys}
 								scroll={props.scroll}
 								locale={props.locale}
@@ -692,10 +719,12 @@ const VuiTable = {
 							tbody={state.tbody}
 							rowKey={props.rowKey}
 							rowClassName={props.rowClassName}
-							rowCollapsion={props.rowCollapsion}
+							rowTree={props.rowTree}
+							rowExpansion={props.rowExpansion}
 							rowSelection={props.rowSelection}
 							hoveredRowKey={state.hoveredRowKey}
-							collapsedRowKeys={state.collapsedRowKeys}
+							openedRowKeys={state.openedRowKeys}
+							expandedRowKeys={state.expandedRowKeys}
 							selectedRowKeys={state.selectedRowKeys}
 							scroll={props.scroll}
 							locale={props.locale}
@@ -715,15 +744,20 @@ const VuiTable = {
 
 	created() {
 		let { $props: props } = this;
-		let { rowCollapsion, rowSelection } = props;
+		let { rowTree, rowExpansion, rowSelection } = props;
 		let columns = utils.getDerivedColumns(props.columns);
 		let data = utils.getDerivedData(props.data);
 		let hoveredRowKey = undefined;
-		let collapsedRowKeys = [];
+		let openedRowKeys = [];
+		let expandedRowKeys = [];
 		let selectedRowKeys = [];
 
-		if (rowCollapsion && is.array(rowCollapsion.value)) {
-			collapsedRowKeys = clone(rowCollapsion.value);
+		if (rowTree && is.array(rowTree.value)) {
+			openedRowKeys = clone(rowTree.value);
+		}
+
+		if (rowExpansion && is.array(rowExpansion.value)) {
+			expandedRowKeys = clone(rowExpansion.value);
 		}
 
 		if (rowSelection) {
@@ -744,7 +778,8 @@ const VuiTable = {
 		this.state.thead = utils.getDerivedHeader(columns);
 		this.state.tbody = utils.getDerivedBody(columns, data);
 		this.state.hoveredRowKey = hoveredRowKey;
-		this.state.collapsedRowKeys = collapsedRowKeys;
+		this.state.openedRowKeys = openedRowKeys;
+		this.state.expandedRowKeys = expandedRowKeys;
 		this.state.selectedRowKeys = selectedRowKeys;
 	},
 

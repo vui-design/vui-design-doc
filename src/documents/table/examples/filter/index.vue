@@ -2,10 +2,10 @@
 	<Example id="example-table-filter">
 		<template slot="source">
 			<vui-table v-bind:columns="columns" v-bind:data="data" rowKey="id">
-				<vui-action-group slot="action" slot-scope="{ row, rowIndex }">
+				<vui-separator slot="action" slot-scope="{ row, rowIndex }">
 					<a href="javascript:;">Edit</a>
 					<a href="javascript:;">Delete</a>
-				</vui-action-group>
+				</vui-separator>
 			</vui-table>
 		</template>
 		<template slot="title">筛选</template>

@@ -10,6 +10,7 @@
 			</ul>
 			<h2>代码演示</h2>
 		</Markdown>
+		<ExampleTableTree />
 		<ExampleTableBasicUsage />
 		<ExampleTableBordered />
 		<ExampleTableStriped />
@@ -19,8 +20,8 @@
 		<ExampleTableFixedHeaderColumns />
 		<ExampleTableFilter />
 		<ExampleTableSorter />
-		<ExampleTableCollapsion />
-		<ExampleTableClickRowToCollapse />
+		<ExampleTableExpansion />
+		<ExampleTableClickRowToExpand />
 		<ExampleTableMultipleSelection />
 		<ExampleTableSingleSelection />
 		<ExampleTableGroupingColumns />
@@ -53,8 +54,8 @@
 						<td><code>[]</code></td>
 					</tr>
 					<tr>
-						<td>rowCollapsion</td>
-						<td>表格行是否可折叠，<a href="javascript:;">详细配置见下表</a></td>
+						<td>rowExpansion</td>
+						<td>表格行是否可展开，<a href="javascript:;">详细配置见下表</a></td>
 						<td>Object</td>
 						<td>--</td>
 					</tr>
@@ -199,11 +200,11 @@
 						</td>
 					</tr>
 					<tr>
-						<td>rowCollapse</td>
+						<td>rowExpand</td>
 						<td>展开或折叠行时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>
-							<div><code>collapsedRowKeys</code> - 已展开行的 key 值集合</div>
+							<div><code>expandedRowKeys</code> - 已展开行的 key 值集合</div>
 						</td>
 					</tr>
 					<tr>
@@ -216,8 +217,6 @@
 					</tr>
 				</tbody>
 			</table>
-
-
 			<h3>Table 方法</h3>
 			<table class="example-api-methods">
 				<thead>
@@ -244,12 +243,6 @@
 					</tr>
 				</tbody>
 			</table>
-
-
-
-
-
-
 			<h3>Column 属性</h3>
 			<p>列描述数据对象，是 <code>columns</code> 中的一项。</p>
 			<table class="example-api-props">
@@ -436,8 +429,8 @@
 					</tr>
 				</tbody>
 			</table>
-			<h3>rowCollapsion 属性</h3>
-			<p>折叠功能的配置描述。注意：开启折叠功能后，将自动在表格左侧插入一列，用于显示折叠图标。</p>
+			<h3>rowExpansion 属性</h3>
+			<p>展开功能的配置描述。注意：开启展开功能后，将自动在表格左侧插入一列，用于显示展开图标。</p>
 			<table class="example-api-props">
 				<thead>
 					<tr>
@@ -467,26 +460,26 @@
 						<td><code>center</code></td>
 					</tr>
 					<tr>
+						<td>expandable</td>
+						<td>是否允许行展开，返回 <code>true</code> 时允许展开，反之不允许，接收 <code>row</code>、<code>rowIndex</code>、<code>rowKey</code> 作为参数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
 						<td>accordion</td>
 						<td>是否开启手风琴模式，开启后每次至多展开一行</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
 					</tr>
 					<tr>
-						<td>clickRowToCollapse</td>
+						<td>clickRowToExpand</td>
 						<td>通过点击行来展开子行，展开子行的行为默认是由图标控制的</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
 					</tr>
 					<tr>
 						<td>ignoreElements</td>
-						<td>忽略指定元素（即点击行内指定元素禁止触发展开行为），返回 <code>true</code> 时不会进行折叠；仅在 <code>clickRowToCollapse</code> 为 <code>true</code> 时有效</td>
-						<td>Function</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>rowCollapsable</td>
-						<td>是否允许行展开，返回 <code>true</code> 时允许展开，反之不允许，接收 <code>row</code>、<code>rowIndex</code>、<code>rowKey</code> 作为参数</td>
+						<td>忽略指定元素（即点击行内指定元素禁止触发展开行为），返回 <code>true</code> 时不会进行折叠；仅在 <code>clickRowToExpand</code> 为 <code>true</code> 时有效</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
@@ -567,6 +560,7 @@
 <script>
 	import MixinCatalogue from "@/mixins/catalogue";
 	import Markdown from "@/components/markdown";
+	import ExampleTableTree from "./examples/tree";
 	import ExampleTableBasicUsage from "./examples/basic-usage";
 	import ExampleTableBordered from "./examples/bordered";
 	import ExampleTableStriped from "./examples/striped";
@@ -576,8 +570,8 @@
 	import ExampleTableFixedHeaderColumns from "./examples/fixed-header-columns";
 	import ExampleTableFilter from "./examples/filter";
 	import ExampleTableSorter from "./examples/sorter";
-	import ExampleTableCollapsion from "./examples/collapsion";
-	import ExampleTableClickRowToCollapse from "./examples/click-row-to-collapse";
+	import ExampleTableExpansion from "./examples/expansion";
+	import ExampleTableClickRowToExpand from "./examples/click-row-to-expand";
 	import ExampleTableMultipleSelection from "./examples/multiple-selection";
 	import ExampleTableSingleSelection from "./examples/single-selection";
 	import ExampleTableGroupingColumns from "./examples/grouping-columns";
@@ -591,6 +585,7 @@
 		],
 		components: {
 			Markdown,
+			ExampleTableTree,
 			ExampleTableBasicUsage,
 			ExampleTableBordered,
 			ExampleTableStriped,
@@ -600,8 +595,8 @@
 			ExampleTableFixedHeaderColumns,
 			ExampleTableFilter,
 			ExampleTableSorter,
-			ExampleTableCollapsion,
-			ExampleTableClickRowToCollapse,
+			ExampleTableExpansion,
+			ExampleTableClickRowToExpand,
 			ExampleTableMultipleSelection,
 			ExampleTableSingleSelection,
 			ExampleTableGroupingColumns,
