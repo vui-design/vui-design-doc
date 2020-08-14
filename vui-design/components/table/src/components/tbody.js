@@ -113,6 +113,15 @@ const VuiTableTbody = {
 
 			return props.hoveredRowKey === rowKey;
 		},
+		isRowOpened(rowKey) {
+			let { $props: props } = this;
+
+			if (!props.rowTree) {
+				return false;
+			}
+
+			return props.openedRowKeys.indexOf(rowKey) > -1;
+		},
 		isRowExpanded(rowKey) {
 			let { $props: props } = this;
 
@@ -138,6 +147,19 @@ const VuiTableTbody = {
 			else {
 				return props.selectedRowKeys === rowKey;
 			}
+		},
+		getRowKey(row, rowIndex) {
+			let { $props: props } = this;
+			let rowKey = rowIndex;
+
+			if (is.string(props.rowKey)) {
+				rowKey = row[props.rowKey];
+			}
+			else if (is.function(props.rowKey)) {
+				rowKey = props.rowKey(clone(row), rowIndex);
+			}
+
+			return rowKey;
 		},
 		getRowClassName(type, row, rowIndex, rowKey) {
 			let { $props: props } = this;
@@ -307,7 +329,12 @@ const VuiTableTbody = {
 			let { $props: props } = this;
 			let children = [];
 
-			if (props.rowExpansion) {
+			// 树形表格不支持展开功能，因此这里不添加展开列
+			if (props.rowTree) {
+
+			}
+			// 否则添加展开列
+			else if (props.rowExpansion) {
 				let { width = 50 } = props.rowExpansion;
 
 				children.push(
@@ -315,6 +342,7 @@ const VuiTableTbody = {
 				);
 			}
 
+			// 添加选择列
 			if (props.rowSelection) {
 				let { width = 50 } = props.rowSelection;
 
@@ -323,6 +351,7 @@ const VuiTableTbody = {
 				);
 			}
 
+			// 根据 columns 配置循环添加数据列
 			props.colgroup.forEach((column, columnIndex) => {
 				children.push(
 					<col key={column.key || columnIndex} width={column.width} />
@@ -359,21 +388,15 @@ const VuiTableTbody = {
 			}
 
 			props.tbody.forEach((row, rowIndex) => {
-				let rowKey;
-
-				if (is.string(props.rowKey)) {
-					rowKey = row[props.rowKey];
-				}
-				else if (is.function(props.rowKey)) {
-					rowKey = props.rowKey(clone(row), rowIndex);
-				}
-				else {
-					rowKey = rowIndex;
-				}
-
+				let rowKey = this.getRowKey(row, rowIndex);
 				let tds = [];
 
-				if (props.rowExpansion) {
+				// 树形表格不支持展开功能，因此这里不添加展开列
+				if (props.rowTree) {
+
+				}
+				// 否则添加展开列
+				else if (props.rowExpansion) {
 					let isExpandable = is.function(props.rowExpansion.expandable) ? props.rowExpansion.expandable(row, rowIndex, rowKey) : true;
 					let isRowExpanded = this.isRowExpanded(rowKey);
 
@@ -391,6 +414,7 @@ const VuiTableTbody = {
 					);
 				}
 
+				// 添加选择列
 				if (props.rowSelection) {
 					let isCustomizedMultiple = "multiple" in props.rowSelection;
 					let isMultiple = !isCustomizedMultiple || props.rowSelection.multiple;
@@ -429,6 +453,7 @@ const VuiTableTbody = {
 					);
 				}
 
+				// 根据 columns 配置循环添加数据列
 				props.colgroup.forEach((column, columnIndex) => {
 					let columnCellProps = {};
 
@@ -475,8 +500,29 @@ const VuiTableTbody = {
 						content = target.value;
 					}
 
+					let indent;
+
+					if (props.rowTree && columnIndex === 0) {
+						let childrenKey = props.rowTree.children || "children";
+						let children = row[childrenKey];
+
+						if (children && children.length > 0) {
+							indent = (
+								<button style="cursor: pointer; display: inline-block; box-sizing: border-box; width: 17px; height: 17px; border: 1px solid #e0e0e0; border-radius: 2px; background-color: #fff; margin-top: -4px; margin-right: 8px; vertical-align: middle; text-align: center; line-height: 15px;">
+									{props.openedRowKeys.indexOf(rowKey) > -1 ? "-" : "+"}
+								</button>
+							);
+						}
+						else {
+							indent = (
+								<button style="cursor: pointer; display: inline-block; box-sizing: border-box; width: 17px; height: 17px; border: 1px solid #e0e0e0; border-radius: 2px; background-color: #fff; margin-top: -4px; margin-right: 8px; vertical-align: middle; text-align: center; line-height: 15px; visibility: hidden;"></button>
+							);
+						}
+					}
+
 					tds.push(
 						<td key={columnKey} class={this.getColumnClassName("", column, columnKey, row, rowKey)} {...columnCellProps}>
+							{indent}
 							{content}
 						</td>
 					);
@@ -495,7 +541,218 @@ const VuiTableTbody = {
 					</tr>
 				);
 
-				if (props.rowExpansion && this.isRowExpanded(rowKey)) {
+				// 渲染树形表格子行
+				if (props.rowTree && this.isRowOpened(rowKey)) {
+					let childrenKey = props.rowTree.children || "children";
+					let children = row[childrenKey];
+
+					this.renderTbodyTrChildren(children, 1);
+				}
+				// 渲染展开功能子行
+				else if (props.rowExpansion && this.isRowExpanded(rowKey)) {
+					let content;
+
+					if (props.rowExpansion.slot) {
+						let scopedSlot = vuiTable.$scopedSlots[props.rowExpansion.slot];
+
+						content = scopedSlot && scopedSlot({
+							row: clone(row),
+							rowIndex: rowIndex
+						});
+					}
+					else if (props.rowExpansion.render) {
+						content = props.rowExpansion.render(h, {
+							row: clone(row),
+							rowIndex: rowIndex
+						});
+					}
+
+					children.push(
+						<tr class={this.getRowClassName("expansion", row, rowIndex, rowKey)}>
+							<td></td>
+							<td colspan={props.colgroup.length}>{content}</td>
+						</tr>
+					);
+				}
+			});
+
+			return children;
+		},
+		renderTbodyTrChildren(children, level) {
+			props.tbody.forEach((row, rowIndex) => {
+				let rowKey;
+
+				if (is.string(props.rowKey)) {
+					rowKey = row[props.rowKey];
+				}
+				else if (is.function(props.rowKey)) {
+					rowKey = props.rowKey(clone(row), rowIndex);
+				}
+				else {
+					rowKey = rowIndex;
+				}
+
+				let tds = [];
+
+				// 树形表格不支持展开功能，因此这里不添加展开列
+				if (props.rowTree) {
+
+				}
+				// 否则添加展开列
+				else if (props.rowExpansion) {
+					let isExpandable = is.function(props.rowExpansion.expandable) ? props.rowExpansion.expandable(row, rowIndex, rowKey) : true;
+					let isRowExpanded = this.isRowExpanded(rowKey);
+
+					tds.push(
+						<td key="expansion" class={this.getColumnClassName("expansion", props.rowExpansion)}>
+							{
+								isExpandable ? (
+									<button
+										class={this.getColumnExpansionClassName(props.rowExpansion, isRowExpanded)}
+										onClick={e => this.handleRowExpand(e, row, rowIndex, rowKey)}
+									></button>
+								) : null
+							}
+						</td>
+					);
+				}
+
+				// 添加选择列
+				if (props.rowSelection) {
+					let isCustomizedMultiple = "multiple" in props.rowSelection;
+					let isMultiple = !isCustomizedMultiple || props.rowSelection.multiple;
+					let isRowSelected = this.isRowSelected(rowKey);
+					let attributes = {
+						class: this.getColumnSelectionClassName(props.rowSelection, isRowSelected),
+						on: {
+							change: checked => this.handleRowSelect(checked, row, rowIndex, rowKey)
+						}
+					};
+
+					if (is.function(props.rowSelection.getComponentProps)) {
+						let componentProps = props.rowSelection.getComponentProps(clone(row), rowIndex, rowKey);;
+
+						attributes.props = {
+							...componentProps,
+							checked: isRowSelected
+						};
+					}
+					else {
+						attributes.props = {
+							checked: isRowSelected
+						};
+					}
+
+					tds.push(
+						<td key="selection" class={this.getColumnClassName("selection", props.rowSelection)}>
+							{
+								isMultiple ? (
+									<VuiCheckbox {...attributes} />
+								) : (
+									<VuiRadio {...attributes} />
+								)
+							}
+						</td>
+					);
+				}
+
+				// 根据 columns 配置循环添加数据列
+				props.colgroup.forEach((column, columnIndex) => {
+					let columnCellProps = {};
+
+					if (is.plainObject(column.cellProps)) {
+						columnCellProps.attrs = column.cellProps;
+					}
+					else if (is.function(column.cellProps)) {
+						columnCellProps.attrs = column.cellProps({
+							row: clone(row),
+							rowIndex: rowIndex,
+							column: clone(column),
+							columnIndex: columnIndex
+						});
+					}
+
+					if (columnCellProps.attrs && (columnCellProps.attrs.rowSpan === 0 || columnCellProps.attrs.colSpan === 0)) {
+						return;
+					}
+
+					let columnKey = column.key || columnIndex;
+					let content;
+
+					if (column.slot) {
+						let scopedSlot = vuiTable.$scopedSlots[column.slot];
+
+						content = scopedSlot && scopedSlot({
+							column: clone(column),
+							columnIndex: columnIndex,
+							row: clone(row),
+							rowIndex: rowIndex
+						});
+					}
+					else if (column.render) {
+						content = column.render(h, {
+							column: clone(column),
+							columnIndex: columnIndex,
+							row: clone(row),
+							rowIndex: rowIndex
+						});
+					}
+					else {
+						let target = getTargetByPath(row, column.dataIndex);
+
+						content = target.value;
+					}
+
+					let indent;
+
+					if (props.rowTree && columnIndex === 0) {
+						let childrenKey = props.rowTree.children || "children";
+						let children = row[childrenKey];
+
+						if (children && children.length > 0) {
+							indent = (
+								<button style="cursor: pointer; display: inline-block; box-sizing: border-box; width: 17px; height: 17px; border: 1px solid #e0e0e0; border-radius: 2px; background-color: #fff; margin-top: -4px; margin-right: 8px; vertical-align: middle; text-align: center; line-height: 15px;">
+									{props.openedRowKeys.indexOf(rowKey) > -1 ? "-" : "+"}
+								</button>
+							);
+						}
+						else {
+							indent = (
+								<button style="cursor: pointer; display: inline-block; box-sizing: border-box; width: 17px; height: 17px; border: 1px solid #e0e0e0; border-radius: 2px; background-color: #fff; margin-top: -4px; margin-right: 8px; vertical-align: middle; text-align: center; line-height: 15px; visibility: hidden;"></button>
+							);
+						}
+					}
+
+					tds.push(
+						<td key={columnKey} class={this.getColumnClassName("", column, columnKey, row, rowKey)} {...columnCellProps}>
+							{indent}
+							{content}
+						</td>
+					);
+				});
+
+				children.push(
+					<tr
+						key={rowKey || rowIndex}
+						class={this.getRowClassName("", row, rowIndex, rowKey)}
+						onMouseenter={e => this.handleRowMouseenter(e, row, rowIndex, rowKey)}
+						onMouseleave={e => this.handleRowMouseleave(e, row, rowIndex, rowKey)}
+						onClick={e => this.handleRowClick(e, row, rowIndex, rowKey)}
+						onDblclick={e => this.handleRowDblclick(e, row, rowIndex, rowKey)}
+					>
+						{tds}
+					</tr>
+				);
+
+				// 渲染树形表格子行
+				if (props.rowTree && this.isRowOpened(rowKey)) {
+					let childrenKey = props.rowTree.children || "children";
+					let children = row[childrenKey];
+
+					this.renderTbodyTrChildren(children, 1);
+				}
+				// 渲染展开功能子行
+				else if (props.rowExpansion && this.isRowExpanded(rowKey)) {
 					let content;
 
 					if (props.rowExpansion.slot) {
