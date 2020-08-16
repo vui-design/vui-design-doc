@@ -18,7 +18,7 @@
 		</template>
 		<template slot="title">多功能树形结构</template>
 		<template slot="describe">
-			<p>该示例演示了树形表格的默认展开，点击行展开，以及筛选和排序功能。</p>
+			<p>该示例演示了树形表格的默认展开、点击行展开、多选，以及筛选和排序功能。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>

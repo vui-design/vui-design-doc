@@ -1,6 +1,14 @@
 const code =
 `<template>
-  <vui-table striped v-bind:columns="columns" v-bind:data="data" v-bind:rowTreeview="rowTreeview" rowKey="id">
+  <vui-table
+    v-bind:columns="columns"
+    v-bind:data="data"
+    v-bind:rowTreeview="rowTreeview"
+    v-bind:rowSelection="rowSelection"
+    v-on:rowToggle="handleRowToggle"
+    v-on:rowSelect="handleRowSelect"
+    rowKey="id"
+  >
     <vui-separator slot="action" slot-scope="{ row, rowIndex }">
       <a href="javascript:;">Edit</a>
       <a href="javascript:;">Delete</a>
@@ -12,10 +20,54 @@ const code =
   export default {
     data() {
       const columns = [
-        { key: "province", dataIndex: "province", width: 200, title: "Province/City" },
-        { key: "area", dataIndex: "area", width: 140, title: "Area" },
-        { key: "population", dataIndex: "population", title: "Population" },
-        { key: "action", width: 140, slot: "action", title: "Action" }
+        {
+          key: "province",
+          dataIndex: "province",
+          title: "Province/City"
+        },
+        {
+          key: "area",
+          dataIndex: "area",
+          sorter: true,
+          title: "Area"
+        },
+        {
+          key: "population",
+          dataIndex: "population",
+          sorter: true,
+          title: "Population",
+          filter: {
+            options: [
+              {
+                value: 1,
+                label: "Less than 1000"
+              },
+              {
+                value: 2,
+                label: "Greater tha 1000"
+              }
+            ],
+            multiple: false,
+            method(value, row) {
+              if (!value) {
+                return true;
+              }
+
+              if (value === 1) {
+                return row.population <= 1000;
+              }
+              else if (value === 2) {
+                return row.population > 1000;
+              }
+            }
+          }
+        },
+        {
+          key: "action",
+          width: 140,
+          slot: "action",
+          title: "Action"
+        }
       ];
 
       const data = [
@@ -98,14 +150,35 @@ const code =
 
       const rowTreeview = {
         children: "children",
-        value: [1]
+        value: [1, 41],
+        clickRowToToggle: true,
+        ignoreElements(element) {
+          const tagName = element.tagName.toLowerCase();
+
+          return tagName === "a" || tagName === "input";
+        }
+      };
+
+      const rowSelection = {
+        multiple: true,
+        value: []
       };
 
       return {
+        code,
         columns,
         data,
-        rowTreeview
+        rowTreeview,
+        rowSelection
       };
+    },
+    methods: {
+      handleRowToggle(value) {
+        console.log(value);
+      },
+      handleRowSelect(value) {
+        console.log(value);
+      }
     }
   };
 </script>

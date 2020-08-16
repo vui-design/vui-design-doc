@@ -319,7 +319,11 @@ const VuiTableThead = {
 							rows = props.tbody;
 						}
 
-						const status = utils.getSelectionComponentStatus(rows, props);
+						const status = utils.getSelectionComponentStatus(rows, {
+							rowKey: props.rowKey,
+							rowSelection: props.rowSelection,
+							selectedRowKeys: props.selectedRowKeys
+						});
 
 						component = (
 							<VuiCheckbox

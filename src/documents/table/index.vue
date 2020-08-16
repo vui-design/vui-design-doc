@@ -132,7 +132,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<p>注意：在 <code>Table</code> 中，<code>columns</code> 和 <code>data</code> 里的数据项都需要指定 <code>key</code> 值。对于 <code>data</code>，其数据项的 <code>key</code> 值会与行展开、行选择，以及行的渲染有着密切的关系。组件内部默认会将每项数据的 <code>key</code> 属性作为唯一的标识。如果你的数据没有这个属性，请务必使用 <code>rowKey</code> 来指定数据项的主键，不同数据项的主键不允许重复。若没有指定，表格组件可能会出现意想不到的错误。</p>
+			<p>注意：在 <code>Table</code> 中，<code>columns</code> 和 <code>data</code> 里的数据项都需要指定 <code>key</code> 值。对于 <code>data</code>，其数据项的 <code>key</code> 值会与树形结构、行展开、行选择，以及行的渲染有着密切的关系。组件内部默认会将每项数据的 <code>key</code> 属性作为唯一的标识。如果你的数据没有这个属性，请务必使用 <code>rowKey</code> 来指定数据项的主键，不同数据项的主键不允许重复。若没有指定，或出现重复，表格组件可能会出现意想不到的错误。</p>
 			<p>比如你的数据主键是 uid，请按如下方式指定：</p>
 			<p><code>&lt;vui-table rowKey="uid" /&gt;</code></p>
 			<p>或</p>
@@ -514,7 +514,7 @@
 					</tr>
 					<tr>
 						<td>expandable</td>
-						<td>是否允许行展开，返回 <code>true</code> 时允许展开，反之不允许，接收 <code>row</code>、<code>rowIndex</code>、<code>rowKey</code> 作为参数</td>
+						<td>是否允许行展开，返回 <code>true</code> 时允许展开，反之不允许，接收 <code>row</code>、<code>rowKey</code> 作为参数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
@@ -593,6 +593,12 @@
 						<td><code>true</code></td>
 					</tr>
 					<tr>
+						<td>strictly</td>
+						<td>是否启用严格模式，仅在 <code>multiple</code> 为 <code>true</code> 时有效。非严格模式下，节点选择完全受控，反之，父子数据选中状态不再关联</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
 						<td>value</td>
 						<td>默认选中的行。多选模式下是由多个行的 <code>key</code> 值组成的数组，单选模式下为单个行的 <code>key</code> 值</td>
 						<td>Array | String | Number</td>
@@ -600,7 +606,7 @@
 					</tr>
 					<tr>
 						<td>getComponentProps</td>
-						<td>用于获取选择框属性配置，接收 <code>row</code>、<code>rowIndex</code>、<code>rowKey</code> 作为参数</td>
+						<td>用于获取选择框属性配置，接收 <code>row</code>、<code>rowKey</code> 作为参数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>

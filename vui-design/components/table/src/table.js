@@ -366,33 +366,85 @@ const VuiTable = {
 
 			if (isMultiple) {
 				if (props.rowTreeview && !props.rowSelection.strictly) {
-					console.log(utils.getTreeview(state.tbody, props.rowKey, props.rowTreeview.children || "children"))
-					// if (checked) {
+					const treeview = utils.getTreeview(state.tbody, props.rowKey, props.rowTreeview.children);
+					const children = utils.getTreeviewChildren(treeview, rowKey);
+					const parents = utils.getTreeviewParents(treeview, rowKey);
 
+					if (checked) {
+						if (selectedRowKeys.indexOf(rowKey) === -1) {
+							selectedRowKeys.push(rowKey);
+						}
+					}
+					else {
+						const index = selectedRowKeys.indexOf(rowKey);
 
-					// 	selectedRowKeys.push(rowKey);
-					// }
-					// else {
-					// 	selectedRowKeys.splice(selectedRowKeys.indexOf(rowKey), 1);
-					// }
+						if (index > -1) {
+							selectedRowKeys.splice(index, 1);
+						}
+					}
 
+					if (children && children.length > 0) {
+						children.forEach(child => {
+							const childKey = utils.getRowKey(child, props.rowKey);
+							const componentProps = utils.getSelectionComponentProps(child, childKey, props.rowSelection);
+							const isEnabled = !componentProps || !componentProps.disabled;
 
+							if (!isEnabled) {
+								return;
+							}
 
+							if (checked) {
+								if (selectedRowKeys.indexOf(childKey) === -1) {
+									selectedRowKeys.push(childKey);
+								}
+							}
+							else {
+								const index = selectedRowKeys.indexOf(childKey);
 
+								if (index > -1) {
+									selectedRowKeys.splice(index, 1);
+								}
+							}
+						});
+					}
 
+					if (parents && parents.length > 0) {
+						parents.forEach(parent => {
+							const parentKey = parent.key;
+							const status = utils.getSelectionComponentStatus(parent.children, {
+								rowKey: props.rowKey,
+								rowSelection: props.rowSelection,
+								selectedRowKeys
+							});
 
+							if (status.checked) {
+								if (selectedRowKeys.indexOf(parentKey) === -1) {
+									selectedRowKeys.push(parentKey);
+								}
+							}
+							else {
+								const index = selectedRowKeys.indexOf(parentKey);
 
-					// const property = props.rowTreeview.children || "children";
-					// const children = row[property];
-
-					// if (is.array(children) && children.length > 0) {
-					// 	const status = utils.getSelectionComponentStatus(flatten(children, property, true), props);
-
-					// 	btnSelectionAttributes.props.indeterminate = status.indeterminate;
-					// }
+								if (index > -1) {
+									selectedRowKeys.splice(index, 1);
+								}
+							}
+						});
+					}
 				}
 				else {
-					checked ? selectedRowKeys.push(rowKey) : selectedRowKeys.splice(selectedRowKeys.indexOf(rowKey), 1);
+					if (checked) {
+						if (selectedRowKeys.indexOf(rowKey) === -1) {
+							selectedRowKeys.push(rowKey);
+						}
+					}
+					else {
+						const index = selectedRowKeys.indexOf(rowKey);
+
+						if (index > -1) {
+							selectedRowKeys.splice(index, 1);
+						}
+					}
 				}
 			}
 			else {
@@ -418,9 +470,7 @@ const VuiTable = {
 			let selectedRowKeys = clone(state.selectedRowKeys);
 
 			if (props.rowTreeview) {
-				const property = props.rowTreeview.children || "children";
-
-				rows = flatten(state.tbody, property, true);
+				rows = flatten(state.tbody, props.rowTreeview.children, true);
 			}
 			else {
 				rows = state.tbody;
@@ -428,17 +478,23 @@ const VuiTable = {
 
 			rows.forEach((row, rowIndex) => {
 				const rowKey = utils.getRowKey(row, props.rowKey);
-				const componentProps = utils.getSelectionComponentProps(row, rowIndex, rowKey, props.rowSelection);
+				const componentProps = utils.getSelectionComponentProps(row, rowKey, props.rowSelection);
 				const isEnabled = !componentProps || !componentProps.disabled;
 
+				if (!isEnabled) {
+					return;
+				}
+
 				if (checked) {
-					if (isEnabled && selectedRowKeys.indexOf(rowKey) === -1) {
+					if (selectedRowKeys.indexOf(rowKey) === -1) {
 						selectedRowKeys.push(rowKey);
 					}
 				}
 				else {
-					if (isEnabled && selectedRowKeys.indexOf(rowKey) > -1) {
-						selectedRowKeys.splice(selectedRowKeys.indexOf(rowKey), 1);
+					const index = selectedRowKeys.indexOf(rowKey);
+
+					if (index > -1) {
+						selectedRowKeys.splice(index, 1);
 					}
 				}
 			});

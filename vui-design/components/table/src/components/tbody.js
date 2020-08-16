@@ -274,17 +274,13 @@ const VuiTableTbody = {
 			vuiTable.handleRowClick(row, rowIndex, rowKey);
 
 			if (rowTreeview && rowTreeview.clickRowToToggle) {
-				const property = rowTreeview.children || "children";
-				const children = row[property];
-				const isToggable = is.array(children) && children.length > 0;
+				const isTogglable = utils.getRowTogglable(row, rowTreeview);
 
-				if (!isToggable) {
+				if (!isTogglable) {
 					return;
 				}
 
-				const e = event || window.event;
-				const target = e.target || e.srcElement;
-				const isIgnoreElements = is.function(rowTreeview.ignoreElements) ? rowTreeview.ignoreElements(target) : false;
+				const isIgnoreElements = utils.isIgnoreElements(rowTreeview.ignoreElements, event);
 
 				if (isIgnoreElements) {
 					return;
@@ -294,15 +290,13 @@ const VuiTableTbody = {
 			}
 
 			if (rowExpansion && rowExpansion.clickRowToExpand) {
-				const isExpandable = utils.getExpansionExpandable(row, rowIndex, rowKey, rowExpansion);
+				const isExpandable = utils.getRowExpandable(row, rowKey, rowExpansion);
 
 				if (!isExpandable) {
 					return;
 				}
 
-				const e = event || window.event;
-				const target = e.target || e.srcElement;
-				const isIgnoreElements = is.function(rowExpansion.ignoreElements) ? rowExpansion.ignoreElements(target) : false;
+				const isIgnoreElements = utils.isIgnoreElements(rowExpansion.ignoreElements, event);
 
 				if (isIgnoreElements) {
 					return;
@@ -328,11 +322,9 @@ const VuiTableTbody = {
 				return;
 			}
 
-			const property = rowTreeview.children || "children";
-			const children = row[property];
-			const isToggable = is.array(children) && children.length > 0;
+			const isTogglable = utils.getRowTogglable(row, rowTreeview);
 
-			if (!isToggable) {
+			if (!isTogglable) {
 				return;
 			}
 
@@ -350,7 +342,7 @@ const VuiTableTbody = {
 				return;
 			}
 
-			const isExpandable = utils.getExpansionExpandable(row, rowIndex, rowKey, rowExpansion);
+			const isExpandable = utils.getRowExpandable(row, rowKey, rowExpansion);
 
 			if (!isExpandable) {
 				return;
@@ -446,7 +438,7 @@ const VuiTableTbody = {
 				let tds = [];
 
 				if (props.rowExpansion) {
-					const isExpandable = utils.getExpansionExpandable(row, rowIndex, rowKey, props.rowExpansion);
+					const isExpandable = utils.getRowExpandable(row, rowKey, props.rowExpansion);
 					const isRowExpanded = this.isRowExpanded(rowKey);
 					let btnExpansion;
 
@@ -471,7 +463,9 @@ const VuiTableTbody = {
 				}
 
 				if (props.rowSelection) {
+					const isMultiple = utils.getSelectionMultiple(props.rowSelection);
 					const isRowSelected = this.isRowSelected(rowKey);
+					const componentProps = utils.getSelectionComponentProps(row, rowKey, props.rowSelection);
 					let btnSelection;
 					let btnSelectionAttributes = {
 						class: this.getColumnSelectionClassName(props.rowSelection, isRowSelected),
@@ -483,18 +477,20 @@ const VuiTableTbody = {
 						}
 					};
 
-					if (props.rowTreeview && !props.rowSelection.strictly) {
-						const property = props.rowTreeview.children || "children";
-						const children = row[property];
+					if (props.rowTreeview && isMultiple && !props.rowSelection.strictly) {
+						const childrenKey = props.rowTreeview.children;
+						const children = utils.getRowChildren(row, childrenKey);
 
 						if (is.array(children) && children.length > 0) {
-							const status = utils.getSelectionComponentStatus(flatten(children, property, true), props);
+							const status = utils.getSelectionComponentStatus(flatten(children, childrenKey, true), {
+								rowKey: props.rowKey,
+								rowSelection: props.rowSelection,
+								selectedRowKeys: props.selectedRowKeys
+							});
 
 							btnSelectionAttributes.props.indeterminate = status.indeterminate;
 						}
 					}
-
-					const componentProps = utils.getSelectionComponentProps(row, rowIndex, rowKey, props.rowSelection);
 
 					if (componentProps) {
 						btnSelectionAttributes.props = {
@@ -502,8 +498,6 @@ const VuiTableTbody = {
 							...btnSelectionAttributes.props
 						};
 					}
-
-					const isMultiple = utils.getSelectionMultiple(props.rowSelection);
 
 					if (isMultiple) {
 						btnSelection = (
@@ -549,8 +543,8 @@ const VuiTableTbody = {
 						const lastLevelIndex = level - 1;
 
 						for (let i = 0; i < level; i++) {
-							const property = props.rowTreeview.children || "children";
-							const children = row[property];
+							const childrenKey = props.rowTreeview.children;
+							const children = utils.getRowChildren(row, childrenKey);
 							let btnSwitchAttributes;
 
 							if (i === lastLevelIndex && is.array(children) && children.length > 0) {
@@ -655,8 +649,8 @@ const VuiTableTbody = {
 				this.rowIndex++;
 
 				if (props.rowTreeview && this.isRowOpened(rowKey)) {
-					const property = props.rowTreeview.children || "children";
-					const children = row[property];
+					const childrenKey = props.rowTreeview.children;
+					const children = utils.getRowChildren(row, childrenKey);
 
 					if (is.array(children) && children.length > 0) {
 						this.gatherTbodyChildren(h, trs, level + 1, children);

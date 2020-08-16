@@ -4,23 +4,12 @@ import flatten from "vui-design/utils/flatten";
 import getTargetByPath from "vui-design/utils/getTargetByPath";
 import is from "vui-design/utils/is";
 
-// 获取行数据的唯一 key 值
-const getRowKey = (row, property) => {
-    let rowKey;
+// 
+const isIgnoreElements = (ignoreElements, event) => {
+    const e = event || window.event;
+    const element = e.target || e.srcElement;
 
-    if (is.string(property)) {
-        const target = getTargetByPath(row, property);
-
-        rowKey = target.value;
-    }
-    else if (is.function(property)) {
-        rowKey = property(clone(row));
-    }
-    else {
-        rowKey = guid();
-    }
-
-    return rowKey;
+    return is.function(ignoreElements) ? ignoreElements(element) : false;
 };
 
 // 获取列数据的唯一 key 值
@@ -40,16 +29,59 @@ const getColumnKey = (column) => {
     return columnKey;
 };
 
-// 根据树形表格嵌套关系获取一维映射数组
-const getTreeview = (rows, rowKey, childrenKey, parentKey) => {
-    let array = [];
+// 获取行数据的唯一 key 值
+const getRowKey = (row, property) => {
+    let rowKey;
 
+    if (is.string(property)) {
+        const target = getTargetByPath(row, property);
+
+        rowKey = target.value;
+    }
+    else if (is.function(property)) {
+        rowKey = property(clone(row));
+    }
+    else {
+        rowKey = guid();
+    }
+
+    return rowKey;
+};
+
+// 获取子行数据
+const getRowChildren = (row, childrenKey = "children") => {
+    return row[childrenKey];
+};
+
+// 获取行的可展开性（用于树形结构，根据子行数量判断是否允许展开）
+const getRowTogglable = (row, rowTreeview) => {
+    const childrenKey = rowTreeview.children;
+    const children = getRowChildren(row, childrenKey);
+
+    return is.array(children) && children.length > 0;
+};
+
+// 获取行的可展开性（用于展开功能，根据用户配置判断是否允许展开）
+const getRowExpandable = (row, rowKey, rowExpansion) => {
+    let expandable = true;
+    const checker = rowExpansion.expandable;
+
+    if (is.function(checker)) {
+        expandable = checker(clone(row), rowKey);
+    }
+
+    return expandable;
+};
+
+// 根据树形表格嵌套关系获取一维映射数组
+const getTreeview = (rows, rowKey, childrenKey = "children", parentKey, array = []) => {
     rows.forEach(row => {
         const key = getRowKey(row, rowKey);
-        
+
         array.push({
             key,
-            parentKey
+            parentKey,
+            children: row[childrenKey] ? flatten(row[childrenKey], childrenKey, true) : [],
         });
 
         if (row[childrenKey]) {
@@ -60,19 +92,34 @@ const getTreeview = (rows, rowKey, childrenKey, parentKey) => {
     return array;
 };
 
-// 启用了行展开功能时，获取行的可展开性
-const getExpansionExpandable = (row, rowIndex, rowKey, rowExpansion) => {
-    let expandable = true;
-    const checker = rowExpansion.expandable;
+// 根据当前行的 rowKey 获取所有子行
+const getTreeviewChildren = (treeview, rowKey, children = []) => {
+    const target = treeview.find(element => element.key === rowKey);
 
-    if (is.function(checker)) {
-        expandable = checker(clone(row), rowIndex, rowKey);
+    if (target) {
+        children = target.children;
     }
 
-    return expandable;
+    return children;
 };
 
-// 启用了行选择功能时，获取选择方式（多选或单选）
+// 根据当前行的 rowKey 获取所有父行
+const getTreeviewParents = (rows, rowKey, parents = []) => {
+    const target = rows.find(row => row.key === rowKey);
+
+    if (target && target.parentKey) {
+        const parent = rows.find(row => row.key === target.parentKey);
+
+        if (parent) {
+            parents.push(parent);
+            getTreeviewParents(rows, parent.key, parents);
+        }
+    }
+
+    return parents;
+};
+
+// 启用了选择功能时，获取选择方式（多选或单选）
 const getSelectionMultiple = (rowSelection) => {
     let multiple = true;
 
@@ -83,32 +130,32 @@ const getSelectionMultiple = (rowSelection) => {
     return multiple;
 };
 
-// 启用了行选择功能时，获取 Checkbox 或 Radio 组件的自定义属性
-const getSelectionComponentProps = (row, rowIndex, rowKey, rowSelection) => {
+// 启用了选择功能时，获取 Checkbox 或 Radio 组件的自定义属性
+const getSelectionComponentProps = (row, rowKey, rowSelection) => {
     let componentProps;
     const getter = rowSelection.getComponentProps;
 
     if (is.function(getter)) {
-        componentProps = getter(clone(row), rowIndex, rowKey);
+        componentProps = getter(clone(row), rowKey);
     }
 
     return componentProps;
 };
 
 // 根据所有子行的选择状态，获取父行复选框的 indeterminate、checked 以及 disabled 属性
-const getSelectionComponentStatus = (rows, props) => {
+const getSelectionComponentStatus = (rows, options) => {
     let rowsLength = 0;
     let selectedLength = 0;
 
-    rows.forEach((row, rowIndex) => {
-        const rowKey = getRowKey(row, rowIndex, props.rowKey);
-        const componentProps = getSelectionComponentProps(row, rowIndex, rowKey, props.rowSelection);
+    rows.forEach(row => {
+        const rowKey = getRowKey(row, options.rowKey);
+        const componentProps = getSelectionComponentProps(row, rowKey, options.rowSelection);
         const isEnabled = !componentProps || !componentProps.disabled;
 
         if (isEnabled) {
             rowsLength++;
 
-            if (props.selectedRowKeys.indexOf(rowKey) > -1) {
+            if (options.selectedRowKeys.indexOf(rowKey) > -1) {
                 selectedLength++;
             }
         }
@@ -367,10 +414,15 @@ export const getStateTableTbody = (props, state) => {
 
 // 默认导出指定接口
 export default {
-    getRowKey,
+    isIgnoreElements,
     getColumnKey,
+    getRowKey,
+    getRowChildren,
+    getRowTogglable,
+    getRowExpandable,
     getTreeview,
-    getExpansionExpandable,
+    getTreeviewChildren,
+    getTreeviewParents,
     getSelectionMultiple,
     getSelectionComponentProps,
     getSelectionComponentStatus,
