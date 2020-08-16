@@ -352,6 +352,8 @@ export default {
         "example-table-click-row-to-expand": "点击行展开",
         "example-table-multiple-selection": "多选",
         "example-table-single-selection": "单选",
+        "example-table-treeview": "树形结构",
+        "example-table-treeview-more": "多功能树形结构",
         "example-table-grouping-columns": "表头分组",
         "example-table-rowspan-colspan": "表格行/列合并",
         "example-table-loading": "加载中",

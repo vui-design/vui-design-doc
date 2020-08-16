@@ -10,7 +10,6 @@
 			</ul>
 			<h2>代码演示</h2>
 		</Markdown>
-		<ExampleTableTree />
 		<ExampleTableBasicUsage />
 		<ExampleTableBordered />
 		<ExampleTableStriped />
@@ -24,6 +23,8 @@
 		<ExampleTableClickRowToExpand />
 		<ExampleTableMultipleSelection />
 		<ExampleTableSingleSelection />
+		<ExampleTableTreeview />
+		<ExampleTableTreeviewMore />
 		<ExampleTableGroupingColumns />
 		<ExampleTableRowSpanColSpan />
 		<ExampleTableLoading />
@@ -52,6 +53,12 @@
 						<td>数据数组。注意，每条数据中的 <code>columnClassNames</code> 字段用于设置对应行中任意单元格的样式类型，因此数据项不能使用该字段，<a href="javascript:;">详见示例</a></td>
 						<td>Array</td>
 						<td><code>[]</code></td>
+					</tr>
+					<tr>
+						<td>rowTreeview</td>
+						<td>启用树形结构展示，<a href="javascript:;">详细配置见下表</a></td>
+						<td>Object</td>
+						<td>--</td>
 					</tr>
 					<tr>
 						<td>rowExpansion</td>
@@ -103,7 +110,7 @@
 					</tr>
 					<tr>
 						<td>rowKey</td>
-						<td>指定表格行的 <code>key</code> 属性，可以是字符串或一个函数，为函数式接收 <code>row</code>、<code>rowIndex</code> 作为参数</td>
+						<td>指定表格行的 <code>key</code> 属性，可以是字符串或一个函数，为函数式接收 <code>row</code> 作为参数</td>
 						<td>String | Function</td>
 						<td><code>key</code></td>
 					</tr>
@@ -136,7 +143,7 @@
 					<tr>
 						<th width="140">事件名</th>
 						<th>说明</th>
-						<th width="170">类型</th>
+						<th width="100">类型</th>
 						<th width="360">回调参数</th>
 					</tr>
 				</thead>
@@ -200,8 +207,16 @@
 						</td>
 					</tr>
 					<tr>
+						<td>rowToggle</td>
+						<td>展开或收起行时触发的事件回调函数，用于树形结构</td>
+						<td>Function</td>
+						<td>
+							<div><code>openedRowKeys</code> - 已展开行的 key 值集合</div>
+						</td>
+					</tr>
+					<tr>
 						<td>rowExpand</td>
-						<td>展开或折叠行时触发的事件回调函数</td>
+						<td>展开或折叠行时触发的事件回调函数，用于展开功能</td>
 						<td>Function</td>
 						<td>
 							<div><code>expandedRowKeys</code> - 已展开行的 key 值集合</div>
@@ -209,7 +224,7 @@
 					</tr>
 					<tr>
 						<td>rowSelect</td>
-						<td>选择或取消选择行时触发的事件回调函数</td>
+						<td>选择或取消选择行时触发的事件回调函数，用于选择功能</td>
 						<td>Function</td>
 						<td>
 							<div><code>selectedRowKeys</code> - 已选择行的 key 值集合</div>
@@ -429,6 +444,44 @@
 					</tr>
 				</tbody>
 			</table>
+			<h3>rowTreeview 属性</h3>
+			<p>树形结构的配置描述。注意：开启选择功能后，将自动在表格左侧插入一列，用于显示多选框/单选框。</p>
+			<table class="example-api-props">
+				<thead>
+					<tr>
+						<th width="140">属性</th>
+						<th>说明</th>
+						<th width="170">类型</th>
+						<th width="80">默认值</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>children</td>
+						<td>指定子行对应的键值属性</td>
+						<td>String</td>
+						<td><code>children</code></td>
+					</tr>
+					<tr>
+						<td>clickRowToToggle</td>
+						<td>通过点击行来展开/收起子行，展开/收起子行的行为默认是由图标控制的</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>ignoreElements</td>
+						<td>忽略指定元素（即点击行内指定元素禁止触发展开/收起行为），返回 <code>true</code> 时不会进行折叠；仅在 <code>clickRowToToggle</code> 为 <code>true</code> 时有效</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>value</td>
+						<td>默认展开的行，由行的 <code>key</code> 值组成的数组</td>
+						<td>Array</td>
+						<td><code>[]</code></td>
+					</tr>
+				</tbody>
+			</table>
 			<h3>rowExpansion 属性</h3>
 			<p>展开功能的配置描述。注意：开启展开功能后，将自动在表格左侧插入一列，用于显示展开图标。</p>
 			<table class="example-api-props">
@@ -560,7 +613,6 @@
 <script>
 	import MixinCatalogue from "@/mixins/catalogue";
 	import Markdown from "@/components/markdown";
-	import ExampleTableTree from "./examples/tree";
 	import ExampleTableBasicUsage from "./examples/basic-usage";
 	import ExampleTableBordered from "./examples/bordered";
 	import ExampleTableStriped from "./examples/striped";
@@ -574,6 +626,8 @@
 	import ExampleTableClickRowToExpand from "./examples/click-row-to-expand";
 	import ExampleTableMultipleSelection from "./examples/multiple-selection";
 	import ExampleTableSingleSelection from "./examples/single-selection";
+	import ExampleTableTreeview from "./examples/treeview";
+	import ExampleTableTreeviewMore from "./examples/treeview-more";
 	import ExampleTableGroupingColumns from "./examples/grouping-columns";
 	import ExampleTableRowSpanColSpan from "./examples/rowspan-colspan";
 	import ExampleTableLoading from "./examples/loading";
@@ -585,7 +639,6 @@
 		],
 		components: {
 			Markdown,
-			ExampleTableTree,
 			ExampleTableBasicUsage,
 			ExampleTableBordered,
 			ExampleTableStriped,
@@ -599,6 +652,8 @@
 			ExampleTableClickRowToExpand,
 			ExampleTableMultipleSelection,
 			ExampleTableSingleSelection,
+			ExampleTableTreeview,
+			ExampleTableTreeviewMore,
 			ExampleTableGroupingColumns,
 			ExampleTableRowSpanColSpan,
 			ExampleTableLoading,
