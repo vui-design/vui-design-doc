@@ -1,7 +1,7 @@
 const code =
 `<template>
-  <vui-tabs type="card" v-model="activeTabPanel" closable @close="handleClose">
-    <vui-tab-panel v-for="panel in panels" :key="panel.name" :name="panel.name" :title="panel.title" :closable="panel.closable">
+  <vui-tabs type="card" v-model="activeKey" closable v-on:close="handleClose">
+    <vui-tab-panel v-for="panel in panels" v-bind:key="panel.key" v-bind:title="panel.title" v-bind:closable="panel.closable">
       {{panel.content}}
     </vui-tab-panel>
   </vui-tabs>
@@ -15,8 +15,8 @@ const code =
 
       for (; index < 4; index++) {
         let panel = {
+          key: "tab" + index,
           title: "Tab " + index,
-          name: "tab" + index,
           content: "Content of Tab panel " + index
         };
 
@@ -29,33 +29,33 @@ const code =
 
       return {
         panels: panels,
-        activeTabPanel: panels[0].name
+        activeKey: panels[0].key
       };
     },
     methods: {
-      handleClose(name) {
-        let activeTabPanel = this.activeTabPanel;
+      handleClose(key) {
+        let activeKey = this.activeKey;
         let lastIndex;
 
         this.panels.forEach((panel, index) => {
-          if (panel.name === name) {
+          if (panel.key === key) {
             lastIndex = index - 1;
           }
         });
 
-        let panels = this.panels.filter(panel => panel.name !== name);
+        let panels = this.panels.filter(panel => panel.key !== key);
 
-        if (panels.length && activeTabPanel === name) {
+        if (panels.length && activeKey === key) {
           if (lastIndex >= 0) {
-            activeTabPanel = panels[lastIndex].name;
+            activeKey = panels[lastIndex].key;
           }
           else {
-            activeTabPanel = panels[0].name;
+            activeKey = panels[0].key;
           }
         }
 
         this.panels = panels;
-        this.activeTabPanel = activeTabPanel;
+        this.activeKey = activeKey;
       }
     }
   };

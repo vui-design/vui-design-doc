@@ -1,8 +1,8 @@
 <template>
 	<Example vertical id="example-tabs-addable">
 		<template slot="source">
-			<vui-tabs type="card" v-model="activeTabPanel" addable @add="handleAdd">
-				<vui-tab-panel v-for="panel in panels" :key="panel.name" :name="panel.name" :title="panel.title">
+			<vui-tabs type="card" v-model="activeKey" addable v-on:add="handleAdd">
+				<vui-tab-panel v-for="panel in panels" v-bind:key="panel.key" v-bind:title="panel.title">
 					{{panel.content}}
 				</vui-tab-panel>
 			</vui-tabs>
@@ -29,8 +29,8 @@
 
 			for (; index < 4; index++) {
 				let panel = {
+					key: "tab" + index,
 					title: "Tab " + index,
-					name: "tab" + index,
 					content: "Content of Tab panel " + index
 				};
 
@@ -40,18 +40,18 @@
 			return {
 				code,
 				panels: panels,
-				activeTabPanel: panels[0].name,
+				activeKey: panels[0].key,
 				index: index
 			};
 		},
 		methods: {
 			handleAdd() {
 				this.panels.push({
+					key: "tab" + this.index,
 					title: "Tab " + this.index,
-					name: "tab" + this.index,
 					content: "Content of Tab panel " + this.index
 				});
-				this.activeTabPanel = "tab" + this.index;
+				this.activeKey = "tab" + this.index;
 				this.index++;
 			}
 		}

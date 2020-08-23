@@ -13,8 +13,8 @@
 			</ul>
 			<h2>代码演示</h2>
 		</Markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleTabsBasicUsage />
 				<ExampleTabsCard />
 				<ExampleTabsIcon />
@@ -22,7 +22,7 @@
 				<ExampleTabsCustomTitle />
 				<ExampleTabsExtra />
 			</vui-col>
-			<vui-col :span="12">
+			<vui-col v-bind:span="12">
 				<ExampleTabsSize />
 				<ExampleTabsAddable />
 				<ExampleTabsClosable />
@@ -50,16 +50,16 @@
 						<td><code>line</code></td>
 					</tr>
 					<tr>
-						<td>value</td>
-						<td>当前激活面板的 <code>name</code> 属性值，可以使用 <code>v-model</code> 双向绑定数据</td>
-						<td>String</td>
-						<td>--</td>
-					</tr>
-					<tr>
 						<td>size</td>
 						<td>页签尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
 						<td>String</td>
 						<td><code>medium</code></td>
+					</tr>
+					<tr>
+						<td>activeKey</td>
+						<td>当前激活面板的 <code>key</code> 值属性，可以使用 <code>v-model</code> 双向绑定数据</td>
+						<td>String</td>
+						<td>--</td>
 					</tr>
 					<tr>
 						<td>addable</td>
@@ -121,19 +121,19 @@
 						<td>close</td>
 						<td>关闭页签时触发，仅在 <code>closable</code> 或 <code>editable</code> 属性为 <code>true</code> 时有效</td>
 						<td>Function</td>
-						<td><code>name</code></td>
+						<td><code>key</code></td>
 					</tr>
 					<tr>
 						<td>input</td>
 						<td>切换页签时触发，可以使用 <code>v-model</code> 双向绑定数据</td>
 						<td>Function</td>
-						<td><code>name</code></td>
+						<td><code>key</code></td>
 					</tr>
 					<tr>
 						<td>change</td>
 						<td>切换页签时触发</td>
 						<td>Function</td>
-						<td><code>name</code></td>
+						<td><code>key</code></td>
 					</tr>
 				</tbody>
 			</table>
@@ -149,8 +149,8 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>name</td>
-						<td>当前页签唯一名称标识，对应父级 <code>Tabs</code> 组件的 <code>value</code> 值，默认自动生成</td>
+						<td>key</td>
+						<td>当前页签唯一标识，对应父级 <code>Tabs</code> 组件的 <code>activeKey</code> 值，默认页签索引</td>
 						<td>String | Number</td>
 						<td>--</td>
 					</tr>
