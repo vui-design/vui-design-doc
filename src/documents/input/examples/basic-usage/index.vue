@@ -1,8 +1,7 @@
 <template>
 	<Example vertical id="example-input-basic-usage">
 		<template slot="source">
-			<!-- <vui-input v-model="value" placeholder="Basic usage" /> -->
-			<vui-datepicker style="width: 200px;" />
+			<vui-input v-model="value" placeholder="Basic usage" />
 		</template>
 		<template slot="title">基本用法</template>
 		<template slot="describe">
