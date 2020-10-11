@@ -29,7 +29,7 @@
 		data() {
 			return {
 				code,
-				value: undefined
+				value: "london"
 			};
 		},
 		watch: {

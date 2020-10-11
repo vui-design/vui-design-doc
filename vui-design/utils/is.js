@@ -12,6 +12,9 @@ const funToString = funProto.toString;
 const canUseSymbol = typeof Symbol === "function" && Symbol.for;
 const reactElementType = canUseSymbol ? Symbol.for("react.element") : 0xeac7;
 
+const nativeIsInteger = Number.isInteger;
+const nativeIsArray = Array.isArray;
+
 // 检查是否运行于服务器端
 export const isServer = Vue.prototype.$isServer;
 
@@ -46,6 +49,15 @@ export function isNumber(value) {
 	return objToString.call(value) === "[object Number]" && !isNaN(value);
 };
 
+// 检查给定的值是否是整数
+export function isInteger(value) {
+	if (nativeIsInteger) {
+		return nativeIsInteger(value);
+	}
+
+	return isNumber(value) && isFinite(value) && Math.floor(value) === value;
+};
+
 // 检查给定的值是否是字符串
 export function isString(value) {
 	return objToString.call(value) === "[object String]";
@@ -73,6 +85,10 @@ export function isFunction(value) {
 
 // 检查给定的值是否是数组
 export function isArray(value) {
+	if (nativeIsArray) {
+		return nativeIsArray(value);
+	}
+
 	return objToString.call(value) === "[object Array]";
 };
 
@@ -117,6 +133,7 @@ export default {
 	undefined: isUndefined,
 	nan: isNaN,
 	number: isNumber,
+	integer: isInteger,
 	string: isString,
 	boolean: isBoolean,
 	regexp: isRegExp,

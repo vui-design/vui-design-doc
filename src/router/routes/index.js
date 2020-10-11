@@ -166,6 +166,15 @@ export default [
 			},
 			// 导航组件
 			{
+				path: "/components/affix",
+				name: "affix",
+				meta: {
+					title: "Affix",
+					group: "navigation"
+				},
+				component: () => import("@/documents/affix/index")
+			},
+			{
 				path: "/components/breadcrumb",
 				name: "breadcrumb",
 				meta: {
@@ -246,6 +255,15 @@ export default [
 					group: "data-entry"
 				},
 				component: () => import("@/documents/checkbox/index")
+			},
+			{
+				path: "/components/datepicker",
+				name: "datepicker",
+				meta: {
+					title: "Datepicker",
+					group: "data-entry"
+				},
+				component: () => import("@/documents/datepicker/index")
 			},
 			{
 				path: "/components/form",
@@ -529,6 +547,15 @@ export default [
 				component: () => import("@/documents/spin/index")
 			},
 			// 其它
+			{
+				path: "/components/anchor",
+				name: "anchor",
+				meta: {
+					title: "Anchor",
+					group: "other"
+				},
+				component: () => import("@/documents/anchor/index")
+			},
 			{
 				path: "/components/backtop",
 				name: "backtop",

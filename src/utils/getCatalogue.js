@@ -12,6 +12,12 @@ export default function getCatalogue(markdown) {
   const nodeList = markdown.querySelectorAll("[id]");
 
   for (let i = 0, length = nodeList.length; i < length; i++) {
+  	const id = nodeList[i].getAttribute("id");
+
+  	if (id.includes("example-api-")) {
+  		continue;
+  	}
+
     catalogue.push(nodeList[i].getAttribute("id"));
   }
 

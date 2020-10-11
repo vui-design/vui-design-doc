@@ -1,3 +1,4 @@
+import VuiLazyRender from "vui-design/components/lazy-render";
 import VuiIcon from "vui-design/components/icon";
 import VuiButton from "vui-design/components/button";
 import Portal from "vui-design/directives/portal";
@@ -25,6 +26,7 @@ const VuiDrawer = {
 	},
 
 	components: {
+		VuiLazyRender,
 		VuiIcon,
 		VuiButton
 	},
@@ -316,7 +318,7 @@ const VuiDrawer = {
 			}
 
 			children.push(
-				<transition name={animations.backdrop}>
+				<transition appear name={animations.backdrop}>
 					<div v-show={defaultVisible} {...backdropProps}></div>
 				</transition>
 			);
@@ -399,9 +401,9 @@ const VuiDrawer = {
 		}
 
 		children.push(
-			<transition name={animations.backdrop}>
+			<transition appear name={animations.backdrop}>
 				<div v-show={defaultVisible} class={classes.wrapper} style={styles.wrapper}>
-					<transition name={animations.drawer} onEnter={handleEnter} onAfterEnter={handleAfterEnter} onLeave={handleLeave} onAfterLeave={handleAfterLeave}>
+					<transition appear name={animations.drawer} onEnter={handleEnter} onAfterEnter={handleAfterEnter} onLeave={handleLeave} onAfterLeave={handleAfterLeave}>
 						<div v-show={defaultVisible} ref="drawer" class={classes.drawer} style={styles.drawer}>
 							{header}
 							{body}
@@ -414,9 +416,11 @@ const VuiDrawer = {
 		);
 
 		return (
-			<div v-portal={portal}>
-				{children}
-			</div>
+			<VuiLazyRender status={defaultVisible}>
+				<div v-portal={portal}>
+					{children}
+				</div>
+			</VuiLazyRender>
 		);
 	}
 };

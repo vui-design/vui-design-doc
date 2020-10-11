@@ -29,7 +29,7 @@
 		data() {
 			return {
 				code,
-				value: []
+				value: ["london", "ottawa"]
 			};
 		},
 		methods: {

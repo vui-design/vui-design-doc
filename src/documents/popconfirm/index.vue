@@ -10,13 +10,13 @@
 			</ul>
 			<h2>代码演示</h2>
 		</Markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExamplePopconfirmBasicUsage />
-				<ExamplePopconfirmPlacement />
-			</vui-col>
-			<vui-col :span="12">
 				<ExamplePopconfirmIcon />
+			</vui-col>
+			<vui-col v-bind:span="12">
+				<ExamplePopconfirmPlacement />
 			</vui-col>
 		</vui-row>
 		<Markdown>
@@ -25,10 +25,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="100">属性</th>
+						<th width="140">属性</th>
 						<th>说明</th>
 						<th width="150">类型</th>
-						<th width="100">默认值</th>
+						<th width="160">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -40,7 +40,7 @@
 					</tr>
 					<tr>
 						<td>icon</td>
-						<td>确认框的图标</td>
+						<td>确认框的图标或图标类型</td>
 						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
@@ -77,13 +77,13 @@
 					<tr>
 						<td>minWidth</td>
 						<td>确认框的最小宽度</td>
-						<td>Number | String</td>
+						<td>String | Number</td>
 						<td><code>150</code></td>
 					</tr>
 					<tr>
 						<td>maxWidth</td>
 						<td>确认框的最大宽度</td>
-						<td>Number | String</td>
+						<td>String | Number</td>
 						<td><code>300</code></td>
 					</tr>
 					<tr>
@@ -92,16 +92,22 @@
 						<td>String</td>
 						<td><code>top</code></td>
 					</tr>
+					<tr>
+						<td>getPopupContainer</td>
+						<td>浮层渲染父节点，默认渲染到 <code>body</code> 上</td>
+						<td>Function</td>
+						<td><code>() => document.body</code></td>
+					</tr>
 				</tbody>
 			</table>
 			<h3>Popconfirm 事件</h3>
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="100">事件名</th>
+						<th width="140">事件名</th>
 						<th>说明</th>
 						<th width="150">类型</th>
-						<th width="100">回调参数</th>
+						<th width="160">回调参数</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -118,8 +124,14 @@
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>change</td>
+						<td>input</td>
 						<td>可见状态发生变化时触发的事件回调，可以使用 <code>v-model</code> 双向绑定</td>
+						<td>Function</td>
+						<td><code>visible</code></td>
+					</tr>
+					<tr>
+						<td>change</td>
+						<td>可见状态发生变化时触发的事件回调</td>
 						<td>Function</td>
 						<td><code>visible</code></td>
 					</tr>

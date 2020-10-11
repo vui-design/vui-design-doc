@@ -19,13 +19,13 @@ const defaults = {
 */
 const createModalInstance = function(options) {
 	// 创建 Modal 挂载的 html 根节点
-	let container = options.getPopupContainer();
-	let el = document.createElement("div");
+	const container = options.getPopupContainer();
+	const el = document.createElement("div");
 
 	container.appendChild(el);
 
 	// 上述已创建 Modal 挂载的 html 根节点，这里对 getPopupContainer 选项进行重置，避免在组件实例化后又进行一次挂载
-	options.getPopupContainer = () => false;
+	options.getPopupContainer = false;
 
 	// 创建 Modal 实例
 	return new Vue({
@@ -187,7 +187,7 @@ VuiModal.info = function(options) {
 	options.showCancelButton = false;
 	options.showOkButton = true;
 
-	let instance = createModalInstance(options);
+	const instance = createModalInstance(options);
 
 	instance.open();
 
@@ -217,7 +217,7 @@ VuiModal.warning = function(options) {
 	options.showCancelButton = false;
 	options.showOkButton = true;
 
-	let instance = createModalInstance(options);
+	const instance = createModalInstance(options);
 
 	instance.open();
 
@@ -247,7 +247,7 @@ VuiModal.success = function(options) {
 	options.showCancelButton = false;
 	options.showOkButton = true;
 
-	let instance = createModalInstance(options);
+	const instance = createModalInstance(options);
 
 	instance.open();
 
@@ -277,7 +277,7 @@ VuiModal.error = function(options) {
 	options.showCancelButton = false;
 	options.showOkButton = true;
 
-	let instance = createModalInstance(options);
+	const instance = createModalInstance(options);
 
 	instance.open();
 
@@ -307,7 +307,7 @@ VuiModal.confirm = function(options) {
 	options.showCancelButton = true;
 	options.showOkButton = true;
 
-	let instance = createModalInstance(options);
+	const instance = createModalInstance(options);
 
 	instance.open();
 

@@ -2,48 +2,48 @@ const code =
 `<template>
   <div class="example-popover-placement">
     <div class="top">
-      <vui-popover trigger="click" placement="top-start" title="Title" content="This is a popover.">
+      <vui-popover placement="top-start" title="Title" content="This is a popover.">
         <vui-button>TL</vui-button>
       </vui-popover>
-      <vui-popover trigger="click" placement="top" title="Title" content="This is a popover.">
+      <vui-popover placement="top" title="Title" content="This is a popover.">
         <vui-button>T</vui-button>
       </vui-popover>
-      <vui-popover trigger="click" placement="top-end" title="Title" content="This is a popover.">
+      <vui-popover placement="top-end" title="Title" content="This is a popover.">
         <vui-button>TR</vui-button>
       </vui-popover>
     </div>
     <div class="middle">
       <div class="middle-left">
-        <vui-popover trigger="click" placement="left-start" title="Title" content="This is a popover.">
+        <vui-popover placement="left-start" title="Title" content="This is a popover.">
           <vui-button block>LT</vui-button>
         </vui-popover>
-        <vui-popover trigger="click" placement="left" title="Title" content="This is a popover.">
+        <vui-popover placement="left" title="Title" content="This is a popover.">
           <vui-button block>L</vui-button>
         </vui-popover>
-        <vui-popover trigger="click" placement="left-end" title="Title" content="This is a popover.">
+        <vui-popover placement="left-end" title="Title" content="This is a popover.">
           <vui-button block>LB</vui-button>
         </vui-popover>
       </div>
       <div class="middle-right">
-        <vui-popover trigger="click" placement="right-start" title="Title" content="This is a popover.">
+        <vui-popover placement="right-start" title="Title" content="This is a popover.">
           <vui-button block>RT</vui-button>
         </vui-popover>
-        <vui-popover trigger="click" placement="right" title="Title" content="This is a popover.">
+        <vui-popover placement="right" title="Title" content="This is a popover.">
           <vui-button block>R</vui-button>
         </vui-popover>
-        <vui-popover trigger="click" placement="right-end" title="Title" content="This is a popover.">
+        <vui-popover placement="right-end" title="Title" content="This is a popover.">
           <vui-button block>RB</vui-button>
         </vui-popover>
       </div>
     </div>
     <div class="bottom">
-      <vui-popover trigger="click" placement="bottom-start" title="Title" content="This is a popover.">
+      <vui-popover placement="bottom-start" title="Title" content="This is a popover.">
         <vui-button>BL</vui-button>
       </vui-popover>
-      <vui-popover trigger="click" placement="bottom" title="Title" content="This is a popover.">
+      <vui-popover placement="bottom" title="Title" content="This is a popover.">
         <vui-button>B</vui-button>
       </vui-popover>
-      <vui-popover trigger="click" placement="bottom-end" title="Title" content="This is a popover.">
+      <vui-popover placement="bottom-end" title="Title" content="This is a popover.">
         <vui-button>BR</vui-button>
       </vui-popover>
     </div>

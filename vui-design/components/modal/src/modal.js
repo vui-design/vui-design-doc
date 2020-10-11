@@ -1,17 +1,21 @@
+import VuiLazyRender from "vui-design/components/lazy-render";
 import VuiIcon from "vui-design/components/icon";
 import VuiButton from "vui-design/components/button";
 import Portal from "vui-design/directives/portal";
 import Locale from "vui-design/mixins/locale";
 import Scrollbar from "vui-design/mixins/scrollbar";
+import Popup from "vui-design/utils/popup";
+import PropTypes from "vui-design/utils/prop-types";
 import is from "vui-design/utils/is";
 import merge from "vui-design/utils/merge";
+import getEventTarget from "vui-design/utils/getEventTarget";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
-import Popup from "vui-design/utils/popup";
 
 const VuiModal = {
 	name: "vui-modal",
 
 	components: {
+		VuiLazyRender,
 		VuiIcon,
 		VuiButton
 	},
@@ -27,104 +31,37 @@ const VuiModal = {
 
 	model: {
 		prop: "visible",
-		event: "change"
+		event: "input"
 	},
 
 	props: {
-		classNamePrefix: {
-			type: String,
-			default: undefined
-		},
-		visible: {
-			type: Boolean,
-			default: false
-		},
-		showNotice: {
-			type: Boolean,
-			default: false
-		},
-		title: {
-			type: String,
-			default: undefined
-		},
-		showFooter: {
-			type: Boolean,
-			default: true
-		},
-		showCancelButton: {
-			type: Boolean,
-			default: true
-		},
-		cancelButtonProps: {
-			type: Object,
-			default: undefined
-		},
-		cancelText: {
-			type: String
-		},
-		cancelAsync: {
-			type: Boolean,
-			default: false
-		},
-		showOkButton: {
-			type: Boolean,
-			default: true
-		},
-		okButtonProps: {
-			type: Object,
-			default: undefined
-		},
-		okText: {
-			type: String
-		},
-		okAsync: {
-			type: Boolean,
-			default: false
-		},
-		closable: {
-			type: Boolean,
-			default: true
-		},
-		top: {
-			type: [String, Number],
-			default: 100
-		},
-		centered: {
-			type: Boolean,
-			default: false
-		},
-		width: {
-			type: [String, Number],
-			default: 500
-		},
-		className: {
-			type: String,
-			default: undefined
-		},
-		backdrop: {
-			type: Boolean,
-			default: true
-		},
-		backdropClassName: {
-			type: String,
-			default: undefined
-		},
-		clickBackdropToClose: {
-			type: Boolean,
-			default: true
-		},
-		animations: {
-			type: Array,
-			default: () => ["vui-modal-backdrop-fade", "vui-modal-zoom"]
-		},
-		getPopupContainer: {
-			type: Function,
-			default: () => document.body
-		}
+		classNamePrefix: PropTypes.string,
+		visible: PropTypes.bool.def(false),
+		showNotice: PropTypes.bool.def(false),
+		title: PropTypes.string,
+		showFooter: PropTypes.bool.def(true),
+		showCancelButton: PropTypes.bool.def(true),
+		cancelButtonProps: PropTypes.object,
+		cancelText: PropTypes.string,
+		cancelAsync: PropTypes.bool.def(false),
+		showOkButton: PropTypes.bool.def(true),
+		okButtonProps: PropTypes.object,
+		okText: PropTypes.string,
+		okAsync: PropTypes.bool.def(false),
+		closable: PropTypes.bool.def(true),
+		top: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).def(100),
+		centered: PropTypes.bool.def(false),
+		width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).def(500),
+		className: PropTypes.string,
+		backdrop: PropTypes.bool.def(true),
+		backdropClassName: PropTypes.string,
+		clickBackdropToClose: PropTypes.bool.def(true),
+		animations: PropTypes.array.def(["vui-modal-backdrop-fade", "vui-modal-zoom"]),
+		getPopupContainer: PropTypes.any.def(() => document.body)
 	},
 
 	data() {
-		let { $props: props } = this;
+		const { $props: props } = this;
 
 		return {
 			state: {
@@ -136,12 +73,6 @@ const VuiModal = {
 		};
 	},
 
-	computed: {
-		visibility() {
-			return this.state.visible;
-		}
-	},
-
 	watch: {
 		visible(value) {
 			if (this.state.visible === value) {
@@ -149,8 +80,7 @@ const VuiModal = {
 			}
 
 			this.state.visible = value;
-		},
-		visibility(value) {
+
 			if (!value) {
 				return;
 			}
@@ -161,15 +91,21 @@ const VuiModal = {
 
 	methods: {
 		open() {
-			this.state.visible = true;
-			this.$emit("change", true);
+			const visible = true;
+
+			this.state.visible = visible;
+			this.$emit("input", visible);
+			this.$emit("change", visible);
 		},
 		close() {
-			this.state.visible = false;
-			this.$emit("change", false);
+			const visible = false;
+
+			this.state.visible = visible;
+			this.$emit("input", visible);
+			this.$emit("change", visible);
 		},
 		handleBackdropClick() {
-			let { $props: props } = this;
+			const { $props: props } = this;
 
 			if (!props.backdrop || !props.clickBackdropToClose) {
 				return;
@@ -178,21 +114,23 @@ const VuiModal = {
 			this.handleCancel();
 		},
 		handleWrapperClick(e) {
-			if (e.target !== this.$refs.wrapper) {
+			const { $refs: references } = this;
+			const target = getEventTarget(e);
+
+			if (!target || !references.wrapper || target !== references.wrapper) {
 				return;
 			}
 
 			this.handleBackdropClick();
 		},
 		handleCancel() {
-			let { $props: props } = this;
+			const { $props: props } = this;
 
 			if (props.cancelAsync) {
 				new Promise(resolve => {
 					this.state.cancelLoading = true;
 					this.$emit("cancel", resolve);
-				})
-				.then(value => {
+				}).then(value => {
 					this.state.cancelLoading = false;
 
 					if (value === false) {
@@ -208,14 +146,13 @@ const VuiModal = {
 			}
 		},
 		handleOk() {
-			let { $props: props } = this;
+			const { $props: props } = this;
 
 			if (props.okAsync) {
 				new Promise(resolve => {
 					this.state.okLoading = true;
 					this.$emit("ok", resolve);
-				})
-				.then(value => {
+				}).then(value => {
 					this.state.okLoading = false;
 
 					if (value === false) {
@@ -247,13 +184,12 @@ const VuiModal = {
 	},
 
 	render() {
-		let { $slots: slots, $props: props, state } = this;
-		let { handleBackdropClick, handleWrapperClick, handleCancel, handleOk, handleEnter, handleAfterEnter, handleLeave, handleAfterLeave } = this;
-		let showHeader = slots.title || props.title;
-		let portal = props.getPopupContainer();
+		const { $slots: slots, $props: props, state } = this;
+		const { handleBackdropClick, handleWrapperClick, handleCancel, handleOk, handleEnter, handleAfterEnter, handleLeave, handleAfterLeave } = this;
+		const showHeader = slots.title || props.title;
 
 		// class
-		let classNamePrefix = getClassNamePrefix(props.classNamePrefix, "modal");
+		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "modal");
 		let classes = {};
 
 		classes.elBackdrop = {
@@ -303,7 +239,7 @@ const VuiModal = {
 
 		if (props.backdrop) {
 			children.push(
-				<transition name={props.animations[0]}>
+				<transition appear name={props.animations[0]}>
 					<div ref="backdrop" v-show={state.visible} class={classes.elBackdrop} style={styles.elBackdrop} onClick={handleBackdropClick}></div>
 				</transition>
 			);
@@ -337,7 +273,7 @@ const VuiModal = {
 				let buttons = [];
 
 				if (props.showCancelButton) {
-					let cancelButtonProps = {
+					const cancelButtonProps = {
 						props: {
 							loading: state.cancelLoading
 						},
@@ -345,7 +281,7 @@ const VuiModal = {
 							click: handleCancel
 						}
 					};
-					let mergedCancelButtonProps = merge(true, cancelButtonProps, props.cancelButtonProps);
+					const mergedCancelButtonProps = merge(true, cancelButtonProps, props.cancelButtonProps);
 
 					buttons.push(
 						<VuiButton {...mergedCancelButtonProps}>{props.cancelText || this.t("vui.drawer.cancelText")}</VuiButton>
@@ -353,7 +289,7 @@ const VuiModal = {
 				}
 
 				if (props.showOkButton) {
-					let okButtonProps = {
+					const okButtonProps = {
 						props: {
 							type: "primary",
 							loading: state.okLoading
@@ -362,7 +298,7 @@ const VuiModal = {
 							click: handleOk
 						}
 					};
-					let mergedOkButtonProps = merge(true, okButtonProps, props.okButtonProps);
+					const mergedOkButtonProps = merge(true, okButtonProps, props.okButtonProps);
 
 					buttons.push(
 						<VuiButton {...mergedOkButtonProps}>{props.okText || this.t("vui.drawer.okText")}</VuiButton>
@@ -386,9 +322,9 @@ const VuiModal = {
 		}
 
 		children.push(
-			<transition name={props.animations[0]}>
+			<transition appear name={props.animations[0]}>
 				<div ref="wrapper" v-show={state.visible} class={classes.elWrapper} style={styles.elWrapper} onClick={handleWrapperClick}>
-					<transition name={props.animations[1]} onEnter={handleEnter} onAfterEnter={handleAfterEnter} onLeave={handleLeave} onAfterLeave={handleAfterLeave}>
+					<transition appear name={props.animations[1]} onEnter={handleEnter} onAfterEnter={handleAfterEnter} onLeave={handleLeave} onAfterLeave={handleAfterLeave}>
 						<div v-show={state.visible} class={classes.el} style={styles.el}>
 							{header}
 							{body}
@@ -401,9 +337,11 @@ const VuiModal = {
 		);
 
 		return (
-			<div v-portal={portal}>
-				{children}
-			</div>
+			<VuiLazyRender status={state.visible}>
+				<div v-portal={props.getPopupContainer}>
+					{children}
+				</div>
+			</VuiLazyRender>
 		);
 	}
 };

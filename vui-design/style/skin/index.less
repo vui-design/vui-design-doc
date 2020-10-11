@@ -236,6 +236,9 @@
 
 // 导航组件 --------------------------------------------------------------------------------
 
+// Affix
+@affix-zIndex: 10;
+
 // Menu
 @menu-collapsed-width: 80px;
 @menu-line-height: 48px;
@@ -502,6 +505,20 @@
 @image-error-font-size: @font-size;
 
 
+// Popover
+@popover-border-radius: @border-radius;
+@popover-background-color: #fff;
+@popover-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+@popover-padding: 10px 16px;
+@popover-font-color: #595959;
+@popover-font-size: @font-size;
+@popover-line-height: @line-height;
+@popover-header-border-bottom: 1px solid #f0f0f0;
+@popover-header-font-color: #262626;
+@popover-arrow-size: 8px;
+@popover-gutter: @popover-arrow-size + 2px;
+
+
 // Statistic
 @statistic-line-height: @line-height;
 @statistic-header-margin-bottom: 10px;
@@ -525,12 +542,38 @@
 @tooltip-padding: 10px 12px;
 @tooltip-font-size: @font-size;
 @tooltip-line-height: @line-height;
-@tooltip-arrow-size: 6px;
-@tooltip-distance: @tooltip-arrow-size + 4px;
+@tooltip-arrow-size: 8px;
+@tooltip-gutter: @tooltip-arrow-size + 2px;
 @tooltip-light-background-color: #fff;
-@tooltip-light-font-color: @font-color;
+@tooltip-light-font-color: #595959;
 @tooltip-dark-background-color: #1a2035;
 @tooltip-dark-font-color: #fff;
+@tooltip-blue-background-color: #1890ff;
+@tooltip-blue-font-color: #fff;
+@tooltip-green-background-color: #52c41a;
+@tooltip-green-font-color: #fff;
+@tooltip-red-background-color: #f5222d;
+@tooltip-red-font-color: #fff;
+@tooltip-yellow-background-color: #fadb14;
+@tooltip-yellow-font-color: #fff;
+@tooltip-pink-background-color: #eb2f96;
+@tooltip-pink-font-color: #fff;
+@tooltip-magenta-background-color: #eb2f96;
+@tooltip-magenta-font-color: #fff;
+@tooltip-volcano-background-color: #fa541c;
+@tooltip-volcano-font-color: #fff;
+@tooltip-orange-background-color: #fa8c16;
+@tooltip-orange-font-color: #fff;
+@tooltip-gold-background-color: #faad14;
+@tooltip-gold-font-color: #fff;
+@tooltip-lime-background-color: #a0d911;
+@tooltip-lime-font-color: #fff;
+@tooltip-cyan-background-color: #13c2c2;
+@tooltip-cyan-font-color: #fff;
+@tooltip-geekblue-background-color: #2f54eb;
+@tooltip-geekblue-font-color: #fff;
+@tooltip-purple-background-color: #722ed1;
+@tooltip-purple-font-color: #fff;
 
 
 
@@ -663,6 +706,19 @@
 
 
 // 其它组件 --------------------------------------------------------------------------------
+
+// Anchor
+@anchor-font-color: @font-color;
+@anchor-font-size: @font-size;
+@anchor-line-height: @line-height;
+@anchor-ink-track-size: 2px;
+@anchor-link-padding-vertical: 5px;
+@anchor-link-padding-horizontal: 16px;
+@anchor-link-padding: @anchor-link-padding-vertical 0 @anchor-link-padding-vertical @anchor-link-padding-horizontal;
+@anchor-link-title-font-color: @font-color;
+@anchor-link-title-hover-font-color: tint(@primary-color, 10%);
+@anchor-link-title-active-font-color: shade(@primary-color, 10%);
+@anchor-link-title-on-font-color: @primary-color;
 
 // Backtop
 @backtop-size: 40px;

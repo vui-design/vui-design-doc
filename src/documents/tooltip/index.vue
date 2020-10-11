@@ -6,18 +6,19 @@
 			<h2>何时使用</h2>
 			<ul>
 				<li>鼠标移入则显示提示，移出消失，气泡浮层不承载复杂文本和操作。</li>
-				<li>可用来代替系统默认的 title 提示，提供一个按钮/文字/操作的文案解释。</li>
+				<li>可用来代替系统默认的 <code>title</code> 提示，提供一个按钮/文字/操作的文案解释。</li>
 			</ul>
 			<h2>代码演示</h2>
 		</Markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleTooltipBasicUsage />
-				<ExampleTooltipTheme />
 				<ExampleTooltipCustomizedContent />
-			</vui-col>
-			<vui-col :span="12">
 				<ExampleTooltipPlacement />
+			</vui-col>
+			<vui-col v-bind:span="12">
+				<ExampleTooltipTheme />
+				<ExampleTooltipColorful />
 			</vui-col>
 		</vui-row>
 		<Markdown>
@@ -28,7 +29,7 @@
 					<tr>
 						<th width="100">属性</th>
 						<th>说明</th>
-						<th width="150">类型</th>
+						<th width="180">类型</th>
 						<th width="100">默认值</th>
 					</tr>
 				</thead>
@@ -41,14 +42,26 @@
 					</tr>
 					<tr>
 						<td>theme</td>
-						<td>颜色主题，可选值为 <code>light</code>、<code>dark</code> 或者不设</td>
+						<td>主题，可选值为 <code>light</code>、<code>dark</code> 或者不设</td>
 						<td>String</td>
 						<td><code>dark</code></td>
 					</tr>
 					<tr>
+						<td>color</td>
+						<td>颜色，预设颜色详见示例〔多彩文字提示〕；该属性会覆盖 <code>theme</code> 主题下的颜色值</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
 						<td>content</td>
 						<td>提示内容</td>
-						<td>String | Slot</td>
+						<td>String | Number | Slot</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>maxWidth</td>
+						<td>提示框的最大宽度</td>
+						<td>String | Number</td>
 						<td>--</td>
 					</tr>
 					<tr>
@@ -71,8 +84,14 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>change</td>
+						<td>input</td>
 						<td>可见状态发生变化时触发的事件回调，可以使用 <code>v-model</code> 双向绑定</td>
+						<td>Function</td>
+						<td><code>visible</code></td>
+					</tr>
+					<tr>
+						<td>change</td>
+						<td>可见状态发生变化时触发的事件回调</td>
 						<td>Function</td>
 						<td><code>visible</code></td>
 					</tr>
@@ -89,6 +108,7 @@
 	import ExampleTooltipTheme from "./examples/theme";
 	import ExampleTooltipCustomizedContent from "./examples/customized-content";
 	import ExampleTooltipPlacement from "./examples/placement";
+	import ExampleTooltipColorful from "./examples/colorful";
 
 	export default {
 		mixins: [
@@ -99,7 +119,8 @@
 			ExampleTooltipBasicUsage,
 			ExampleTooltipTheme,
 			ExampleTooltipCustomizedContent,
-			ExampleTooltipPlacement
+			ExampleTooltipPlacement,
+			ExampleTooltipColorful
 		}
 	};
 </script>

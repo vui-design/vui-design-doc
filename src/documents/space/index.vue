@@ -46,7 +46,7 @@
 					<tr>
 						<td>gutter</td>
 						<td>自定义间距大小，该属性会覆盖 <code>size</code> 属性下的间距设置</td>
-						<td>Number | String</td>
+						<td>String | Number</td>
 						<td>--</td>
 					</tr>
 				</tbody>

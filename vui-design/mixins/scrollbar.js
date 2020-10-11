@@ -7,12 +7,12 @@ export default {
 
 			// workaround for missing window.innerWidth in IE8
 			if (!fullWindowWidth) {
-				let documentElementRect = document.documentElement.getBoundingClientRect();
+				const documentElementRect = document.documentElement.getBoundingClientRect();
 
 				fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left);
 			}
 
-			let bodyIsOverflowed = document.body.clientWidth < fullWindowWidth;
+			const bodyIsOverflowed = document.body.clientWidth < fullWindowWidth;
 			let size;
 
 			if (bodyIsOverflowed) {

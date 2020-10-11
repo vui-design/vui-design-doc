@@ -31,6 +31,7 @@ export default {
         "layout-space": "Space 间距",
 
         "navigation": "导航",
+        "navigation-affix": "Affix 固钉",
         "navigation-breadcrumb": "Breadcrumb 面包屑",
         "navigation-dropdown": "Dropdown 下拉菜单",
         "navigation-menu": "Menu 导航菜单",
@@ -81,6 +82,7 @@ export default {
         "feedback-spin": "Spin 加载中",
 
         "other": "其它",
+        "other-anchor": "Anchor 锚点",
         "other-backtop": "Backtop 回到顶部"
     },
 
@@ -159,6 +161,10 @@ export default {
         "example-space-align": "对齐",
         "example-space-gutter": "自定义间距尺寸",
 
+
+        "example-affix-basic-usage": "基本用法",
+        "example-affix-change": "监听状态变化",
+        "example-affix-container": "滚动容器",
 
         "example-breadcrumb-basic-usage": "基本用法",
         "example-breadcrumb-icon": "带图标的",
@@ -331,9 +337,9 @@ export default {
         "example-list-grid": "栅格列表",
 
         "example-popover-basic-usage": "基本用法",
-        "example-popover-placement": "位置",
         "example-popover-trigger": "触发方式",
         "example-popover-control": "从浮层内关闭",
+        "example-popover-placement": "位置",
 
         "example-statistic-basic-usage": "基本用法",
         "example-statistic-icon-and-unit": "图标/单位",
@@ -378,9 +384,10 @@ export default {
         "example-timeline-right": "右侧时间轴点",
 
         "example-tooltip-basic-usage": "基本用法",
-        "example-tooltip-theme": "主题",
         "example-tooltip-customized-content": "自定义内容",
         "example-tooltip-placement": "位置",
+        "example-tooltip-theme": "主题",
+        "example-tooltip-colorful": "多彩文字提示",
 
 
         "example-alert-basic-usage": "基本用法",
@@ -427,8 +434,8 @@ export default {
         "example-notice-more-content": "更多内容",
 
         "example-popconfirm-basic-usage": "基本用法",
-        "example-popconfirm-placement": "位置",
         "example-popconfirm-icon": "自定义图标",
+        "example-popconfirm-placement": "位置",
 
         "example-progress-line": "进度条",
         "example-progress-line-small": "小型进度条",
@@ -457,6 +464,14 @@ export default {
         "example-spin-custom": "自定义内容",
         "example-spin-state": "状态切换",
         "example-spin-fullscreen": "全屏加载",
+
+        "example-anchor-basic-usage": "基本用法",
+        "example-anchor-open-in-new-window": "新窗口中打开",
+        "example-anchor-static": "静态位置",
+        "example-anchor-customize-highlight": "自定义锚点高亮",
+        "example-anchor-offset": "滚动偏移量",
+        "example-anchor-click": "自定义 onClick 事件",
+        "example-anchor-change": "监听锚点链接变化",
 
         "example-backtop-basic-usage": "基本用法",
         "example-backtop-custom": "自定义样式"

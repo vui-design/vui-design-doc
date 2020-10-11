@@ -1,12 +1,9 @@
 <template>
 	<Example vertical id="example-tooltip-customized-content">
 		<template slot="source">
-			<vui-tooltip>
-				<vui-button type="primary">Customized content</vui-button>
-				<div slot="content">
-					<h4 style="margin-bottom: 5px; font-size:14px; font-weight: 600;">This is title</h4>
-					<p>Some descriptions...</p>
-				</div>
+			<vui-tooltip v-bind:maxWidth="200">
+				<vui-button>Customized content</vui-button>
+				<div slot="content">Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. </div>
 			</vui-tooltip>
 		</template>
 		<template slot="title">自定义内容</template>
