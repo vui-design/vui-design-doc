@@ -9,6 +9,7 @@ import Locale from "vui-design/mixins/locale";
 import Popup from "vui-design/utils/popup";
 import is from "vui-design/utils/is";
 import clone from "vui-design/utils/clone";
+import getEventTarget from "vui-design/utils/getEventTarget";
 
 const VuiTableFilter = {
 	name: "vui-table-filter",
@@ -135,9 +136,14 @@ const VuiTableFilter = {
 			this.state.visible = !this.state.visible;
 		},
 		handleClose(e) {
-			const { $el: el, $refs: refs, $props: props } = this;
+			const { $el: el, $refs: references, $props: props } = this;
+			const target = getEventTarget(e);
 
-			if (!el.contains(refs.dropdown) && refs.dropdown.contains(e.target)) {
+			if (!target || !references.dropdown) {
+				return;
+			}
+
+			if (!el.contains(references.dropdown) && references.dropdown.contains(e.target)) {
 				return;
 			}
 
