@@ -6,8 +6,9 @@ import routes from "./routes";
 
 Vue.use(Router);
 
+const env = process.env.NODE_ENV;
 const router =  new Router({
-	mode: "history",
+	mode: env === "production" ? "hash" : "history",
 	scrollBehavior: () => ({ y: 0 }),
 	routes
 });
