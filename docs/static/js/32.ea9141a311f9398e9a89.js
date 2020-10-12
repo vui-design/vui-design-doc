@@ -1,0 +1,2 @@
+webpackJsonp([32],{Dqnk:function(n,e){},aKiy:function(n,e,t){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var a={name:"change-log",components:{Example:t("RLuK").a},data:function(){return{}}},r={render:function(){var n=this.$createElement;return(this._self._c||n)("div",[this._v("\n  Change Log\n")])},staticRenderFns:[]};var u=t("VU/8")(a,r,!1,function(n){t("Dqnk")},null,null);e.default=u.exports}});
+//# sourceMappingURL=32.ea9141a311f9398e9a89.js.map
