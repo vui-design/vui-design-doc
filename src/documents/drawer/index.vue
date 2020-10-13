@@ -11,15 +11,15 @@
 			</ul>
 			<h2>代码演示</h2>
 		</Markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleDrawerBasicUsage />
 				<ExampleDrawerPlacement />
 				<ExampleDrawerHeadlessAndFootless />
 				<ExampleDrawerHideCloseButton />
 				<ExampleDrawerButtonProps />
 			</vui-col>
-			<vui-col :span="12">
+			<vui-col v-bind:span="12">
 				<ExampleDrawerCustomizedFooter />
 				<ExampleDrawerAsynchronouslyClose />
 				<ExampleDrawerMultiLevel />
@@ -178,8 +178,14 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>change</td>
+						<td>input</td>
 						<td>可见状态发生变化时触发的事件回调，可以使用 <code>v-model</code> 双向绑定</td>
+						<td>Function</td>
+						<td><code>visible</code></td>
+					</tr>
+					<tr>
+						<td>change</td>
+						<td>可见状态发生变化时触发的事件回调</td>
 						<td>Function</td>
 						<td><code>visible</code></td>
 					</tr>

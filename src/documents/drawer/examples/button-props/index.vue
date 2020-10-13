@@ -2,14 +2,14 @@
 	<Example vertical id="example-drawer-button-props">
 		<template slot="source">
 			<div class="example-drawer-button-props">
-				<vui-button type="primary" @click="showDrawer">Open drawer with customized button props</vui-button>
+				<vui-button type="primary" v-on:click="showDrawer">Open drawer with customized button props</vui-button>
 				<vui-drawer
 					v-model="visible"
-					title="Drawer Title"
+					v-bind:cancelButtonProps="cancelButtonProps"
+					v-bind:okButtonProps="okButtonProps"
 					cancelText="Cancel"
 					okText="OK"
-					:cancelButtonProps="cancelButtonProps"
-					:okButtonProps="okButtonProps"
+					title="Drawer Title"
 				>
 					<p>Some contents...</p>
 					<p>Some contents...</p>

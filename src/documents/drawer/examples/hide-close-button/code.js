@@ -1,8 +1,8 @@
 const code =
 `<template>
   <div class="example-drawer-hide-close-button">
-    <vui-button type="primary" @click="showDrawer">Hide close cutton</vui-button>
-    <vui-drawer title="Drawer Title" :closable="false" v-model="visible">
+    <vui-button type="primary" v-on:click="showDrawer">Hide close button</vui-button>
+    <vui-drawer v-model="visible" v-bind:closable="false" title="Drawer Title">
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>

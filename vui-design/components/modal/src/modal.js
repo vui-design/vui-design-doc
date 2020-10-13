@@ -3,37 +3,31 @@ import VuiIcon from "vui-design/components/icon";
 import VuiButton from "vui-design/components/button";
 import Portal from "vui-design/directives/portal";
 import Locale from "vui-design/mixins/locale";
-import Scrollbar from "vui-design/mixins/scrollbar";
 import Popup from "vui-design/utils/popup";
 import PropTypes from "vui-design/utils/prop-types";
 import is from "vui-design/utils/is";
 import merge from "vui-design/utils/merge";
+import addScrollbarEffect from "vui-design/utils/addScrollbarEffect";
 import getEventTarget from "vui-design/utils/getEventTarget";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 
 const VuiModal = {
 	name: "vui-modal",
-
 	components: {
 		VuiLazyRender,
 		VuiIcon,
 		VuiButton
 	},
-
 	directives: {
 		Portal
 	},
-
 	mixins: [
-		Locale,
-		Scrollbar
+		Locale
 	],
-
 	model: {
 		prop: "visible",
 		event: "input"
 	},
-
 	props: {
 		classNamePrefix: PropTypes.string,
 		visible: PropTypes.bool.def(false),
@@ -59,7 +53,6 @@ const VuiModal = {
 		animations: PropTypes.array.def(["vui-modal-backdrop-fade", "vui-modal-zoom"]),
 		getPopupContainer: PropTypes.any.def(() => document.body)
 	},
-
 	data() {
 		const { $props: props } = this;
 
@@ -72,7 +65,6 @@ const VuiModal = {
 			}
 		};
 	},
-
 	watch: {
 		visible(value) {
 			if (this.state.visible === value) {
@@ -88,21 +80,17 @@ const VuiModal = {
 			this.state.zIndex = Popup.nextZIndex();
 		}
 	},
-
 	methods: {
-		open() {
-			const visible = true;
-
+		toggle(visible) {
 			this.state.visible = visible;
 			this.$emit("input", visible);
 			this.$emit("change", visible);
 		},
+		open() {
+			this.toggle(true);
+		},
 		close() {
-			const visible = false;
-
-			this.state.visible = visible;
-			this.$emit("input", visible);
-			this.$emit("change", visible);
+			this.toggle(false);
 		},
 		handleBackdropClick() {
 			const { $props: props } = this;
@@ -168,8 +156,8 @@ const VuiModal = {
 			}
 		},
 		handleEnter() {
-			this.addScrollbarEffect();
 			this.$emit("open");
+			this.scrollbarEffect = addScrollbarEffect();
 		},
 		handleAfterEnter() {
 			this.$emit("afterOpen");
@@ -178,13 +166,20 @@ const VuiModal = {
 			this.$emit("close");
 		},
 		handleAfterLeave() {
-			this.removeScrollbarEffect();
 			this.$emit("afterClose");
+			
+			if (this.scrollbarEffect) {
+				this.scrollbarEffect.remove();
+			}
 		}
 	},
-
+	beforeDestroy() {
+		if (this.scrollbarEffect) {
+			this.scrollbarEffect.remove();
+		}
+	},
 	render() {
-		const { $slots: slots, $props: props, state } = this;
+		const { $slots: slots, $props: props, state, t: translate } = this;
 		const { handleBackdropClick, handleWrapperClick, handleCancel, handleOk, handleEnter, handleAfterEnter, handleLeave, handleAfterLeave } = this;
 		const showHeader = slots.title || props.title;
 
@@ -284,7 +279,7 @@ const VuiModal = {
 					const mergedCancelButtonProps = merge(true, cancelButtonProps, props.cancelButtonProps);
 
 					buttons.push(
-						<VuiButton {...mergedCancelButtonProps}>{props.cancelText || this.t("vui.drawer.cancelText")}</VuiButton>
+						<VuiButton {...mergedCancelButtonProps}>{props.cancelText || translate("vui.modal.cancelText")}</VuiButton>
 					);
 				}
 
@@ -301,7 +296,7 @@ const VuiModal = {
 					const mergedOkButtonProps = merge(true, okButtonProps, props.okButtonProps);
 
 					buttons.push(
-						<VuiButton {...mergedOkButtonProps}>{props.okText || this.t("vui.drawer.okText")}</VuiButton>
+						<VuiButton {...mergedOkButtonProps}>{props.okText || translate("vui.modal.okText")}</VuiButton>
 					);
 				}
 
@@ -325,7 +320,7 @@ const VuiModal = {
 			<transition appear name={props.animations[0]}>
 				<div ref="wrapper" v-show={state.visible} class={classes.elWrapper} style={styles.elWrapper} onClick={handleWrapperClick}>
 					<transition appear name={props.animations[1]} onEnter={handleEnter} onAfterEnter={handleAfterEnter} onLeave={handleLeave} onAfterLeave={handleAfterLeave}>
-						<div v-show={state.visible} class={classes.el} style={styles.el}>
+						<div ref="modal" v-show={state.visible} class={classes.el} style={styles.el}>
 							{header}
 							{body}
 							{footer}

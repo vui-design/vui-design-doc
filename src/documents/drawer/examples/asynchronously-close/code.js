@@ -1,8 +1,8 @@
 const code =
 `<template>
   <div class="example-drawer-asynchronously-close">
-    <vui-button type="primary" @click="showDrawer">Open drawer with async logic</vui-button>
-    <vui-drawer v-model="visible" title="Drawer Title" @cancel="handleCancel" okAsync @ok="handleOk">
+    <vui-button type="primary" v-on:click="showDrawer">Open drawer with async logic</vui-button>
+    <vui-drawer v-model="visible" v-on:cancel="handleCancel" okAsync v-on:ok="handleOk" title="Drawer Title">
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>

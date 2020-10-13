@@ -2,10 +2,10 @@
 	<Example vertical id="example-drawer-multi-level">
 		<template slot="source">
 			<div class="example-drawer-multi-level">
-				<vui-button type="primary" @click="handleOpenDrawer">Open drawer</vui-button>
-				<vui-drawer title="Drawer Title" v-model="visible">
-					<vui-button type="primary" @click="handleOpenTwoLevelDrawer">Open two-level drawer</vui-button>
-					<vui-drawer title="Two-Level Drawer Title" v-model="twoLevelDrawerVisible">
+				<vui-button type="primary" v-on:click="handleOpenDrawer">Open drawer</vui-button>
+				<vui-drawer v-model="visible" title="Drawer Title">
+					<vui-button type="primary" v-on:click="handleOpenTwoLevelDrawer">Open two-level drawer</vui-button>
+					<vui-drawer v-model="twoLevelDrawerVisible" title="Two-Level Drawer Title">
 						<p>This is two-level drawer</p>
 					</vui-drawer>
 				</vui-drawer>
