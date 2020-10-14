@@ -8,6 +8,7 @@ import PropTypes from "vui-design/utils/prop-types";
 import is from "vui-design/utils/is";
 import merge from "vui-design/utils/merge";
 import css from "vui-design/utils/css";
+import styleToObject from "vui-design/utils/styleToObject";
 import addScrollbarEffect from "vui-design/utils/addScrollbarEffect";
 import getStyle from "vui-design/utils/getStyle";
 import getEventTarget from "vui-design/utils/getEventTarget";
@@ -58,8 +59,12 @@ const VuiDrawer = {
 		width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).def(500),
 		height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).def(500),
 		className: PropTypes.string,
+		headerStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+		bodyStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+		footerStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 		backdrop: PropTypes.bool.def(true),
 		backdropClassName: PropTypes.string,
+		backdropStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 		clickBackdropToClose: PropTypes.bool.def(true),
 		animations: PropTypes.array.def(["vui-drawer-backdrop-fade", "vui-drawer-slide"]),
 		getPopupContainer: PropTypes.any.def(() => document.body)
@@ -105,21 +110,21 @@ const VuiDrawer = {
 		},
 		push() {
 			const { vuiDrawer, $refs: references, $props: props } = this;
-			const reference = references.drawer;
+			const drawer = references.drawer;
 			const placement = props.placement;
-			const distance = parseInt(getStyle(reference, placement)) + 250;
+			const distance = parseInt(getStyle(drawer, placement)) + 200;
 
-			css(reference, placement, distance + "px");
+			css(drawer, placement, distance + "px");
 
 			vuiDrawer && vuiDrawer.push();
 		},
 		pull() {
 			const { vuiDrawer, $refs: references, $props: props } = this;
-			const reference = references.drawer;
+			const drawer = references.drawer;
 			const placement = props.placement;
-			const distance = parseInt(getStyle(reference, placement)) - 250;
+			const distance = parseInt(getStyle(drawer, placement)) - 200;
 
-			css(reference, placement, distance + "px");
+			css(drawer, placement, distance + "px");
 
 			vuiDrawer && vuiDrawer.pull();
 		},
@@ -273,7 +278,10 @@ const VuiDrawer = {
 		if (props.backdrop) {
 			let backdropProps = {
 				class: classes.elBackdrop,
-				style: styles.elBackdrop
+				style: [
+					styles.elBackdrop,
+					is.string(props.backdropStyle) ? styleToObject(props.backdropStyle) : props.backdropStyle
+				]
 			};
 
 			if (props.clickBackdropToClose) {
@@ -293,7 +301,7 @@ const VuiDrawer = {
 
 		if (showHeader) {
 			header = (
-				<div class={classes.elHeader}>
+				<div class={classes.elHeader} style={props.headerStyle}>
 					<div class={classes.elTitle}>{slots.title || props.title}</div>
 				</div>
 			);
@@ -302,7 +310,7 @@ const VuiDrawer = {
 		let body;
 
 		body = (
-			<div class={classes.elBody}>{slots.default}</div>
+			<div class={classes.elBody} style={props.bodyStyle}>{slots.default}</div>
 		);
 
 		let footer;
@@ -310,7 +318,7 @@ const VuiDrawer = {
 		if (props.showFooter) {
 			if (slots.footer) {
 				footer = (
-					<div class={classes.elFooter}>{slots.footer}</div>
+					<div class={classes.elFooter} style={props.footerStyle}>{slots.footer}</div>
 				);
 			}
 			else {

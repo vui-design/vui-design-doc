@@ -2,11 +2,9 @@ import PropTypes from "vui-design/utils/prop-types";
 
 const VuiLazyRender = {
 	name: "vui-lazy-render",
-
 	props: {
 		status: PropTypes.bool.def(false)
 	},
-
 	data() {
 		const state = {
 			status: this.status
@@ -16,7 +14,6 @@ const VuiLazyRender = {
 			state
 		};
 	},
-
 	watch: {
 		status(value) {
 			if (!value || this.state.status) {
@@ -26,7 +23,6 @@ const VuiLazyRender = {
 			this.state.status = true;
 		}
 	},
-
 	render() {
 		if (!this.state.status) {
 			return null;

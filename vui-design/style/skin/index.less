@@ -260,49 +260,50 @@
 
 
 // Radio
-@vui-radio-size-sm: 14px;
-@vui-radio-size-md: 16px;
-@vui-radio-size-lg: 18px;
+@radio-border-color: @border-color;
+@radio-background-color: @component-background-color;
+@radio-input-color: @primary-color;
+@radio-font-color: @font-color;
 
-@vui-radio-font-size-sm: 12px;
-@vui-radio-font-size-md: 14px;
-@vui-radio-font-size-lg: 16px;
+@radio-hover-border-color: tint(@primary-color, 10%);
 
-@vui-radio-border-color: #e0e0e0;
-@vui-radio-background-color: #fff;
-@vui-radio-input-color: #2d8cf0;
-@vui-radio-font-color: #666;
+@radio-checked-border-color: @primary-color;
 
-@vui-radio-hover-border-color: tint(#2d8cf0, 10%);
+@radio-disabled-border-color: @border-color;
+@radio-disabled-background-color: shade(@component-background-color, 3.5%);
+@radio-disabled-input-color: shade(@border-color, 10%);
+@radio-disabled-font-color: @font-disabled-color;
 
-@vui-radio-checked-border-color: #2d8cf0;
+@radio-size-sm: 14px;
+@radio-size-md: 16px;
+@radio-size-lg: 18px;
 
-@vui-radio-disabled-border-color: #e0e0e0;
-@vui-radio-disabled-background-color: shade(#fff, 3.5%);
-@vui-radio-disabled-input-color: shade(#e0e0e0, 10%);
-@vui-radio-disabled-font-color: tint(#000, 75%);
+@radio-font-size-sm: 12px;
+@radio-font-size-md: 14px;
+@radio-font-size-lg: 16px;
 
 // Radio Button
-@vui-radio-button-size-sm: 24px;
-@vui-radio-button-size-md: 34px;
-@vui-radio-button-size-lg: 44px;
+@radio-button-border-color: @border-color;
+@radio-button-border-radius: @border-radius;
+@radio-button-background-color: @component-background-color;
+@radio-button-font-color: @font-color;
 
-@vui-radio-button-font-size-sm: 12px;
-@vui-radio-button-font-size-md: 14px;
-@vui-radio-button-font-size-lg: 16px;
+@radio-button-hover-font-color: tint(@primary-color, 10%);
 
-@vui-radio-button-border-color: #e0e0e0;
-@vui-radio-button-background-color: #fff;
-@vui-radio-button-font-color: #595959;
+@radio-button-checked-border-color: @primary-color;
+@radio-button-checked-font-color: @primary-color;
 
-@vui-radio-button-hover-font-color: tint(#2d8cf0, 10%);
+@radio-button-disabled-border-color: @border-color;
+@radio-button-disabled-background-color: shade(@component-background-color, 3.5%);
+@radio-button-disabled-font-color: @font-disabled-color;
 
-@vui-radio-button-checked-border-color: #2d8cf0;
-@vui-radio-button-checked-font-color: #2d8cf0;
+@radio-button-size-sm: 24px;
+@radio-button-size-md: 34px;
+@radio-button-size-lg: 44px;
 
-@vui-radio-button-disabled-border-color: #e0e0e0;
-@vui-radio-button-disabled-background-color: shade(#fff, 3.5%);
-@vui-radio-button-disabled-font-color: tint(#000, 75%);
+@radio-button-font-size-sm: 12px;
+@radio-button-font-size-md: 14px;
+@radio-button-font-size-lg: 16px;
 
 
 // Checkbox

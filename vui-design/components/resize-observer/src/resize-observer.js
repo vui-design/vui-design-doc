@@ -3,18 +3,15 @@ import PropTypes from "vui-design/utils/prop-types";
 
 const VuiResizeObserver = {
 	name: "vui-resize-observer",
-
 	props: {
 		disabled: PropTypes.bool
 	},
-
 	data() {
 		return {
 			width: 0,
 			height: 0
 		};
 	},
-
 	methods: {
 		addObserver() {
 			const { $el: element, $props: props } = this;
@@ -56,24 +53,19 @@ const VuiResizeObserver = {
 			}
 		}
 	},
-
 	created() {
 		this.element = null;
 		this.observer = null;
 	},
-
 	mounted() {
 		this.addObserver();
 	},
-
 	updated() {
 		this.addObserver();
 	},
-
 	beforeDestroy() {
 		this.removeObserver();
 	},
-
 	render() {
 		const { $slots: slots } = this;
 

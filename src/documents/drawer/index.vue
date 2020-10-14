@@ -70,7 +70,7 @@
 					</tr>
 					<tr>
 						<td>cancelButtonProps</td>
-						<td>取消按钮的属性，遵循<a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx#difference-from-react-jsx" target="_blank">jsx规范</a></td>
+						<td>取消按钮的属性，遵循 <a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx#difference-from-react-jsx" target="_blank">jsx 规范</a></td>
 						<td>Object</td>
 						<td>--</td>
 					</tr>
@@ -94,7 +94,7 @@
 					</tr>
 					<tr>
 						<td>okButtonProps</td>
-						<td>确定按钮的属性，遵循<a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx#difference-from-react-jsx" target="_blank">jsx规范</a></td>
+						<td>确定按钮的属性，遵循 <a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx#difference-from-react-jsx" target="_blank">jsx 规范</a></td>
 						<td>Object</td>
 						<td>--</td>
 					</tr>
@@ -136,8 +136,26 @@
 					</tr>
 					<tr>
 						<td>className</td>
-						<td>对话框样式类名</td>
+						<td>抽屉样式类名</td>
 						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>headerStyle</td>
+						<td>用于设置抽屉头部的样式</td>
+						<td>String | Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>bodyStyle</td>
+						<td>用于设置抽屉内容部分的样式</td>
+						<td>String | Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>footerStyle</td>
+						<td>用于设置抽屉底部的样式</td>
+						<td>String | Object</td>
 						<td>--</td>
 					</tr>
 					<tr>
@@ -150,6 +168,12 @@
 						<td>backdropClassName</td>
 						<td>背景遮罩样式类名</td>
 						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>backdropStyle</td>
+						<td>用于设置背景遮罩的样式</td>
+						<td>String | Object</td>
 						<td>--</td>
 					</tr>
 					<tr>
