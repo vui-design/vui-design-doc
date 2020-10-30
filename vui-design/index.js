@@ -58,6 +58,7 @@ import OptionGroup from "./components/option-group";
 import Option from "./components/option";
 import Switch from "./components/switch";
 import Textarea from "./components/textarea";
+import Transfer from "./components/transfer";
 import Upload from "./components/upload";
 // Data Display
 import AvatarGroup from "./components/avatar-group";
@@ -162,6 +163,7 @@ const components = [
 	Option,
 	Switch,
 	Textarea,
+	Transfer,
 	Upload,
 	// Data Display
 	AvatarGroup,
@@ -296,6 +298,7 @@ export default {
 	Option,
 	Switch,
 	Textarea,
+	Transfer,
 	Upload,
 	// Data Display
 	AvatarGroup,

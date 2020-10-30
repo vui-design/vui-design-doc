@@ -329,6 +329,15 @@ export default [
 				component: () => import("@/documents/textarea/index")
 			},
 			{
+				path: "/components/transfer",
+				name: "transfer",
+				meta: {
+					title: "Transfer",
+					group: "data-entry"
+				},
+				component: () => import("@/documents/transfer/index")
+			},
+			{
 				path: "/components/upload",
 				name: "upload",
 				meta: {
