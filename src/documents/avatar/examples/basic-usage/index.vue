@@ -1,15 +1,15 @@
 <template>
-	<Example vertical id="example-avatar-basic-usage">
+	<Example id="example-avatar-basic-usage">
 		<template slot="source">
 			<div class="example-avatar-basic-usage">
 				<section>
-					<vui-avatar icon="user" :size="64" />
+					<vui-avatar icon="user" v-bind:size="64" />
 					<vui-avatar icon="user" size="large" />
 					<vui-avatar icon="user" />
 					<vui-avatar icon="user" size="small" />
 				</section>
 				<section>
-					<vui-avatar icon="user" shape="square" :size="64" />
+					<vui-avatar icon="user" shape="square" v-bind:size="64" />
 					<vui-avatar icon="user" shape="square" size="large" />
 					<vui-avatar icon="user" shape="square" />
 					<vui-avatar icon="user" shape="square" size="small" />

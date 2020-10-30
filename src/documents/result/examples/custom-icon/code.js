@@ -1,7 +1,7 @@
 const code =
 `<template>
   <vui-result
-    icon="emotion-happy"
+    icon="checkmark-circle"
     title="Great, we have done all the operations!"
   >
     <template slot="extra">

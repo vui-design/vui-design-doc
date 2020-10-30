@@ -2,19 +2,19 @@ const code =
 `<template>
   <div class="example-grid-basic-usage">
     <vui-row>
-      <vui-col :span="12"><div>col-12</div></vui-col>
-      <vui-col :span="12"><div>col-12</div></vui-col>
+      <vui-col v-bind:span="12"><div>col-12</div></vui-col>
+      <vui-col v-bind:span="12"><div>col-12</div></vui-col>
     </vui-row>
     <vui-row>
-      <vui-col :span="8"><div>col-8</div></vui-col>
-      <vui-col :span="8"><div>col-8</div></vui-col>
-      <vui-col :span="8"><div>col-8</div></vui-col>
+      <vui-col v-bind:span="8"><div>col-8</div></vui-col>
+      <vui-col v-bind:span="8"><div>col-8</div></vui-col>
+      <vui-col v-bind:span="8"><div>col-8</div></vui-col>
     </vui-row>
     <vui-row>
-      <vui-col :span="6"><div>col-6</div></vui-col>
-      <vui-col :span="6"><div>col-6</div></vui-col>
-      <vui-col :span="6"><div>col-6</div></vui-col>
-      <vui-col :span="6"><div>col-6</div></vui-col>
+      <vui-col v-bind:span="6"><div>col-6</div></vui-col>
+      <vui-col v-bind:span="6"><div>col-6</div></vui-col>
+      <vui-col v-bind:span="6"><div>col-6</div></vui-col>
+      <vui-col v-bind:span="6"><div>col-6</div></vui-col>
     </vui-row>
   </div>
 </template>

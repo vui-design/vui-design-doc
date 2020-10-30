@@ -38,16 +38,16 @@
 						<td><code>false</code></td>
 					</tr>
 					<tr>
-						<td>size</td>
-						<td>描述列表的大小，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
-						<td>String</td>
-						<td><code>medium</code></td>
+						<td>fixed</td>
+						<td>描述列表内部 <code>table</code> 表格是否使用 <code>fixed</code> 布局算法，<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout" target="_blank">详见 table-layout</a></td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
 					</tr>
 					<tr>
-						<td>title</td>
-						<td>描述列表的标题，显示在最顶部</td>
-						<td>String | Slot</td>
-						<td>--</td>
+						<td>size</td>
+						<td>描述列表的尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
+						<td>String</td>
+						<td><code>medium</code></td>
 					</tr>
 					<tr>
 						<td>columns</td>
@@ -71,6 +71,18 @@
 						<td>labelAlign</td>
 						<td>用于设置描述标签的文本对齐方式，可选值为 <code>left</code>、<code>center</code>、<code>right</code> 或者不设；该属性仅在 <code>layout</code> 为 <code>horizontal</code> 且含有边框的描述列表中有效</td>
 						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>title</td>
+						<td>描述列表的标题，显示在最顶部</td>
+						<td>String | Slot</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>extra</td>
+						<td>描述列表的额外内容，显示在最顶部标题的右侧</td>
+						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
 				</tbody>

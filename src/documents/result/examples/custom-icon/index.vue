@@ -2,7 +2,7 @@
 	<Example vertical id="example-result-custom-icon">
 		<template slot="source">
 			<vui-result
-				icon="emotion-happy"
+				icon="checkmark-circle"
 				title="Great, we have done all the operations!"
 			>
 				<template slot="extra">
@@ -12,7 +12,7 @@
 		</template>
 		<template slot="title">自定义图标</template>
 		<template slot="describe">
-			<p>自定义图标的结果展示</p>
+			<p>通过 <code>icon</code> 属性自定义图标类型。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>

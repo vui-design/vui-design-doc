@@ -1,7 +1,7 @@
 <template>
 	<Example id="example-descriptions-bordered">
 		<template slot="source">
-			<vui-descriptions bordered title="User Info">
+			<vui-descriptions bordered fixed colon v-bind:label-width="140" label-align="right" title="User Info">
 				<vui-description label="Product">Cloud Database</vui-description>
 				<vui-description label="Billing Mode">Prepaid</vui-description>
 				<vui-description label="Automatic Renewal">YES</vui-description>

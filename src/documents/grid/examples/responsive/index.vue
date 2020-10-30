@@ -3,9 +3,9 @@
 		<template slot="source">
 			<div class="example-grid-responsive">
 				<vui-row>
-					<vui-col :xs="2" :sm="4" :md="6" :lg="8" :xl="10"><div>Col</div></vui-col>
-					<vui-col :xs="20" :sm="16" :md="12" :lg="8" :xl="4"><div>Col</div></vui-col>
-					<vui-col :xs="2" :sm="4" :md="6" :lg="8" :xl="10"><div>Col</div></vui-col>
+					<vui-col v-bind:xs="2" v-bind:sm="4" v-bind:md="6" v-bind:lg="8" v-bind:xl="10"><div>Col</div></vui-col>
+					<vui-col v-bind:xs="20" v-bind:sm="16" v-bind:md="12" v-bind:lg="8" v-bind:xl="4"><div>Col</div></vui-col>
+					<vui-col v-bind:xs="2" v-bind:sm="4" v-bind:md="6" v-bind:lg="8" v-bind:xl="10"><div>Col</div></vui-col>
 				</vui-row>
 			</div>
 		</template>

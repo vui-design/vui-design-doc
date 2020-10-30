@@ -3,10 +3,10 @@
 		<template slot="source">
 			<div class="example-grid-flex-order">
 				<vui-row type="flex">
-					<vui-col :span="6" :order="4"><div>1 | order-4</div></vui-col>
-					<vui-col :span="6" :order="3"><div>2 | order-3</div></vui-col>
-					<vui-col :span="6" :order="2"><div>3 | order-2</div></vui-col>
-					<vui-col :span="6" :order="1"><div>4 | order-1</div></vui-col>
+					<vui-col v-bind:span="6" v-bind:order="4"><div>1 | order-4</div></vui-col>
+					<vui-col v-bind:span="6" v-bind:order="3"><div>2 | order-3</div></vui-col>
+					<vui-col v-bind:span="6" v-bind:order="2"><div>3 | order-2</div></vui-col>
+					<vui-col v-bind:span="6" v-bind:order="1"><div>4 | order-1</div></vui-col>
 				</vui-row>
 			</div>
 		</template>

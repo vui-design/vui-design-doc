@@ -14,7 +14,7 @@ const code =
       </div>
       <div class="example-result-error-content-reason">
         <vui-icon type="crossmark-circle" color="#ed5565" />
-        <span>Your account is not yet eligible to apply</span>
+        <span>Your account is not yet eligible to apply.</span>
         <a href="javascript:;">Apply Unlock ></a>
       </div>
     </div>
@@ -33,7 +33,7 @@ const code =
 
 <style>
   .example-result-error-content {  }
-  .example-result-error-content-title { margin-bottom:20px; color:#262626; font-size:16px; }
+  .example-result-error-content-title { margin-bottom:20px; color:#262626; font-size:16px; font-weight:600; }
   .example-result-error-content-reason { margin-top:10px; color:#595959; }
   .example-result-error-content-reason span { margin-left:5px; }
   .example-result-error-content-reason a { margin-left:5px; }

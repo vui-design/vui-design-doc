@@ -6,26 +6,26 @@
 			<h2>设计理念</h2>
 			<div class="markdown-grid">
 				<vui-row>
-					<vui-col :span="24"><div>100%</div></vui-col>
+					<vui-col v-bind:span="24"><div>100%</div></vui-col>
 				</vui-row>
 				<vui-row>
-					<vui-col :span="6"><div>25%</div></vui-col>
-					<vui-col :span="6"><div>25%</div></vui-col>
-					<vui-col :span="6"><div>25%</div></vui-col>
-					<vui-col :span="6"><div>25%</div></vui-col>
+					<vui-col v-bind:span="6"><div>25%</div></vui-col>
+					<vui-col v-bind:span="6"><div>25%</div></vui-col>
+					<vui-col v-bind:span="6"><div>25%</div></vui-col>
+					<vui-col v-bind:span="6"><div>25%</div></vui-col>
 				</vui-row>
 				<vui-row>
-					<vui-col :span="8"><div>33.33%</div></vui-col>
-					<vui-col :span="8"><div>33.33%</div></vui-col>
-					<vui-col :span="8"><div>33.33%</div></vui-col>
+					<vui-col v-bind:span="8"><div>33.33%</div></vui-col>
+					<vui-col v-bind:span="8"><div>33.33%</div></vui-col>
+					<vui-col v-bind:span="8"><div>33.33%</div></vui-col>
 				</vui-row>
 				<vui-row>
-					<vui-col :span="12"><div>50%</div></vui-col>
-					<vui-col :span="12"><div>50%</div></vui-col>
+					<vui-col v-bind:span="12"><div>50%</div></vui-col>
+					<vui-col v-bind:span="12"><div>50%</div></vui-col>
 				</vui-row>
 				<vui-row>
-					<vui-col :span="16"><div>66.66%</div></vui-col>
-					<vui-col :span="8"><div>33.33%</div></vui-col>
+					<vui-col v-bind:span="16"><div>66.66%</div></vui-col>
+					<vui-col v-bind:span="8"><div>33.33%</div></vui-col>
 				</vui-row>
 			</div>
 			<p>在多数业务情况下，Vui 需要在设计区域内解决大量信息收纳的问题，因此在 12 栅格系统的基础上，我们将整个设计建议区域按照 24 等分的原则进行划分。</p>

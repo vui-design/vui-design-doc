@@ -3,22 +3,22 @@
 		<template slot="source">
 			<div class="example-grid-flex-align">
 				<vui-row type="flex" justify="center" align="top">
-					<vui-col :span="4"><div style="height: 100px; line-height: 100px;">col-4</div></vui-col>
-					<vui-col :span="4"><div style="height: 60px; line-height: 60px;">col-4</div></vui-col>
-					<vui-col :span="4"><div style="height: 140px; line-height: 140px;">col-4</div></vui-col>
-					<vui-col :span="4"><div style="height: 80px; line-height: 80px;">col-4</div></vui-col>
+					<vui-col v-bind:span="4"><div style="height: 100px; line-height: 100px;">col-4</div></vui-col>
+					<vui-col v-bind:span="4"><div style="height: 60px; line-height: 60px;">col-4</div></vui-col>
+					<vui-col v-bind:span="4"><div style="height: 140px; line-height: 140px;">col-4</div></vui-col>
+					<vui-col v-bind:span="4"><div style="height: 80px; line-height: 80px;">col-4</div></vui-col>
 				</vui-row>
 				<vui-row type="flex" justify="center" align="middle">
-					<vui-col :span="4"><div style="height: 100px; line-height: 100px;">col-4</div></vui-col>
-					<vui-col :span="4"><div style="height: 60px; line-height: 60px;">col-4</div></vui-col>
-					<vui-col :span="4"><div style="height: 140px; line-height: 140px;">col-4</div></vui-col>
-					<vui-col :span="4"><div style="height: 80px; line-height: 80px;">col-4</div></vui-col>
+					<vui-col v-bind:span="4"><div style="height: 100px; line-height: 100px;">col-4</div></vui-col>
+					<vui-col v-bind:span="4"><div style="height: 60px; line-height: 60px;">col-4</div></vui-col>
+					<vui-col v-bind:span="4"><div style="height: 140px; line-height: 140px;">col-4</div></vui-col>
+					<vui-col v-bind:span="4"><div style="height: 80px; line-height: 80px;">col-4</div></vui-col>
 				</vui-row>
 				<vui-row type="flex" justify="center" align="bottom">
-					<vui-col :span="4"><div style="height: 100px; line-height: 100px;">col-4</div></vui-col>
-					<vui-col :span="4"><div style="height: 60px; line-height: 60px;">col-4</div></vui-col>
-					<vui-col :span="4"><div style="height: 140px; line-height: 140px;">col-4</div></vui-col>
-					<vui-col :span="4"><div style="height: 80px; line-height: 80px;">col-4</div></vui-col>
+					<vui-col v-bind:span="4"><div style="height: 100px; line-height: 100px;">col-4</div></vui-col>
+					<vui-col v-bind:span="4"><div style="height: 60px; line-height: 60px;">col-4</div></vui-col>
+					<vui-col v-bind:span="4"><div style="height: 140px; line-height: 140px;">col-4</div></vui-col>
+					<vui-col v-bind:span="4"><div style="height: 80px; line-height: 80px;">col-4</div></vui-col>
 				</vui-row>
 			</div>
 		</template>

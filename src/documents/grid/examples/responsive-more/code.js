@@ -2,9 +2,9 @@ const code =
 `<template>
   <div class="example-grid-responsive-more">
     <vui-row>
-      <vui-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }"><div>Col</div></vui-col>
-      <vui-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }"><div>Col</div></vui-col>
-      <vui-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }"><div>Col</div></vui-col>
+      <vui-col v-bind:xs="{ span: 5, offset: 1 }" v-bind:lg="{ span: 6, offset: 2 }"><div>Col</div></vui-col>
+      <vui-col v-bind:xs="{ span: 11, offset: 1 }" v-bind:lg="{ span: 6, offset: 2 }"><div>Col</div></vui-col>
+      <vui-col v-bind:xs="{ span: 5, offset: 1 }" v-bind:lg="{ span: 6, offset: 2 }"><div>Col</div></vui-col>
     </vui-row>
   </div>
 </template>

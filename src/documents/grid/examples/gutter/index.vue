@@ -2,11 +2,11 @@
 	<Example vertical id="example-grid-gutter">
 		<template slot="source">
 			<div class="example-grid-gutter">
-				<vui-row :gutter="16">
-					<vui-col :span="6"><div>col-6</div></vui-col>
-					<vui-col :span="6"><div>col-6</div></vui-col>
-					<vui-col :span="6"><div>col-6</div></vui-col>
-					<vui-col :span="6"><div>col-6</div></vui-col>
+				<vui-row v-bind:gutter="16">
+					<vui-col v-bind:span="6"><div>col-6</div></vui-col>
+					<vui-col v-bind:span="6"><div>col-6</div></vui-col>
+					<vui-col v-bind:span="6"><div>col-6</div></vui-col>
+					<vui-col v-bind:span="6"><div>col-6</div></vui-col>
 				</vui-row>
 			</div>
 		</template>

@@ -79,6 +79,7 @@ export default {
         "feedback-popconfirm": "Popconfirm 气泡确认框",
         "feedback-progress": "Progress 进度条",
         "feedback-result": "Result 结果",
+        "feedback-skeleton": "Skeleton 骨架屏",
         "feedback-spin": "Spin 加载中",
 
         "other": "其它",
@@ -456,6 +457,12 @@ export default {
         "example-result-404": "404",
         "example-result-500": "500",
         "example-result-custom-icon": "自定义图标",
+
+        "example-skeleton-basic-usage": "基本用法",
+        "example-skeleton-complex": "复杂的组合",
+        "example-skeleton-animated": "动画效果",
+        "example-skeleton-children": "包含子组件",
+        "example-skeleton-list": "列表",
 
         "example-spin-basic-usage": "基本用法",
         "example-spin-size": "各种尺寸",

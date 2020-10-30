@@ -1,8 +1,8 @@
 const code = `
 <template>
   <div class="example-avatar-dynamic">
-    <vui-avatar :style="{backgroundColor: color}">{{user}}</vui-avatar>
-    <vui-button size="small" @click="handleChange">Change</vui-button>
+    <vui-avatar v-bind:style="{backgroundColor: color}">{{user}}</vui-avatar>
+    <vui-button size="small" v-on:click="handleChange">Change</vui-button>
   </div>
 </template>
 

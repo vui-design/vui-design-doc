@@ -2,8 +2,8 @@ const code =
 `<template>
   <div class="example-grid-sort">
     <vui-row>
-      <vui-col :span="18" :push="6"><div>col-18 | push-6</div></vui-col>
-      <vui-col :span="6" :pull="18"><div>col-6 | pull-18</div></vui-col>
+      <vui-col v-bind:span="18" v-bind:push="6"><div>col-18 | push-6</div></vui-col>
+      <vui-col v-bind:span="6" v-bind:pull="18"><div>col-6 | pull-18</div></vui-col>
     </vui-row>
   </div>
 </template>

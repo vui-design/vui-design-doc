@@ -49,14 +49,14 @@
 					</tr>
 					<tr>
 						<td>description</td>
-						<td>简单描述</td>
+						<td>描述信息</td>
 						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>extra</td>
 						<td>附加内容，一般用于放置操作按钮</td>
-						<td>Slot</td>
+						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
 				</tbody>

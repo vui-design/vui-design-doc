@@ -5,14 +5,15 @@
 			<p>用来代表用户或事物，支持图片、图标或字符展示。</p>
 			<h2>代码演示</h2>
 		</Markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleAvatarBasicUsage />
 				<ExampleAvatarType />
 			</vui-col>
-			<vui-col :span="12">
+			<vui-col v-bind:span="12">
 				<ExampleAvatarBadge />
 				<ExampleAvatarDynamic />
+				<ExampleAvatarGroup />
 			</vui-col>
 		</vui-row>
 		<Markdown>
@@ -79,6 +80,37 @@
 					</tr>
 				</tbody>
 			</table>
+			<h3>AvatarGroup 属性</h3>
+			<table class="example-api-props">
+				<thead>
+					<tr>
+						<th width="100">属性</th>
+						<th>说明</th>
+						<th width="150">类型</th>
+						<th width="100">默认值</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>maxCount</td>
+						<td>显示的最大头像个数</td>
+						<td>Number</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>maxTooltipTheme</td>
+						<td>多余头像气泡主题，可选值为 <code>light</code>、<code>dark</code> 或者不设</td>
+						<td>String</td>
+						<td><code>light</code></td>
+					</tr>
+					<tr>
+						<td>maxTooltipPlacement</td>
+						<td>多余头像气泡弹出位置，可选值为 <code>top</code>、<code>bottom</code> 或者不设</td>
+						<td>String</td>
+						<td><code>top</code></td>
+					</tr>
+				</tbody>
+			</table>
 		</Markdown>
 	</div>
 </template>
@@ -90,6 +122,7 @@
 	import ExampleAvatarType from "./examples/type";
 	import ExampleAvatarBadge from "./examples/badge";
 	import ExampleAvatarDynamic from "./examples/dynamic";
+	import ExampleAvatarGroup from "./examples/group";
 
 	export default {
 		mixins: [
@@ -100,7 +133,8 @@
 			ExampleAvatarBasicUsage,
 			ExampleAvatarType,
 			ExampleAvatarBadge,
-			ExampleAvatarDynamic
+			ExampleAvatarDynamic,
+			ExampleAvatarGroup
 		}
 	};
 </script>

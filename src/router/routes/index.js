@@ -538,6 +538,15 @@ export default [
 				component: () => import("@/documents/result/index")
 			},
 			{
+				path: "/components/skeleton",
+				name: "skeleton",
+				meta: {
+					title: "Skeleton",
+					group: "feedback"
+				},
+				component: () => import("@/documents/skeleton/index")
+			},
+			{
 				path: "/components/spin",
 				name: "spin",
 				meta: {

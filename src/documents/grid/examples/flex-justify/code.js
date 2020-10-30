@@ -2,34 +2,34 @@ const code =
 `<template>
   <div class="example-grid-flex-justify">
     <vui-row type="flex">
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
     </vui-row>
     <vui-row type="flex" justify="center">
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
     </vui-row>
     <vui-row type="flex" justify="end">
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
     </vui-row>
     <vui-row type="flex" justify="space-between">
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
     </vui-row>
     <vui-row type="flex" justify="space-around">
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
-      <vui-col :span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
+      <vui-col v-bind:span="4"><div>col-4</div></vui-col>
     </vui-row>
   </div>
 </template>

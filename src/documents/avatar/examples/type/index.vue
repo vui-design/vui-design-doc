@@ -1,13 +1,13 @@
 <template>
-	<Example vertical id="example-avatar-type">
+	<Example id="example-avatar-type">
 		<template slot="source">
 			<div class="example-avatar-type">
 				<vui-avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
 				<vui-avatar icon="user" />
 				<vui-avatar>U</vui-avatar>
 				<vui-avatar>USER</vui-avatar>
-				<vui-avatar icon="user" style="background-color: #5cb85c;" />
-				<vui-avatar style="background-color: #fef7ed; color: #f0ad4e;">U</vui-avatar>
+				<vui-avatar icon="user" style="background-color: #52c41a;" />
+				<vui-avatar style="background-color: #fde3cf; color: #f56a00;">U</vui-avatar>
 			</div>
 		</template>
 		<template slot="title">类型</template>

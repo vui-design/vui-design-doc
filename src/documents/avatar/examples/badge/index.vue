@@ -1,11 +1,11 @@
 <template>
-	<Example vertical id="example-avatar-badge">
+	<Example id="example-avatar-badge">
 		<template slot="source">
 			<div class="example-avatar-badge">
-				<vui-badge :count="10">
+				<vui-badge v-bind:count="10">
 					<vui-avatar shape="square" icon="user" />
 				</vui-badge>
-				<vui-badge :count="10" dot>
+				<vui-badge v-bind:count="10" dot>
 					<vui-avatar shape="square" icon="user" />
 				</vui-badge>
 			</div>
