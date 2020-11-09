@@ -1,8 +1,9 @@
 <template>
-	<Example vertical id="example-spin-message">
+	<Example vertical id="example-spin-nested">
 		<template slot="source">
-			<div class="example-spin-message">
-				<vui-spin message="Loading...">
+			<div class="example-spin-nested">
+				<vui-switch v-model="spinning" />
+				<vui-spin v-bind:spinning="spinning">
 					<vui-alert
 						type="info"
 						message="Alert message title"
@@ -11,9 +12,9 @@
 				</vui-spin>
 			</div>
 		</template>
-		<template slot="title">自定义消息文案</template>
+		<template slot="title">卡片加载中</template>
 		<template slot="describe">
-			<p>通过 <code>message</code> 属性设置消息文案。</p>
+			<p>可以直接把内容内嵌到 <code>Spin</code> 中，将现有容器变为加载状态。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>
@@ -29,8 +30,13 @@
 		},
 		data() {
 			return {
-				code
+				code,
+				spinning: false
 			};
 		}
 	};
 </script>
+
+<style>
+	.example-spin-nested .vui-spin { margin-top:20px; }
+</style>

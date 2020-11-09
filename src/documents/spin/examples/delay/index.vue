@@ -1,8 +1,9 @@
 <template>
-	<Example vertical id="example-spin-message">
+	<Example vertical id="example-spin-delay">
 		<template slot="source">
-			<div class="example-spin-message">
-				<vui-spin message="Loading...">
+			<div class="example-spin-delay">
+				<vui-switch v-model="spinning" />
+				<vui-spin v-bind:delay="delay" v-bind:spinning="spinning">
 					<vui-alert
 						type="info"
 						message="Alert message title"
@@ -11,9 +12,9 @@
 				</vui-spin>
 			</div>
 		</template>
-		<template slot="title">自定义消息文案</template>
+		<template slot="title">延迟</template>
 		<template slot="describe">
-			<p>通过 <code>message</code> 属性设置消息文案。</p>
+			<p>延迟显示 <code>spinning</code> 效果，当 <code>spinning</code> 状态在 <code>delay</code> 时间内结束，则不显示 <code>spinning</code> 状态。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>
@@ -29,8 +30,14 @@
 		},
 		data() {
 			return {
-				code
+				code,
+				delay: 500,
+				spinning: false
 			};
 		}
 	};
 </script>
+
+<style>
+	.example-spin-delay .vui-spin { margin-top:20px; }
+</style>

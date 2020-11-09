@@ -2,18 +2,18 @@
 	<Example vertical id="example-tag-control">
 		<template slot="source">
 			<div class="example-tag-control">
-				<vui-tag v-for="tag in tags" :key="tag" closable @close="handleRemove(tag)">{{tag}}</vui-tag>
+				<vui-tag v-for="tag in tags" v-bind:key="tag" closable v-on:close="handleRemove(tag)">{{tag}}</vui-tag>
 				<vui-input
 					v-if="showInput"
 					v-model="value"
 					ref="input"
 					size="small"
 					style="width: 100px;"
-					:value="value"
-					@keyup.enter="handleInputConfirm"
-					@blur="handleInputCancel"
+					v-bind:value="value"
+					v-on:keyup.enter="handleConfirm"
+					v-on:blur="handleCancel"
 				/>
-				<vui-button v-else type="primary" size="small" @click="handleAdd">New Tag</vui-button>
+				<vui-button v-else type="primary" size="small" v-on:click="handleAdd">New Tag</vui-button>
 			</div>
 		</template>
 		<template slot="title">动态添加和删除</template>
@@ -29,7 +29,6 @@
 	import code from "./code";
 
 	export default {
-		name: "ExampleTagBasicUsage",
 		components: {
 			Example
 		},
@@ -46,24 +45,20 @@
 				this.showInput = true;
 				this.$nextTick(() => this.$refs.input.focus());
 			},
-			handleInputConfirm() {
+			handleConfirm() {
 				if (this.value && this.tags.indexOf(this.value) === -1) {
 					this.tags.push(this.value);
 				}
 
 				this.showInput = false;
 				this.value = "";
-
-				console.log(this.tags);
 			},
-			handleInputCancel() {
+			handleCancel() {
 				this.showInput = false;
 				this.value = "";
 			},
 			handleRemove(tag) {
 				this.tags.splice(this.tags.indexOf(tag), 1);
-
-				console.log(this.tags);
 			}
 		}
 	};

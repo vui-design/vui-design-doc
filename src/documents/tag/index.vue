@@ -10,16 +10,18 @@
 			</ul>
 			<h2>代码演示</h2>
 		</Markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleTagBasicUsage />
+				<ExampleTagSize />
+				<ExampleTagColor />
+				<ExampleTagIcon />
+			</vui-col>
+			<vui-col v-bind:span="12">
 				<ExampleTagClosable />
 				<ExampleTagControl />
 				<ExampleTagCheckable />
-			</vui-col>
-			<vui-col :span="12">
 				<ExampleTagHotTags />
-				<ExampleTagColor />
 			</vui-col>
 		</vui-row>
 		<Markdown>
@@ -36,6 +38,24 @@
 				</thead>
 				<tbody>
 					<tr>
+						<td>size</td>
+						<td>标签尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
+						<td>String</td>
+						<td><code>medium</code></td>
+					</tr>
+					<tr>
+						<td>color</td>
+						<td>标签颜色，预设颜色详见示例〔多彩标签〕，支持自定义颜色值</td>
+						<td>String</td>
+						<td><code>default</code></td>
+					</tr>
+					<tr>
+						<td>icon</td>
+						<td>设置标签图标类型/图标</td>
+						<td>String | Slot</td>
+						<td>--</td>
+					</tr>
+					<tr>
 						<td>closable</td>
 						<td>标签是否可以关闭</td>
 						<td>Boolean</td>
@@ -49,21 +69,9 @@
 					</tr>
 					<tr>
 						<td>checked</td>
-						<td>标签选中状态，仅在 <code>checkable</code> 为 <code>true</code> 时有效</td>
+						<td>标签选中状态，仅在 <code>checkable</code> 为 <code>true</code> 时有效，可以使用 <code>v-model</code> 双向绑定数据</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
-					</tr>
-					<tr>
-						<td>color</td>
-						<td>标签颜色，预设颜色详见示例〔标签颜色〕</td>
-						<td>String</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>animation</td>
-						<td>自定义显示和关闭动画</td>
-						<td>String</td>
-						<td><code>vui-tag-zoom</code></td>
 					</tr>
 				</tbody>
 			</table>
@@ -80,19 +88,25 @@
 				<tbody>
 					<tr>
 						<td>click</td>
-						<td>点击标签时的事件回调</td>
+						<td>点击标签时的事件回调函数</td>
 						<td>Function</td>
 						<td><code>event</code></td>
 					</tr>
 					<tr>
 						<td>close</td>
-						<td>点击关闭按钮时的事件回调</td>
+						<td>点击关闭按钮时的事件回调函数</td>
 						<td>Function</td>
 						<td><code>event</code></td>
 					</tr>
 					<tr>
+						<td>input</td>
+						<td>切换选中状态时的事件回调函数，可以使用 <code>v-model</code> 双向绑定数据</td>
+						<td>Function</td>
+						<td><code>checked</code></td>
+					</tr>
+					<tr>
 						<td>change</td>
-						<td>切换选中状态时的事件回调</td>
+						<td>切换选中状态时的事件回调函数</td>
 						<td>Function</td>
 						<td><code>checked</code></td>
 					</tr>
@@ -106,6 +120,8 @@
 	import MixinCatalogue from "@/mixins/catalogue";
 	import Markdown from "@/components/markdown"
 	import ExampleTagBasicUsage from "./examples/basic-usage";
+	import ExampleTagSize from "./examples/size";
+	import ExampleTagIcon from "./examples/icon";
 	import ExampleTagClosable from "./examples/closable";
 	import ExampleTagControl from "./examples/control";
 	import ExampleTagCheckable from "./examples/checkable";
@@ -113,13 +129,14 @@
 	import ExampleTagColor from "./examples/color";
 
 	export default {
-		name: "TagZhCN",
 		mixins: [
 			MixinCatalogue
 		],
 		components: {
 			Markdown,
 			ExampleTagBasicUsage,
+			ExampleTagSize,
+			ExampleTagIcon,
 			ExampleTagClosable,
 			ExampleTagControl,
 			ExampleTagCheckable,

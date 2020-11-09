@@ -22,7 +22,7 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="100">属性</th>
+						<th width="150">属性</th>
 						<th>说明</th>
 						<th width="150">类型</th>
 						<th width="100">默认值</th>
@@ -65,7 +65,7 @@
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="100">事件名</th>
+						<th width="150">事件名</th>
 						<th>说明</th>
 						<th width="150">类型</th>
 						<th width="100">回调参数</th>
@@ -84,13 +84,25 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="100">属性</th>
+						<th width="150">属性</th>
 						<th>说明</th>
 						<th width="150">类型</th>
 						<th width="100">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
+					<tr>
+						<td>shape</td>
+						<td>设置头像组合的形状，可选值为 <code>circle</code>、<code>square</code> 或者不设</td>
+						<td>String</td>
+						<td><code>circle</code></td>
+					</tr>
+					<tr>
+						<td>size</td>
+						<td>设置头像组合的尺寸，预设值为 <code>small</code>、<code>medium</code>、<code>large</code>，可以设置为具体的数值</td>
+						<td>String | Number</td>
+						<td><code>medium</code></td>
+					</tr>
 					<tr>
 						<td>maxCount</td>
 						<td>显示的最大头像个数</td>

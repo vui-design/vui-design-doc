@@ -1,17 +1,21 @@
 <template>
-	<Example id="example-affix-basic-usage">
+	<Example id="example-transfer-basic-usage">
 		<template slot="source">
-			<div class="example-affix-basic-usage">
-				<div class="example-affix-basic-usage-section">
-					<vui-affix v-bind:offsetTop="top">
-						<vui-button type="primary" v-on:click="addTop">Affix top</vui-button>
-					</vui-affix>
-				</div>
-				<div class="example-affix-basic-usage-section">
-					<vui-affix v-bind:offsetBottom="bottom">
-						<vui-button type="primary" v-on:click="addBottom">Affix bottom</vui-button>
-					</vui-affix>
-				</div>
+			<div class="example-transfer-basic-usage">
+				<vui-switch v-model="disabled">
+					<template slot="checked">Disabled</template>
+					<template slot="unchecked">Enabled</template>
+				</vui-switch>
+				<vui-transfer
+					v-bind:titles="titles"
+					v-bind:data="data"
+					v-bind:selectedKeys="selectedKeys"
+					v-bind:targetKeys="targetKeys"
+					v-bind:render="item => item.title"
+					v-bind:disabled="disabled"
+					v-on:select="handleSelect"
+					v-on:change="handleChange"
+				/>
 			</div>
 		</template>
 		<template slot="title">基本用法</template>
@@ -31,24 +35,48 @@
 			Example
 		},
 		data() {
+			const data = [];
+
+			for (let i = 0; i < 20; i++) {
+				const index = i + 1;
+
+				data.push({
+					key: i,
+					label: "Option " + index,
+					description: "description of content " + index,
+					disabled: i % 3 < 1
+				});
+			}
+
+			const targetKeys = data.filter(item => +item.key % 3 > 1).map(item => item.key);
+
 			return {
 				code,
-				top: 10,
-				bottom: 10
+				disabled: false,
+				titles: ["Source", "Target"],
+				data,
+				selectedKeys: [],
+				targetKeys
 			};
 		},
 		methods: {
-			addTop() {
-				this.top += 10;
+			handleSelect(sourceSelectedKeys, targetSelectedKeys) {
+				console.log("sourceSelectedKeys:", sourceSelectedKeys);
+				console.log("targetSelectedKeys:", targetSelectedKeys);
+
+				this.selectedKeys = [...sourceSelectedKeys, ...targetSelectedKeys];
 			},
-			addBottom() {
-				this.bottom += 10;
+			handleChange(nextTargetKeys, direction, moveKeys) {
+				console.log("targetKeys:", nextTargetKeys);
+				console.log("direction:", direction);
+				console.log("moveKeys:", moveKeys);
+
+				this.targetKeys = nextTargetKeys;
 			}
 		}
 	};
 </script>
 
 <style>
-	.example-affix-basic-usage {  }
-	.example-affix-basic-usage-section + .example-affix-basic-usage-section { margin-top:10px; }
+	.example-transfer-basic-usage .vui-transfer { margin-top:20px; }
 </style>

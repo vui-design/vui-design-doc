@@ -1,79 +1,79 @@
-import addEventListener from "vui-design/utils/addEventListener";
+import guid from "vui-design/utils/guid";
+import clone from "vui-design/utils/clone";
+import getTargetByPath from "vui-design/utils/getTargetByPath";
+import is from "vui-design/utils/is";
 
-const eventTypes = ["resize", "scroll", "touchstart", "touchmove", "touchend", "pageshow", "load"];
-let observerEntities = [];
-
-export function getElementRect(element) {
-	return element === window ? { top: 0, bottom: window.innerHeight } : element.getBoundingClientRect();
+/**
+* 将字符串转义成正则表达式
+* @param {String} value 字符串
+*/
+export const createRegexer = (value) => {
+	return new RegExp(String(value).replace(/[|\\{}()[\]^$+*?.]/g, "\\$&"), "i");
 };
 
-export function getFixedTop(placeholderRect, targetRect, offsetTop) {
-	if (offsetTop !== undefined && targetRect.top > placeholderRect.top - offsetTop) {
-		return offsetTop + targetRect.top + "px";
+/**
+* 默认的选项筛选函数
+* @param {Object} option 选项
+* @param {String} keyword 关键字
+* @param {String} property 查询属性
+*/
+export const defaultOptionFilter = (option, keyword, property) => {
+	if (!keyword) {
+		return true;
 	}
 
-	return undefined;
+	const comparator = createRegexer(keyword);
+
+	return comparator.test(option[property]);
 };
 
-export function getFixedBottom(placeholderRect, targetRect, offsetBottom) {
-	if (offsetBottom !== undefined && targetRect.bottom < placeholderRect.bottom + offsetBottom) {
-		const targetBottomOffset = window.innerHeight - targetRect.bottom;
+/**
+* 获取选项数据的唯一键值
+* @param {Object} option 选项
+* @param {String} property 查询属性
+*/
+const getRowKey = (option, property) => {
+	let rowKey;
 
-		return offsetBottom + targetBottomOffset + "px";
+	if (is.string(property)) {
+		const target = getTargetByPath(option, property);
+
+		rowKey = target.value;
 	}
-
-	return undefined;
-};
-
-export function addObserver(target, affix) {
-	if (!target) {
-		return;
-	}
-
-	let entity = observerEntities.find(oriObserverEntity => oriObserverEntity.target === target);
-
-	if (entity) {
-		entity.affixList.push(affix);
+	else if (is.function(property)) {
+		rowKey = property(clone(option));
 	}
 	else {
-		entity = {
-			target,
-			affixList: [affix],
-			eventHandlers: {}
-		};
-
-		observerEntities.push(entity);
-
-		eventTypes.forEach(eventType => {
-			entity.eventHandlers[eventType] = addEventListener(target, eventType, () => {
-				entity.affixList.forEach(target => {
-					target.onLazyUpdatePosition();
-				});
-			});
-		});
+		rowKey = guid();
 	}
+
+	return rowKey;
 };
 
-export function removeObserver(affix) {
-	const observerEntity = observerEntities.find(oriObserverEntity => {
-		const hasAffix = oriObserverEntity.affixList.some(target => target === affix);
+/**
+* 根据 keyword 关键字筛选 options 选项列表
+* @param {Array} options 选项列表
+* @param {String} keyword 关键字
+* @param {Function} filter 筛选函数
+* @param {String} property 查询属性
+*/
+export const getFilteredOptions = (options, keyword, filter, property) => {
+	let array = [];
+	let iterator = is.function(filter) ? filter : defaultOptionFilter;
 
-		if (hasAffix) {
-			oriObserverEntity.affixList = oriObserverEntity.affixList.filter(target => target !== affix);
+	options.forEach(option => {
+		if (!iterator(keyword, option, property)) {
+			return;
 		}
 
-		return hasAffix;
+		array.push(option);
 	});
 
-	if (observerEntity && observerEntity.affixList.length === 0) {
-		observerEntities = observerEntities.filter(oriObserverEntity => oriObserverEntity !== observerEntity);
+	return array;
+};
 
-		eventTypes.forEach(eventType => {
-			const handler = observerEntity.eventHandlers[eventType];
-
-			if (handler && handler.remove) {
-				handler.remove();
-			}
-		});
-	}
+// 默认导出指定接口
+export default {
+	getRowKey,
+	getFilteredOptions
 };

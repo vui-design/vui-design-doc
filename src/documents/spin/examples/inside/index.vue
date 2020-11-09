@@ -1,13 +1,13 @@
 <template>
-	<Example vertical id="example-spin-fixed">
+	<Example vertical id="example-spin-inside">
 		<template slot="source">
-			<div class="example-spin-fixed">
-				<vui-spin fixed />
+			<div class="example-spin-inside">
+				<vui-spin />
 			</div>
 		</template>
-		<template slot="title">居中固定</template>
+		<template slot="title">容器</template>
 		<template slot="describe">
-			<p>在容器内部垂直居中固定，需要父级有 <code>relative</code> 或 <code>absolute</code> 定位。</p>
+			<p>放入一个容器中。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>
@@ -30,5 +30,5 @@
 </script>
 
 <style>
-	.example-spin-fixed { position:relative; height:100px; border:1px solid #e6e6e6; }
+	.example-spin-inside { border-radius:2px; background-color:#fafafa; padding:50px; text-align:center; }
 </style>

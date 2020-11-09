@@ -1,17 +1,18 @@
 const code =
 `<template>
   <div class="example-tag-control">
-    <vui-tag v-for="tag in tags" :key="tag" closable @close="handleRemove(tag)">{{tag}}</vui-tag>
+    <vui-tag v-for="tag in tags" v-bind:key="tag" closable v-on:close="handleRemove(tag)">{{tag}}</vui-tag>
     <vui-input
       v-if="showInput"
       v-model="value"
       ref="input"
       size="small"
       style="width: 100px;"
-      @keyup.enter="handleInputConfirm"
-      @blur="handleInputCancel"
+      v-bind:value="value"
+      v-on:keyup.enter="handleConfirm"
+      v-on:blur="handleCancel"
     />
-    <vui-button v-else type="primary" size="small" @click="handleAdd">New Tag</vui-button>
+    <vui-button v-else type="primary" size="small" v-on:click="handleAdd">New Tag</vui-button>
   </div>
 </template>
 
@@ -36,8 +37,6 @@ const code =
 
         this.showInput = false;
         this.value = "";
-
-        console.log(this.tags);
       },
       handleInputCancel() {
         this.showInput = false;
@@ -45,8 +44,6 @@ const code =
       },
       handleRemove(tag) {
         this.tags.splice(this.tags.indexOf(tag), 1);
-
-        console.log(this.tags);
       }
     }
   };

@@ -1,8 +1,14 @@
 const code =
 `<template>
-  <div class="example-spin-message">
-    <vui-spin fixed message="Loading..." />
-  </div>
+    <div class="example-spin-message">
+      <vui-spin message="Loading...">
+        <vui-alert
+          type="info"
+          message="Alert message title"
+          description="Further details about the context of this alert."
+        />
+      </vui-spin>
+    </div>
 </template>
 
 <script>
@@ -10,10 +16,6 @@ const code =
 
   };
 </script>
-
-<style>
-  .example-spin-message { position:relative; height:100px; border:1px solid #e6e6e6; }
-</style>
 `;
 
 export default code;

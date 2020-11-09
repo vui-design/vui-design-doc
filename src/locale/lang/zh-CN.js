@@ -52,6 +52,7 @@ export default {
         "data-entry-switch": "Switch 开关",
         "data-entry-textarea": "Textarea 文本域",
         "data-entry-timepicker": "Timepicker 时间选择器",
+        "data-entry-transfer": "Transfer 穿梭框",
         "data-entry-upload": "Upload 上传",
 
         "data-display": "数据展示",
@@ -306,6 +307,7 @@ export default {
         "example-avatar-type": "类型",
         "example-avatar-badge": "带徽标的头像",
         "example-avatar-dynamic": "自动调整字符大小",
+        "example-avatar-group": "头像组合",
 
         "example-badge-basic-usage": "基本用法",
         "example-badge-overflow-count": "封顶数值",
@@ -367,11 +369,13 @@ export default {
         "example-table-export": "导出",
 
         "example-tag-basic-usage": "基本用法",
+        "example-tag-size": "尺寸",
+        "example-tag-color": "多彩标签",
+        "example-tag-icon": "图标标签",
         "example-tag-closable": "可关闭",
         "example-tag-control": "动态添加和删除",
         "example-tag-checkable": "可选择",
         "example-tag-hot-tags": "热门标签",
-        "example-tag-color": "标签颜色",
 
         "example-time-basic-usage": "基本用法",
         "example-time-type": "显示类型",
@@ -466,10 +470,11 @@ export default {
 
         "example-spin-basic-usage": "基本用法",
         "example-spin-size": "各种尺寸",
-        "example-spin-fixed": "居中固定",
-        "example-spin-message": "消息文案",
-        "example-spin-custom": "自定义内容",
-        "example-spin-state": "状态切换",
+        "example-spin-inside": "容器",
+        "example-spin-nested": "卡片加载中",
+        "example-spin-delay": "延迟",
+        "example-spin-indicator": "自定义指示符",
+        "example-spin-message": "自定义消息文案",
         "example-spin-fullscreen": "全屏加载",
 
         "example-anchor-basic-usage": "基本用法",

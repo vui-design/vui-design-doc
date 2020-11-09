@@ -7,9 +7,9 @@
 					v-for="tag in tags"
 					color="primary"
 					checkable
-					:key="tag"
-					:checked="selectedTags.indexOf(tag) > -1"
-					@change="checked => handleChange(checked, tag)"
+					v-bind:key="tag"
+					v-bind:checked="selectedTags.indexOf(tag) > -1"
+					v-on:change="checked => handleChange(checked, tag)"
 				>
 					{{tag}}
 				</vui-tag>
@@ -28,7 +28,6 @@
 	import code from "./code";
 
 	export default {
-		name: "ExampleTagHotTags",
 		components: {
 			Example
 		},
@@ -45,8 +44,6 @@
 				let nextSelectedTags = checked ? [...selectedTags, tag] : selectedTags.filter(item => item !== tag);
 
 				this.selectedTags = nextSelectedTags;
-
-				console.log(this.selectedTags);
 			}
 		}
 	};

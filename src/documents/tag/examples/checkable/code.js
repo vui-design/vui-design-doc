@@ -1,9 +1,11 @@
 const code =
 `<template>
   <div class="example-tag-checkable">
-    <vui-tag checkable>Tag 1</vui-tag>
-    <vui-tag checkable>Tag 2</vui-tag>
-    <vui-tag checkable>Tag 3</vui-tag>
+    <vui-tag color="primary" checkable>Tag 1</vui-tag>
+    <vui-tag color="info" checkable>Tag 2</vui-tag>
+    <vui-tag color="warning" checkable>Tag 3</vui-tag>
+    <vui-tag color="success" checkable>Tag 4</vui-tag>
+    <vui-tag color="error" checkable>Tag 5</vui-tag>
   </div>
 </template>
 
