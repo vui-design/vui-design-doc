@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-space v-bind:gutter="50">
+  <vui-space v-bind:size="50">
     <vui-button type="primary">Primary</vui-button>
     <vui-button>Default</vui-button>
     <vui-button type="dashed">Dashed</vui-button>

@@ -161,7 +161,7 @@ export default {
         "example-space-vertical": "垂直方向",
         "example-space-size": "尺寸",
         "example-space-align": "对齐",
-        "example-space-gutter": "自定义间距尺寸",
+        "example-space-customize": "自定义间距尺寸",
 
 
         "example-affix-basic-usage": "基本用法",

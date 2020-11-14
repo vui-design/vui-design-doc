@@ -153,7 +153,7 @@
 				<tbody>
 					<tr>
 						<td>collapse</td>
-						<td>展开或收起时的事件回调，由点击 <code>trigger</code> 以及响应式反馈两种方式触发，可以使用 <code>v-model</code> 双向绑定数据</td>
+						<td>展开或收起时的事件回调函数，由点击 <code>trigger</code> 以及响应式反馈两种方式触发，可以使用 <code>v-model</code> 双向绑定数据</td>
 						<td>Function</td>
 						<td><code>collapsed</code></td>
 					</tr>

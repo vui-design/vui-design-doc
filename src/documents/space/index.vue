@@ -11,7 +11,7 @@
 		<SpaceVertical />
 		<SpaceSize />
 		<SpaceAlign />
-		<SpaceGutter />
+		<SpaceCustomize />
 		<Markdown>
 			<h2 id="example-api">API</h2>
 			<h3>Space 属性</h3>
@@ -39,15 +39,9 @@
 					</tr>
 					<tr>
 						<td>size</td>
-						<td>间距大小，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
-						<td>String</td>
-						<td><code>medium</code></td>
-					</tr>
-					<tr>
-						<td>gutter</td>
-						<td>自定义间距大小，该属性会覆盖 <code>size</code> 属性下的间距设置</td>
+						<td>间距大小，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设，支持自定义间距大小</td>
 						<td>String | Number</td>
-						<td>--</td>
+						<td><code>medium</code></td>
 					</tr>
 				</tbody>
 			</table>
@@ -62,7 +56,7 @@
 	import SpaceVertical from "./examples/vertical";
 	import SpaceSize from "./examples/size";
 	import SpaceAlign from "./examples/align";
-	import SpaceGutter from "./examples/gutter";
+	import SpaceCustomize from "./examples/customize";
 
 	export default {
 		mixins: [
@@ -74,7 +68,7 @@
 			SpaceVertical,
 			SpaceSize,
 			SpaceAlign,
-			SpaceGutter
+			SpaceCustomize
 		}
 	};
 </script>
