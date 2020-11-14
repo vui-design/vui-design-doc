@@ -36,15 +36,16 @@
 			showShowCustomSpin() {
 				const spin = this.$spin.spinning({
 					indicator(h) {
-						return h("vui-icon", {
-							props: {
-								type: "loading-spinner"
-							},
-							style: {
-								fontSize: "24px"
-							}
-						});
-					}
+						const props = {
+							type: "loading-spinner"
+						};
+						const style = {
+							fontSize: "34px"
+						};
+
+						return h("vui-icon", { props, style });
+					},
+					background: "rgba(0, 0, 0, 0.5)"
 				});
 
 				setTimeout(() => spin.cancel(), 3000);

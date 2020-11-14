@@ -8,15 +8,26 @@
 	&-children {
 		display:block;
 		box-sizing:border-box;
-		transition:opacity 0.2s;
+		transition:opacity @transition-duration @transition-timing-function;
 	}
 
 	&-spinner {
-		display:inline-block;
+		display:block;
 		box-sizing:border-box;
-		color:#2d8cf0;
+		color:@spin-color;
 		text-align:center;
 		line-height:1;
+	}
+
+	&-indicator {
+		display:inline-block;
+		box-sizing:border-box;
+		vertical-align:middle;
+	}
+
+	&-message {
+		display:block;
+		box-sizing:border-box;
 	}
 
 	&-dot {
@@ -46,7 +57,7 @@
 				left:50%;
 				display:block;
 				border-radius:50%;
-				background-color:#2d8cf0;
+				background-color:@spin-color;
 			}
 
 			&:nth-child(1) {
@@ -64,66 +75,55 @@
 		}
 	}
 
-	&-indicator {
-		display:inline-block;
-		box-sizing:border-box;
-		vertical-align:middle;
-	}
-
-	&-message {
-		display:block;
-		box-sizing:border-box;
-	}
-
 	&-small {
-		font-size:12px;
-	}
-	&-small &-dot {
-		width:22px;
-		height:22px;
-
-		&-item:before {
-			width:6px;
-			height:6px;
-			margin-left:-3px;
-		}
+		font-size:@spin-font-size-sm;
 	}
 	&-small &-message {
-		margin-top:8px;
+		margin-top:@spin-message-margin-top-sm;
+	}
+	&-small &-dot {
+		width:@spin-dot-size-sm;
+		height:@spin-dot-size-sm;
+
+		&-item:before {
+			width:@spin-dot-item-size-sm;
+			height:@spin-dot-item-size-sm;
+			margin-left:-@spin-dot-item-size-sm / 2;
+		}
 	}
 
 	&-medium {
-		font-size:14px;
-	}
-	&-medium &-dot {
-		width:28px;
-		height:28px;
-
-		&-item:before {
-			width:8px;
-			height:8px;
-			margin-left:-4px;
-		}
+		font-size:@spin-font-size-md;
 	}
 	&-medium &-message {
-		margin-top:10px;
+		margin-top:@spin-message-margin-top-md;
+	}
+	&-medium &-dot {
+		width:@spin-dot-size-md;
+		height:@spin-dot-size-md;
+
+		&-item:before {
+			width:@spin-dot-item-size-md;
+			height:@spin-dot-item-size-md;
+			margin-left:-@spin-dot-item-size-md / 2;
+		}
 	}
 
 	&-large {
-		font-size:16px;
-	}
-	&-large &-dot {
-		width:34px;
-		height:34px;
-
-		&-item:before {
-			width:10px;
-			height:10px;
-			margin-left:-5px;
-		}
+		font-size:@spin-font-size-lg;
 	}
 	&-large &-message {
-		margin-top:12px;
+		margin-top:@spin-message-margin-top-lg;
+	}
+	&-large &-dot {
+		width:@spin-dot-size-lg;
+		height:@spin-dot-size-lg;
+
+		&-item:before {
+			width:@spin-dot-item-size-lg;
+			height:@spin-dot-item-size-lg;
+			margin-left:-@spin-dot-item-size-lg / 2;
+		}
 	}
 
 	&-fullscreen {
@@ -139,7 +139,7 @@
 		position:absolute;
 		top:50%;
 		left:50%;
-		transform:translate(-50%,-50%);
+		transform:translate(-50%, -50%);
 	}
 
 	&-with-children {
@@ -150,7 +150,7 @@
 		position:absolute;
 		top:50%;
 		left:50%;
-		transform:translate(-50%,-50%);
+		transform:translate(-50%, -50%);
 	}
 
 	&-spinning &-children {

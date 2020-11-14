@@ -61,13 +61,13 @@
 					<tr>
 						<td>message</td>
 						<td>自定义消息文案</td>
-						<td>String</td>
+						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
 				</tbody>
 			</table>
 			<h3>全局方法</h3>
-			<p>除了标准组件的使用方式，<code>Vui</code> 还精心封装了一个实例方法，用来创建一次性的全屏加载提示。实例以隐式创建 <code>Spin</code> 组件的方式在全局创建一个加载提示，并在取消时移除。您可以直接通过调用以下方法来使用：</p>
+			<p>除了标准组件的使用方式，<code>Vui Design</code> 还精心封装了一个实例方法，用来创建一次性的全屏加载提示。实例以隐式创建 <code>Spin</code> 组件的方式在全局显示一个加载提示，并在取消时移除。您可以直接通过调用以下方法来使用：</p>
 			<ul>
 				<li><code>const spin = this.$spin.spinning(options)</code></li>
 			</ul>
@@ -86,7 +86,7 @@
 						<td>size</td>
 						<td>尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
 						<td>String</td>
-						<td><code>medium</code></td>
+						<td><code>large</code></td>
 					</tr>
 					<tr>
 						<td>delay</td>
@@ -97,12 +97,18 @@
 					<tr>
 						<td>indicator</td>
 						<td>自定义加载指示符</td>
-						<td>Function | Slot</td>
+						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>message</td>
 						<td>自定义消息文案</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>background</td>
+						<td>自定义遮罩背景</td>
 						<td>String</td>
 						<td>--</td>
 					</tr>

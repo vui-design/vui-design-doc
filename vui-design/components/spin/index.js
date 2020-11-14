@@ -48,22 +48,13 @@ const createSpinInstance = options => {
 			cancel() {
 				this.state.visible = false;
 			},
-			handleEnter() {
-
-			},
-			handleAfterEnter() {
-
-			},
-			handleLeave() {
-
-			},
 			handleAfterLeave() {
 				this.$destroy();
 				this.$el && this.$el.parentNode && this.$el.parentNode.removeChild(this.$el);
 			}
 		},
 		render(h) {
-			const { state, handleEnter, handleAfterEnter, handleLeave, handleAfterLeave } = this;
+			const { state, handleAfterLeave } = this;
 
 			if (!state.visible) {
 				return;
@@ -78,12 +69,13 @@ const createSpinInstance = options => {
 					message: state.message
 				},
 				style: {
-					zIndex: Popup.nextZIndex()
+					zIndex: Popup.nextZIndex(),
+					background: state.background
 				}
 			};
 
 			return (
-				<transition appear name={animation} onEnter={handleEnter} onAfterEnter={handleAfterEnter} onLeave={handleLeave} onAfterLeave={handleAfterLeave}>
+				<transition appear name={state.animation} onAfterLeave={handleAfterLeave}>
 					<VuiSpin {...attributes} />
 				</transition>
 			);
@@ -102,7 +94,7 @@ VuiSpin.spinning = function(options = {}) {
 		return;
 	}
 
-	if (!is.string(options) && !is.plainObject(options)) {
+	if (!is.string(options) && !is.json(options)) {
 		return;
 	}
 
