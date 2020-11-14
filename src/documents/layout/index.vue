@@ -35,6 +35,7 @@
 				<li><code>Content</code> — 内容部分，自带默认样式，其下可嵌套任何元素，只能放在 <code>Layout</code> 中。</li>
 				<li><code>Footer</code> — 底部布局，自带默认样式，其下可嵌套任何元素，只能放在 <code>Layout</code> 中。</li>
 			</ul>
+			<p>注意：采用 <code>flex</code> 布局实现，请注意<a href="https://caniuse.com/#search=flex" target="_blank">浏览器兼容性</a>问题。</p>
 			<h2>代码演示</h2>
 		</Markdown>
 		<ExampleLayoutBasicUsage />

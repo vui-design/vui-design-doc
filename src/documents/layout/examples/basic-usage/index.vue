@@ -59,8 +59,8 @@
 
 <style>
 	.example-layout-basic-usage .vui-layout + .vui-layout { margin-top:20px; }
-	.example-layout-basic-usage .vui-header,
-	.example-layout-basic-usage .vui-footer { background-color:rgba(45,140,240,0.7); color:#fff; text-align:center; }
-	.example-layout-basic-usage .vui-sider { background-color:rgba(45,140,240,0.85); color:#fff; text-align:center; line-height:120px; }
-	.example-layout-basic-usage .vui-content { background-color:rgba(45,140,240,1); color:#fff; text-align:center; line-height:120px; }
+	.example-layout-basic-usage .vui-layout-header,
+	.example-layout-basic-usage .vui-layout-footer { background-color:rgba(45,140,240,0.7); color:#fff; text-align:center; }
+	.example-layout-basic-usage .vui-layout-sider { background-color:rgba(45,140,240,0.85); color:#fff; text-align:center; line-height:120px; }
+	.example-layout-basic-usage .vui-layout-content { background-color:rgba(45,140,240,1); color:#fff; text-align:center; line-height:120px; }
 </style>
