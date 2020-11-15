@@ -2,7 +2,7 @@
 	<Example vertical id="example-page-header-breadcrumb">
 		<template slot="source">
 			<vui-page-header
-				style="border: 1px solid #e6e6e6;"
+				style="border: 1px solid #f0f0f0;"
 				title="Title"
 				subTitle="This is a subtitle"
 			>
