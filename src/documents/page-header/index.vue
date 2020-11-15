@@ -94,7 +94,7 @@
 				<tbody>
 					<tr>
 						<td>back</td>
-						<td>返回按钮的点击事件</td>
+						<td>返回按钮的点击事件回调函数</td>
 						<td>Function</td>
 						<td><code>event</code></td>
 					</tr>

@@ -2,12 +2,12 @@
 	<Example vertical id="example-page-header-ghost">
 		<template slot="source">
 			<div class="example-page-header-ghost">
-				<vui-page-header title="Title" subTitle="This is a subtitle" :ghost="false" @back="handleBack">
-					<template slot="extra">
+				<vui-page-header title="Title" subTitle="This is a subtitle" v-bind:ghost="false" v-on:back="handleBack">
+					<vui-space slot="extra" v-bind:size="10">
 						<vui-button>Action 1</vui-button>
-						<vui-button class="margin-left-10">Action 2</vui-button>
-						<vui-button type="primary" class="margin-left-10">Action 3</vui-button>
-					</template>
+						<vui-button>Action 2</vui-button>
+						<vui-button type="primary">Action 3</vui-button>
+					</vui-space>
 					<vui-descriptions>
 						<vui-description label="UserName">Chillyme</vui-description>
 						<vui-description label="Telephone">18012341234</vui-description>
@@ -50,5 +50,5 @@
 </script>
 
 <style>
-	.example-page-header-ghost { background-color:#f6f6f6; padding:20px; }
+	.example-page-header-ghost { background-color:#fafafa; padding:20px; }
 </style>

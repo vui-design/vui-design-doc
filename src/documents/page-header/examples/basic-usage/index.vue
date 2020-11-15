@@ -2,10 +2,10 @@
 	<Example vertical id="example-page-header-basic-usage">
 		<template slot="source">
 			<vui-page-header
-				style="border: 1px solid #e6e6e6;"
+				style="border: 1px solid #f0f0f0;"
 				title="Title"
 				subTitle="This is a subtitle"
-				@back="handleBack"
+				v-on:back="handleBack"
 			/>
 		</template>
 		<template slot="title">基本用法</template>

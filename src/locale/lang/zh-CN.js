@@ -7,7 +7,6 @@ export default {
         "github": "Github"
     },
 
-
     "menu": {
         "installation": "安装",
         "getting-started": "快速上手",
@@ -22,12 +21,9 @@ export default {
         "general-button": "Button 按钮",
 
         "layout": "布局",
-        "layout-layout": "Layout 布局",
-        "layout-grid": "Grid 栅格系统",
-        "layout-card": "Card 卡片",
-        "layout-collapse": "Collapse 折叠面板",
-        "layout-cell": "Cell 单元格",
         "layout-divider": "Divider 分割线",
+        "layout-grid": "Grid 栅格系统",
+        "layout-layout": "Layout 布局",
         "layout-space": "Space 间距",
 
         "navigation": "导航",
@@ -58,6 +54,9 @@ export default {
         "data-display": "数据展示",
         "data-display-avatar": "Avatar 头像",
         "data-display-badge": "Badge 徽标",
+        "data-display-card": "Card 卡片",
+        "data-display-cell": "Cell 单元格",
+        "data-display-collapse": "Collapse 折叠面板",
         "data-display-descriptions": "Descriptions 描述列表",
         "data-display-empty": "Empty 空状态",
         "data-display-image": "Image 图片",
@@ -88,15 +87,12 @@ export default {
         "other-backtop": "Backtop 回到顶部"
     },
 
-
     "catalogue": {
         "title": "目录",
         "example-api": "API",
 
-
         "example-cdn": "CDN 引入",
         "example-npm": "NPM 安装",
-
 
         "example-color-primary": "主色彩",
         "example-color-auxiliary": "辅助色",
@@ -112,7 +108,6 @@ export default {
         "example-button-disabled": "禁用状态",
         "example-button-link": "链接按钮",
         "example-button-group": "按钮组合",
-
 
         "example-layout-basic-usage": "基本用法",
         "example-layout-vertical": "垂直布局",
@@ -162,7 +157,6 @@ export default {
         "example-space-size": "尺寸",
         "example-space-align": "对齐",
         "example-space-customize": "自定义间距尺寸",
-
 
         "example-affix-basic-usage": "基本用法",
         "example-affix-change": "监听状态变化",
@@ -223,7 +217,6 @@ export default {
         "example-tabs-closable": "动态关闭",
         "example-tabs-editable": "动态增减",
         "example-tabs-custom-add-trigger": "自定义添加触发器",
-
 
         "example-checkbox-basic-usage": "基本用法",
         "example-checkbox-disabled": "禁用状态",
@@ -301,7 +294,6 @@ export default {
         "example-upload-list": "默认上传列表",
         "example-upload-avatar": "用户头像",
         "example-upload-manually": "手动上传",
-
 
         "example-avatar-basic-usage": "基本用法",
         "example-avatar-type": "类型",
@@ -393,7 +385,6 @@ export default {
         "example-tooltip-placement": "位置",
         "example-tooltip-theme": "主题",
         "example-tooltip-colorful": "多彩文字提示",
-
 
         "example-alert-basic-usage": "基本用法",
         "example-alert-type": "四种类型",

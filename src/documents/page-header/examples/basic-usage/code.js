@@ -4,7 +4,7 @@ const code =
     style="border: 1px solid #e6e6e6;"
     title="Title"
     subTitle="This is a subtitle"
-    @back="handleBack"
+    v-on:back="handleBack"
   />
 </template>
 

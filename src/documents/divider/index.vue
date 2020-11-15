@@ -10,12 +10,12 @@
 			</ul>
 			<h2>代码演示</h2>
 		</Markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleDividerBasicUsage />
 				<ExampleDividerVertical />
 			</vui-col>
-			<vui-col :span="12">
+			<vui-col v-bind:span="12">
 				<ExampleDividerWithText />
 			</vui-col>
 		</vui-row>
@@ -50,20 +50,11 @@
 						<td>String</td>
 						<td><code>center</code></td>
 					</tr>
-				</tbody>
-			</table>
-			<h3>Divider 插槽</h3>
-			<table class="example-api-props">
-				<thead>
 					<tr>
-						<th width="80">名称</th>
-						<th>说明</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>default</td>
-						<td>分割线文本，仅在 <code>type</code> 为 <code>horizontal</code> 时有效</td>
+						<td>gutter</td>
+						<td>自定义分割线距离两侧内容的间隔</td>
+						<td>String | Number</td>
+						<td>--</td>
 					</tr>
 				</tbody>
 			</table>

@@ -102,13 +102,13 @@ export default [
 			},
 			// 布局组件
 			{
-				path: "/components/layout",
-				name: "layout",
+				path: "/components/divider",
+				name: "divider",
 				meta: {
-					title: "Layout",
+					title: "Divider",
 					group: "layout"
 				},
-				component: () => import("@/documents/layout/index")
+				component: () => import("@/documents/divider/index")
 			},
 			{
 				path: "/components/grid",
@@ -120,40 +120,13 @@ export default [
 				component: () => import("@/documents/grid/index")
 			},
 			{
-				path: "/components/card",
-				name: "card",
+				path: "/components/layout",
+				name: "layout",
 				meta: {
-					title: "Card",
+					title: "Layout",
 					group: "layout"
 				},
-				component: () => import("@/documents/card/index")
-			},
-			{
-				path: "/components/collapse",
-				name: "collapse",
-				meta: {
-					title: "Collapse",
-					group: "layout"
-				},
-				component: () => import("@/documents/collapse/index")
-			},
-			{
-				path: "/components/cell",
-				name: "cell",
-				meta: {
-					title: "Cell",
-					group: "layout"
-				},
-				component: () => import("@/documents/cell/index")
-			},
-			{
-				path: "/components/divider",
-				name: "divider",
-				meta: {
-					title: "Divider",
-					group: "layout"
-				},
-				component: () => import("@/documents/divider/index")
+				component: () => import("@/documents/layout/index")
 			},
 			{
 				path: "/components/space",
@@ -328,15 +301,15 @@ export default [
 				},
 				component: () => import("@/documents/textarea/index")
 			},
-			{
-				path: "/components/transfer",
-				name: "transfer",
-				meta: {
-					title: "Transfer",
-					group: "data-entry"
-				},
-				component: () => import("@/documents/transfer/index")
-			},
+			// {
+			// 	path: "/components/transfer",
+			// 	name: "transfer",
+			// 	meta: {
+			// 		title: "Transfer",
+			// 		group: "data-entry"
+			// 	},
+			// 	component: () => import("@/documents/transfer/index")
+			// },
 			{
 				path: "/components/upload",
 				name: "upload",
@@ -364,6 +337,33 @@ export default [
 					group: "data-display"
 				},
 				component: () => import("@/documents/badge/index")
+			},
+			{
+				path: "/components/card",
+				name: "card",
+				meta: {
+					title: "Card",
+					group: "data-display"
+				},
+				component: () => import("@/documents/card/index")
+			},
+			{
+				path: "/components/cell",
+				name: "cell",
+				meta: {
+					title: "Cell",
+					group: "data-display"
+				},
+				component: () => import("@/documents/cell/index")
+			},
+			{
+				path: "/components/collapse",
+				name: "collapse",
+				meta: {
+					title: "Collapse",
+					group: "data-display"
+				},
+				component: () => import("@/documents/collapse/index")
 			},
 			{
 				path: "/components/descriptions",
