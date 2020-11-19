@@ -1,4 +1,5 @@
 import VuiSpin from "vui-design/components/spin";
+import VuiAffix from "vui-design/components/affix";
 import VuiTableThead from "./components/thead";
 import VuiTableTbody from "./components/tbody";
 import is from "vui-design/utils/is";
@@ -21,6 +22,7 @@ const VuiTable = {
 
 	components: {
 		VuiSpin,
+		VuiAffix,
 		VuiTableThead,
 		VuiTableTbody
 	},
@@ -70,6 +72,10 @@ const VuiTable = {
 		scroll: {
 			type: Object,
 			default: undefined
+		},
+		affix: {
+			type: Boolean,
+			default: false
 		},
 		loading: {
 			type: Boolean,
@@ -594,6 +600,12 @@ const VuiTable = {
 						</div>
 					</div>
 				);
+
+				if (props.affix) {
+					header = (
+						<VuiAffix>{header}</VuiAffix>
+					);
+				}
 			}
 
 			// 表格内容
@@ -692,6 +704,12 @@ const VuiTable = {
 						</div>
 					</div>
 				);
+
+				if (props.affix) {
+					header = (
+						<VuiAffix>{header}</VuiAffix>
+					);
+				}
 			}
 
 			// 表格内容
@@ -797,6 +815,12 @@ const VuiTable = {
 						</div>
 					</div>
 				);
+
+				if (props.affix) {
+					header = (
+						<VuiAffix>{header}</VuiAffix>
+					);
+				}
 			}
 
 			// 表格内容

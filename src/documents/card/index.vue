@@ -7,14 +7,14 @@
 			<p>基础容器，可以承载文字、列表、图片、段落，常用于后台概览页面。</p>
 			<h2>代码演示</h2>
 		</Markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleCardBasicUsage />
 				<ExampleCardSimple />
 				<ExampleCardNoBorder />
 				<ExampleCardShadow />
 			</vui-col>
-			<vui-col :span="12">
+			<vui-col v-bind:span="12">
 				<ExampleCardLoading />
 				<ExampleCardGrid />
 				<ExampleCardFlexibleContent />
@@ -47,7 +47,7 @@
 					</tr>
 					<tr>
 						<td>extra</td>
-						<td>卡片附加内容，位于标题右侧</td>
+						<td>卡片右上角的操作区域</td>
 						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
@@ -77,7 +77,7 @@
 					</tr>
 					<tr>
 						<td>shadow</td>
-						<td>卡片阴影，可选值为 <code>never</code>、<code>always</code>、<code>hover</code> 或者不设</td>
+						<td>卡片阴影，可选值为 <code>never</code>、<code>hover</code>、<code>always</code> 或者不设</td>
 						<td>String</td>
 						<td><code>never</code></td>
 					</tr>
@@ -120,8 +120,8 @@
 				<tbody>
 					<tr>
 						<td>avatar</td>
-						<td>头像/图标</td>
-						<td>Slot</td>
+						<td>头像地址/头像/图标</td>
+						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
 					<tr>

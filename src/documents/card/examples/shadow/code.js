@@ -1,16 +1,16 @@
 const code =
 `<template>
   <div class="example-card-shadow">
-    <vui-row :gutter="20">
-      <vui-col :span="12">
-        <vui-card title="Card title" shadow="always" :bordered="false">
+    <vui-row v-bind:gutter="20">
+      <vui-col v-bind:span="12">
+        <vui-card v-bind:bordered="false" shadow="hover" title="Card title">
           <p>Card content...</p>
           <p>Card content...</p>
           <p>Card content...</p>
         </vui-card>
       </vui-col>
-      <vui-col :span="12">
-        <vui-card title="Card title" shadow="hover" :bordered="false">
+      <vui-col v-bind:span="12">
+        <vui-card v-bind:bordered="false" shadow="always" title="Card title">
           <p>Card content...</p>
           <p>Card content...</p>
           <p>Card content...</p>
@@ -27,7 +27,7 @@ const code =
 </script>
 
 <style>
-  .example-card-shadow { background-color:#ececec; padding:20px; }
+  .example-card-shadow { background-color:#f6f6f6; padding:20px; }
 </style>
 `;
 

@@ -1,7 +1,7 @@
 const code =
 `<template>
   <div class="example-card-no-border">
-    <vui-card title="Card title" :bordered="false">
+    <vui-card v-bind:bordered="false" title="Card title">
       <p>Card content...</p>
       <p>Card content...</p>
       <p>Card content...</p>
@@ -16,7 +16,7 @@ const code =
 </script>
 
 <style>
-  .example-card-borderless { background-color:#ececec; padding:20px; }
+  .example-card-borderless { background-color:#f6f6f6; padding:20px; }
 </style>
 `;
 

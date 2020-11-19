@@ -1,11 +1,25 @@
 const code =
 `<template>
   <div class="example-card-loading">
-    <vui-button @click="handleClick">Toggle loading</vui-button>
-    <vui-card title="Card title" :loading="loading">
-      <p>Card content...</p>
-      <p>Card content...</p>
-      <p>Card content...</p>
+    <vui-switch v-model="loading" />
+    <vui-card v-bind:loading="loading">
+      <vui-card-meta title="Card title">
+        <vui-avatar slot="avatar" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+        <template slot="description">This is the description</template>
+      </vui-card-meta>
+    </vui-card>
+    <vui-card>
+      <vui-skeleton v-bind:loading="loading" animated avatar>
+        <vui-card-meta title="Card title">
+          <vui-avatar slot="avatar" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+          <template slot="description">This is the description</template>
+        </vui-card-meta>
+      </vui-skeleton>
+      <template slot="actions">
+        <vui-icon type="edit" />
+        <vui-icon type="dustbin" />
+        <vui-icon type="more-x" />
+      </template>
     </vui-card>
   </div>
 </template>
@@ -16,11 +30,6 @@ const code =
       return {
         loading: true
       };
-    },
-    methods: {
-      handleClick() {
-        this.loading = !this.loading;
-      }
     }
   };
 </script>

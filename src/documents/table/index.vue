@@ -103,6 +103,12 @@
 						<td>--</td>
 					</tr>
 					<tr>
+						<td>affix</td>
+						<td>是否启用浮动表头，当表格滚动至可视区域外部时，表头浮动至窗口顶部</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
 						<td>loading</td>
 						<td>表格是否处于加载中的状态</td>
 						<td>Boolean</td>

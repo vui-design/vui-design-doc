@@ -2,7 +2,7 @@
 	<Example vertical id="example-card-no-border">
 		<template slot="source">
 			<div class="example-card-no-border">
-				<vui-card title="Card title" :bordered="false">
+				<vui-card v-bind:bordered="false" title="Card title">
 					<p>Card content...</p>
 					<p>Card content...</p>
 					<p>Card content...</p>
@@ -34,5 +34,5 @@
 </script>
 
 <style>
-	.example-card-no-border { background-color:#ececec; padding:20px; }
+	.example-card-no-border { background-color:#f6f6f6; padding:20px; }
 </style>

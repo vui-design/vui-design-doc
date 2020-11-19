@@ -1,44 +1,31 @@
 import VuiIcon from "vui-design/components/icon";
 import MixinLink from "vui-design/mixins/link";
+import PropTypes from "vui-design/utils/prop-types";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 
 const VuiBreadcrumbItem = {
 	name: "vui-breadcrumb-item",
-
 	inject: {
 		vuiBreadcrumb: {
 			default: undefined
 		}
 	},
-
 	components: {
 		VuiIcon
 	},
-
 	mixins: [
 		MixinLink
 	],
-
 	props: {
-		classNamePrefix: {
-			type: String,
-			default: undefined
-		},
-		icon: {
-			type: String,
-			default: undefined
-		},
-		title: {
-			type: String,
-			default: undefined
-		}
+		classNamePrefix: PropTypes.string,
+		icon: PropTypes.string,
+		title: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 	},
-
 	render() {
-		let { vuiBreadcrumb, $slots: slots, classNamePrefix: customizedClassNamePrefix, href, to, target, getNextRoute, handleLinkClick } = this;
+		const { vuiBreadcrumb, $slots: slots, $props: props } = this;
 
 		// class
-		let classNamePrefix = getClassNamePrefix(customizedClassNamePrefix, "breadcrumb-item");
+		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "breadcrumb-item");
 		let classes = {};
 
 		classes.el = `${classNamePrefix}`;
@@ -49,9 +36,12 @@ const VuiBreadcrumbItem = {
 		// icon
 		let icon;
 
-		if (this.icon) {
+		if (slots.icon) {
+			icon = slots.icon;
+		}
+		else if (props.icon) {
 			icon = (
-				<VuiIcon type={this.icon} />
+				<VuiIcon type={props.icon} />
 			);
 		}
 
@@ -61,59 +51,49 @@ const VuiBreadcrumbItem = {
 		if (slots.default) {
 			title = slots.default;
 		}
-		else if (this.title) {
-			title = this.title;
+		else if (props.title) {
+			title = props.title;
 		}
 
 		// render
 		let children = [];
 
-		if (href || to) {
-			let props = {
+		if (props.href || props.to) {
+			let attributes = {
 				attrs: {
-					target
+					target: props.target
 				},
 				class: classes.elLink,
 				on: {
-					click: handleLinkClick
+					click: this.handleLinkClick
 				}
 			};
 
-			if (href) {
-				props.attrs.href = href;
+			if (props.href) {
+				attributes.attrs.href = props.href;
 			}
 			else {
-				let next = getNextRoute();
+				const route = this.getNextRoute();
 
-				props.attrs.href = next.href;
+				attributes.attrs.href = route.href;
 			}
 
 			children.push(
-				<a {...props}>
-					{icon}
-					{title}
-				</a>
+				<a {...attributes}>{icon}{title}</a>
 			);
 		}
 		else {
 			children.push(
-				<label class={classes.elLabel}>
-					{icon}
-					{title}
-				</label>
+				<label class={classes.elLabel}>{icon}{title}</label>
 			);
 		}
 
 		children.push(
-			<div class={classes.elSeparator}>
-				{vuiBreadcrumb.separator}
-			</div>
+			<div class={classes.elSeparator}>{vuiBreadcrumb.separator}</div>
 		);
 
 		return (
-			<div class={classes.el}>
-				{children}
-			</div>
+			<div class={classes.el}>{children}</div>
 		);
 	}
 };

@@ -13,7 +13,7 @@
 			<p>通过给 <code>columns</code> 配置项设置 <code>sorter</code> 属性即可对相应列数据进行排序。</p>
 			<p>排序默认使用升序和降序，也可以通过设置 <code>sorter.method</code> 指定一个自定义排序函数，接收 <code>a</code>、<code>b</code> 和 <code>order</code> 作为参数，其中 <code>a</code>、<code>b</code> 均为行数据，<code>order</code> 为当前排序方式。</p>
 			<p>通过给某一列设置 <code>sorter.order</code> 可以在初始化时使用排序。</p>
-			<p>如果使用远程排序，可以设置 <code>sorter.useServerSort</code> 为 <code>true</code>，并监听表格的 <code>filter</code> 排序事件进行远程排序，并手动更新 <code>data</code> 数据源。</p>
+			<p>如果使用远程排序，可以设置 <code>sorter.useServerSort</code> 为 <code>true</code>，并监听表格的 <code>sort</code> 排序事件进行远程排序，并手动更新 <code>data</code> 数据源。</p>
 			<p>注意，本地排序并不会影响到源数据 <code>data</code>。</p>
 		</template>
 		<template slot="code">{{code}}</template>
