@@ -44,6 +44,7 @@ export default {
         "data-entry-input": "Input 输入框",
         "data-entry-input-number": "InputNumber 数字输入框",
         "data-entry-radio": "Radio 单选框",
+        "data-entry-rate": "Rate 评分",
         "data-entry-select": "Select 选择器",
         "data-entry-switch": "Switch 开关",
         "data-entry-textarea": "Textarea 文本域",
@@ -259,6 +260,14 @@ export default {
         "example-radio-group-options": "配置方式",
         "example-radio-button": "按钮样式",
         "example-radio-size": "尺寸",
+
+        "example-rate-basic-usage": "基本用法",
+        "example-rate-half": "半星",
+        "example-rate-text": "文案提示",
+        "example-rate-clearable": "清除",
+        "example-rate-disabled": "只读",
+        "example-rate-character-function": "自定义字符",
+        "example-rate-character": "其他字符",
 
         "example-select-basic-usage": "基本用法",
         "example-select-multiple": "多选",

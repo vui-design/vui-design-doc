@@ -275,6 +275,15 @@ export default [
 				component: () => import("@/documents/radio/index")
 			},
 			{
+				path: "/components/rate",
+				name: "rate",
+				meta: {
+					title: "Rate",
+					group: "data-entry"
+				},
+				component: () => import("@/documents/rate/index")
+			},
+			{
 				path: "/components/select",
 				name: "select",
 				meta: {

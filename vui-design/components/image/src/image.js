@@ -54,18 +54,18 @@ const VuiImage = {
 	},
 	methods: {
 		getImageStyle(fit) {
-			let { $el: el, state } = this;
-			let { clientWidth: containerWidth, clientHeight: containerHeight } = el;
-			let { imageWidth, imageHeight } = state;
+			const { $el: el, state } = this;
+			const { clientWidth: containerWidth, clientHeight: containerHeight } = el;
+			const { imageWidth, imageHeight } = state;
 
 			if (!containerWidth || !containerHeight || !imageWidth || !imageHeight) {
 				return {};
 			}
 
-			let vertical = imageWidth / imageHeight < 1;
+			const vertical = imageWidth / imageHeight < 1;
 
 			if (fit === "scale-down") {
-				let isSmaller = imageWidth < containerWidth && imageHeight < containerHeight;
+				const isSmaller = imageWidth < containerWidth && imageHeight < containerHeight;
 
 				fit = isSmaller ? "none" : "contain";
 			}

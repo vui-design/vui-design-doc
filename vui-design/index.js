@@ -46,6 +46,7 @@ import InputGroup from "./components/input-group";
 import InputNumber from "./components/input-number";
 import Radio from "./components/radio";
 import RadioGroup from "./components/radio-group";
+import Rate from "./components/rate";
 import Select from "./components/select";
 import Option from "./components/option";
 import OptionGroup from "./components/option-group";
@@ -151,6 +152,7 @@ const components = [
 	InputNumber,
 	Radio,
 	RadioGroup,
+	Rate,
 	Select,
 	Option,
 	OptionGroup,
@@ -286,6 +288,7 @@ export default {
 	InputNumber,
 	Radio,
 	RadioGroup,
+	Rate,
 	Select,
 	Option,
 	OptionGroup,
