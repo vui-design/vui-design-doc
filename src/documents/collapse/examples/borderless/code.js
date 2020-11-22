@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-collapse borderless>
+  <vui-collapse v-bind:bordered="false">
     <vui-panel title="This is panel header 1">
       <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
     </vui-panel>

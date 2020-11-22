@@ -1,7 +1,7 @@
 const code =
 `<template>
   <div class="example-cell-other">
-    <vui-card icon="list-settings-filled" title="选项" borderless padding="0px">
+    <vui-card v-bind:bordered="false" shadow="always" icon="list-settings-filled" bodyStyle="padding: 0;" title="选项">
       <vui-cell-group title="选中&禁用">
         <vui-cell selected>选中的单元格</vui-cell>
         <vui-cell disabled>禁用的单元格</vui-cell>
@@ -12,7 +12,7 @@ const code =
       </vui-cell-group>
       <vui-cell-group title="其他" description="我是分组底部说明文字">
         <vui-cell href="https://cn.vuejs.org/">
-          显示徽标<vui-badge slot="extra" :count="10" />
+          显示徽标<vui-badge slot="extra" v-bind:count="10" />
         </vui-cell>
         <vui-cell>
           开关<vui-switch slot="extra" />
@@ -29,7 +29,7 @@ const code =
 </script>
 
 <style>
-  .example-cell-other { background-color:#ececec; padding:20px; }
+  .example-cell-other { background-color:#f6f6f6; padding:20px; }
   .example-cell-other > .vui-card { width:300px; }
 </style>
 `;

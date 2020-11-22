@@ -77,9 +77,7 @@ const VuiSeparator = {
 		});
 
 		return (
-			<div class={classes.el}>
-				{children}
-			</div>
+			<div class={classes.el}>{children}</div>
 		);
 	}
 };

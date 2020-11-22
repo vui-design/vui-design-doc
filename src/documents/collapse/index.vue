@@ -10,14 +10,14 @@
 			</ul>
 			<h2>代码演示</h2>
 		</Markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleCollapseBasicUsage />
 				<ExampleCollapseAccordion />
 				<ExampleCollapseBorderless />
 				<ExampleCollapseArrowAlign />
 			</vui-col>
-			<vui-col :span="12">
+			<vui-col v-bind:span="12">
 				<ExampleCollapseExtra />
 				<ExampleCollapseArrowless />
 				<ExampleCollapseDisabled />
@@ -30,16 +30,16 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="80">属性</th>
+						<th width="100">属性</th>
 						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="125">默认值</th>
+						<th width="180">类型</th>
+						<th width="140">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>value</td>
-						<td>当前激活面板的 <code>name</code>，可以使用 <code>v-model</code> 双向绑定；手风琴模式下，绑定值类型需要为 <code>String</code> 或 <code>Number</code>，否则为 <code>Array</code></td>
+						<td>当前激活面板的 <code>value</code> 属性，可以使用 <code>v-model</code> 双向绑定数据；手风琴模式下，绑定值类型必须为 <code>String</code> 或 <code>Number</code> 类型，反之为 <code>Array</code> 类型</td>
 						<td>Array | String | Number</td>
 						<td>--</td>
 					</tr>
@@ -50,10 +50,10 @@
 						<td><code>false</code></td>
 					</tr>
 					<tr>
-						<td>borderless</td>
-						<td>是否隐藏外边框</td>
+						<td>bordered</td>
+						<td>是否显示外边框</td>
 						<td>Boolean</td>
-						<td><code>false</code></td>
+						<td><code>true</code></td>
 					</tr>
 					<tr>
 						<td>arrowAlign</td>
@@ -63,43 +63,28 @@
 					</tr>
 				</tbody>
 			</table>
-			<h3>Collapse 插槽</h3>
-			<table class="example-api-props">
-				<thead>
-					<tr>
-						<th width="80">名称</th>
-						<th>说明</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>default</td>
-						<td>面板列表</td>
-					</tr>
-				</tbody>
-			</table>
 			<h3>Collapse 事件</h3>
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="80">事件名</th>
+						<th width="100">事件名</th>
 						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="125">回调参数</th>
+						<th width="180">类型</th>
+						<th width="140">回调参数</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>input</td>
-						<td>切换面板时触发，返回当前已展开面板的 <code>name</code> 属性，可以使用 <code>v-model</code> 双向绑定数据；手风琴模式下，返回值类型为 <code>String</code> 或 <code>Number</code>，否则为 <code>Array</code></td>
+						<td>切换面板时触发，返回当前已展开面板的 <code>value</code> 属性，可以使用 <code>v-model</code> 双向绑定数据；手风琴模式下，绑定值类型必须为 <code>String</code> 或 <code>Number</code> 类型，反之为 <code>Array</code> 类型</td>
 						<td>Function</td>
-						<td><code>name[]</code> | <code>name</code></td>
+						<td><code>value[]</code> | <code>value</code></td>
 					</tr>
 					<tr>
 						<td>change</td>
-						<td>切换面板时触发，返回当前已展开面板的 <code>name</code> 属性；手风琴模式下，返回值类型为 <code>String</code> 或 <code>Number</code>，否则为 <code>Array</code></td>
+						<td>同 <code>input</code> 事件</td>
 						<td>Function</td>
-						<td><code>name[]</code> | <code>name</code></td>
+						<td><code>value[]</code> | <code>value</code></td>
 					</tr>
 				</tbody>
 			</table>
@@ -107,65 +92,42 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="80">属性</th>
+						<th width="100">属性</th>
 						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="125">默认值</th>
+						<th width="180">类型</th>
+						<th width="140">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>name</td>
-						<td>当前面板唯一名称标识，对应父级 <code>Collapse</code> 组件的 <code>value</code> 值，默认自动生成</td>
+						<td>value</td>
+						<td>面板唯一值，对应父级 <code>Collapse</code> 组件的 <code>value</code> 值，默认自动生成</td>
 						<td>String | Number</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>title</td>
-						<td>当前面板标题</td>
-						<td>String | Number</td>
+						<td>面板标题</td>
+						<td>String | Number | Slot</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>extra</td>
-						<td>当前面板标题右侧的附加内容</td>
-						<td>String | Number</td>
+						<td>面板标题右侧的附加内容</td>
+						<td>String | Number | Slot</td>
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>arrowless</td>
-						<td>是否隐藏当前面板的箭头图标</td>
+						<td>showArrow</td>
+						<td>是否显示面板的箭头图标</td>
 						<td>Boolean</td>
-						<td><code>false</code></td>
+						<td><code>true</code></td>
 					</tr>
 					<tr>
 						<td>disabled</td>
-						<td>是否禁用当前面板，禁用后的面板展开与否将无法通过用户交互改变</td>
+						<td>是否禁用面板，禁用后的面板展开与否将无法通过用户交互改变</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
-					</tr>
-				</tbody>
-			</table>
-			<h3>Panel 插槽</h3>
-			<table class="example-api-props">
-				<thead>
-					<tr>
-						<th width="80">名称</th>
-						<th>说明</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>title</td>
-						<td>当前面板标题</td>
-					</tr>
-					<tr>
-						<td>extra</td>
-						<td>当前面板标题右侧的附加内容</td>
-					</tr>
-					<tr>
-						<td>default</td>
-						<td>当前面板主体内容</td>
 					</tr>
 				</tbody>
 			</table>

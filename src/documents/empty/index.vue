@@ -10,12 +10,12 @@
 			</ul>
 			<h2>代码演示</h2>
 		</Markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleEmptyBasicUsage />
 				<ExampleEmptyNoDescription />
 			</vui-col>
-			<vui-col :span="12">
+			<vui-col v-bind:span="12">
 				<ExampleEmptyCustomize />
 			</vui-col>
 		</vui-row>

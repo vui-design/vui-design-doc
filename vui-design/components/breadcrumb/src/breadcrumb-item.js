@@ -30,7 +30,6 @@ const VuiBreadcrumbItem = {
 
 		classes.el = `${classNamePrefix}`;
 		classes.elLink = `${classNamePrefix}-link`;
-		classes.elLabel = `${classNamePrefix}-label`;
 		classes.elSeparator = `${classNamePrefix}-separator`;
 
 		// icon
@@ -84,7 +83,7 @@ const VuiBreadcrumbItem = {
 		}
 		else {
 			children.push(
-				<label class={classes.elLabel}>{icon}{title}</label>
+				<label class={classes.elLink}>{icon}{title}</label>
 			);
 		}
 

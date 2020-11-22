@@ -2,11 +2,11 @@
 	<Example vertical id="example-collapse-arrow-align">
 		<template slot="source">
 			<div class="example-collapse-arrow-align">
-				<vui-radio-group type="button" v-model="position">
+				<vui-radio-group type="button" v-model="arrowAlign">
 					<vui-radio label="Left" value="left" />
 					<vui-radio label="Right" value="right" />
 				</vui-radio-group>
-				<vui-collapse :arrowAlign="position">
+				<vui-collapse v-bind:arrowAlign="arrowAlign">
 					<vui-panel title="This is panel header 1">
 						<p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
 					</vui-panel>
@@ -38,7 +38,7 @@
 		data() {
 			return {
 				code,
-				position: "left"
+				arrowAlign: "left"
 			};
 		}
 	};

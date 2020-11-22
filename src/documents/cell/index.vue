@@ -7,9 +7,15 @@
 			<p>最基础的列表视图，常用于将信息以列表的结构显示在页面上，类似 wap 上最常用的内容结构。</p>
 			<h2>代码演示</h2>
 		</Markdown>
-		<ExampleCellBasicUsage />
-		<ExampleCellLink />
-		<ExampleCellOther />
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
+				<ExampleCellBasicUsage />
+				<ExampleCellLink />
+			</vui-col>
+			<vui-col v-bind:span="12">
+				<ExampleCellOther />
+			</vui-col>
+		</vui-row>
 		<Markdown>
 			<h2 id="example-api">API</h2>
 			<h3>CellGroup 属性</h3>
@@ -50,20 +56,20 @@
 				<tbody>
 					<tr>
 						<td>icon</td>
-						<td>单元格图标类型，位于标题左侧</td>
-						<td>String</td>
+						<td>单元格图标类型/图标，位于标题左侧</td>
+						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>title</td>
 						<td>单元格标题</td>
-						<td>String</td>
+						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>extra</td>
 						<td>单元格额外内容，位于标题右侧</td>
-						<td>String</td>
+						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
 					<tr>
@@ -107,29 +113,6 @@
 						<td>相当于 <code>a</code> 链接的 <code>target</code> 属性，可选值请参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target" target="_blank">HTML 标准</a></td>
 						<td>String</td>
 						<td>--</td>
-					</tr>
-				</tbody>
-			</table>
-			<h3>Cell 插槽</h3>
-			<table class="example-api-props">
-				<thead>
-					<tr>
-						<th width="80">名称</th>
-						<th>说明</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>icon</td>
-						<td>单元格图标，位于标题左侧</td>
-					</tr>
-					<tr>
-						<td>extra</td>
-						<td>单元格额外内容，位于标题右侧</td>
-					</tr>
-					<tr>
-						<td>default</td>
-						<td>单元格标题</td>
 					</tr>
 				</tbody>
 			</table>

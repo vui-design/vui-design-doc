@@ -1,7 +1,7 @@
 const code =
 `<template>
   <div class="example-cell-link">
-    <vui-card icon="list-settings-filled" title="选项" borderless padding="0px">
+    <vui-card v-bind:bordered="false" shadow="always" icon="list-settings-filled" bodyStyle="padding: 0;" title="选项">
       <vui-cell-group title="链接单元格">
         <vui-cell href="https://cn.vuejs.org/" target="_blank">跳转至 Vue 官网</vui-cell>
         <vui-cell to="/components/message">跳转至 Message 组件</vui-cell>
@@ -49,7 +49,7 @@ const code =
 </script>
 
 <style>
-  .example-cell-link { background-color:#ececec; padding:20px; }
+  .example-cell-link { background-color:#f6f6f6; padding:20px; }
   .example-cell-link > .vui-card { width:300px; }
 </style>
 `;

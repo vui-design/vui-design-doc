@@ -26,7 +26,7 @@ const code =
 
 <style>
   .example-image-lazyload { height:400px; overflow-y:auto; }
-  .example-image-lazyload .vui-image { display:block; min-height:600px; }
+  .example-image-lazyload .vui-image { display:flex; min-height:600px; }
   .example-image-lazyload .vui-image + .vui-image { margin-top:20px; }
 </style>
 `;

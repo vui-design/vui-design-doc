@@ -1,4 +1,5 @@
 import Locale from "vui-design/mixins/locale";
+import PropTypes from "vui-design/utils/prop-types";
 import is from "vui-design/utils/is";
 import { on, off, isInContainer, getScrollContainer } from "vui-design/utils/dom";
 import throttle from "vui-design/utils/throttle";
@@ -8,59 +9,25 @@ const isSupportObjectFit = () => document.documentElement.style.objectFit !== un
 
 const VuiImage = {
 	name: "vui-image",
-
 	mixins: [
 		Locale
 	],
-
 	inheritAttrs: false,
-
 	props: {
-		classNamePrefix: {
-			type: String,
-			default: undefined
-		},
-		src: {
-			type: String,
-			default: undefined
-		},
-		filled: {
-			type: Boolean,
-			default: false
-		},
-		fit: {
-			type: String,
-			default: undefined,
-			validator: value => ["fill", "contain", "cover", "none", "scale-down"].indexOf(value) > -1
-		},
-		alt: {
-			type: String,
-			default: undefined
-		},
-		placeholder: {
-			type: String,
-			default: undefined
-		},
-		referrerPolicy: {
-			type: String,
-			default: undefined
-		},
-		lazyload: {
-			type: Boolean,
-			default: false
-		},
-		scrollContainer: {
-			default: undefined
-		},
-		animation: {
-			type: String,
-			default: "vui-image-fade"
-		}
+		classNamePrefix: PropTypes.string,
+		src: PropTypes.string,
+		filled: PropTypes.bool.def(false),
+		fit: PropTypes.oneOf(["fill", "contain", "cover", "none", "scale-down"]),
+		alt: PropTypes.string,
+		placeholder: PropTypes.string,
+		referrerPolicy: PropTypes.string,
+		lazyload: PropTypes.bool.def(false),
+		scrollContainer: PropTypes.any,
+		animation: PropTypes.string.def("vui-image-fade")
 	},
-
 	data() {
-		let { $props: props } = this;
-		let state = {
+		const { $props: props } = this;
+		const state = {
 			loading: true,
 			error: false,
 			visibility: !props.lazyload,
@@ -72,13 +39,11 @@ const VuiImage = {
 			state
 		};
 	},
-
 	computed: {
 		visibility() {
 			return this.state.visibility;
 		}
 	},
-
 	watch: {
 		src(value) {
 			this.state.visibility && this.loadImage();
@@ -87,7 +52,6 @@ const VuiImage = {
 			value && this.loadImage();
 		}
 	},
-
 	methods: {
 		getImageStyle(fit) {
 			let { $el: el, state } = this;
@@ -125,17 +89,13 @@ const VuiImage = {
 			this.state.loading = true;
 			this.state.error = false;
 
-			let { $props: props, $attrs: attrs } = this;
+			const { $props: props, $attrs: attrs } = this;
 			let image = new Image();
 
 			image.onload = e => this.handleLoad(e, image);
 			image.onerror = e => this.handleError(e, image);
 
-			Object.keys(attrs).forEach(key => {
-				let value = attrs[key];
-
-				image.setAttribute(key, value);
-			});
+			Object.keys(attrs).forEach(key => image.setAttribute(key, attrs[key]));
 
 			image.src = props.src;
 		},
@@ -144,8 +104,8 @@ const VuiImage = {
 				return;
 			}
 
-			let { $el: el, $props: props } = this;
-			let scrollContainer = props.scrollContainer;
+			const { $el: el, $props: props } = this;
+			const scrollContainer = props.scrollContainer;
 			let container = null;
 
 			if (is.string(scrollContainer)) {
@@ -172,7 +132,7 @@ const VuiImage = {
 			on(container, "scroll", this.lazyloadHandler);
 		},
 		removeLazyloadListener() {
-			let { container, lazyloadHandler } = this;
+			const { container, lazyloadHandler } = this;
 
 			if (is.server || !container || !lazyloadHandler) {
 				return;
@@ -184,7 +144,7 @@ const VuiImage = {
 			off(container, "scroll", lazyloadHandler);
 		},
 		handleLazyload() {
-			let { $el: el, container } = this;
+			const { $el: el, container } = this;
 
 			if (isInContainer(el, container)) {
 				this.state.visibility = true;
@@ -204,9 +164,8 @@ const VuiImage = {
 			this.$emit("error", e, image);
 		}
 	},
-
 	mounted() {
-		let { $props: props } = this;
+		const { $props: props } = this;
 
 		if (props.lazyload) {
 			this.addLazyloadListener();
@@ -215,20 +174,18 @@ const VuiImage = {
 			this.loadImage();
 		}
 	},
-
 	beforeDestroy() {
-		let { $props: props } = this;
+		const { $props: props } = this;
 
 		props.lazyload && this.removeLazyloadListener();
 	},
-
 	render(h) {
-		let { $slots: slots, $props: props, $attrs: attrs, state, $listeners: listeners, t: translate } = this;
-		let center = !is.server && !isSupportObjectFit() && props.fit !== "fill";
-		let viewable = is.array(props.viewer) && props.viewer.length > 0;
+		const { $slots: slots, $props: props, $attrs: attrs, state, $listeners: listeners, t: translate } = this;
+		const center = !is.server && !isSupportObjectFit() && props.fit !== "fill";
+		const viewable = is.array(props.viewer) && props.viewer.length > 0;
 
 		// class
-		let classNamePrefix = getClassNamePrefix(props.classNamePrefix, "image");
+		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "image");
 		let classes = {};
 
 		classes.el = {
@@ -275,7 +232,7 @@ const VuiImage = {
 			);
 		}
 		else {
-			let rest = {
+			const attributes = {
 				class: classes.elImage,
 				style: styles.elImage,
 				attrs: {
@@ -290,15 +247,13 @@ const VuiImage = {
 
 			children.push(
 				<transition appear name={props.animation}>
-					<img {...rest} />
+					<img {...attributes} />
 				</transition>
 			);
 		}
 
 		return (
-			<div class={classes.el}>
-				{children}
-			</div>
+			<div class={classes.el}>{children}</div>
 		);
 	}
 };
