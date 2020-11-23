@@ -48,16 +48,16 @@ const VuiRateStar = {
 		const { $props: vuiRateProps, state: vuiRateState } = vuiRate;
 		const { handleMouseenter, handleClick } = this;
 
-		// vuiRateStateValue
-		const vuiRateStateValue = vuiRateState.mouseenter === undefined ? vuiRateState.value : vuiRateState.mouseenter;
+		// vuiRateValue
+		const vuiRateValue = vuiRateState.mouseentered === undefined ? vuiRateState.value : vuiRateState.mouseentered;
 
 		// status
 		let status;
 
-		if (vuiRateProps.allowHalf && props.value === vuiRateStateValue + 0.5) {
+		if (vuiRateProps.allowHalf && props.value === vuiRateValue + 0.5) {
 			status = "half";
 		}
-		else if (vuiRateStateValue < props.value) {
+		else if (vuiRateValue < props.value) {
 			status = "zero";
 		}
 		else {
@@ -91,14 +91,22 @@ const VuiRateStar = {
 			[`${classNamePrefix}-${status}`]: status,
 			[`${classNamePrefix}-disabled`]: props.disabled
 		};
-		classes.elFirst = `${classNamePrefix}-first`;
-		classes.elSecond = `${classNamePrefix}-second`;
 
 		// render
+		const halfStates = [1, 0];
 		const star = (
 			<div class={classes.el}>
-				<div class={classes.elFirst} onMouseenter={e => handleMouseenter(e, true)} onClick={e => handleClick(e, true)}>{character}</div>
-				<div class={classes.elSecond} onMouseenter={e => handleMouseenter(e, false)} onClick={e => handleClick(e, false)}>{character}</div>
+				{
+					halfStates.map(halfState => {
+						const className = halfState ? `${classNamePrefix}-first` : `${classNamePrefix}-second`;
+						const onMouseenter = e => handleMouseenter(e, halfState);
+						const onClick = e => handleClick(e, halfState);
+
+						return (
+							<div class={className} onMouseenter={onMouseenter} onClick={onClick}>{character}</div>
+						);
+					})
+				}
 			</div>
 		);
 

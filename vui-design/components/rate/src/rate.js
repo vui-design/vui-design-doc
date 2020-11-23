@@ -1,7 +1,6 @@
 import VuiRateStar from "./rate-star";
 import Emitter from "vui-design/mixins/emitter";
 import PropTypes from "vui-design/utils/prop-types";
-import is from "vui-design/utils/is";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 
 const VuiRate = {
@@ -35,7 +34,8 @@ const VuiRate = {
 		const { $props: props } = this;
 		const state = {
 			value: props.value,
-			mouseenter: undefined
+			cleaned: undefined,
+			mouseentered: undefined
 		};
 
 		return {
@@ -58,29 +58,38 @@ const VuiRate = {
 			return value;
 		},
 		handleMouseenter(e, value, half) {
-			const newValue = this.getStarValue(value, half);
+			const { state } = this;
 
-			this.state.mouseenter = newValue;
+			value = this.getStarValue(value, half);
+
+			if (value === state.cleaned) {
+				return;
+			}
+
+			this.state.cleaned = undefined;
+			this.state.mouseentered = value;
 		},
 		handleMouseleave() {
-			this.state.mouseenter = undefined;
+			this.state.cleaned = undefined;
+			this.state.mouseentered = undefined;
 		},
 		handleClick(e, value, half) {
 			const { $props: props, state } = this;
-			let newValue = this.getStarValue(value, half);
+
+			value = this.getStarValue(value, half);
+
 			let maybeClean = false;
 
 			if (props.clearable) {
-				maybeClean = newValue === state.value;
+				maybeClean = value === state.value;
 			}
 
-			newValue = maybeClean ? 0 : newValue;
-
-			this.state.value = newValue;
-			this.$emit("input", newValue);
-			this.$emit("change", newValue);
-			this.dispatch("vui-form-item", "change", newValue);
-			this.handleMouseleave();
+			this.state.value = maybeClean ? 0 : value;
+			this.state.cleaned = maybeClean ? value : undefined;
+			this.state.mouseentered = undefined;
+			this.$emit("input", this.state.value);
+			this.$emit("change", this.state.value);
+			this.dispatch("vui-form-item", "change", this.state.value);
 		}
 	},
 	render() {
@@ -100,7 +109,7 @@ const VuiRate = {
 		let stars = [];
 
 		for (let index = 0; index < props.count; index++) {
-			const mergedStarProps = {
+			const attributes = {
 				ref: "star" + index,
 				key: index,
 				props: {
@@ -119,9 +128,7 @@ const VuiRate = {
 
 			stars.push(
 				<li>
-					<VuiRateStar {...mergedStarProps}>
-						{slots.character}
-					</VuiRateStar>
+					<VuiRateStar {...attributes}>{slots.character}</VuiRateStar>
 				</li>
 			);
 		}

@@ -96,15 +96,51 @@
 				<tbody>
 					<tr>
 						<td>input</td>
-						<td>可见状态发生变化时触发的事件回调，可以使用 <code>v-model</code> 双向绑定</td>
+						<td>可见状态发生变化时触发的事件回调函数，可以使用 <code>v-model</code> 双向绑定</td>
 						<td>Function</td>
 						<td><code>visible</code></td>
 					</tr>
 					<tr>
 						<td>change</td>
-						<td>可见状态发生变化时触发的事件回调</td>
+						<td>可见状态发生变化时触发的事件回调函数</td>
 						<td>Function</td>
 						<td><code>visible</code></td>
+					</tr>
+					<tr>
+						<td>beforeOpen</td>
+						<td>气泡卡片打开前触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>open</td>
+						<td>气泡卡片打开时触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>afterOpen</td>
+						<td>气泡卡片完全打开时（打开动画完成后）触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>beforeClose</td>
+						<td>气泡卡片关闭前触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>close</td>
+						<td>气泡卡片关闭时触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>afterClose</td>
+						<td>气泡卡片完全关闭时（关闭动画完成后）触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
 					</tr>
 				</tbody>
 			</table>

@@ -181,43 +181,55 @@
 				<tbody>
 					<tr>
 						<td>change</td>
-						<td>可见状态发生变化时触发的事件回调，可以使用 <code>v-model</code> 双向绑定</td>
+						<td>可见状态发生变化时触发的事件回调函数，可以使用 <code>v-model</code> 双向绑定</td>
 						<td>Function</td>
 						<td><code>visible</code></td>
 					</tr>
 					<tr>
 						<td>cancel</td>
-						<td>点击取消按钮（或右上角关闭按钮、背景遮罩）的事件回调，<code>cancelAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
+						<td>点击取消按钮（或右上角关闭按钮、背景遮罩）的事件回调函数，<code>cancelAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>ok</td>
-						<td>点击确定按钮的事件回调，<code>okAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
+						<td>点击确定按钮的事件回调函数，<code>okAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>beforeOpen</td>
+						<td>对话框打开前触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>open</td>
-						<td>对话框打开时触发的事件回调</td>
+						<td>对话框打开时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>afterOpen</td>
-						<td>对话框完全打开时（打开动画完成后）触发的事件回调</td>
+						<td>对话框完全打开时（打开动画完成后）触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>beforeClose</td>
+						<td>对话框关闭前触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>close</td>
-						<td>对话框关闭时触发的事件回调</td>
+						<td>对话框关闭时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>afterClose</td>
-						<td>对话框完全关闭时（关闭动画完成后）触发的事件回调</td>
+						<td>对话框完全关闭时（关闭动画完成后）触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
@@ -341,37 +353,49 @@
 					</tr>
 					<tr>
 						<td>onCancel</td>
-						<td>点击取消按钮的事件回调，<code>cancelAsync</code> 启用模式下回调参数为 <code>done</code> 函数，该选项仅在 <code>confirm</code> 对话框中有效</td>
+						<td>点击取消按钮的事件回调函数，<code>cancelAsync</code> 启用模式下回调参数为 <code>done</code> 函数，该选项仅在 <code>confirm</code> 对话框中有效</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>onOk</td>
-						<td>点击确定按钮的事件回调，<code>okAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
+						<td>点击确定按钮的事件回调函数，<code>okAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>onBeforeOpen</td>
+						<td>对话框打开前触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>onOpen</td>
-						<td>对话框打开时触发的事件回调</td>
+						<td>对话框打开时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>onAfterOpen</td>
-						<td>对话框完全打开时（打开动画完成后）触发的事件回调</td>
+						<td>对话框完全打开时（打开动画完成后）触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>onBeforeClose</td>
+						<td>对话框关闭前触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>onClose</td>
-						<td>对话框关闭时触发的事件回调</td>
+						<td>对话框关闭时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>onAfterClose</td>
-						<td>对话框完全关闭时（关闭动画完成后）触发的事件回调</td>
+						<td>对话框完全关闭时（关闭动画完成后）触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>

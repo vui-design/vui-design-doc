@@ -16,6 +16,7 @@ const VuiImage = {
 	props: {
 		classNamePrefix: PropTypes.string,
 		src: PropTypes.string,
+		replacement: PropTypes.string,
 		filled: PropTypes.bool.def(false),
 		fit: PropTypes.oneOf(["fill", "contain", "cover", "none", "scale-down"]),
 		alt: PropTypes.string,
@@ -53,6 +54,9 @@ const VuiImage = {
 		}
 	},
 	methods: {
+		getImageSrc(props) {
+			return props.src || props.replacement;
+		},
 		getImageStyle(fit) {
 			const { $el: el, state } = this;
 			const { clientWidth: containerWidth, clientHeight: containerHeight } = el;
@@ -97,7 +101,7 @@ const VuiImage = {
 
 			Object.keys(attrs).forEach(key => image.setAttribute(key, attrs[key]));
 
-			image.src = props.src;
+			image.src = this.getImageSrc(props);
 		},
 		addLazyloadListener() {
 			if (is.server) {
@@ -237,7 +241,7 @@ const VuiImage = {
 				style: styles.elImage,
 				attrs: {
 					...attrs,
-					src: props.src,
+					src: this.getImageSrc(props),
 					alt: props.alt
 				},
 				on: {

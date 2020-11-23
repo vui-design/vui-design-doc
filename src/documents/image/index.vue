@@ -31,6 +31,12 @@
 						<td>--</td>
 					</tr>
 					<tr>
+						<td>replacement</td>
+						<td>当图片源为空时的替代图片，一般用于设置默认图片</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
 						<td>filled</td>
 						<td>图片尺寸自适应父容器宽高（即设置图片宽高为 <code>100%</code>，撑满父容器）</td>
 						<td>Boolean</td>

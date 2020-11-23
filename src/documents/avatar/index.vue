@@ -36,6 +36,12 @@
 						<td>--</td>
 					</tr>
 					<tr>
+						<td>replacement</td>
+						<td>当图片资源地址为空时的替代图片，一般用于设置默认头像</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
 						<td>alt</td>
 						<td>图片类头像无法显示时的替代文本</td>
 						<td>String</td>
