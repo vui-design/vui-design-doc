@@ -540,6 +540,15 @@ const VuiTable = {
 
 			// 计算 style 样式
 			let width = state.colgroup.filter(column => column.fixed === "left").reduce((total, column) => total + column.width, 0);
+
+			if (props.rowExpansion) {
+				width += props.rowExpansion.width || 50;
+			}
+
+			if (props.rowSelection) {
+				width += props.rowSelection.width || 50;
+			}
+
 			let showXScrollbar = props.scroll && props.scroll.x > 0;
 			let showYScrollbar = props.scroll && props.scroll.y > 0;
 			let styles = {

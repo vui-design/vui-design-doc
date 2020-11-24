@@ -12,6 +12,7 @@
 		<SpaceSize />
 		<SpaceAlign />
 		<SpaceCustomize />
+		<SpaceDivider />
 		<Markdown>
 			<h2 id="example-api">API</h2>
 			<h3>Space 属性</h3>
@@ -57,6 +58,7 @@
 	import SpaceSize from "./examples/size";
 	import SpaceAlign from "./examples/align";
 	import SpaceCustomize from "./examples/customize";
+	import SpaceDivider from "./examples/divider";
 
 	export default {
 		mixins: [
@@ -68,7 +70,8 @@
 			SpaceVertical,
 			SpaceSize,
 			SpaceAlign,
-			SpaceCustomize
+			SpaceCustomize,
+			SpaceDivider
 		}
 	};
 </script>

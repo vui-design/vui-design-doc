@@ -3,7 +3,7 @@ const code =
   <div class="example-space-align">
     <div class="example-space-align-block">
       <vui-space align="start">
-        center
+        start
         <vui-button type="primary">Primary</vui-button>
         <div style="background-color: rgba(150, 150, 150, 0.2); padding: 20px 10px;">Block</div>
       </vui-space>
@@ -17,7 +17,7 @@ const code =
     </div>
     <div class="example-space-align-block">
       <vui-space align="end">
-        center
+        end
         <vui-button type="primary">Primary</vui-button>
         <div style="background-color: rgba(150, 150, 150, 0.2); padding: 20px 10px;">Block</div>
       </vui-space>

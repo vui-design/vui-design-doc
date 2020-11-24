@@ -32,7 +32,7 @@
 					</tr>
 					<tr>
 						<td>replacement</td>
-						<td>当图片源为空时的替代图片，一般用于设置默认图片</td>
+						<td>当图片源为空时的替代图片，可用于设置默认图片</td>
 						<td>String</td>
 						<td>--</td>
 					</tr>
