@@ -349,6 +349,7 @@ export default {
         "example-statistic-basic-usage": "基本用法",
         "example-statistic-icon-and-unit": "图标/单位",
         "example-statistic-card": "在卡片中使用",
+        "example-statistic-countdown": "倒计时",
 
         "example-table-basic-usage": "基本用法",
         "example-table-bordered": "带边框",

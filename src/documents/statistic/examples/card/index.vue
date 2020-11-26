@@ -2,18 +2,18 @@
 	<Example id="example-statistic-card">
 		<template slot="source">
 			<div class="example-statistic-card">
-				<vui-row :gutter="16">
-					<vui-col :span="12">
-						<vui-card :bordered="false">
-							<vui-statistic title="Active" suffix="%" bodyStyle="color: #53a653;" :value="11.5" :precision="2">
-								<vui-icon type="arrow-up" slot="prefix" />
+				<vui-row v-bind:gutter="16">
+					<vui-col v-bind:span="12">
+						<vui-card v-bind:bordered="false">
+							<vui-statistic v-bind:value="11.5" v-bind:precision="2" suffix="%" bodyStyle="color: #53a653;" title="Active">
+								<vui-icon slot="prefix" type="arrow-up" />
 							</vui-statistic>
 						</vui-card>
 					</vui-col>
-					<vui-col :span="12">
-						<vui-card :bordered="false">
-							<vui-statistic title="Idle" suffix="%" bodyStyle="color: #d54d5b;" :value="9.5" :precision="2">
-								<vui-icon type="arrow-down" slot="prefix" />
+					<vui-col v-bind:span="12">
+						<vui-card v-bind:bordered="false">
+							<vui-statistic v-bind:value="9.5" v-bind:precision="2" suffix="%" bodyStyle="color: #d54d5b;" title="Idle">
+								<vui-icon slot="prefix" type="arrow-down" />
 							</vui-statistic>
 						</vui-card>
 					</vui-col>
@@ -45,5 +45,5 @@
 </script>
 
 <style>
-	.example-statistic-card { background-color:#ececec; padding:20px; }
+	.example-statistic-card { background-color:#fafafa; padding:20px; }
 </style>

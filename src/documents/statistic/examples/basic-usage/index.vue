@@ -1,12 +1,12 @@
 <template>
 	<Example id="example-statistic-basic-usage">
 		<template slot="source">
-			<vui-row :gutter="16">
-				<vui-col :span="12">
-					<vui-statistic title="Active Users" :value="110888" />
+			<vui-row v-bind:gutter="16">
+				<vui-col v-bind:span="12">
+					<vui-statistic v-bind:value="110888" title="Active Users" />
 				</vui-col>
-				<vui-col :span="12">
-					<vui-statistic title="Account Balance (CNY)" :value="110888" :precision="2" />
+				<vui-col v-bind:span="12">
+					<vui-statistic v-bind:value="110888" v-bind:precision="2" title="Account Balance (CNY)" />
 				</vui-col>
 			</vui-row>
 		</template>

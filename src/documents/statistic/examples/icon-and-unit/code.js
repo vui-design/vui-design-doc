@@ -1,13 +1,13 @@
 const code = `
 <template>
-  <vui-row :gutter="16">
-    <vui-col :span="12">
-      <vui-statistic title="Feedback" :value="1024">
-        <vui-icon type="thumb-up" slot="prefix" />
+  <vui-row v-bind:gutter="16">
+    <vui-col v-bind:span="12">
+      <vui-statistic v-bind:value="1024" title="Feedback">
+        <vui-icon slot="prefix" type="thumb-up" />
       </vui-statistic>
     </vui-col>
-    <vui-col :span="12">
-      <vui-statistic title="Unmerged" :value="88">
+    <vui-col v-bind:span="12">
+      <vui-statistic v-bind:value="88" title="Unmerged">
         <template slot="suffix">/ 100</template>
       </vui-statistic>
     </vui-col>
