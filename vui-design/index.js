@@ -11,7 +11,6 @@ import Header from "./components/header";
 import Sider from "./components/sider";
 import Content from "./components/content";
 import Footer from "./components/footer";
-import Separator from "./components/separator";
 import Space from "./components/space";
 // Navigation
 import Affix from "./components/affix";
@@ -117,7 +116,6 @@ const components = [
 	Sider,
 	Content,
 	Footer,
-	Separator,
 	Space,
 	// Navigation
 	Affix,
@@ -253,7 +251,6 @@ export default {
 	Sider,
 	Content,
 	Footer,
-	Separator,
 	Space,
 	// Navigation
 	Affix,

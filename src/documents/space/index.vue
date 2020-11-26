@@ -5,14 +5,24 @@
 			<p>设置组件之间的间距。</p>
 			<h2>何时使用</h2>
 			<p>避免组件紧贴在一起，拉开统一的空间。</p>
+			<ul>
+				<li>适合行内元素的水平间距。</li>
+				<li>可以设置各种水平对齐方式。</li>
+			</ul>
 			<h2>代码演示</h2>
 		</Markdown>
-		<SpaceBasicUsage />
-		<SpaceVertical />
-		<SpaceAlign />
-		<SpaceDivider />
-		<SpaceSize />
-		<SpaceCustomize />
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
+				<ExampleSpaceBasicUsage />
+				<ExampleSpaceVertical />
+				<ExampleSpaceAlign />
+			</vui-col>
+			<vui-col v-bind:span="12">
+				<ExampleSpaceDivider />
+				<ExampleSpaceSize />
+				<ExampleSpaceCustomize />
+			</vui-col>
+		</vui-row>
 		<Markdown>
 			<h2 id="example-api">API</h2>
 			<h3>Space 属性</h3>
@@ -59,12 +69,12 @@
 <script>
 	import MixinCatalogue from "@/mixins/catalogue";
 	import Markdown from "@/components/markdown";
-	import SpaceBasicUsage from "./examples/basic-usage";
-	import SpaceVertical from "./examples/vertical";
-	import SpaceAlign from "./examples/align";
-	import SpaceDivider from "./examples/divider";
-	import SpaceSize from "./examples/size";
-	import SpaceCustomize from "./examples/customize";
+	import ExampleSpaceBasicUsage from "./examples/basic-usage";
+	import ExampleSpaceVertical from "./examples/vertical";
+	import ExampleSpaceAlign from "./examples/align";
+	import ExampleSpaceDivider from "./examples/divider";
+	import ExampleSpaceSize from "./examples/size";
+	import ExampleSpaceCustomize from "./examples/customize";
 
 	export default {
 		mixins: [
@@ -72,12 +82,12 @@
 		],
 		components: {
 			Markdown,
-			SpaceBasicUsage,
-			SpaceVertical,
-			SpaceAlign,
-			SpaceDivider,
-			SpaceSize,
-			SpaceCustomize
+			ExampleSpaceBasicUsage,
+			ExampleSpaceVertical,
+			ExampleSpaceAlign,
+			ExampleSpaceDivider,
+			ExampleSpaceSize,
+			ExampleSpaceCustomize
 		}
 	};
 </script>
