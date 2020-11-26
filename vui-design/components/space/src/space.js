@@ -10,9 +10,8 @@ const VuiSpace = {
 	props: {
 		classNamePrefix: PropTypes.string,
 		direction: PropTypes.oneOf(["horizontal", "vertical"]).def("horizontal"),
-		divider: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]).def(false),
-		justify: PropTypes.oneOf(["start", "center", "end"]).def("center"),
 		align: PropTypes.oneOf(["start", "center", "end"]).def("center"),
+		divider: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]).def(false),
 		size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).def("medium")
 	},
 	render(h) {
@@ -20,6 +19,9 @@ const VuiSpace = {
 		const isHorizontal = props.direction === "horizontal";
 		const withPresetSize = props.size && sizes.indexOf(props.size) > -1;
 		const withCustomSize = props.size && sizes.indexOf(props.size) === -1;
+
+		// divider
+		let divider = props.divider;
 
 		// size
 		let size;
@@ -34,9 +36,9 @@ const VuiSpace = {
 
 		classes.el = {
 			[`${classNamePrefix}`]: true,
-			[`${classNamePrefix}-with-divider`]: props.divider,
 			[`${classNamePrefix}-${props.direction}`]: props.direction,
 			[`${classNamePrefix}-${props.align}`]: isHorizontal && props.align,
+			[`${classNamePrefix}-with-divider`]: isHorizontal && divider,
 			[`${classNamePrefix}-${props.size}`]: withPresetSize
 		};
 		classes.elItem = `${classNamePrefix}-item`;
@@ -45,40 +47,24 @@ const VuiSpace = {
 		// style
 		let styles = {};
 
-		if (isHorizontal) {
-			if (props.divider) {
-				let divider;
+		styles.elItem = {};
+		styles.elDivider = {};
 
-				if (is.string(props.divider)) {
-					divider = props.divider;
-				}
-				else if (is.number(props.divider)) {
-					divider = props.divider + "px";
-				}
-				else {
-					divider = "12px";
-				}
+		if (isHorizontal && divider) {
+			if (is.string(divider) || is.number(divider)) {
+				divider = is.string(divider) ? divider : `${divider}px`;
 
-				styles.elDivider = {
-					height: divider,
-					marginLeft: size,
-					marginRight: size
-				};
+				styles.elDivider.height = divider;
 			}
-			else {
-				if (withCustomSize) {
-					styles.elItem = {
-						marginLeft: size
-					};
-				}
+
+			if (withCustomSize) {
+				styles.elDivider.marginLeft = styles.elDivider.marginRight = size;
 			}
 		}
-		else {
-			if (withCustomSize) {
-				styles.elItem = {
-					marginTop: size
-				};
-			}
+		else if (withCustomSize) {
+			const property = isHorizontal ? "marginLeft" : "marginTop";
+
+			styles.elItem[property] = size;
 		}
 
 		// render
@@ -86,13 +72,13 @@ const VuiSpace = {
 		let children = [];
 
 		list.forEach((item, index) => {
-			if (props.divider && index > 0) {
+			const isNotFirst = index > 0;
+
+			if (divider && isNotFirst) {
 				children.push(
 					<i class={classes.elDivider} style={styles.elDivider}></i>
 				);
 			}
-
-			const isNotFirst = index > 0;
 
 			children.push(
 				<div class={classes.elItem} style={isNotFirst && styles.elItem}>{item}</div>

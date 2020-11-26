@@ -12,9 +12,9 @@
 				</vui-card>
 			</vui-space>
 		</template>
-		<template slot="title">垂直间距</template>
+		<template slot="title">垂直排列</template>
 		<template slot="describe">
-			<p>相邻组件垂直间距。可以设置 <code>width: 100%</code> 独占一行。</p>
+			<p>相邻组件垂直排列。可以设置 <code>width: 100%</code> 独占一行。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>

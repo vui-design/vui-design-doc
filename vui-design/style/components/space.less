@@ -12,10 +12,10 @@
 	&-divider {
 		display:block;
 		box-sizing:border-box;
-		width:1px;
-		height:12px;
-		background-color:#e6e6e6;
-		background-image:linear-gradient(#f3f3f3, #e6e6e6, #f3f3f3);
+		width:@space-divider-width;
+		height:@space-divider-height;
+		background-color:shade(@card-border-color, 10%);
+		background-image:linear-gradient(@card-border-color, shade(@card-border-color, 10%), @card-border-color);
 	}
 
 	&-horizontal {
@@ -43,6 +43,19 @@
 	}
 	&-horizontal&-large &-item + &-item {
 		margin-left:@space-size-lg;
+	}
+
+	&-horizontal&-small &-divider {
+		margin-left:@space-with-divider-size-sm;
+		margin-right:@space-with-divider-size-sm;
+	}
+	&-horizontal&-medium &-divider {
+		margin-left:@space-with-divider-size-md;
+		margin-right:@space-with-divider-size-md;
+	}
+	&-horizontal&-large &-divider {
+		margin-left:@space-with-divider-size-lg;
+		margin-right:@space-with-divider-size-lg;
 	}
 
 	&-vertical&-small &-item + &-item {

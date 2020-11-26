@@ -9,10 +9,10 @@
 		</Markdown>
 		<SpaceBasicUsage />
 		<SpaceVertical />
-		<SpaceSize />
 		<SpaceAlign />
-		<SpaceCustomize />
 		<SpaceDivider />
+		<SpaceSize />
+		<SpaceCustomize />
 		<Markdown>
 			<h2 id="example-api">API</h2>
 			<h3>Space 属性</h3>
@@ -21,22 +21,28 @@
 					<tr>
 						<th width="100">属性</th>
 						<th>说明</th>
-						<th width="150">类型</th>
+						<th width="180">类型</th>
 						<th width="100">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>direction</td>
-						<td>内容排列方向，可选值为 <code>horizontal</code>、<code>vertical</code> 或者不设</td>
+						<td>项目排列方向，可选值为 <code>horizontal</code>、<code>vertical</code> 或者不设</td>
 						<td>String</td>
 						<td><code>horizontal</code></td>
 					</tr>
 					<tr>
 						<td>align</td>
-						<td>对齐方式，可选值为 <code>start</code>、<code>center</code>、<code>end</code> 或者不设。该属性仅在 <code>direction</code> 为 <code>horizontal</code> 时有效</td>
+						<td>项目对齐方式，可选值为 <code>start</code>、<code>center</code>、<code>end</code> 或者不设。该属性仅在 <code>direction</code> 为 <code>horizontal</code> 时有效</td>
 						<td>String</td>
 						<td><code>center</code></td>
+					</tr>
+					<tr>
+						<td>divider</td>
+						<td>是否在项目间插入分割线，可设置为具体的数值，用于指定分割线高度。该属性仅在 <code>direction</code> 为 <code>horizontal</code> 时有效</td>
+						<td>Boolean | String | Number</td>
+						<td><code>false</code></td>
 					</tr>
 					<tr>
 						<td>size</td>
@@ -55,10 +61,10 @@
 	import Markdown from "@/components/markdown";
 	import SpaceBasicUsage from "./examples/basic-usage";
 	import SpaceVertical from "./examples/vertical";
-	import SpaceSize from "./examples/size";
 	import SpaceAlign from "./examples/align";
-	import SpaceCustomize from "./examples/customize";
 	import SpaceDivider from "./examples/divider";
+	import SpaceSize from "./examples/size";
+	import SpaceCustomize from "./examples/customize";
 
 	export default {
 		mixins: [
@@ -68,10 +74,10 @@
 			Markdown,
 			SpaceBasicUsage,
 			SpaceVertical,
-			SpaceSize,
 			SpaceAlign,
-			SpaceCustomize,
-			SpaceDivider
+			SpaceDivider,
+			SpaceSize,
+			SpaceCustomize
 		}
 	};
 </script>

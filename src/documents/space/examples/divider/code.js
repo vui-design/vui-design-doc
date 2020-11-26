@@ -1,21 +1,23 @@
 const code =
 `<template>
-  <vui-space>
-    Space
-    <vui-button type="primary">Button</vui-button>
-    <vui-dropdown placement="bottom-start">
-      <vui-button>Dropdown</vui-button>
-      <vui-dropdown-menu slot="menu">
-        <vui-dropdown-menu-item name="1" title="Menu Item 1" />
-        <vui-dropdown-menu-item name="2" title="Menu Item 2" />
-        <vui-dropdown-menu-item name="3" title="Menu Item 3" />
-        <vui-dropdown-menu-item name="4" title="Menu Item 4" />
-      </vui-dropdown-menu>
-    </vui-dropdown>
-    <vui-popconfirm title="Are you sure delete this task?" cancelText="No" okText="Yes">
-      <vui-button type="dashed">Delete</vui-button>
-    </vui-popconfirm>
-  </vui-space>
+  <div class="example-space-divider">
+    <section>
+      <vui-space divider>
+        <a href="javascript:;">Link</a>
+        <a href="javascript:;">Link</a>
+        <a href="javascript:;">Link</a>
+      </vui-space>
+    </section>
+    <section>
+      <vui-space v-bind:divider="54" v-bind:size="30">
+        <vui-statistic v-bind:value="110888" title="Active Users" />
+        <vui-statistic v-bind:value="110888" v-bind:precision="2" title="Account Balance (CNY)" />
+        <vui-statistic v-bind:value="88" title="Unmerged">
+          <template slot="suffix">/ 100</template>
+        </vui-statistic>
+      </vui-space>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -23,6 +25,10 @@ const code =
 
   };
 </script>
+
+<style>
+  .example-space-divider section + section { margin-top:20px; }
+</style>
 `;
 
 export default code;

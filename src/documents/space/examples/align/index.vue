@@ -25,9 +25,9 @@
 				</div>
 			</div>
 		</template>
-		<template slot="title">对齐</template>
+		<template slot="title">对齐方式</template>
 		<template slot="describe">
-			<p>设置横向布局时的对齐方式。</p>
+			<p>横向布局时，设置项目在交叉轴上的对齐方式。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>

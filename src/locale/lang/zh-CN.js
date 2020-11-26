@@ -154,9 +154,10 @@ export default {
         "example-divider-with-text": "带文本的分割线",
 
         "example-space-basic-usage": "基本用法",
-        "example-space-vertical": "垂直方向",
+        "example-space-vertical": "垂直排列",
+        "example-space-align": "对齐方式",
+        "example-space-divider": "分割线",
         "example-space-size": "尺寸",
-        "example-space-align": "对齐",
         "example-space-customize": "自定义间距尺寸",
 
         "example-affix-basic-usage": "基本用法",
