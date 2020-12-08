@@ -2,10 +2,10 @@
 	<Example id="example-table-fixed-header">
 		<template slot="source">
 			<vui-table v-bind:columns="columns" v-bind:data="data" v-bind:scroll="scroll" rowKey="id">
-				<vui-separator slot="action" slot-scope="{ row, rowIndex }">
+				<vui-space divider slot="action" slot-scope="{ row, rowIndex }">
 					<a href="javascript:;">Edit</a>
 					<a href="javascript:;">Delete</a>
-				</vui-separator>
+				</vui-space>
 			</vui-table>
 		</template>
 		<template slot="title">固定表头</template>

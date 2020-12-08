@@ -7,10 +7,10 @@ const code =
     v-bind:rowSelection="rowSelection"
     v-on:rowSelect="handleRowSelect"
   >
-    <vui-separator slot="action" slot-scope="{ row, rowIndex }">
+    <vui-space divider slot="action" slot-scope="{ row, rowIndex }">
       <a href="javascript:;">Edit</a>
       <a href="javascript:;">Delete</a>
-    </vui-separator>
+    </vui-space>
   </vui-table>
 </template>
 

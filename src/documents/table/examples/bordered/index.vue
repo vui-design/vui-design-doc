@@ -6,10 +6,10 @@
 				<template slot="tags" slot-scope="{ row, rowIndex }">
 					<vui-tag v-for="tag in row.tags" v-bind:key="tag.label" v-bind:color="tag.color" style="margin-right: 8px;">{{tag.label}}</vui-tag>
 				</template>
-				<vui-separator slot="action" slot-scope="{ row, rowIndex }">
+				<vui-space divider slot="action" slot-scope="{ row, rowIndex }">
 					<a href="javascript:;">Edit</a>
 					<a href="javascript:;">Delete</a>
-				</vui-separator>
+				</vui-space>
 			</vui-table>
 		</template>
 		<template slot="title">带边框</template>

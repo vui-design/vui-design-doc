@@ -11,10 +11,10 @@
 				<template slot="expansion" slot-scope="{ row, rowIndex }">
 					{{row.name}}, {{row.age}}, {{row.address}}
 				</template>
-				<vui-separator slot="action" slot-scope="{ row, rowIndex }">
+				<vui-space divider slot="action" slot-scope="{ row, rowIndex }">
 					<a href="javascript:;">Edit</a>
 					<a href="javascript:;">Delete</a>
-				</vui-separator>
+				</vui-space>
 			</vui-table>
 		</template>
 		<template slot="title">点击行展开</template>
