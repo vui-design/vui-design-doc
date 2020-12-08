@@ -67,7 +67,7 @@ const VuiTimeroutine = {
 			handler(value) {
 				let newValue = this.state.weeks.map(() => []);
 
-				if (value === "") {
+				if (!value) {
 					this.state.value = newValue;
 				}
 				else {
