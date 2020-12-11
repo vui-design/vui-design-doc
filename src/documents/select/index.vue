@@ -85,12 +85,6 @@
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>allowCreate</td>
-						<td>多选模式下是否允许用户创建新的项目</td>
-						<td>Boolean</td>
-						<td><code>false</code></td>
-					</tr>
-					<tr>
 						<td>searchable</td>
 						<td>是否支持搜索</td>
 						<td>Boolean</td>
@@ -109,6 +103,12 @@
 						<td><code>children</code></td>
 					</tr>
 					<tr>
+						<td>allowCreate</td>
+						<td>多选模式下是否允许用户创建新的项目</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
 						<td>loading</td>
 						<td>是否处于 <code>loading</code> 状态（即当前是否正在进行远程搜索）</td>
 						<td>Boolean</td>
@@ -125,6 +125,18 @@
 						<td>选项为空时的文字提示</td>
 						<td>String</td>
 						<td><code>暂无数据</code></td>
+					</tr>
+					<tr>
+						<td>beforeSelect</td>
+						<td>选取某一选项前触发的钩子函数，可用于判断选项是否可选，返回 <code>false</code> 时禁止选取，支持返回 <code>Promise</code> 对象</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>beforeUnselect</td>
+						<td>取消选取某一选项前触发的钩子函数</td>
+						<td>Function</td>
+						<td>--</td>
 					</tr>
 					<tr>
 						<td>autoClearKeyword</td>
