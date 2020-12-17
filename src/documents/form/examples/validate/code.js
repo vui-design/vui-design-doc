@@ -1,14 +1,14 @@
 const code =
 `<template>
-  <vui-form ref="form" :model="form" :rules="rules" :labelWidth="100">
-    <vui-form-item label="Name" prop="name">
-      <vui-input style="width: 200px;" placeholder="Enter your name..." v-model="form.name" />
+  <vui-form ref="form" v-bind:model="form" v-bind:rules="rules" v-bind:labelWidth="100">
+    <vui-form-item prop="name" label="Name">
+      <vui-input v-model="form.name" placeholder="Enter your name..." style="width: 200px;" />
     </vui-form-item>
-    <vui-form-item label="E-mail" prop="email">
-      <vui-input style="width: 50%;" placeholder="Enter your e-mail..." v-model="form.email" />
+    <vui-form-item prop="email" label="E-mail">
+      <vui-input v-model="form.email" placeholder="Enter your e-mail..." style="width: 50%;" />
     </vui-form-item>
-    <vui-form-item label="City" prop="city">
-      <vui-select style="width: 200px;" placeholder="Select your city..." clearable v-model="form.city">
+    <vui-form-item prop="city" label="City">
+      <vui-select v-model="form.city" clearable placeholder="Select your city..." style="width: 200px;">
         <vui-option value="new york">New York</vui-option>
         <vui-option value="london">London</vui-option>
         <vui-option value="sydney">Sydney</vui-option>
@@ -17,19 +17,19 @@ const code =
         <vui-option value="canberra">Canberra</vui-option>
       </vui-select>
     </vui-form-item>
-    <vui-form-item label="Age" prop="age">
-      <vui-input-number placeholder="Enter your age..." :min="15" :max="100" v-model="form.age" />
+    <vui-form-item prop="age" label="Age">
+      <vui-input-number v-model="form.age" v-bind:min="15" v-bind:max="100" placeholder="Enter your age..." />
     </vui-form-item>
-    <vui-form-item label="Birthday" prop="birthday">
-      <vui-input style="width: 200px;" placeholder="Select your birthday..." v-model="form.birthday" />
+    <vui-form-item prop="birthday" label="Birthday">
+      <vui-input v-model="form.birthday" placeholder="Select your birthday..." style="width: 200px;" />
     </vui-form-item>
-    <vui-form-item label="Gender" prop="gender">
+    <vui-form-item prop="gender" label="Gender">
       <vui-radio-group v-model="form.gender">
         <vui-radio value="male">Male</vui-radio>
         <vui-radio value="female">Female</vui-radio>
       </vui-radio-group>
     </vui-form-item>
-    <vui-form-item label="Hobby" prop="hobby">
+    <vui-form-item prop="hobby" label="Hobby">
       <vui-checkbox-group v-model="form.hobby">
         <vui-checkbox value="eat">Eat</vui-checkbox>
         <vui-checkbox value="sleep">Sleep</vui-checkbox>
@@ -43,12 +43,12 @@ const code =
         <template slot="unchecked">OFF</template>
       </vui-switch>
     </vui-form-item>
-    <vui-form-item label="Introduction" prop="introduction">
-      <vui-textarea placeholder="Please introduce yourself briefly..." v-model="form.introduction" :autosize="{minRows: 4, maxRows: 8}" />
+    <vui-form-item prop="introduction" label="Introduction">
+      <vui-textarea v-model="form.introduction" v-bind:autosize="{minRows: 4, maxRows: 8}" placeholder="Please introduce yourself briefly..." />
     </vui-form-item>
     <vui-form-item>
-      <vui-button type="primary" @click="handleSubmit">Submit</vui-button>
-      <vui-button style="margin-left: 20px;" @click="handleReset">Reset</vui-button>
+      <vui-button type="primary" v-on:click="handleSubmit">Submit</vui-button>
+      <vui-button style="margin-left: 20px;" v-on:click="handleReset">Reset</vui-button>
     </vui-form-item>
   </vui-form>
 </template>
@@ -73,7 +73,7 @@ const code =
             { trigger: "blur" , required: true, message: "The name cannot be empty" }
           ],
           email: [
-            { trigger: "blur", required: true, message: "Mailbox cannot be empty" },
+            { trigger: "blur", required: true, message: "The e-mail cannot be empty" },
             { trigger: "blur" , type: "email", message: "Incorrect email format" }
           ],
           city: [

@@ -1,34 +1,18 @@
 const code =
 `<template>
-  <vui-form ref="form" :model="form" :rules="rules" :labelWidth="100">
+  <vui-form ref="form" v-bind:model="form" v-bind:rules="rules" v-bind:labelWidth="100">
     <vui-form-item label="Account" prop="account">
-      <vui-input
-        style="width: 200px;"
-        placeholder="Enter your account..."
-        v-model="form.account"
-      />
+      <vui-input v-model="form.account" placeholder="Enter your account..." style="width: 200px;" />
     </vui-form-item>
     <vui-form-item label="Password" prop="password">
-      <vui-input
-        type="password"
-        showPasswordToggler
-        style="width: 50%;"
-        placeholder="Enter your password..."
-        v-model="form.password"
-      />
+      <vui-input type="password" v-model="form.password" showPasswordToggler placeholder="Enter your password..." style="width: 50%;" />
     </vui-form-item>
     <vui-form-item label="Confirm" prop="confirm">
-      <vui-input
-        type="password"
-        showPasswordToggler
-        style="width: 50%;"
-        placeholder="Enter your password again..."
-        v-model="form.confirm"
-      />
+      <vui-input type="password" v-model="form.confirm" showPasswordToggler placeholder="Enter your password again..." style="width: 50%;" />
     </vui-form-item>
     <vui-form-item>
-      <vui-button type="primary" @click="handleSignup">Sign up</vui-button>
-      <vui-button style="margin-left: 20px;" @click="handleReset">Reset</vui-button>
+      <vui-button type="primary" v-on:click="handleSignup">Sign up</vui-button>
+      <vui-button style="margin-left: 20px;" v-on:click="handleReset">Reset</vui-button>
     </vui-form-item>
   </vui-form>
 </template>

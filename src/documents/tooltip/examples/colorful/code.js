@@ -3,6 +3,12 @@ const code =
   <div>
     <div class="example-tooltip-colorful">
       <h4>Presets</h4>
+      <vui-tooltip color="dark" content="This is a tooltip">
+        <vui-button>Dark</vui-button>
+      </vui-tooltip>
+      <vui-tooltip color="light" content="This is a tooltip">
+        <vui-button>Light</vui-button>
+      </vui-tooltip>
       <vui-tooltip color="blue" content="This is a tooltip">
         <vui-button>Blue</vui-button>
       </vui-tooltip>

@@ -1,12 +1,12 @@
 <template>
-	<Example vertical id="example-form-control">
+	<Example id="example-form-control">
 		<template slot="source">
-			<vui-form :model="form" :labelWidth="100">
+			<vui-form v-bind:model="form" v-bind:labelWidth="100">
 				<vui-form-item label="Input">
-					<vui-input placeholder="Enter something..." v-model="form.input" />
+					<vui-input v-model="form.input" placeholder="Enter something..." />
 				</vui-form-item>
 				<vui-form-item label="Select">
-					<vui-select style="width: 200px;" placeholder="Select..." v-model="form.select">
+					<vui-select v-model="form.select" placeholder="Select..." style="width: 200px;">
 						<vui-option value="new york">New York</vui-option>
 						<vui-option value="london">London</vui-option>
 						<vui-option value="sydney">Sydney</vui-option>
@@ -16,7 +16,7 @@
 					</vui-select>
 				</vui-form-item>
 				<vui-form-item label="Multiple Select">
-					<vui-select placeholder="Select..." multiple v-model="form.multipleSelect">
+					<vui-select v-model="form.multipleSelect" multiple placeholder="Select...">
 						<vui-option value="new york">New York</vui-option>
 						<vui-option value="london">London</vui-option>
 						<vui-option value="sydney">Sydney</vui-option>
@@ -46,7 +46,7 @@
 					</vui-switch>
 				</vui-form-item>
 				<vui-form-item label="Textarea">
-					<vui-textarea placeholder="Enter something..." v-model="form.textarea" :autosize="{minRows: 4, maxRows: 8}" />
+					<vui-textarea v-model="form.textarea" v-bind:autosize="{minRows: 4, maxRows: 8}" placeholder="Enter something..." />
 				</vui-form-item>
 				<vui-form-item>
 					<vui-button type="primary">Submit</vui-button>

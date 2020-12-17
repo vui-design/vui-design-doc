@@ -232,6 +232,7 @@ export default {
 
         "example-form-inline": "行内表单",
         "example-form-layout": "表单布局",
+        "example-form-required-mark": "必选样式",
         "example-form-label-align": "标签对齐方式",
         "example-form-control": "表单控件",
         "example-form-group": "表单分组",
@@ -394,7 +395,6 @@ export default {
         "example-tooltip-basic-usage": "基本用法",
         "example-tooltip-customized-content": "自定义内容",
         "example-tooltip-placement": "位置",
-        "example-tooltip-theme": "主题",
         "example-tooltip-colorful": "多彩文字提示",
 
         "example-alert-basic-usage": "基本用法",

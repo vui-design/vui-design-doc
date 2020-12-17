@@ -17,7 +17,6 @@
 				<ExampleTooltipPlacement />
 			</vui-col>
 			<vui-col v-bind:span="12">
-				<ExampleTooltipTheme />
 				<ExampleTooltipColorful />
 			</vui-col>
 		</vui-row>
@@ -41,16 +40,10 @@
 						<td><code>false</code></td>
 					</tr>
 					<tr>
-						<td>theme</td>
-						<td>主题，可选值为 <code>light</code>、<code>dark</code> 或者不设</td>
+						<td>color</td>
+						<td>颜色，预设颜色详见示例〔多彩文字提示〕</td>
 						<td>String</td>
 						<td><code>dark</code></td>
-					</tr>
-					<tr>
-						<td>color</td>
-						<td>颜色，预设颜色详见示例〔多彩文字提示〕；该属性会覆盖 <code>theme</code> 主题下的颜色值</td>
-						<td>String</td>
-						<td>--</td>
 					</tr>
 					<tr>
 						<td>content</td>
@@ -105,7 +98,6 @@
 	import MixinCatalogue from "@/mixins/catalogue";
 	import Markdown from "@/components/markdown";
 	import ExampleTooltipBasicUsage from "./examples/basic-usage";
-	import ExampleTooltipTheme from "./examples/theme";
 	import ExampleTooltipCustomizedContent from "./examples/customized-content";
 	import ExampleTooltipPlacement from "./examples/placement";
 	import ExampleTooltipColorful from "./examples/colorful";
@@ -117,7 +109,6 @@
 		components: {
 			Markdown,
 			ExampleTooltipBasicUsage,
-			ExampleTooltipTheme,
 			ExampleTooltipCustomizedContent,
 			ExampleTooltipPlacement,
 			ExampleTooltipColorful

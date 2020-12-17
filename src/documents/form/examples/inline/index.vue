@@ -1,12 +1,12 @@
 <template>
-	<Example vertical id="example-form-inline">
+	<Example id="example-form-inline">
 		<template slot="source">
 			<vui-form layout="inline">
 				<vui-form-item>
-					<vui-input style="width: 200px;" prefix="user" placeholder="Username" v-model="form.username" />
+					<vui-input v-model="form.username" prefix="user" placeholder="Username" style="width: 200px;" />
 				</vui-form-item>
 				<vui-form-item>
-					<vui-input style="width: 200px;" prefix="lock" placeholder="Password" v-model="form.password" />
+					<vui-input v-model="form.password" prefix="lock" placeholder="Password" style="width: 200px;" />
 				</vui-form-item>
 				<vui-form-item>
 					<vui-button type="primary">Sign in</vui-button>
