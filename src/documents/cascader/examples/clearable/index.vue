@@ -1,15 +1,18 @@
 <template>
-	<Example id="example-cascader-basic-usage">
+	<Example id="example-cascader-clearable">
 		<template slot="source">
 			<vui-cascader
 				v-model="value"
 				v-bind:options="options"
+				changeOnSelect
+				searchable
+				clearable
 				style="width: 200px;"
 			/>
 		</template>
-		<template slot="title">基本用法</template>
+		<template slot="title">可清空</template>
 		<template slot="describe">
-			<p>省市区级联。</p>
+			<p>允许清空已选项或搜索关键词。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>
@@ -31,6 +34,11 @@
 						{
 							value: "xihu",
 							label: "West Lake"
+						},
+						{
+							value: "xiasha",
+							label: "Xia Sha",
+							disabled: true
 						}
 					]
 				}

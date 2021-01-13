@@ -1,15 +1,16 @@
 <template>
-	<Example id="example-cascader-basic-usage">
+	<Example id="example-cascader-expand-trigger">
 		<template slot="source">
 			<vui-cascader
 				v-model="value"
 				v-bind:options="options"
+				expandTrigger="hover"
 				style="width: 200px;"
 			/>
 		</template>
-		<template slot="title">基本用法</template>
+		<template slot="title">移入展开</template>
 		<template slot="describe">
-			<p>省市区级联。</p>
+			<p>通过鼠标移入展开下级菜单，点击完成选择。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>
@@ -31,6 +32,11 @@
 						{
 							value: "xihu",
 							label: "West Lake"
+						},
+						{
+							value: "xiasha",
+							label: "Xia Sha",
+							disabled: true
 						}
 					]
 				}

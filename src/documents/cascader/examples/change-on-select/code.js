@@ -3,6 +3,7 @@ const code =
   <vui-cascader
     v-model="value"
     v-bind:options="options"
+    changeOnSelect
     style="width: 200px;"
   />
 </template>

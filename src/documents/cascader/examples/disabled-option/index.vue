@@ -1,5 +1,5 @@
 <template>
-	<Example id="example-cascader-basic-usage">
+	<Example id="example-cascader-disabled-option">
 		<template slot="source">
 			<vui-cascader
 				v-model="value"
@@ -7,9 +7,9 @@
 				style="width: 200px;"
 			/>
 		</template>
-		<template slot="title">基本用法</template>
+		<template slot="title">禁用选项</template>
 		<template slot="describe">
-			<p>省市区级联。</p>
+			<p>通过指定 <code>options</code> 里的 <code>disabled</code> 字段来禁用选项。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>
@@ -31,6 +31,11 @@
 						{
 							value: "xihu",
 							label: "West Lake"
+						},
+						{
+							value: "xiasha",
+							label: "Xia Sha",
+							disabled: true
 						}
 					]
 				}
@@ -39,6 +44,7 @@
 		{
 			value: "jiangsu",
 			label: "Jiangsu",
+			disabled: true,
 			children: [
 				{
 					value: "nanjing",

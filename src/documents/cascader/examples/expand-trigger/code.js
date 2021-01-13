@@ -3,6 +3,7 @@ const code =
   <vui-cascader
     v-model="value"
     v-bind:options="options"
+    expandTrigger="hover"
     style="width: 200px;"
   />
 </template>
@@ -20,6 +21,11 @@ const code =
             {
               value: "xihu",
               label: "West Lake"
+            },
+            {
+              value: "xiasha",
+              label: "Xia Sha",
+              disabled: true
             }
           ]
         }

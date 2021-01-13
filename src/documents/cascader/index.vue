@@ -11,12 +11,19 @@
 			</ul>
 			<h2>代码演示</h2>
 		</Markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleCascaderBasicUsage />
+				<ExampleCascaderValue />
+				<ExampleCascaderExpandTrigger />
+				<ExampleCascaderChangeOnSelect />
+				<ExampleCascaderDisabledOption />
 			</vui-col>
-			<vui-col :span="12">
-
+			<vui-col v-bind:span="12">
+				<ExampleCascaderSearchable />
+				<ExampleCascaderClearable />
+				<ExampleCascaderFormatter />
+				<ExampleCascaderOptionKeys />
 			</vui-col>
 		</vui-row>
 		<Markdown>
@@ -28,7 +35,7 @@
 						<th width="150">属性</th>
 						<th>说明</th>
 						<th width="160">类型</th>
-						<th width="150">默认值</th>
+						<th width="230">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -46,31 +53,45 @@
 					</tr>
 					<tr>
 						<td>value</td>
-						<td>指定选中项目的 <code>value</code> 值集合，可以使用 <code>v-model</code> 双向绑定数据</td>
+						<td>指定选中项目的 <code>value</code> 值，可以使用 <code>v-model</code> 双向绑定数据</td>
 						<td>Array</td>
 						<td><code>[]</code></td>
 					</tr>
 					<tr>
-						<td>backfillOptionProp</td>
-						<td>回填到选择框的 <code>Option</code> 的属性值，可选值为 <code>label</code>、<code>value</code>、<code>children</code> 或者不设</td>
-						<td>String | Function</td>
-						<td><code>children</code></td>
+						<td>options</td>
+						<td>可选项数据源</td>
+						<td>Array</td>
+						<td><code>[]</code></td>
 					</tr>
 					<tr>
-						<td>maxTagCount</td>
-						<td>多选模式下选择框中最多显示多少个 <code>tag</code> 标签</td>
-						<td>Number</td>
-						<td>--</td>
+						<td>expandTrigger</td>
+						<td>次级菜单的展开方式，可选值为 <code>click</code>、<code>hover</code> 或者不设</td>
+						<td>String</td>
+						<td><code>click</code></td>
 					</tr>
 					<tr>
-						<td>maxTagPlaceholder</td>
-						<td>隐藏剩余 <code>tag</code> 标签时显示的内容，参数为剩余数量</td>
+						<td>optionKeys</td>
+						<td>自定义 <code>options</code> 选项中的 <code>label</code>、<code>value</code>、<code>children</code> 或 <code>disabled</code> 等字段</td>
+						<td>Object</td>
+						<td>
+<code style="white-space: pre;">{
+  label: "label",
+  value: "value",
+  children: "children",
+  disabled: "disabled"
+}
+</code>
+						</td>
+					</tr>
+					<tr>
+						<td>formatter</td>
+						<td>选择后展示的渲染函数，用于自定义显示格式</td>
 						<td>Function</td>
-						<td>--</td>
+						<td><code>labels => labels.join(" / ")</code></td>
 					</tr>
 					<tr>
-						<td>allowCreate</td>
-						<td>多选模式下是否允许用户创建新的项目</td>
+						<td>changeOnSelect</td>
+						<td>当此项为 <code>true</code> 时，点选每级菜单选项值都会发生变化</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
 					</tr>
@@ -88,21 +109,9 @@
 					</tr>
 					<tr>
 						<td>filterOptionProp</td>
-						<td>搜索时过滤对应的 <code>Option</code> 属性，如设置为 <code>children</code> 表示对内嵌内容进行搜索，可选值为 <code>label</code>、<code>value</code>、<code>children</code> 或者不设</td>
+						<td>搜索时根据 <code>option</code> 的指定属性进行过滤，可选值为 <code>label</code>、<code>value</code> 或者不设</td>
 						<td>String</td>
-						<td><code>children</code></td>
-					</tr>
-					<tr>
-						<td>loading</td>
-						<td>是否处于 <code>loading</code> 状态（即当前是否正在进行远程搜索）</td>
-						<td>Boolean</td>
-						<td><code>false</code></td>
-					</tr>
-					<tr>
-						<td>loadingText</td>
-						<td>远程搜索中的文字提示</td>
-						<td>String</td>
-						<td><code>加载中...</code></td>
+						<td><code>label</code></td>
 					</tr>
 					<tr>
 						<td>notFoundText</td>
@@ -111,14 +120,8 @@
 						<td><code>暂无数据</code></td>
 					</tr>
 					<tr>
-						<td>autoClearKeyword</td>
-						<td>是否在选中选项后自动清空搜索关键字，只在多选模式下有效</td>
-						<td>Boolean</td>
-						<td><code>true</code></td>
-					</tr>
-					<tr>
 						<td>clearable</td>
-						<td>是否允许清空已选选项</td>
+						<td>是否允许清空</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
 					</tr>
@@ -135,6 +138,12 @@
 						<td><code>bottom-start</code></td>
 					</tr>
 					<tr>
+						<td>dropdownAutoWidth</td>
+						<td>选项列表的宽度是否自适应，设为 <code>false</code> 时将适配输入框宽度</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
 						<td>getPopupContainer</td>
 						<td>指定选项弹框挂载的 HTML 节点</td>
 						<td>Function</td>
@@ -142,14 +151,14 @@
 					</tr>
 				</tbody>
 			</table>
-			<h3>Select 事件</h3>
+			<h3>Cascader 事件</h3>
 			<table class="example-api-events">
 				<thead>
 					<tr>
 						<th width="150">事件名</th>
 						<th>说明</th>
 						<th width="160">类型</th>
-						<th width="150">回调参数</th>
+						<th width="230">回调参数</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -166,12 +175,6 @@
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>search</td>
-						<td>搜索关键字发生变化时触发的事件回调</td>
-						<td>Function</td>
-						<td><code>keyword</code></td>
-					</tr>
-					<tr>
 						<td>input</td>
 						<td>选中项发生变化时触发的事件回调，可以使用 <code>v-model</code> 双向绑定数据</td>
 						<td>Function</td>
@@ -185,62 +188,6 @@
 					</tr>
 				</tbody>
 			</table>
-			<h3>OptionGroup 属性</h3>
-			<table class="example-api-props">
-				<thead>
-					<tr>
-						<th width="150">属性</th>
-						<th>说明</th>
-						<th width="160">类型</th>
-						<th width="150">默认值</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>label</td>
-						<td>分组名称</td>
-						<td>String</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>disabled</td>
-						<td>是否禁用该分组下所有选项</td>
-						<td>Boolean</td>
-						<td><code>false</code></td>
-					</tr>
-				</tbody>
-			</table>
-			<h3>Option 属性</h3>
-			<table class="example-api-props">
-				<thead>
-					<tr>
-						<th width="150">属性</th>
-						<th>说明</th>
-						<th width="160">类型</th>
-						<th width="150">默认值</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>label</td>
-						<td>选项标签</td>
-						<td>String</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>value</td>
-						<td>选项的值，默认根据此属性值进行筛选，必填</td>
-						<td>String | Number</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>disabled</td>
-						<td>是否禁用</td>
-						<td>Boolean</td>
-						<td><code>false</code></td>
-					</tr>
-				</tbody>
-			</table>
 		</Markdown>
 	</div>
 </template>
@@ -249,6 +196,14 @@
 	import MixinCatalogue from "@/mixins/catalogue";
 	import Markdown from "@/components/markdown";
 	import ExampleCascaderBasicUsage from "./examples/basic-usage";
+	import ExampleCascaderValue from "./examples/value";
+	import ExampleCascaderExpandTrigger from "./examples/expand-trigger";
+	import ExampleCascaderChangeOnSelect from "./examples/change-on-select";
+	import ExampleCascaderDisabledOption from "./examples/disabled-option";
+	import ExampleCascaderSearchable from "./examples/searchable";
+	import ExampleCascaderClearable from "./examples/clearable";
+	import ExampleCascaderFormatter from "./examples/formatter";
+	import ExampleCascaderOptionKeys from "./examples/option-keys";
 
 	export default {
 		mixins: [
@@ -257,6 +212,14 @@
 		components: {
 			Markdown,
 			ExampleCascaderBasicUsage,
+			ExampleCascaderValue,
+			ExampleCascaderExpandTrigger,
+			ExampleCascaderChangeOnSelect,
+			ExampleCascaderDisabledOption,
+			ExampleCascaderSearchable,
+			ExampleCascaderClearable,
+			ExampleCascaderFormatter,
+			ExampleCascaderOptionKeys,
 		}
 	};
 </script>

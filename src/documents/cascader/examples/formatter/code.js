@@ -3,6 +3,7 @@ const code =
   <vui-cascader
     v-model="value"
     v-bind:options="options"
+    v-bind:formatter="formatter"
     style="width: 200px;"
   />
 </template>
@@ -19,7 +20,14 @@ const code =
           children: [
             {
               value: "xihu",
-              label: "West Lake"
+              label: "West Lake",
+              code: 330009
+            },
+            {
+              value: "xiasha",
+              label: "Xia Sha",
+              code: 310018,
+              disabled: true
             }
           ]
         }
@@ -35,7 +43,8 @@ const code =
           children: [
             {
               value: "zhonghuamen",
-              label: "Zhong Hua Men"
+              label: "Zhong Hua Men",
+              code: 210016
             }
           ]
         }
@@ -53,6 +62,18 @@ const code =
     watch: {
       value(value) {
         console.log(value);
+      }
+    },
+    methods: {
+      formatter(labels, selectedOptions) {
+        const index = labels.length - 1;
+        const option = selectedOptions[index];
+
+        if (option && option.code) {
+          return labels[index] + " - " + option.code;
+        }
+
+        return labels[index];
       }
     }
   };

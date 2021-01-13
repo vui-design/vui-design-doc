@@ -20,6 +20,11 @@ const code =
             {
               value: "xihu",
               label: "West Lake"
+            },
+            {
+              value: "xiasha",
+              label: "Xia Sha",
+              disabled: true
             }
           ]
         }
@@ -28,6 +33,7 @@ const code =
     {
       value: "jiangsu",
       label: "Jiangsu",
+      disabled: true,
       children: [
         {
           value: "nanjing",

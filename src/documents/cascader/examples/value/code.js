@@ -46,7 +46,7 @@ const code =
   export default {
     data() {
       return {
-        value: [],
+        value: ["zhejiang", "hangzhou", "xihu"],
         options: options
       };
     },

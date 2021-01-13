@@ -220,6 +220,16 @@ export default {
         "example-tabs-editable": "动态增减",
         "example-tabs-custom-add-trigger": "自定义添加触发器",
 
+        "example-cascader-basic-usage": "基本用法",
+        "example-cascader-value": "默认值",
+        "example-cascader-expand-trigger": "移入展开",
+        "example-cascader-change-on-select": "选择即改变",
+        "example-cascader-disabled-option": "禁用选项",
+        "example-cascader-searchable": "搜索",
+        "example-cascader-clearable": "可清空",
+        "example-cascader-formatter": "自定义已选项",
+        "example-cascader-option-keys": "自定义字段名",
+
         "example-checkbox-basic-usage": "基本用法",
         "example-checkbox-disabled": "禁用状态",
         "example-checkbox-controller": "与其它组件通信",

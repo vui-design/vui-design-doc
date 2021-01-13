@@ -1,15 +1,16 @@
 <template>
-	<Example id="example-cascader-basic-usage">
+	<Example id="example-cascader-change-on-select">
 		<template slot="source">
 			<vui-cascader
 				v-model="value"
 				v-bind:options="options"
+				changeOnSelect
 				style="width: 200px;"
 			/>
 		</template>
-		<template slot="title">基本用法</template>
+		<template slot="title">选择即改变</template>
 		<template slot="describe">
-			<p>省市区级联。</p>
+			<p>这种交互允许只选中父级选项。</p>
 		</template>
 		<template slot="code">{{code}}</template>
 	</Example>
