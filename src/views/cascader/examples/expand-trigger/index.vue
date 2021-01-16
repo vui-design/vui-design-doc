@@ -1,0 +1,79 @@
+<template>
+	<vui-doc-example v-bind:code="code" id="example-cascader-expand-trigger">
+		<template slot="demo">
+			<vui-cascader
+				v-model="value"
+				v-bind:options="options"
+				expandTrigger="hover"
+				style="width: 200px;"
+			/>
+		</template>
+		<template slot="title">移入展开</template>
+		<template slot="description">
+			<p>通过鼠标移入展开下级菜单，点击完成选择。</p>
+		</template>
+	</vui-doc-example>
+</template>
+
+<script>
+	import VuiDocExample from "src/components/example";
+	import code from "./code";
+
+	const options = [
+		{
+			value: "zhejiang",
+			label: "Zhejiang",
+			children: [
+				{
+					value: "hangzhou",
+					label: "Hangzhou",
+					children: [
+						{
+							value: "xihu",
+							label: "West Lake"
+						},
+						{
+							value: "xiasha",
+							label: "Xia Sha",
+							disabled: true
+						}
+					]
+				}
+			]
+		},
+		{
+			value: "jiangsu",
+			label: "Jiangsu",
+			children: [
+				{
+					value: "nanjing",
+					label: "Nanjing",
+					children: [
+						{
+							value: "zhonghuamen",
+							label: "Zhong Hua Men"
+						}
+					]
+				}
+			]
+		}
+	];
+
+	export default {
+		components: {
+			VuiDocExample
+		},
+		data() {
+			return {
+				code,
+				value: [],
+				options: options
+			};
+		},
+		watch: {
+			value(value) {
+				console.log(value);
+			}
+		}
+	};
+</script>

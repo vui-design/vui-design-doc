@@ -3,8 +3,7 @@ export default {
         "guide": "指南",
         "components": "组件",
         "ecosystem": "生态系统",
-        "placeholder": "搜索组件...",
-        "github": "Github"
+        "placeholder": "搜索组件..."
     },
 
     "menu": {
@@ -88,7 +87,7 @@ export default {
         "other-backtop": "Backtop 回到顶部"
     },
 
-    "catalogue": {
+    "anchors": {
         "title": "目录",
         "example-api": "API",
 

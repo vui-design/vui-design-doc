@@ -1,0 +1,448 @@
+<template>
+	<div>
+		<vui-doc-markdown>
+			<h1>Modal 对话框</h1>
+			<p>模态对话框。</p>
+			<h2>何时使用</h2>
+			<p>需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 <code>Modal</code> 在当前页面正中打开一个对话框，承载相应的操作。另外当需要一个简洁的确认框询问用户时，可以使用精心封装好的 <code>this.$modal.confirm()</code> 等方法。</p>
+			<h2>代码演示</h2>
+		</vui-doc-markdown>
+		<vui-row :gutter="20">
+			<vui-col :span="12">
+				<ExampleModalBasicUsage />
+				<ExampleModalHeadlessAndFootless />
+				<ExampleModalHideCloseButton />
+				<ExampleModalButtonProps />
+				<ExampleModalPosition />
+				<ExampleModalWidth />
+			</vui-col>
+			<vui-col :span="12">
+				<ExampleModalCustomizedFooter />
+				<ExampleModalAsynchronouslyClose />
+				<ExampleModalConfirm />
+				<ExampleModalInfomation />
+				<ExampleModalUpdateAndClose />
+			</vui-col>
+		</vui-row>
+		<vui-doc-markdown>
+			<p>除了上述通过标准组件的使用方式，<code>Vui</code> 还精心封装了一些实例方法，用来创建一次性的轻量级对话框。实例以隐式创建 <code>Modal</code> 组件的方式在全局创建一个对话框，并在关闭时移除。</p>
+		</vui-doc-markdown>
+		<vui-doc-markdown>
+			<h2 id="example-api">API</h2>
+			<h3>Modal 属性</h3>
+			<table class="example-api-props">
+				<thead>
+					<tr>
+						<th width="150">属性</th>
+						<th>说明</th>
+						<th width="150">类型</th>
+						<th width="160">默认值</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>visible</td>
+						<td>对话框是否可见，可以使用 <code>v-model</code> 双向绑定</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>title</td>
+						<td>对话框标题</td>
+						<td>String | Slot</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>showFooter</td>
+						<td>是否显示对话框底部内容</td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+					</tr>
+					<tr>
+						<td>footer</td>
+						<td>自定义对话框底部内容</td>
+						<td>Slot</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>showCancelButton</td>
+						<td>是否显示取消按钮</td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+					</tr>
+					<tr>
+						<td>cancelButtonProps</td>
+						<td>取消按钮的属性，遵循<a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx#difference-from-react-jsx" target="_blank">jsx规范</a></td>
+						<td>Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>cancelText</td>
+						<td>取消按钮文字</td>
+						<td>String</td>
+						<td><code>取消</code></td>
+					</tr>
+					<tr>
+						<td>cancelAsync</td>
+						<td>标记取消按钮的点击事件回调函数是否执行异步任务</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>showOkButton</td>
+						<td>是否显示确定按钮</td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+					</tr>
+					<tr>
+						<td>okButtonProps</td>
+						<td>确定按钮的属性，遵循<a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx#difference-from-react-jsx" target="_blank">jsx规范</a></td>
+						<td>Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>okText</td>
+						<td>确定按钮文字</td>
+						<td>String</td>
+						<td><code>确定</code></td>
+					</tr>
+					<tr>
+						<td>okAsync</td>
+						<td>标记确定按钮的点击事件回调函数是否执行异步任务</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>closable</td>
+						<td>是否显示右上角的关闭按钮</td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+					</tr>
+					<tr>
+						<td>top</td>
+						<td>对话框距离页面顶部的距离，垂直居中显示对话框时该属性无效</td>
+						<td>String | Number</td>
+						<td><code>100</code></td>
+					</tr>
+					<tr>
+						<td>centered</td>
+						<td>是否垂直居中显示对话框</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>width</td>
+						<td>对话框宽度。对话框的宽度是响应式的。当屏幕宽度小于 <code>768px</code> 时，宽度会被强制设为 <code>auto</code>。</td>
+						<td>String | Number</td>
+						<td><code>500</code></td>
+					</tr>
+					<tr>
+						<td>className</td>
+						<td>对话框样式类名</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>backdrop</td>
+						<td>是否显示背景遮罩</td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+					</tr>
+					<tr>
+						<td>backdropClassName</td>
+						<td>背景遮罩样式类名</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>clickBackdropToClose</td>
+						<td>点击背景遮罩是否关闭对话框</td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+					</tr>
+					<tr>
+						<td>getPopupContainer</td>
+						<td>指定对话框挂载的 HTML 节点</td>
+						<td>Function</td>
+						<td>() => document.body</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Modal 事件</h3>
+			<table class="example-api-events">
+				<thead>
+					<tr>
+						<th width="150">事件名</th>
+						<th>说明</th>
+						<th width="150">类型</th>
+						<th width="160">回调参数</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>change</td>
+						<td>可见状态发生变化时触发的事件回调函数，可以使用 <code>v-model</code> 双向绑定</td>
+						<td>Function</td>
+						<td><code>visible</code></td>
+					</tr>
+					<tr>
+						<td>cancel</td>
+						<td>点击取消按钮（或右上角关闭按钮、背景遮罩）的事件回调函数，<code>cancelAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>ok</td>
+						<td>点击确定按钮的事件回调函数，<code>okAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>beforeOpen</td>
+						<td>对话框打开前触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>open</td>
+						<td>对话框打开时触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>afterOpen</td>
+						<td>对话框完全打开时（打开动画完成后）触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>beforeClose</td>
+						<td>对话框关闭前触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>close</td>
+						<td>对话框关闭时触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>afterClose</td>
+						<td>对话框完全关闭时（关闭动画完成后）触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>全局方法</h3>
+			<p>除了标准组件的使用方式，<code>Vui</code> 还精心封装了一些实例方法，用来创建一次性的轻量级对话框。实例以隐式创建 <code>Modal</code> 组件的方式在全局创建一个对话框，并在关闭时移除。您可以直接通过调用以下方法来使用：</p>
+			<ul>
+				<li><code>this.$modal.info(options)</code></li>
+				<li><code>this.$modal.warning(options)</code></li>
+				<li><code>this.$modal.success(options)</code></li>
+				<li><code>this.$modal.error(options)</code></li>
+				<li><code>this.$modal.confirm(options)</code></li>
+			</ul>
+			<p>以上方法隐式的创建及维护 <code>Modal</code> 组件，参数 <code>options</code> 是一个对象。具体说明如下：</p>
+			<table class="example-api-props">
+				<thead>
+					<tr>
+						<th width="150">选项</th>
+						<th>说明</th>
+						<th width="150">类型</th>
+						<th width="160">默认值</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>title</td>
+						<td>对话框标题</td>
+						<td>String | Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>description</td>
+						<td>对话框描述内容</td>
+						<td>String | Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>icon</td>
+						<td>对话框图标类型</td>
+						<td>String</td>
+						<td>自动</td>
+					</tr>
+					<tr>
+						<td>cancelButtonProps</td>
+						<td>取消按钮的属性，遵循<a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx#difference-from-react-jsx" target="_blank">jsx规范</a>，该选项仅在 <code>confirm</code> 对话框中有效</td>
+						<td>Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>cancelText</td>
+						<td>取消按钮文字，该选项仅在 <code>confirm</code> 对话框中有效</td>
+						<td>String</td>
+						<td><code>取消</code></td>
+					</tr>
+					<tr>
+						<td>cancelAsync</td>
+						<td>标记取消按钮的点击事件回调函数是否执行异步任务，该选项仅在 <code>confirm</code> 对话框中有效</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>okButtonProps</td>
+						<td>确定按钮的属性，遵循<a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx#difference-from-react-jsx" target="_blank">jsx规范</a></td>
+						<td>Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>okText</td>
+						<td>确定按钮文字</td>
+						<td>String</td>
+						<td><code>确定</code></td>
+					</tr>
+					<tr>
+						<td>okAsync</td>
+						<td>标记确定按钮的点击事件回调函数是否执行异步任务</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>top</td>
+						<td>对话框距离页面顶部的距离，垂直居中显示对话框时该属性无效</td>
+						<td>String | Number</td>
+						<td><code>100</code></td>
+					</tr>
+					<tr>
+						<td>centered</td>
+						<td>是否垂直居中显示对话框</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>width</td>
+						<td>对话框宽度。对话框的宽度是响应式的。当屏幕宽度小于 <code>768px</code> 时，宽度会被强制设为 <code>auto</code>。</td>
+						<td>String | Number</td>
+						<td><code>360</code></td>
+					</tr>
+					<tr>
+						<td>className</td>
+						<td>对话框样式类名</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>backdrop</td>
+						<td>是否显示背景遮罩</td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+					</tr>
+					<tr>
+						<td>backdropClassName</td>
+						<td>背景遮罩样式类名</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>getPopupContainer</td>
+						<td>指定对话框挂载的 HTML 节点</td>
+						<td>Function</td>
+						<td>() => document.body</td>
+					</tr>
+					<tr>
+						<td>onCancel</td>
+						<td>点击取消按钮的事件回调函数，<code>cancelAsync</code> 启用模式下回调参数为 <code>done</code> 函数，该选项仅在 <code>confirm</code> 对话框中有效</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>onOk</td>
+						<td>点击确定按钮的事件回调函数，<code>okAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>onBeforeOpen</td>
+						<td>对话框打开前触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>onOpen</td>
+						<td>对话框打开时触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>onAfterOpen</td>
+						<td>对话框完全打开时（打开动画完成后）触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>onBeforeClose</td>
+						<td>对话框关闭前触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>onClose</td>
+						<td>对话框关闭时触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>onAfterClose</td>
+						<td>对话框完全关闭时（关闭动画完成后）触发的事件回调函数</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>以上函数调用后，均会返回一个引用，可以通过该引用更新和关闭对话框。</p>
+			<ul>
+				<li><code>modal.update(options)</code></li>
+				<li><code>modal.close()</code></li>
+			</ul>
+			<p>其中 <code>modal.upadte</code> 方法的参数 <code>options</code> 同 <code>this.$modal[type]</code> 方法一致。</p>
+		</vui-doc-markdown>
+	</div>
+</template>
+
+<script>
+	import MixinAnchors from "src/mixins/anchors";
+	import VuiDocMarkdown from "src/components/markdown";
+	import ExampleModalBasicUsage from "./examples/basic-usage";
+	import ExampleModalHeadlessAndFootless from "./examples/headless-and-footless";
+	import ExampleModalHideCloseButton from "./examples/hide-close-button";
+	import ExampleModalButtonProps from "./examples/button-props";
+	import ExampleModalPosition from "./examples/position";
+	import ExampleModalWidth from "./examples/width";
+	import ExampleModalCustomizedFooter from "./examples/customized-footer";
+	import ExampleModalAsynchronouslyClose from "./examples/asynchronously-close";
+	import ExampleModalConfirm from "./examples/confirm";
+	import ExampleModalInfomation from "./examples/infomation";
+	import ExampleModalUpdateAndClose from "./examples/update-and-close";
+
+	export default {
+		mixins: [
+			MixinAnchors
+		],
+		components: {
+			VuiDocMarkdown,
+			ExampleModalBasicUsage,
+			ExampleModalHeadlessAndFootless,
+			ExampleModalHideCloseButton,
+			ExampleModalButtonProps,
+			ExampleModalPosition,
+			ExampleModalWidth,
+			ExampleModalCustomizedFooter,
+			ExampleModalAsynchronouslyClose,
+			ExampleModalConfirm,
+			ExampleModalInfomation,
+			ExampleModalUpdateAndClose
+		}
+	};
+</script>

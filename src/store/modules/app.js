@@ -1,12 +1,13 @@
-import getDefaultLanguage from "@/utils/getDefaultLanguage";
-import getMenuByRoutes from "@/utils/getMenuByRoutes";
-import getCatalogue from "@/utils/getCatalogue";
+import getLanguage from "src/utils/getLanguage";
+import getMenuByRoutes from "src/utils/getMenuByRoutes";
+import getAnchors from "src/utils/getAnchors";
 
 export default {
   state: {
-    language: getDefaultLanguage(),
+    year: new Date().getFullYear(),
+    language: getLanguage(),
     menu: [],
-    catalogue: []
+    anchors: []
   },
   getters: {
 
@@ -19,8 +20,8 @@ export default {
     setMenu(state, routes) {
       state.menu = getMenuByRoutes(routes);
     },
-    setCatalogue(state, node) {
-      state.catalogue = getCatalogue(node);
+    setAnchors(state, container) {
+      state.anchors = getAnchors(container);
     }
   }
 };

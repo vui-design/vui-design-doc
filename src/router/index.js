@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VuiDesign from "vui-design";
 import Router from "vue-router";
-import title from "@/config/title";
-import routes from "./routes";
+import title from "src/config/title";
+import routes from "src/routes";
 
 Vue.use(Router);
 

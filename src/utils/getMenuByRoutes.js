@@ -2,24 +2,21 @@
  * 通过路由列表获取菜单列表
  * @param {Array} routes 路由列表
  */
-export default function getMenuByRoutes(routes) {
+export default routes => {
   let result = [];
   let groups = {};
 
-  for (let i = 0; i < routes.length; i++) {
-    const route = routes[i];
-
+  routes.forEach(route => {
     if (!route.meta) {
-      continue;
+      return;
     }
 
     if (route.meta.title !== "guide" && route.meta.title !== "components") {
-      continue;
+      return;
     }
 
-    for (let j = 0; j < route.children.length; j++) {
-      const child = route.children[j];
-      const item = {
+    route.children.forEach(child => {
+      const target = {
         path: child.path,
         name: child.name,
         meta: {
@@ -31,17 +28,17 @@ export default function getMenuByRoutes(routes) {
 
       if (group) {
         if (groups[group]) {
-          groups[group].push(item);
+          groups[group].push(target);
         }
         else {
-          groups[group] = [item];
+          groups[group] = [target];
         }
       }
       else {
-        result.push(item);
+        result.push(target);
       }
-    }
-  }
+    });
+  });
 
   for (let group in groups) {
     result.push({
