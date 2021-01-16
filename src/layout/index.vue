@@ -52,8 +52,8 @@
 					</vui-menu>
 				</div>
 			</vui-sider>
-			<vui-layout class="vui-doc-layout-main-content">
-				<vui-content>
+			<vui-layout class="vui-doc-layout-main-layout">
+				<vui-content class="vui-doc-layout-main-layout-content">
 					<div class="vui-doc-article">
 						<div class="vui-doc-article-content">
 							<router-view v-bind:key="$route.fullPath" />
@@ -65,7 +65,7 @@
 						</div>
 					</div>
 				</vui-content>
-				<vui-footer>
+				<vui-footer class="vui-doc-layout-main-layout-footer">
 					<p>© 2018-{{year}} Coded By Dingwei</p>
 				</vui-footer>
 			</vui-layout>
@@ -147,11 +147,11 @@
 	.vui-doc-layout-main-sider .ad img { display:block; width:100%; }
 	.vui-doc-layout-main-sider .ad:hover { opacity:1; }
 	.vui-doc-layout-main-sider .menu { padding:16px 0; }
-	.vui-doc-layout-main-content { background-color:#fff; padding-left:225px; }
-	.vui-doc-layout-main-content .vui-layout-content { padding:32px; }
-	.vui-doc-layout-main-content .vui-layout-footer { border-top:1px solid #f0f0f0; padding:32px; text-align:center; }
-	.vui-doc-layout-main-content .vui-doc-article { display:flex; align-items:stretch; }
-	.vui-doc-layout-main-content .vui-doc-article-content { flex:1; overflow:hidden; }
-	.vui-doc-layout-main-content .vui-doc-article-anchors { width:120px; margin-left:32px; }
-	.vui-doc-layout-main-content .vui-doc-article-anchors .vui-anchor { font-size:12px; }
+	.vui-doc-layout-main-layout { background-color:#fff; padding-left:225px; }
+	.vui-doc-layout-main-layout .vui-doc-layout-main-layout-content { padding:32px; }
+	.vui-doc-layout-main-layout .vui-doc-layout-main-layout-footer { border-top:1px solid #f0f0f0; padding:32px; text-align:center; }
+	.vui-doc-layout-main-layout .vui-doc-article { display:flex; align-items:stretch; }
+	.vui-doc-layout-main-layout .vui-doc-article-content { flex:1; overflow:hidden; }
+	.vui-doc-layout-main-layout .vui-doc-article-anchors { width:120px; margin-left:32px; }
+	.vui-doc-layout-main-layout .vui-doc-article-anchors .vui-anchor { font-size:12px; }
 </style>

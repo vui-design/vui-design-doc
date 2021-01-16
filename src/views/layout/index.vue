@@ -9,8 +9,8 @@
 			<ul>
 				<li>顶部导航（大部分系统）：一级导航高度 <code>64px</code>，二级导航 <code>48px</code>。</li>
 				<li>顶部导航（展示类页面）：一级导航高度 <code>80px</code>，二级导航 <code>56px</code>。</li>
-				<li>顶部导航高度的范围计算公式为：<code>48+8n</code>。</li>
-				<li>侧边导航宽度的范围计算公式：<code>200+8n</code>。</li>
+				<li>顶部导航高度的范围计算公式为：<code>48 + 8n</code>。</li>
+				<li>侧边导航宽度的范围计算公式：<code>200 + 8n</code>。</li>
 			</ul>
 			<h3>交互</h3>
 			<ul>
