@@ -309,15 +309,15 @@ export default [
 				},
 				component: () => import("src/views/textarea/index")
 			},
-			// {
-			// 	path: "/components/transfer",
-			// 	name: "transfer",
-			// 	meta: {
-			// 		title: "Transfer",
-			// 		group: "data-entry"
-			// 	},
-			// 	component: () => import("src/views/transfer/index")
-			// },
+			{
+				path: "/components/transfer",
+				name: "transfer",
+				meta: {
+					title: "Transfer",
+					group: "data-entry"
+				},
+				component: () => import("src/views/transfer/index")
+			},
 			{
 				path: "/components/upload",
 				name: "upload",

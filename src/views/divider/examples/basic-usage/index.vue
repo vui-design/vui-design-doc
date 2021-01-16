@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-divider-basic-usage">
+	<vui-doc-example v-bind:code="code" jsFiddle="3axb104s" id="example-divider-basic-usage">
 		<template slot="demo">
 			<div class="example-divider-basic-usage">
 				<p>Be careful how you judge people, most of all friends. You don’t sum up a man’s life in one moment.</p>

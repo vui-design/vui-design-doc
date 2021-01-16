@@ -1,7 +1,8 @@
-import VuiTransferList from "./list";
-import VuiTransferOperation from "./operation";
+import VuiTransferList from "./transfer-list";
+import VuiTransferOperation from "./transfer-operation";
 import PropTypes from "vui-design/utils/prop-types";
 import is from "vui-design/utils/is";
+import clone from "vui-design/utils/clone";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 import utils from "./utils";
 
@@ -19,12 +20,12 @@ const VuiTransfer = {
 		classNamePrefix: PropTypes.string,
 		titles: PropTypes.array.def(["", ""]),
 		footer: PropTypes.func,
-		operations: PropTypes.array.def(["<", ">"]),
+		operations: PropTypes.array.def([]),
 		listStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
 		oneWay: PropTypes.bool.def(false),
 		data: PropTypes.array.def([]),
 		rowKey: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).def("key"),
-		render: PropTypes.func,
+		formatter: PropTypes.func,
 		selectedKeys: PropTypes.array.def([]),
 		targetKeys: PropTypes.array.def([]),
 		showSelectAll: PropTypes.bool.def(true),
@@ -35,10 +36,11 @@ const VuiTransfer = {
 	},
 	data() {
 		const { $props: props } = this;
+		const targetKeys = clone(props.targetKeys);
 		const state = {
 			sourceSelectedKeys: props.selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
 			targetSelectedKeys: props.selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
-			targetKeys: []
+			targetKeys
 		};
 
 		return {
@@ -130,7 +132,11 @@ const VuiTransfer = {
 		const { $slots: slots, $props: props, state } = this;
 		const data = this.getDataSource();
 
-		// class
+		// arrow enabled
+		const arrowRightEnabled = state.sourceSelectedKeys.length > 0;
+		const arrowLeftEnabled = state.targetSelectedKeys.length > 0;
+
+		// classes
 		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "transfer");
 		let classes = {};
 
@@ -155,6 +161,8 @@ const VuiTransfer = {
 					searchable={props.searchable}
 					filter={props.filter}
 					filterOptionProp={props.filterOptionProp}
+					body={slots.body}
+					footer={slots.footer}
 					disabled={props.disabled}
 					style={this.getListStyle(props.listStyle, "left")}
 					onScroll={this.handleLeftScroll}
@@ -165,7 +173,6 @@ const VuiTransfer = {
 					onItemSelect={this.onLeftItemSelect}
 					onItemSelectAll={this.onLeftItemSelectAll}
 					renderItem={renderItem}
-					body={body}
 					renderList={children}
 					showSelectAll={showSelectAll}
 					notFoundContent={locale.notFoundContent}
@@ -175,11 +182,13 @@ const VuiTransfer = {
 				<VuiTransferOperation
 					key="operation"
 					classNamePrefix={classNamePrefix}
-					rightArrowText={props.operations[0]}
-					moveToRight={this.handleMoveToRight}
-					leftArrowText={props.operations[1]}
-					moveToLeft={this.handleMoveToLeft}
 					disabled={props.disabled}
+					arrowRightText={props.operations[0]}
+					arrowLeftText={props.operations[1]}
+					arrowRightEnabled={arrowRightEnabled}
+					arrowLeftEnabled={arrowLeftEnabled}
+					moveToRight={this.handleMoveToRight}
+					moveToLeft={this.handleMoveToLeft}
 				/>
 				<VuiTransferList
 					key="right"
@@ -192,6 +201,8 @@ const VuiTransfer = {
 					searchable={props.searchable}
 					filter={props.filter}
 					filterOptionProp={props.filterOptionProp}
+					body={slots.body}
+					footer={slots.footer}
 					disabled={props.disabled}
 					style={this.getListStyle(props.listStyle, "right")}
 					onScroll={this.handleRightScroll}
@@ -202,7 +213,6 @@ const VuiTransfer = {
 					onItemSelect={this.onRightItemSelect}
 					onItemSelectAll={this.onRightItemSelectAll}
 					renderItem={renderItem}
-					body={body}
 					renderList={children}
 					showSelectAll={showSelectAll}
 					notFoundContent={locale.notFoundContent}

@@ -1,14 +1,14 @@
 <template>
-	<SourceCode>{{code}}</SourceCode>
+	<vui-doc-code>{{code}}</vui-doc-code>
 </template>
 
 <script>
-	import SourceCode from "src/components/source-code";
+	import VuiDocCode from "src/components/code";
 	import code from "./code";
 
 	export default {
 		components: {
-			SourceCode
+			VuiDocCode
 		},
 		data() {
 			return {

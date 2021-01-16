@@ -21,6 +21,8 @@ const VuiTransferList = {
 		searchable: PropTypes.bool.def(false),
 		filter: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]).def(true),
 		filterOptionProp: PropTypes.string.def("label"),
+		body: PropTypes.any,
+		footer: PropTypes.any,
 		disabled: PropTypes.bool.def(false)
 	},
 	data() {
@@ -73,7 +75,7 @@ const VuiTransferList = {
 					<div class={classes.elSelection}>
 						{checkbox}
 					</div>
-					<div class={classes.elTitle}>
+					<div class={classes.elTitle} title={title}>
 						{title}
 					</div>
 					<div class={classes.elSelected}>
@@ -82,8 +84,22 @@ const VuiTransferList = {
 				</div>
 			);
 		},
-		getListBody() {
+		getListBody(classNamePrefix, searchable, body) {
+			if (body) {
+				return body;
+			}
 
+			let classes = {};
+
+			classes.el = {
+				[`${classNamePrefix}-body`]: true,
+				[`${classNamePrefix}-body-with-search`]: searchable
+			};
+
+			return (
+				<div class={classes.el}>
+				</div>
+			);
 		},
 		getListFooter() {
 
@@ -104,6 +120,7 @@ const VuiTransferList = {
 			];
 		}
 
+		// body & footer
 		const body = props.body && props.body(props);
 		const footer = props.footer && props.footer(props);
 
@@ -116,22 +133,12 @@ const VuiTransferList = {
 			[`${classNamePrefix}-with-footer`]: footer
 		};
 
-
-
-
-
-
-
-
-
 		// render
-		const header = this.getListHeader(classNamePrefix, props.title, options, props.rowKey, props.selectedKeys, props.showSelectAll, props.disabled);
-
 		return (
 			<div class={classes.el}>
-				{header}
-				{body}
-				{footer}
+				{this.getListHeader(classNamePrefix, props.title, options, props.rowKey, props.selectedKeys, props.showSelectAll, props.disabled)}
+				{this.getListBody(classNamePrefix, props.searchable, body)}
+				{this.getListFooter(classNamePrefix, footer)}
 			</div>
 		);
 	}

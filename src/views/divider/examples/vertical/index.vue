@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-divider-vertical">
+	<vui-doc-example v-bind:code="code" jsFiddle="Lqbejuo5" id="example-divider-vertical">
 		<template slot="demo">
 			<div class="example-divider-vertical">
 				Text

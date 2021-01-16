@@ -12,25 +12,25 @@
 			</div>
 			<div class="actions">
 				<vui-tooltip v-bind:content="tooltips.expand">
-					<i class="btn" v-on:click="handleExpand">
+					<a href="javascript:;" class="btn" v-on:click="handleExpand">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 							<path fill="#666666" d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" />
 						</svg>
-					</i>
+					</a>
 				</vui-tooltip>
 				<vui-tooltip v-bind:content="tooltips.copy">
-					<i class="btn btn-copy" v-on:click="handleCopy">
+					<a href="javascript:;" class="btn btn-copy" v-on:click="handleCopy">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 							<path fill="#666666" d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1.001 1.001 0 0 1 3 21l.003-14c0-.552.45-1 1.006-1H7zM5.002 8L5 20h10V8H5.002zM9 6h8v10h2V4H9v2zm-2 5h6v2H7v-2zm0 4h6v2H7v-2z" />
 						</svg>
-					</i>
+					</a>
 				</vui-tooltip>
 				<vui-tooltip content="在 JsFiddle 中打开">
-					<i class="btn btn-jsfiddle" v-on:click="handleJsFiddle">
+					<a v-bind:href="jsFiddleUrl" target="_blank" class="btn btn-jsfiddle">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 							<path fill="#666666" d="M17 21H7A6 6 0 0 1 5.008 9.339a7 7 0 1 1 13.984 0A6 6 0 0 1 17 21zm0-12a5 5 0 1 0-9.994.243l.07 1.488-1.404.494A4.002 4.002 0 0 0 7 19h10a4 4 0 1 0-3.796-5.265l-1.898-.633A6.003 6.003 0 0 1 17 9z" />
 						</svg>
-					</i>
+					</a>
 				</vui-tooltip>
 			</div>
 		</div>
@@ -52,6 +52,10 @@
 				default: undefined
 			},
 			code: {
+				type: String,
+				default: undefined
+			},
+			jsFiddle: {
 				type: String,
 				default: undefined
 			}
@@ -89,6 +93,13 @@
 				tooltips.copy = this.copied ? "复制成功" : "复制代码";
 
 				return tooltips;
+			},
+			jsFiddleUrl() {
+				if (!this.jsFiddle) {
+					return "javascript:;";
+				}
+
+				return "https://jsfiddle.net/" + this.jsFiddle + "/";
 			}
 		},
 		methods: {
@@ -126,9 +137,6 @@
 					clearTimeout(timeout);
 					timeout = null;
 				}, 1000);
-			},
-			handleJsFiddle() {
-
 			}
 		},
 		mounted() {

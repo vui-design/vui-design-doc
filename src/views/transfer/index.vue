@@ -2,7 +2,7 @@
 	<div>
 		<vui-doc-markdown>
 			<h1>Transfer 穿梭框</h1>
-			<p>双栏穿梭选择框，常用于将多个项目从一边移动到另一边。</p>
+			<p>双栏穿梭选择框。</p>
 			<h2>何时使用</h2>
 			<ul>
 				<li>需要在多个可选项中进行多选时。</li>
@@ -15,14 +15,14 @@
 		<ExampleTransferBasicUsage />
 		<vui-doc-markdown>
 			<h2 id="example-api">API</h2>
-			<h3>Affix 属性</h3>
+			<h3>Transfer 属性</h3>
 			<table class="example-api-props">
 				<thead>
 					<tr>
 						<th width="160">属性</th>
 						<th>说明</th>
-						<th width="140">类型</th>
-						<th width="160">默认值</th>
+						<th width="160">类型</th>
+						<th width="140">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -100,14 +100,14 @@
 					</tr>
 				</tbody>
 			</table>
-			<h3>Affix 事件</h3>
+			<h3>Transfer 事件</h3>
 			<table class="example-api-props">
 				<thead>
 					<tr>
 						<th width="160">事件名</th>
 						<th>说明</th>
-						<th width="140">类型</th>
-						<th width="160">回调参数</th>
+						<th width="160">类型</th>
+						<th width="140">回调参数</th>
 					</tr>
 				</thead>
 				<tbody>

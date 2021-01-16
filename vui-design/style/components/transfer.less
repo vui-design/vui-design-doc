@@ -4,6 +4,7 @@
 	display:flex;
 	align-items:center;
 	box-sizing:border-box;
+	line-height:1.42857143;
 
 	&-list {
 		display:flex;
@@ -13,7 +14,6 @@
 		height:200px;
 		border:1px solid #e0e0e0;
 		border-radius:2px;
-		margin-right:20px;
 
 		&-header {
 			display:flex;
@@ -25,29 +25,57 @@
 			padding:8px 12px;
 			color:#595959;
 			font-size:14px;
-		}
 
-		&-header &-selection {
-			display:block;
-			box-sizing:border-box;
-			margin-right:8px;
-
-			label {
+			&-selection {
 				display:block;
+				box-sizing:border-box;
+				margin-right:8px;
+
+				label {
+					display:block;
+				}
+			}
+
+			&-title {
+				flex:1;
+				display:block;
+				box-sizing:border-box;
+				.writeEllipsis;
+			}
+
+			&-selected {
+				display:block;
+				box-sizing:border-box;
+				margin-left:8px;
 			}
 		}
 
-		&-header &-title {
-			flex:1;
-			display:block;
+		&-body {
+			flex:auto;
+			display:flex;
+			flex-direction:column;
 			box-sizing:border-box;
-			.writeEllipsis;
+			overflow:hidden;
+		}
+	}
+
+	&-operation {
+		display:flex;
+		flex-direction:column;
+		box-sizing:border-box;
+		margin:0 16px;
+
+		&-button {
+			display:block;
+			width:100%;
+
+			i {
+				transform:scale(0.85);
+			}
 		}
 
-		&-header &-selected {
-			display:block;
-			box-sizing:border-box;
-			margin-left:8px;
+		&-button + &-button {
+			margin-top:8px;
 		}
 	}
 }

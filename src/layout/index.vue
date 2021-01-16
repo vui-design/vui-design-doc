@@ -32,7 +32,7 @@
 			</vui-space>
 		</vui-header>
 		<vui-layout class="vui-doc-layout-main">
-			<vui-sider class="vui-doc-layout-main-sider" showScrollbar v-bind:width="224">
+			<vui-sider class="vui-doc-layout-main-sider" showScrollbar v-bind:width="240">
 				<a href="https://github.com/vui-design/vui-design-pro" target="_blank" class="ad">
 					<img src="~src/assets/images/vui-design-pro.png" />
 				</a>
@@ -147,7 +147,7 @@
 	.vui-doc-layout-main-sider .ad img { display:block; width:100%; }
 	.vui-doc-layout-main-sider .ad:hover { opacity:1; }
 	.vui-doc-layout-main-sider .menu { padding:16px 0; }
-	.vui-doc-layout-main-layout { background-color:#fff; padding-left:225px; }
+	.vui-doc-layout-main-layout { background-color:#fff; padding-left:241px; }
 	.vui-doc-layout-main-layout .vui-doc-layout-main-layout-content { padding:32px; }
 	.vui-doc-layout-main-layout .vui-doc-layout-main-layout-footer { border-top:1px solid #f0f0f0; padding:32px; text-align:center; }
 	.vui-doc-layout-main-layout .vui-doc-article { display:flex; align-items:stretch; }

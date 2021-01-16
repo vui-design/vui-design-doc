@@ -1,0 +1,60 @@
+import VuiButton from "vui-design/components/button";
+import PropTypes from "vui-design/utils/prop-types";
+import noop from "vui-design/utils/noop";
+import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
+
+const VuiTransferOperation = {
+	name: "vui-transfer-operation",
+	components: {
+		VuiButton
+	},
+	props: {
+		classNamePrefix: PropTypes.string,
+		disabled: PropTypes.bool.def(false),
+		arrowRightText: PropTypes.string,
+		arrowLeftText: PropTypes.string,
+		arrowRightEnabled: PropTypes.bool.def(false),
+		arrowLeftEnabled: PropTypes.bool.def(false),
+		moveToRight: PropTypes.func.def(noop),
+		moveToLeft: PropTypes.func.def(noop)
+	},
+	render() {
+		const { $slots: slots, $props: props, state } = this;
+		const { handleMoveToRight, handleMoveToLeft } = this;
+
+		// classes
+		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "operation");
+		let classes = {};
+
+		classes.el = `${classNamePrefix}`;
+		classes.elButton = `${classNamePrefix}-button`;
+
+		// render
+		return (
+			<div class={classes.el}>
+				<VuiButton
+					type="primary"
+					size="small"
+					class={classes.elButton}
+					icon={props.arrowRightText ? undefined : "chevron-right"}
+					disabled={props.disabled || !props.arrowRightEnabled}
+					onClick={props.moveToRight}
+				>
+					{props.arrowRightText}
+				</VuiButton>
+				<VuiButton
+					type="primary"
+					size="small"
+					class={classes.elButton}
+					icon={props.arrowLeftText ? undefined : "chevron-left"}
+					disabled={props.disabled || !props.arrowLeftEnabled}
+					onClick={props.moveToLeft}
+				>
+					{props.arrowLeftText}
+				</VuiButton>
+			</div>
+		);
+	}
+};
+
+export default VuiTransferOperation;
