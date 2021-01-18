@@ -6,27 +6,29 @@
 	box-sizing:border-box;
 	line-height:1.42857143;
 
-	&-list {
+	&-panel {
 		display:flex;
 		flex-direction:column;
 		box-sizing:border-box;
-		width:180px;
-		height:200px;
+		width:200px;
+		height:251px;
 		border:1px solid #e0e0e0;
 		border-radius:2px;
+
+		&-with-search {
+			height:310px;
+		}
 
 		&-header {
 			display:flex;
 			align-items:center;
 			box-sizing:border-box;
-			height:40px;
 			border-bottom:1px solid #f0f0f0;
-			background-color:#fff;
-			padding:8px 12px;
+			padding:12px;
 			color:#595959;
 			font-size:14px;
 
-			&-selection {
+			&-checkbox {
 				display:block;
 				box-sizing:border-box;
 				margin-right:8px;
@@ -43,19 +45,79 @@
 				.writeEllipsis;
 			}
 
-			&-selected {
+			&-selection {
 				display:block;
 				box-sizing:border-box;
 				margin-left:8px;
 			}
 		}
 
+		&-search {
+			display:block;
+			box-sizing:border-box;
+			border-bottom:1px solid #f0f0f0;
+			padding:12px;
+		}
+
 		&-body {
 			flex:auto;
-			display:flex;
-			flex-direction:column;
+			display:block;
 			box-sizing:border-box;
-			overflow:hidden;
+			overflow:auto;
+
+			&-list {
+				flex:auto;
+				display:block;
+				box-sizing:border-box;
+
+				&-item {
+					cursor:pointer;
+					display:flex;
+					flex-flow:row nowrap;
+					justify-content:flex-start;
+					align-items:center;
+					height:34px;
+					padding:0 12px;
+					transition:all 0.2s;
+
+					&:hover {
+						background-color:#fafafa;
+					}
+
+					&-checked {
+						background-color:#e6f7ff;
+
+						&:hover {
+							background-color:#dcf4ff;
+						}
+					}
+
+					&-disabled {
+						background-color:transparent;
+
+						&:hover {
+							background-color:transparent;
+						}
+					}
+				}
+			}
+
+			&-empty {
+				display:flex;
+				justify-content:center;
+				align-items:center;
+				box-sizing:border-box;
+				height:100%;
+			}
+		}
+
+		&-footer {
+			display:block;
+			box-sizing:border-box;
+			border-top:1px solid #f0f0f0;
+			padding:8px 12px;
+			color:#595959;
+			font-size:14px;
 		}
 	}
 
@@ -75,7 +137,7 @@
 		}
 
 		&-button + &-button {
-			margin-top:8px;
+			margin-top:16px;
 		}
 	}
 }

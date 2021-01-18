@@ -116,7 +116,7 @@
 					</tr>
 					<tr>
 						<td>rowKey</td>
-						<td>指定表格行的 <code>key</code> 属性，可以是字符串或一个函数，为函数式接收 <code>row</code> 作为参数</td>
+						<td>指定表格行的 <code>key</code> 属性，可以是字符串或一个函数，为函数时接收 <code>row</code> 作为参数</td>
 						<td>String | Function</td>
 						<td><code>key</code></td>
 					</tr>

@@ -6,7 +6,8 @@ const code =
     v-bind:selectedKeys="selectedKeys"
     v-bind:targetKeys="targetKeys"
     v-bind:option="option"
-    v-on:scroll="handleScroll"
+    v-bind:searchable="searchable"
+    v-bind:filterOptionProp="filterOptionProp"
     v-on:select="handleSelect"
     v-on:change="handleChange"
   />
@@ -22,7 +23,9 @@ const code =
         data: dataSource.data,
         selectedKeys: [],
         targetKeys: dataSource.targetKeys,
-        option: item => item.title
+        option: item => item.title,
+        searchable: true,
+        filterOptionProp: "title"
       };
     },
     methods: {
@@ -49,10 +52,6 @@ const code =
           targetKeys
         };
       },
-      handleScroll(e, direction) {
-        console.log("target:", e.target);
-        console.log("direction:", direction);
-      },
       handleSelect(sourceSelectedKeys, targetSelectedKeys) {
         console.log("sourceSelectedKeys:", sourceSelectedKeys, "targetSelectedKeys:", targetSelectedKeys);
 
@@ -65,6 +64,7 @@ const code =
 
         this.targetKeys = nextTargetKeys;
       }
+    }
   };
 </script>
 `;

@@ -307,6 +307,15 @@ export default {
         "example-textarea-clearable": "可清空",
         "example-textarea-disabled": "禁用状态",
 
+        "example-transfer-basic-usage": "基本用法",
+        "example-transfer-searchable": "带搜索框",
+        "example-transfer-customized-search": "自定义搜索",
+        "example-transfer-disabled": "禁用",
+        "example-transfer-customized1": "自定义渲染（一）",
+        "example-transfer-customized2": "自定义渲染（二）",
+        "example-transfer-advanced": "高级用法",
+        "example-transfer-table": "表格穿梭框",
+
         "example-upload-basic-usage": "点击上传",
         "example-upload-picture": "图片列表样式",
         "example-upload-picture-card": "照片墙",

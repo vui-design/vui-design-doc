@@ -30,10 +30,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="80">属性</th>
+						<th width="100">属性</th>
 						<th>说明</th>
-						<th width="120">类型</th>
-						<th width="100">默认值</th>
+						<th width="140">类型</th>
+						<th width="120">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -79,10 +79,10 @@
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="80">事件名</th>
+						<th width="100">事件名</th>
 						<th>说明</th>
-						<th width="120">类型</th>
-						<th width="100">回调参数</th>
+						<th width="140">类型</th>
+						<th width="120">回调参数</th>
 					</tr>
 				</thead>
 				<tbody>

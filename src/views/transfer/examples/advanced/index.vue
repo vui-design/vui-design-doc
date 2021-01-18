@@ -1,20 +1,28 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-transfer-basic-usage">
+	<vui-doc-example v-bind:code="code" id="example-transfer-advanced">
 		<template slot="demo">
 			<vui-transfer
 				v-bind:titles="titles"
+				v-bind:operations="operations"
+				v-bind:panelStyle="panelStyle"
 				v-bind:data="data"
 				v-bind:selectedKeys="selectedKeys"
 				v-bind:targetKeys="targetKeys"
 				v-bind:option="option"
+				v-bind:searchable="searchable"
+				v-bind:filter="filter"
 				v-on:scroll="handleScroll"
 				v-on:select="handleSelect"
 				v-on:change="handleChange"
-			/>
+			>
+				<template slot="footer" slot-scope="props">
+					<vui-button size="small" style="float: right;" v-on:click="handleReload">Reload</vui-button>
+				</template>
+			</vui-transfer>
 		</template>
-		<template slot="title">基本用法</template>
+		<template slot="title">高级用法</template>
 		<template slot="description">
-			<p>最基本的用法，展示了 <code>titles</code>、<code>data</code>、<code>selectedKeys</code>、<code>targetKeys</code>、选项的渲染函数 <code>option</code> 以及回调函数 <code>onScroll</code>、<code>onSelect</code>、<code>onChange</code> 的用法。</p>
+			<p>穿梭框高级用法，可配置操作文案，可定制宽高，可对底部进行自定义渲染。</p>
 		</template>
 	</vui-doc-example>
 </template>
@@ -32,11 +40,18 @@
 
 			return {
 				code,
-				titles: ["Source", "Target"],
+				titles: ["选项列表", "已选选项"],
+				operations: ["To Right", "To Left"],
+				panelStyle: {
+					width: "240px",
+					height: "351px"
+				},
 				data: dataSource.data,
 				selectedKeys: [],
 				targetKeys: dataSource.targetKeys,
-				option: item => item.title
+				option: item => item.title + " - " + item.description,
+				searchable: true,
+				filter: (keyword, option) => option.title.indexOf(keyword) > -1 || option.description.indexOf(keyword) > -1
 			};
 		},
 		methods: {
@@ -53,7 +68,7 @@
 						description: "Description of option " + key
 					});
 
-					if (key > 10) {
+					if (Math.random() * 2 > 1) {
 						targetKeys.push(key);
 					}
 				}
@@ -62,6 +77,13 @@
 					data,
 					targetKeys
 				};
+			},
+			handleReload() {
+				const dataSource = this.getDataSource();
+
+				this.data = dataSource.data;
+				this.selectedKeys = [];
+				this.targetKeys = dataSource.targetKeys;
 			},
 			handleScroll(e, direction) {
 				console.log("target:", e.target);

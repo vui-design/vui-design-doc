@@ -22,6 +22,14 @@ const VuiTransferOperation = {
 		const { $slots: slots, $props: props, state } = this;
 		const { handleMoveToRight, handleMoveToLeft } = this;
 
+		// arrow icon
+		const arrowRightIcon = props.arrowRightText ? undefined : "chevron-right";
+		const arrowLeftIcon = props.arrowLeftText ? undefined : "chevron-left";
+
+		// arrow disabled
+		const arrowRightDisabled = props.disabled || !props.arrowRightEnabled;
+		const arrowLeftDisabled = props.disabled || !props.arrowLeftEnabled;
+
 		// classes
 		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "operation");
 		let classes = {};
@@ -32,24 +40,10 @@ const VuiTransferOperation = {
 		// render
 		return (
 			<div class={classes.el}>
-				<VuiButton
-					type="primary"
-					size="small"
-					class={classes.elButton}
-					icon={props.arrowRightText ? undefined : "chevron-right"}
-					disabled={props.disabled || !props.arrowRightEnabled}
-					onClick={props.moveToRight}
-				>
+				<VuiButton type="primary" size="small" class={classes.elButton} icon={arrowRightIcon} disabled={arrowRightDisabled} onClick={props.moveToRight}>
 					{props.arrowRightText}
 				</VuiButton>
-				<VuiButton
-					type="primary"
-					size="small"
-					class={classes.elButton}
-					icon={props.arrowLeftText ? undefined : "chevron-left"}
-					disabled={props.disabled || !props.arrowLeftEnabled}
-					onClick={props.moveToLeft}
-				>
+				<VuiButton type="primary" size="small" class={classes.elButton} icon={arrowLeftIcon} disabled={arrowLeftDisabled} onClick={props.moveToLeft}>
 					{props.arrowLeftText}
 				</VuiButton>
 			</div>

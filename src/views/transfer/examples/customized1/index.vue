@@ -1,20 +1,22 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-transfer-basic-usage">
+	<vui-doc-example v-bind:code="code" id="example-transfer-customized1">
 		<template slot="demo">
 			<vui-transfer
 				v-bind:titles="titles"
+				v-bind:panelStyle="panelStyle"
 				v-bind:data="data"
 				v-bind:selectedKeys="selectedKeys"
 				v-bind:targetKeys="targetKeys"
 				v-bind:option="option"
-				v-on:scroll="handleScroll"
+				v-bind:searchable="searchable"
+				v-bind:filter="filter"
 				v-on:select="handleSelect"
 				v-on:change="handleChange"
 			/>
 		</template>
-		<template slot="title">基本用法</template>
+		<template slot="title">自定义渲染（一）</template>
 		<template slot="description">
-			<p>最基本的用法，展示了 <code>titles</code>、<code>data</code>、<code>selectedKeys</code>、<code>targetKeys</code>、选项的渲染函数 <code>option</code> 以及回调函数 <code>onScroll</code>、<code>onSelect</code>、<code>onChange</code> 的用法。</p>
+			<p>可通过 <code>option</code> 函数自定义渲染选项，常用于渲染复杂数据。</p>
 		</template>
 	</vui-doc-example>
 </template>
@@ -33,10 +35,15 @@
 			return {
 				code,
 				titles: ["Source", "Target"],
+				panelStyle: {
+					width: "240px"
+				},
 				data: dataSource.data,
 				selectedKeys: [],
 				targetKeys: dataSource.targetKeys,
-				option: item => item.title
+				option: item => item.title + " - " + item.description,
+				searchable: true,
+				filter: (keyword, option) => option.title.indexOf(keyword) > -1 || option.description.indexOf(keyword) > -1
 			};
 		},
 		methods: {
@@ -53,7 +60,7 @@
 						description: "Description of option " + key
 					});
 
-					if (key > 10) {
+					if (Math.random() * 2 > 1) {
 						targetKeys.push(key);
 					}
 				}
@@ -62,10 +69,6 @@
 					data,
 					targetKeys
 				};
-			},
-			handleScroll(e, direction) {
-				console.log("target:", e.target);
-				console.log("direction:", direction);
 			},
 			handleSelect(sourceSelectedKeys, targetSelectedKeys) {
 				console.log("sourceSelectedKeys:", sourceSelectedKeys, "targetSelectedKeys:", targetSelectedKeys);

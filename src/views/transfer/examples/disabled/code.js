@@ -1,15 +1,23 @@
 const code =
 `<template>
-  <vui-transfer
-    v-bind:titles="titles"
-    v-bind:data="data"
-    v-bind:selectedKeys="selectedKeys"
-    v-bind:targetKeys="targetKeys"
-    v-bind:option="option"
-    v-on:scroll="handleScroll"
-    v-on:select="handleSelect"
-    v-on:change="handleChange"
-  />
+  <div class="example-transfer-disabled">
+    <vui-switch v-model="disabled">
+      <template slot="checked">Disabled</template>
+      <template slot="unchecked">Disabled</template>
+    </vui-switch>
+    <vui-transfer
+      v-bind:titles="titles"
+      v-bind:data="data"
+      v-bind:selectedKeys="selectedKeys"
+      v-bind:targetKeys="targetKeys"
+      v-bind:option="option"
+      v-bind:searchable="searchable"
+      v-bind:filterOptionProp="filterOptionProp"
+      v-bind:disabled="disabled"
+      v-on:select="handleSelect"
+      v-on:change="handleChange"
+    />
+  </div>
 </template>
 
 <script>
@@ -22,7 +30,10 @@ const code =
         data: dataSource.data,
         selectedKeys: [],
         targetKeys: dataSource.targetKeys,
-        option: item => item.title
+        option: item => item.title,
+        searchable: true,
+        filterOptionProp: "title",
+        disabled: false
       };
     },
     methods: {
@@ -49,10 +60,6 @@ const code =
           targetKeys
         };
       },
-      handleScroll(e, direction) {
-        console.log("target:", e.target);
-        console.log("direction:", direction);
-      },
       handleSelect(sourceSelectedKeys, targetSelectedKeys) {
         console.log("sourceSelectedKeys:", sourceSelectedKeys, "targetSelectedKeys:", targetSelectedKeys);
 
@@ -65,8 +72,13 @@ const code =
 
         this.targetKeys = nextTargetKeys;
       }
+    }
   };
 </script>
+
+<style>
+  .example-transfer-disabled .vui-transfer { margin-top:16px; }
+</style>
 `;
 
 export default code;
