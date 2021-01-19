@@ -144,7 +144,7 @@
 					<tr>
 						<th width="160">属性</th>
 						<th>说明</th>
-						<th width="220">类型</th>
+						<th width="224">类型</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -190,8 +190,8 @@
 					</tr>
 				</tbody>
 			</table>
-			<p>注意：在 <code>Transfer</code> 中，<code>data</code> 里的数据项都需要指定 <code>key</code> 值。组件内部默认会将每项数据的 <code>key</code> 属性作为唯一的标识。如果你的数据没有这个属性，请务必使用 <code>optionKey</code> 来指定数据项的主键，不同数据项的主键不允许重复。若没有指定，或出现重复，穿梭框组件可能会出现意想不到的错误。</p>
-			<p>比如你的数据主键是 uid，请按如下方式指定：</p>
+			<p>注意：在 <code>Transfer</code> 中，<code>data</code> 里的数据项都需要指定 <code>key</code> 值。组件内部默认会将每项数据的 <code>key</code> 属性作为唯一标识。如果你的数据没有这个属性，请务必使用 <code>optionKey</code> 来指定数据项的主键，不同数据项的主键不允许重复。若没有指定，或出现重复，穿梭框组件可能会出现意想不到的错误。</p>
+			<p>比如你的数据主键是 <code>uid</code>，请按如下方式指定：</p>
 			<p><code>&lt;vui-transfer optionKey="uid" /&gt;</code></p>
 			<p>或</p>
 			<p><code>&lt;vui-transfer v-bind:optionKey="option => option.uid" /&gt;</code></p>

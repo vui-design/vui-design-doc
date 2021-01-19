@@ -57,7 +57,7 @@ const VuiTransferPanelBodyList = {
 		}
 	},
 	render() {
-		const { $slots: slots, $props: props, state } = this;
+		const { $props: props, state } = this;
 		const { handleSelect } = this;
 
 		// classes

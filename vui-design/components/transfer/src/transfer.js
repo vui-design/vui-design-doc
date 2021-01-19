@@ -1,5 +1,6 @@
 import VuiTransferPanel from "./transfer-panel";
 import VuiTransferOperation from "./transfer-operation";
+import Emitter from "vui-design/mixins/emitter";
 import PropTypes from "vui-design/utils/prop-types";
 import is from "vui-design/utils/is";
 import clone from "vui-design/utils/clone";
@@ -8,10 +9,18 @@ import utils from "./utils";
 
 const VuiTransfer = {
 	name: "vui-transfer",
+	inject: {
+		vuiForm: {
+			default: undefined
+		}
+	},
 	components: {
 		VuiTransferPanel,
 		VuiTransferOperation
 	},
+	mixins: [
+		Emitter
+	],
 	model: {
 		prop: "targetKeys",
 		event: "input"
@@ -31,7 +40,8 @@ const VuiTransfer = {
 		filter: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]).def(true),
 		filterOptionProp: PropTypes.string.def("label"),
 		disabled: PropTypes.bool.def(false),
-		locale: PropTypes.object
+		locale: PropTypes.object,
+		validator: PropTypes.bool.def(true)
 	},
 	data() {
 		const { $props: props } = this;
@@ -84,7 +94,7 @@ const VuiTransfer = {
 
 			return {
 				left,
-				right,
+				right
 			};
 		},
 		getPanelStyle(direction, panelStyle) {
@@ -141,14 +151,18 @@ const VuiTransfer = {
 			const targetKeys = direction === "right" ? moveKeys.concat(state.targetKeys) : state.targetKeys.filter(targetKey => moveKeys.indexOf(targetKey) === -1);
 
 			if (direction === "right") {
-				this.handleSelect("left", []);
+				this.handleLeftSelect([]);
 			}
 			else {
-				this.handleSelect("right", []);
+				this.handleRightSelect([]);
 			}
 
 			this.$emit("input", targetKeys);
 			this.$emit("change", targetKeys, direction, moveKeys);
+
+			if (props.validator) {
+				this.dispatch("vui-form-item", "change", targetKeys);
+			}
 		},
 		handleMoveToLeft() {
 			this.handleMoveTo("left");
@@ -158,12 +172,19 @@ const VuiTransfer = {
 		}
 	},
 	render() {
-		const { $slots: slots, $scopedSlots: scopedSlots, $props: props, state } = this;
+		const { $scopedSlots: scopedSlots, $props: props, state } = this;
+		const { handleLeftSearch, handleRightSearch, handleLeftScroll, handleRightScroll, handleLeftSelect, handleRightSelect, handleMoveToRight, handleMoveToLeft } = this;
+
+		// dataSource
 		const dataSource = this.getDataSource();
 
-		// arrow enabled
-		const arrowRightEnabled = state.sourceSelectedKeys.length > 0;
-		const arrowLeftEnabled = state.targetSelectedKeys.length > 0;
+		// panelStyle
+		const panelLeftStyle = this.getPanelStyle("left", props.panelStyle);
+		const panelRightStyle = this.getPanelStyle("right", props.panelStyle);
+
+		// arrow disabled
+		const arrowRightDisabled = state.sourceSelectedKeys.length === 0;
+		const arrowLeftDisabled = state.targetSelectedKeys.length === 0;
 
 		// classes
 		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "transfer");
@@ -194,10 +215,10 @@ const VuiTransfer = {
 					filterOptionProp={props.filterOptionProp}
 					disabled={props.disabled}
 					locale={props.locale}
-					style={this.getPanelStyle("left", props.panelStyle)}
-					onSearch={this.handleLeftSearch}
-					onScroll={this.handleLeftScroll}
-					onSelect={this.handleLeftSelect}
+					style={panelLeftStyle}
+					onSearch={handleLeftSearch}
+					onScroll={handleLeftScroll}
+					onSelect={handleLeftSelect}
 				/>
 				<VuiTransferOperation
 					key="operation"
@@ -205,10 +226,10 @@ const VuiTransfer = {
 					disabled={props.disabled}
 					arrowRightText={props.operations[0]}
 					arrowLeftText={props.operations[1]}
-					arrowRightEnabled={arrowRightEnabled}
-					arrowLeftEnabled={arrowLeftEnabled}
-					moveToRight={this.handleMoveToRight}
-					moveToLeft={this.handleMoveToLeft}
+					arrowRightDisabled={arrowRightDisabled}
+					arrowLeftDisabled={arrowLeftDisabled}
+					moveToRight={handleMoveToRight}
+					moveToLeft={handleMoveToLeft}
 				/>
 				<VuiTransferPanel
 					key="right"
@@ -227,10 +248,10 @@ const VuiTransfer = {
 					filterOptionProp={props.filterOptionProp}
 					disabled={props.disabled}
 					locale={props.locale}
-					style={this.getPanelStyle("right", props.panelStyle)}
-					onSearch={this.handleRightSearch}
-					onScroll={this.handleRightScroll}
-					onSelect={this.handleRightSelect}
+					style={panelRightStyle}
+					onSearch={handleRightSearch}
+					onScroll={handleRightScroll}
+					onSelect={handleRightSelect}
 				/>
 			</div>
 		);

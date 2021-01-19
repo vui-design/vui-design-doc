@@ -4,7 +4,6 @@ import VuiTransferPanelBodyList from "./transfer-panel-body-list";
 import VuiTransferPanelBodyEmpty from "./transfer-panel-body-empty";
 import PropTypes from "vui-design/utils/prop-types";
 import is from "vui-design/utils/is";
-import noop from "vui-design/utils/noop";
 import clone from "vui-design/utils/clone";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 import utils from "./utils";
@@ -231,19 +230,14 @@ const VuiTransferPanel = {
 		}
 	},
 	render() {
-		const { $slots: slots, $props: props, state } = this;
+		const { $props: props, state } = this;
 		const { handleSelectAll, handleSearch, handleScroll, handleSelect } = this;
 
 		// options
-		let options = [];
+		let options = props.data;
 
 		if (props.searchable && state.keyword && props.filter) {
-			options = utils.getFilteredOptions(props.data, state.keyword, props.filter, props.filterOptionProp);
-		}
-		else {
-			options = [
-				...props.data
-			];
+			options = utils.getFilteredOptions(options, state.keyword, props.filter, props.filterOptionProp);
 		}
 
 		// classes

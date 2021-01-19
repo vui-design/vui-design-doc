@@ -13,22 +13,21 @@ const VuiTransferOperation = {
 		disabled: PropTypes.bool.def(false),
 		arrowRightText: PropTypes.string,
 		arrowLeftText: PropTypes.string,
-		arrowRightEnabled: PropTypes.bool.def(false),
-		arrowLeftEnabled: PropTypes.bool.def(false),
+		arrowRightDisabled: PropTypes.bool.def(true),
+		arrowLeftDisabled: PropTypes.bool.def(true),
 		moveToRight: PropTypes.func.def(noop),
 		moveToLeft: PropTypes.func.def(noop)
 	},
 	render() {
-		const { $slots: slots, $props: props, state } = this;
-		const { handleMoveToRight, handleMoveToLeft } = this;
+		const { $props: props, state } = this;
 
 		// arrow icon
 		const arrowRightIcon = props.arrowRightText ? undefined : "chevron-right";
 		const arrowLeftIcon = props.arrowLeftText ? undefined : "chevron-left";
 
 		// arrow disabled
-		const arrowRightDisabled = props.disabled || !props.arrowRightEnabled;
-		const arrowLeftDisabled = props.disabled || !props.arrowLeftEnabled;
+		const arrowRightDisabled = props.disabled || props.arrowRightDisabled;
+		const arrowLeftDisabled = props.disabled || props.arrowLeftDisabled;
 
 		// classes
 		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "operation");

@@ -62,7 +62,8 @@ const VuiCascader = {
 		placement: PropTypes.oneOf(["top", "top-start", "top-end", "bottom", "bottom-start", "bottom-end"]).def("bottom-start"),
 		dropdownAutoWidth: PropTypes.bool.def(false),
 		animation: PropTypes.string.def("vui-cascader-dropdown-scale"),
-		getPopupContainer: PropTypes.any.def(() => document.body)
+		getPopupContainer: PropTypes.any.def(() => document.body),
+		validator: PropTypes.bool.def(true)
 	},
 	data() {
 		const { $props: props } = this;
@@ -230,6 +231,7 @@ const VuiCascader = {
 			this.state.options = searching ? this.getFilteredOptions(state, props) : [];
 		},
 		handleSelectionClear(e) {
+			const { $props: props } = this;
 			const keyword = "";
 			const value = [];
 
@@ -239,7 +241,10 @@ const VuiCascader = {
 			this.state.options = [];
 			this.$emit("input", value);
 			this.$emit("change", value);
-			this.dispatch("vui-form-item", "change", value);
+
+			if (props.validator) {
+				this.dispatch("vui-form-item", "change", value);
+			}
 		},
 		handleMenuListSelect(options) {
 			const { $props: props } = this;
@@ -253,7 +258,10 @@ const VuiCascader = {
 			this.state.value = options;
 			this.$emit("input", value);
 			this.$emit("change", value);
-			this.dispatch("vui-form-item", "change", value);
+
+			if (props.validator) {
+				this.dispatch("vui-form-item", "change", value);
+			}
 		},
 		handleMenuSelect(level, data) {
 			const { $props: props } = this;
@@ -266,7 +274,10 @@ const VuiCascader = {
 			this.state.value = data.path;
 			this.$emit("input", value);
 			this.$emit("change", value);
-			this.dispatch("vui-form-item", "change", value);
+
+			if (props.validator) {
+				this.dispatch("vui-form-item", "change", value);
+			}
 		}
 	},
 	render(h) {
