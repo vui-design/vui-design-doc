@@ -5,7 +5,7 @@
 				<vui-button @click="handleToggleCollapsed">
 					<vui-icon :type="collapsed ? 'menu-unfold' : 'menu-fold'" />
 				</vui-button>
-				<vui-menu mode="inline" theme="light" style="border-right: 1px solid #e6e6e6;" :collapsed="collapsed" :selectedName="selectedName" @select="handleSelect">
+				<vui-menu mode="inline" color="light" style="border-right: 1px solid #e6e6e6;" :collapsed="collapsed" :selectedName="selectedName" @select="handleSelect">
 					<vui-submenu name="1" icon="apps" title="Navigation 1">
 						<vui-menu-item name="1-1" title="Item 1-1" />
 						<vui-menu-item name="1-2" title="Item 1-2" />

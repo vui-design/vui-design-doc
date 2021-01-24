@@ -2,9 +2,9 @@
 	<vui-doc-example v-bind:code="code" id="example-input-disabled">
 		<template slot="demo">
 			<div class="example-input-disabled">
-				<vui-input placeholder="Enter something..." disabled />
-				<vui-input prepend="https://github.com/u/" placeholder="Enter something..." disabled />
-				<vui-input prefix="mic" placeholder="Enter something..." disabled />
+				<vui-input disabled placeholder="Enter something..." />
+				<vui-input disabled prepend="https://github.com/u/" placeholder="Enter something..." />
+				<vui-input disabled prefix="mic" placeholder="Enter something..." />
 			</div>
 		</template>
 		<template slot="title">禁用状态</template>
@@ -31,5 +31,5 @@
 </script>
 
 <style>
-	.example-input-disabled > .vui-input:not(:first-child) { margin-top:20px; }
+	.example-input-disabled .vui-input:not(:first-child) { margin-top:24px; }
 </style>

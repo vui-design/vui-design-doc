@@ -34,5 +34,5 @@
 </script>
 
 <style>
-	.example-input-prepend-append > .vui-input:not(:first-child) { margin-top:20px; }
+	.example-input-prepend-append .vui-input:not(:first-child) { margin-top:24px; }
 </style>

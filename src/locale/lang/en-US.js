@@ -221,6 +221,7 @@ export default {
 
         "example-cascader-basic-usage": "基本用法",
         "example-cascader-value": "默认值",
+        "example-cascader-size": "尺寸",
         "example-cascader-expand-trigger": "移入展开",
         "example-cascader-change-on-select": "选择即改变",
         "example-cascader-disabled-option": "禁用选项",

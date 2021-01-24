@@ -1,11 +1,11 @@
 const code =
 `<template>
   <vui-layout>
-    <vui-sider theme="dark" collapsible v-bind:collapsed="collapsed" v-bind:showTrigger="false">
+    <vui-sider color="dark" collapsible v-bind:collapsed="collapsed" v-bind:showTrigger="false">
       <h1 style="height: 30px; background-color: rgba(255,255,255,0.2); margin: 17px;"></h1>
       <vui-menu
         mode="inline"
-        theme="dark"
+        color="dark"
         v-bind:collapsed="collapsed"
         v-bind:openNames="openNames"
         v-bind:selectedName="selectedName"
@@ -31,7 +31,7 @@ const code =
       </vui-menu>
     </vui-sider>
     <vui-layout>
-      <vui-header theme="light" style="padding: 0 20px;">
+      <vui-header color="light" style="padding: 0 20px;">
         <vui-button
           size="small"
           style="float: left; margin: 20px 0;"

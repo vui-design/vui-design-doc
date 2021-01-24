@@ -2,8 +2,16 @@
 	<vui-doc-example v-bind:code="code" id="example-textarea-autosize">
 		<template slot="demo">
 			<div class="example-textarea-autosize">
-				<vui-textarea v-model="value1" placeholder="Autosize height based on content lines" autosize />
-				<vui-textarea v-model="value2" placeholder="Autosize height with minimum and maximum number of lines" :autosize="{minRows: 4, maxRows: 8}" />
+				<vui-textarea
+					v-model="value1"
+					autosize
+					placeholder="Autosize height based on content lines"
+				/>
+				<vui-textarea
+					v-model="value2"
+					v-bind:autosize="autosize"
+					placeholder="Autosize height with minimum and maximum number of lines"
+				/>
 			</div>
 		</template>
 		<template slot="title">适应内容高度的文本域</template>
@@ -25,12 +33,16 @@
 			return {
 				code,
 				value1: "",
-				value2: ""
+				value2: "",
+				autosize: {
+					minRows: 4,
+					maxRows: 8
+				}
 			};
 		}
 	};
 </script>
 
 <style>
-	.example-textarea-autosize > .vui-textarea + .vui-textarea { margin-top:20px; }
+	.example-textarea-autosize > .vui-textarea + .vui-textarea { margin-top:24px; }
 </style>

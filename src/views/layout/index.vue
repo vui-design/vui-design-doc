@@ -78,8 +78,8 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>theme</td>
-						<td>主题颜色，可选值为 <code>light</code>、<code>dark</code> 或者不设</td>
+						<td>color / theme</td>
+						<td>主题颜色，可选值为 <code>light</code>、<code>dark</code>，支持自定义颜色值</td>
 						<td>String</td>
 						<td><code>light</code></td>
 					</tr>
@@ -97,8 +97,8 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>theme</td>
-						<td>主题颜色，可选值为 <code>light</code>、<code>dark</code> 或者不设</td>
+						<td>color / theme</td>
+						<td>主题颜色，可选值为 <code>light</code>、<code>dark</code>，支持自定义颜色值</td>
 						<td>String</td>
 						<td><code>light</code></td>
 					</tr>

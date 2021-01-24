@@ -1,7 +1,7 @@
 <template>
 	<vui-doc-example v-bind:code="code" id="example-textarea-disabled">
 		<template slot="demo">
-			<vui-textarea placeholder="Enter something..." disabled />
+			<vui-textarea disabled placeholder="Enter something..." />
 		</template>
 		<template slot="title">禁用状态</template>
 		<template slot="description">

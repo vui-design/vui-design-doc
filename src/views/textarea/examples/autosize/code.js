@@ -1,8 +1,16 @@
 const code =
 `<template>
   <div class="example-textarea-autosize">
-    <vui-textarea v-model="value1" placeholder="Autosize height based on content lines" autosize />
-    <vui-textarea v-model="value2" placeholder="Autosize height with minimum and maximum number of lines" :autosize="{minRows: 4, maxRows: 8}" />
+    <vui-textarea
+      v-model="value1"
+      autosize
+      placeholder="Autosize height based on content lines"
+    />
+    <vui-textarea
+      v-model="value2"
+      v-bind:autosize="autosize"
+      placeholder="Autosize height with minimum and maximum number of lines"
+    />
   </div>
 </template>
 
@@ -11,14 +19,18 @@ const code =
     data() {
       return {
         value1: "",
-        value2: ""
+        value2: "",
+        autosize: {
+          minRows: 4,
+          maxRows: 8
+        }
       };
     }
   };
 </script>
 
 <style>
-  .example-textarea-autosize > .vui-textarea + .vui-textarea { margin-top:20px; }
+  .example-textarea-autosize > .vui-textarea + .vui-textarea { margin-top:24px; }
 </style>
 `;
 

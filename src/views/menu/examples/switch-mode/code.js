@@ -6,12 +6,12 @@ const code =
         <vui-radio value="vertical">Vertical</vui-radio>
         <vui-radio value="inline">Inline</vui-radio>
       </vui-radio-group>
-      <vui-radio-group type="button" v-model="theme">
+      <vui-radio-group type="button" v-model="color">
         <vui-radio value="light">Light</vui-radio>
         <vui-radio value="dark">Dark</vui-radio>
       </vui-radio-group>
     </div>
-    <vui-menu :mode="mode" :theme="theme" :selectedName="selectedName" @select="handleSelect" style="width: 250px;">
+    <vui-menu :mode="mode" :color="color" :selectedName="selectedName" @select="handleSelect" style="width: 250px;">
       <vui-submenu name="1" icon="apps" title="Navigation 1">
         <vui-menu-item name="1-1" title="Item 1-1" />
         <vui-menu-item name="1-2" title="Item 1-2" />
@@ -46,7 +46,7 @@ const code =
     data() {
       return {
         mode: "inline",
-        theme: "dark",
+        color: "dark",
         selectedName: "1-1"
       };
     },

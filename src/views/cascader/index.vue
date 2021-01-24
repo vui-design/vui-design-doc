@@ -15,11 +15,12 @@
 			<vui-col v-bind:span="12">
 				<ExampleCascaderBasicUsage />
 				<ExampleCascaderValue />
+				<ExampleCascaderSize />
 				<ExampleCascaderExpandTrigger />
 				<ExampleCascaderChangeOnSelect />
-				<ExampleCascaderDisabledOption />
 			</vui-col>
 			<vui-col v-bind:span="12">
+				<ExampleCascaderDisabledOption />
 				<ExampleCascaderSearchable />
 				<ExampleCascaderClearable />
 				<ExampleCascaderFormatter />
@@ -197,6 +198,7 @@
 	import VuiDocMarkdown from "src/components/markdown";
 	import ExampleCascaderBasicUsage from "./examples/basic-usage";
 	import ExampleCascaderValue from "./examples/value";
+	import ExampleCascaderSize from "./examples/size";
 	import ExampleCascaderExpandTrigger from "./examples/expand-trigger";
 	import ExampleCascaderChangeOnSelect from "./examples/change-on-select";
 	import ExampleCascaderDisabledOption from "./examples/disabled-option";
@@ -213,6 +215,7 @@
 			VuiDocMarkdown,
 			ExampleCascaderBasicUsage,
 			ExampleCascaderValue,
+			ExampleCascaderSize,
 			ExampleCascaderExpandTrigger,
 			ExampleCascaderChangeOnSelect,
 			ExampleCascaderDisabledOption,

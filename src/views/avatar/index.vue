@@ -135,7 +135,7 @@
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import Markdown from "src/components/markdown";
+	import VuiDocMarkdown from "src/components/markdown";
 	import ExampleAvatarBasicUsage from "./examples/basic-usage";
 	import ExampleAvatarType from "./examples/type";
 	import ExampleAvatarBadge from "./examples/badge";

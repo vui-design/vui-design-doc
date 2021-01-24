@@ -1,7 +1,7 @@
 <template>
 	<vui-doc-example v-bind:code="code" id="example-textarea-maxLength">
 		<template slot="demo">
-			<vui-textarea v-model="value" maxLength="100" placeholder="Enter something..." />
+			<vui-textarea v-model="value" v-bind:maxLength="100" placeholder="Enter something..." />
 		</template>
 		<template slot="title">输入长度限制</template>
 		<template slot="description">

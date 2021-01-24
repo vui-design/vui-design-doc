@@ -123,7 +123,7 @@
 <style>
 	.vui-doc-layout { position:relative; z-index:1; min-height:100vh; background-color:#fff; padding-top:64px; }
 
-	.vui-doc-layout-header { position:fixed; top:0; left:0; right:0; z-index:10; border-bottom:1px solid #f0f0f0; padding:0 20px; }
+	.vui-doc-layout-header { position:fixed; top:0; left:0; right:0; z-index:100; border-bottom:1px solid #f0f0f0; padding:0 20px; }
 	.vui-doc-layout-header .logo { float:left; display:block; padding:16px 0; }
 	.vui-doc-layout-header .logo a { display:block; color:rgba(0,0,0,0.85); font-size:18px; font-weight:500; line-height:32px; }
 	.vui-doc-layout-header .logo img { float:left; display:block; width:32px; height:32px; margin-right:16px; }

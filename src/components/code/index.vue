@@ -4,9 +4,11 @@
 
 <script>
 	export default {
-		code: {
-			type: String,
-			default: undefined
+		props: {
+			code: {
+				type: String,
+				default: undefined
+			}
 		}
 	};
 </script>

@@ -10,9 +10,9 @@
 					</vui-radio-group>
 				</section>
 				<section>
-					<vui-input :size="size" placeholder="Enter something..." />
-					<vui-input :size="size" suffix="calendar" placeholder="Enter something..." />
-					<vui-input :size="size" append="@qq.com" placeholder="Enter something..." />
+					<vui-input v-bind:size="size" placeholder="Enter something..." />
+					<vui-input v-bind:size="size" suffix="calendar" placeholder="Enter something..." />
+					<vui-input v-bind:size="size" append="@qq.com" placeholder="Enter something..." />
 				</section>
 			</div>
 		</template>
@@ -41,6 +41,6 @@
 </script>
 
 <style>
-	.example-input-size > section:not(:last-child) { margin-bottom:20px; }
-	.example-input-size > section > .vui-input:not(:last-child) { margin-bottom:20px; }
+	.example-input-size section + section{ margin-top:24px; }
+	.example-input-size .vui-input + .vui-input { margin-top:24px; }
 </style>

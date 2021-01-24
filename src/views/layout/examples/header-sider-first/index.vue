@@ -3,10 +3,10 @@
 		<template slot="demo">
 			<vui-doc-browser>
 				<vui-layout>
-					<vui-header theme="dark">
+					<vui-header color="dark">
 						<h1 style="float: left; width: 124px; height: 30px; background-color: rgba(255,255,255,0.2); margin: 17px 0;"></h1>
 						<vui-menu
-							theme="dark"
+							color="dark"
 							mode="horizontal"
 							v-bind:selectedName="headerMenuSelectedName"
 							style="float: left; margin-left: 24px; line-height: 64px;"

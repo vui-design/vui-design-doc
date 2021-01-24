@@ -1,7 +1,7 @@
 <template>
 	<vui-doc-example v-bind:code="code" id="example-textarea-resize">
 		<template slot="demo">
-			<vui-textarea v-model="value" placeholder="Enter something..." resize />
+			<vui-textarea v-model="value" resize placeholder="Enter something..." />
 		</template>
 		<template slot="title">手动改变高度</template>
 		<template slot="description">

@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-textarea v-model="value" placeholder="Enter something..." resize />
+  <vui-textarea v-model="value" resize placeholder="Enter something..." />
 </template>
 
 <script>

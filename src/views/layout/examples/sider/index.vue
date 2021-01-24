@@ -3,11 +3,11 @@
 		<template slot="demo">
 			<vui-doc-browser>
 				<vui-layout>
-					<vui-sider theme="dark" collapsible v-model="collapsed">
+					<vui-sider color="dark" collapsible v-model="collapsed">
 						<h1 style="height: 30px; background-color: rgba(255,255,255,0.2); margin: 17px;"></h1>
 						<vui-menu
 							mode="inline"
-							theme="dark"
+							color="dark"
 							v-bind:collapsed="collapsed"
 							v-bind:openNames="openNames"
 							v-bind:selectedName="selectedName"
@@ -33,7 +33,7 @@
 						</vui-menu>
 					</vui-sider>
 					<vui-layout>
-						<vui-header theme="light" style="padding: 0 20px;"></vui-header>
+						<vui-header color="light" style="padding: 0 20px;"></vui-header>
 						<vui-content style="padding: 0 20px;">
 							<vui-breadcrumb style="margin: 20px 0;">
 								<vui-breadcrumb-item>Home</vui-breadcrumb-item>

@@ -1,9 +1,9 @@
 const code =
 `<template>
   <div class="example-input-disabled">
-    <vui-input placeholder="Enter something..." disabled />
-    <vui-input prepend="https://github.com/u/" placeholder="Enter something..." disabled />
-    <vui-input prefix="mic" placeholder="Enter something..." disabled />
+    <vui-input disabled placeholder="Enter something..." />
+    <vui-input disabled prepend="https://github.com/u/" placeholder="Enter something..." />
+    <vui-input disabled prefix="mic" placeholder="Enter something..." />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ const code =
 </script>
 
 <style>
-  .example-input-disabled > .vui-input:not(:first-child) { margin-top:20px; }
+  .example-input-disabled .vui-input:not(:first-child) { margin-top:24px; }
 </style>
 `;
 

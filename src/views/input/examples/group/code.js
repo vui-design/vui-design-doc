@@ -27,7 +27,7 @@ const code =
 </script>
 
 <style>
-  .example-input-group > .vui-input-group:not(:first-child) { margin-top:20px; }
+  .example-input-group .vui-input-group:not(:first-child) { margin-top:24px; }
 </style>
 `;
 

@@ -28,9 +28,9 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="100">属性</th>
+						<th width="120">属性</th>
 						<th>说明</th>
-						<th width="150">类型</th>
+						<th width="160">类型</th>
 						<th width="100">默认值</th>
 					</tr>
 				</thead>
@@ -73,7 +73,7 @@
 					</tr>
 					<tr>
 						<td>clearable</td>
-						<td>是否显示清空按钮</td>
+						<td>是否允许清空</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
 					</tr>
@@ -95,66 +95,66 @@
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="100">事件名</th>
+						<th width="120">事件名</th>
 						<th>说明</th>
-						<th width="150">类型</th>
+						<th width="160">类型</th>
 						<th width="100">回调参数</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>mouseenter</td>
-						<td>鼠标移入文本域时触发的事件回调</td>
+						<td>鼠标移入文本域时触发的事件回调函数</td>
 						<td>Function</td>
 						<td><code>event</code></td>
 					</tr>
 					<tr>
 						<td>mouseleave</td>
-						<td>鼠标移出文本域时触发的事件回调</td>
+						<td>鼠标移出文本域时触发的事件回调函数</td>
 						<td>Function</td>
 						<td><code>event</code></td>
 					</tr>
 					<tr>
 						<td>focus</td>
-						<td>文本域获取焦点时触发的事件回调</td>
+						<td>文本域获取焦点时触发的事件回调函数</td>
 						<td>Function</td>
 						<td><code>event</code></td>
 					</tr>
 					<tr>
 						<td>blur</td>
-						<td>文本域失去焦点时触发的事件回调</td>
+						<td>文本域失去焦点时触发的事件回调函数</td>
 						<td>Function</td>
 						<td><code>event</code></td>
 					</tr>
 					<tr>
 						<td>keydown</td>
-						<td>键盘按下时触发的事件回调</td>
+						<td>键盘按下时触发的事件回调函数</td>
 						<td>Function</td>
 						<td><code>event</code></td>
 					</tr>
 					<tr>
 						<td>keyup</td>
-						<td>键盘弹起时触发的事件回调</td>
-						<td>Function</td>
-						<td><code>event</code></td>
-					</tr>
-					<tr>
-						<td>change</td>
-						<td>文本域内容变化时触发的事件回调</td>
+						<td>键盘弹起时触发的事件回调函数</td>
 						<td>Function</td>
 						<td><code>event</code></td>
 					</tr>
 					<tr>
 						<td>clear</td>
-						<td>点击清空按钮时触发的事件回调</td>
+						<td>点击清空按钮时触发的事件回调函数</td>
 						<td>Function</td>
 						<td><code>event</code></td>
 					</tr>
 					<tr>
 						<td>input</td>
-						<td>文本域内容输入时触发的事件回调，可以使用 <code>v-model</code> 双向绑定数据</td>
+						<td>文本域内容输入时触发的事件回调函数，可以使用 <code>v-model</code> 双向绑定数据</td>
 						<td>Function</td>
 						<td><code>value</code></td>
+					</tr>
+					<tr>
+						<td>change</td>
+						<td>文本域内容变化时触发的事件回调函数</td>
+						<td>Function</td>
+						<td><code>event</code></td>
 					</tr>
 				</tbody>
 			</table>

@@ -1,7 +1,7 @@
 <template>
 	<vui-doc-example v-bind:code="code" id="example-textarea-clearable">
 		<template slot="demo">
-			<vui-textarea v-model="value" placeholder="Enter something..." clearable />
+			<vui-textarea v-model="value" clearable placeholder="Enter something..." />
 		</template>
 		<template slot="title">可清空</template>
 		<template slot="description">
