@@ -4,7 +4,6 @@ import Emitter from "vui-design/mixins/emitter";
 import PropTypes from "vui-design/utils/prop-types";
 import clone from "vui-design/utils/clone";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
-import utils from "./utils";
 
 const VuiMultipleCascader = {
 	name: "vui-multiple-cascader",
@@ -57,34 +56,46 @@ const VuiMultipleCascader = {
 	methods: {
 		handleClear() {
 			const { $props: props } = this;
-			const newValue = [];
+			const value = [];
 
-			this.state.value = newValue;
-			this.$emit("input", newValue);
-			this.$emit("change", newValue);
+			this.state.value = value;
+			this.$emit("input", value);
+			this.$emit("change", value);
+
+			if (props.validator) {
+				this.dispatch("vui-form-item", "change", value);
+			}
 		},
 		handleSelect(value) {
 			const { $props: props } = this;
-			const newValue = clone(value);
 
-			this.state.value = newValue;
-			this.$emit("input", newValue);
-			this.$emit("change", newValue);
+			this.state.value = value;
+			this.$emit("input", value);
+			this.$emit("change", value);
+
+			if (props.validator) {
+				this.dispatch("vui-form-item", "change", value);
+			}
 		},
-		handleDeselect(value, option) {
+		handleDeselect(option) {
 			const { $props: props, state } = this;
-			const newValue = clone(state.value);
-			const index = newValue.findIndex(element => value === element);
+
+			let value = clone(state.value);
+			const index = value.findIndex(element => element === option.value);
 
 			if (index === -1) {
 				return;
 			}
 
-			newValue.splice(index, 1);
+			value.splice(index, 1);
 
-			this.state.value = newValue;
-			this.$emit("input", newValue);
-			this.$emit("change", newValue);
+			this.state.value = value;
+			this.$emit("input", value);
+			this.$emit("change", value);
+
+			if (props.validator) {
+				this.dispatch("vui-form-item", "change", value);
+			}
 		}
 	},
 	render() {

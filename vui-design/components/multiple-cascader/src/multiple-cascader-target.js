@@ -130,9 +130,9 @@ const VuiMultipleCascaderTarget = {
 							const attributes = {
 								classNamePrefix: classNamePrefix,
 								direction: props.direction,
-								value,
-								children,
-								option,
+								value: value,
+								children: children,
+								data: option,
 								formatter: props.formatter,
 								disabled: props.disabled,
 								onDeselect: props.onDeselect
@@ -151,7 +151,7 @@ const VuiMultipleCascaderTarget = {
 			if (is.function(props.formatter)) {
 				const attributes = {
 					direction: props.direction,
-					option: clone(props.option)
+					data: clone(props.data)
 				};
 
 				content = props.formatter(attributes);
@@ -161,7 +161,14 @@ const VuiMultipleCascaderTarget = {
 			}
 
 			// onDeselect
-			const onDeselect = () => props.onDeselect(props.value, clone(props.option));
+			const onDeselect = () => {
+				const option = {
+					value: props.value,
+					data: clone(props.data)
+				};
+
+				props.onDeselect(option);
+			};
 
 			// class
 			const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "item");
@@ -206,14 +213,14 @@ const VuiMultipleCascaderTarget = {
 
 			this.$emit("clear");
 		},
-		handleDeselect(value, option) {
+		handleDeselect(option) {
 			const { $props: props } = this;
 
 			if (props.disabled) {
 				return;
 			}
 
-			this.$emit("deselect", value, option);
+			this.$emit("deselect", option);
 		}
 	},
 	render(h) {

@@ -46,14 +46,12 @@ const VuiMultipleCascaderSourceList = {
 		getContainer() {
 			return this.$el;
 		},
-		handleSelect(checked, value, option) {
+		handleSelect(checked, option) {
 			const { $props: props, state } = this;
 
 			if (checked) {
-				let children = option[props.childrenKey];
-
-				if (children && children.length > 0) {
-					const options = utils.flatten(children, props.childrenKey, true);
+				if (option.children && option.children.length > 0) {
+					const options = utils.flatten(option.children, props.childrenKey, true);
 
 					options.forEach(option => {
 						const index = this.state.value.findIndex(element => option[props.valueKey] === element);
@@ -64,14 +62,14 @@ const VuiMultipleCascaderSourceList = {
 					});
 				}
 
-				const index = this.state.value.findIndex(element => value === element);
+				const index = this.state.value.findIndex(element => option.value === element);
 
 				if (index === -1) {
-					this.state.value.push(value);
+					this.state.value.push(option.value);
 				}
 			}
 			else {
-				const index = this.state.value.findIndex(element => value === element);
+				const index = this.state.value.findIndex(element => option.value === element);
 
 				if (index > -1) {
 					this.state.value.splice(index, 1);

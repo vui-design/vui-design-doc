@@ -28,9 +28,10 @@
 		data() {
 			return {
 				code,
-				value: ["110000", "130000", "210100", "310000", "330100", "330200", "330400"],
+				// value: ["110000", "130000", "210100", "310000", "330100", "330200", "330400"],
+				value: [],
 				options: options,
-				formatter: props => props.option.text
+				formatter: props => props.data.text
 			};
 		},
 		methods: {

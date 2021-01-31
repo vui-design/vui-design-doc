@@ -20,12 +20,20 @@ const options = [
                 "text": "唐山",
                 "children": [
                     {
-                        "value": "aaa",
-                        "text": "AAA"
+                        "value": "130202",
+                        "text": "路南"
                     },
                     {
-                        "value": "bbb",
-                        "text": "BBB"
+                        "value": "130203",
+                        "text": "路北"
+                    },
+                    {
+                        "value": "130204",
+                        "text": "古冶"
+                    },
+                    {
+                        "value": "130205",
+                        "text": "开平"
                     }
                 ]
             },
@@ -401,7 +409,61 @@ const options = [
         "children": [
             {
                 "value": "330100",
-                "text": "杭州"
+                "text": "杭州",
+                "children": [
+                    {
+                        "value": "330102",
+                        "text": "上城"
+                    },
+                    {
+                        "value": "330103",
+                        "text": "下城"
+                    },
+                    {
+                        "value": "330104",
+                        "text": "江干"
+                    },
+                    {
+                        "value": "330105",
+                        "text": "拱墅"
+                    },
+                    {
+                        "value": "330106",
+                        "text": "西湖"
+                    },
+                    {
+                        "value": "330108",
+                        "text": "滨江"
+                    },
+                    {
+                        "value": "330109",
+                        "text": "萧山"
+                    },
+                    {
+                        "value": "330110",
+                        "text": "余杭"
+                    },
+                    {
+                        "value": "330111",
+                        "text": "富阳"
+                    },
+                    {
+                        "value": "330112",
+                        "text": "临安"
+                    },
+                    {
+                        "value": "330122",
+                        "text": "桐庐"
+                    },
+                    {
+                        "value": "330127",
+                        "text": "淳安"
+                    },
+                    {
+                        "value": "330182",
+                        "text": "建德"
+                    }
+                ]
             },
             {
                 "value": "330200",

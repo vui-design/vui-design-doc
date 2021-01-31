@@ -77,7 +77,7 @@ const VuiMultipleCascaderSource = {
 			const title = props.title({
 				direction: props.direction,
 				level: props.level,
-				parent: props.parent
+				parent: clone(props.parent)
 			});
 
 			// render
@@ -162,13 +162,13 @@ const VuiMultipleCascaderSource = {
 							const attributes = {
 								classNamePrefix: classNamePrefix,
 								direction: props.direction,
-								value,
-								children,
-								option,
+								value: value,
+								children: children,
+								data: option,
 								formatter: props.formatter,
-								expanded,
-								indeterminate,
-								checked,
+								expanded: expanded,
+								indeterminate: indeterminate,
+								checked: checked,
 								disabled: props.disabled,
 								onExpand: props.onExpand,
 								onSelect: props.onSelect
@@ -187,7 +187,7 @@ const VuiMultipleCascaderSource = {
 			if (is.function(props.formatter)) {
 				const attributes = {
 					direction: props.direction,
-					option: clone(props.option)
+					data: clone(props.data)
 				};
 
 				content = props.formatter(attributes);
@@ -200,10 +200,24 @@ const VuiMultipleCascaderSource = {
 			const onStopPropagation = e => e.stopPropagation();
 
 			// onExpand
-			const onExpand = () => props.onExpand(props.checked, props.value, props.children, clone(props.option));
+			const onExpand = () => {
+				const option = {
+					value: props.value,
+					data: clone(props.data)
+				};
+
+				props.onExpand(option);
+			};
 
 			// onSelect
-			const onSelect = checked => props.onSelect(checked, props.value, props.children, clone(props.option));
+			const onSelect = checked => {
+				const option = {
+					value: props.value,
+					data: clone(props.data)
+				};
+
+				props.onSelect(checked, option);
+			};
 
 			// class
 			const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "item");
@@ -309,18 +323,14 @@ const VuiMultipleCascaderSource = {
 				</div>
 			);
 		},
-		handleExpand(checked, value, children, option) {
+		handleExpand(option) {
 			const { $props: props, state } = this;
 
 			if (props.disabled) {
 				return;
 			}
 
-			this.state.expandedKey = value;
-
-			if (!children || children.length === 0) {
-				this.handleSelect(!checked, value, children, option);
-			}
+			this.state.expandedKey = option.value;
 		},
 		handleSelectAll(checked) {
 			const { $props: props } = this;
@@ -330,35 +340,38 @@ const VuiMultipleCascaderSource = {
 			}
 
 			if (this.vuiMultipleCascaderSource && props.parent) {
-				this.vuiMultipleCascaderSource.handleSelect(checked, props.parent[props.valueKey], clone(props.parent));
+				const option = {
+					value: props.parent[props.valueKey],
+					data: clone(props.parent)
+				};
+
+				this.vuiMultipleCascaderSource.handleSelect(checked, option);
 			}
 			else {
 				props.options.forEach(option => {
-					const value = option[props.valueKey];
-					const children = option[props.childrenKey];
-
-					this.handleSelect(checked, value, children, option);
+					this.handleSelect(checked, {
+						value: option[props.valueKey],
+						data: clone(option)
+					});
 				});
 			}
 		},
-		handleSelect(checked, value, children, option) {
+		handleSelect(checked, option) {
 			const { $props: props } = this;
 
 			if (props.disabled) {
 				return;
 			}
 
-			// 更新自己的选中状态
-			if (checked) {
-				const index = this.state.selectedKeys.indexOf(value);
+			// 更新当前面板的选中状态
+			const index = this.state.selectedKeys.indexOf(option.value);
 
+			if (checked) {
 				if (index === -1) {
-					this.state.selectedKeys.push(value);
+					this.state.selectedKeys.push(option.value);
 				}
 			}
 			else {
-				const index = this.state.selectedKeys.indexOf(value);
-
 				if (index > -1) {
 					this.state.selectedKeys.splice(index, 1);
 				}
@@ -367,9 +380,14 @@ const VuiMultipleCascaderSource = {
 			// 更新全局的选中状态
 			props.options.forEach(option => {
 				const value = option[props.valueKey];
+				const children = option[props.childrenKey];
 				const checked = this.state.selectedKeys.indexOf(value) > -1;
 
-				this.vuiMultipleCascaderSourceList.handleSelect(checked, value, option);
+				this.vuiMultipleCascaderSourceList.handleSelect(checked, {
+					value: value,
+					children: children,
+					data: clone(option)
+				});
 			});
 
 			// 通过判断自身是否全选、半选、未选状态，触发父级选项的选择事件
@@ -377,18 +395,23 @@ const VuiMultipleCascaderSource = {
 
 			if (selectedStatus === "all") {
 				if (this.vuiMultipleCascaderSource && props.parent) {
-					this.vuiMultipleCascaderSource.handleSelect(true, props.parent[props.valueKey], clone(props.parent));
+					const option = {
+						value: props.parent[props.valueKey],
+						data: clone(props.parent)
+					};
+
+					this.vuiMultipleCascaderSource.handleSelect(true, option);
 				}
 			}
 			else {
 				if (this.vuiMultipleCascaderSource && props.parent) {
-					this.vuiMultipleCascaderSource.handleSelect(false, props.parent[props.valueKey], clone(props.parent));
-				}
-			}
+					const option = {
+						value: props.parent[props.valueKey],
+						data: clone(props.parent)
+					};
 
-			// 
-			if (children && children.length > 0) {
-				this.handleExpand(checked, value, children, option);
+					this.vuiMultipleCascaderSource.handleSelect(false, option);
+				}
 			}
 		}
 	},
