@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<ExampleCascadeTransferDemo />
 		<vui-doc-markdown>
 			<h1>Transfer 穿梭框</h1>
 			<p>双栏穿梭选择框。</p>
@@ -52,16 +53,16 @@
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>data</td>
-						<td>数据源，其中的数据将会被渲染到左边一栏中，<code>targetKeys</code> 属性中指定的除外</td>
+						<td>options</td>
+						<td>可选项数据源，其中的数据将会被渲染到左边一栏中，<code>targetKeys</code> 属性中指定的除外</td>
 						<td>Array</td>
 						<td><code>[]</code></td>
 					</tr>
 					<tr>
 						<td>optionKey</td>
-						<td>指定数据项的 <code>key</code> 属性，可以是字符串或一个函数，为函数时  <code>data</code> 中的数据项作为参数</td>
-						<td>Array</td>
-						<td><code>[]</code></td>
+						<td>指定数据项的 <code>key</code> 属性，可以是字符串或一个函数，为函数时  <code>options</code> 中的数据项作为参数</td>
+						<td>String | Function</td>
+						<td><code>key</code></td>
 					</tr>
 					<tr>
 						<td>selectedKeys</td>
@@ -76,8 +77,8 @@
 						<td><code>[]</code></td>
 					</tr>
 					<tr>
-						<td>option</td>
-						<td>自定义渲染选项数据，接收 <code>data</code> 中的数据项作为参数</td>
+						<td>formatter</td>
+						<td>自定义渲染选项数据，接收 <code>options</code> 中的数据项作为参数</td>
 						<td>Function | Scoped Slot</td>
 						<td><code>option => option.key</code></td>
 					</tr>
@@ -157,11 +158,6 @@
 						<td>direction</td>
 						<td>渲染列表的方向，值为 <code>left</code> 或 <code>right</code></td>
 						<td>String</td>
-					</tr>
-					<tr>
-						<td>data</td>
-						<td>数据源</td>
-						<td>Array</td>
 					</tr>
 					<tr>
 						<td>options</td>
@@ -244,6 +240,7 @@
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
+	import ExampleCascadeTransferDemo from "./examples/demo";
 	import VuiDocMarkdown from "src/components/markdown";
 	import ExampleTransferBasicUsage from "./examples/basic-usage";
 	import ExampleTransferSearchable1 from "./examples/searchable";
@@ -259,6 +256,7 @@
 			MixinAnchors
 		],
 		components: {
+			ExampleCascadeTransferDemo,
 			VuiDocMarkdown,
 			ExampleTransferBasicUsage,
 			ExampleTransferSearchable1,

@@ -4,7 +4,7 @@
 			<vui-transfer
 				v-bind:titles="titles"
 				v-bind:panelStyle="panelStyle"
-				v-bind:data="data"
+				v-bind:options="options"
 				v-bind:selectedKeys="selectedKeys"
 				v-bind:targetKeys="targetKeys"
 				v-bind:searchable="searchable"
@@ -12,14 +12,14 @@
 				v-on:select="handleSelect"
 				v-on:change="handleChange"
 			>
-				<template slot="option" slot-scope="data">
-					{{data.title}} <span style="opacity: 0.65;">- {{data.description}}</span>
+				<template slot="formatter" slot-scope="option">
+					{{option.title}} <span style="opacity: 0.65;">- {{option.description}}</span>
 				</template>
 			</vui-transfer>
 		</template>
 		<template slot="title">自定义渲染（二）</template>
 		<template slot="description">
-			<p>通过 <code>option</code> 作用域插槽自定义渲染选项数据。</p>
+			<p>通过 <code>formatter</code> 作用域插槽自定义渲染选项数据。</p>
 		</template>
 	</vui-doc-example>
 </template>
@@ -41,7 +41,7 @@
 				panelStyle: {
 					width: "240px"
 				},
-				data: dataSource.data,
+				options: dataSource.options,
 				selectedKeys: [],
 				targetKeys: dataSource.targetKeys,
 				searchable: true,
@@ -50,13 +50,13 @@
 		},
 		methods: {
 			getDataSource() {
-				let data = [];
+				let options = [];
 				let targetKeys = [];
 
 				for (let i = 0; i < 20; i++) {
 					const key = i + 1;
 
-					data.push({
+					options.push({
 						key: key,
 						title: "Option " + key,
 						description: "Description of option " + key
@@ -68,7 +68,7 @@
 				}
 
 				return {
-					data,
+					options,
 					targetKeys
 				};
 			},

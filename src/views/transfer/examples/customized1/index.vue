@@ -4,10 +4,10 @@
 			<vui-transfer
 				v-bind:titles="titles"
 				v-bind:panelStyle="panelStyle"
-				v-bind:data="data"
+				v-bind:options="options"
 				v-bind:selectedKeys="selectedKeys"
 				v-bind:targetKeys="targetKeys"
-				v-bind:option="option"
+				v-bind:formatter="formatter"
 				v-bind:searchable="searchable"
 				v-bind:filter="filter"
 				v-on:select="handleSelect"
@@ -16,7 +16,7 @@
 		</template>
 		<template slot="title">自定义渲染（一）</template>
 		<template slot="description">
-			<p>可通过 <code>option</code> 函数自定义渲染选项，常用于渲染复杂数据。</p>
+			<p>可通过 <code>formatter</code> 函数自定义渲染选项，常用于渲染复杂数据。</p>
 		</template>
 	</vui-doc-example>
 </template>
@@ -38,23 +38,23 @@
 				panelStyle: {
 					width: "240px"
 				},
-				data: dataSource.data,
+				options: dataSource.options,
 				selectedKeys: [],
 				targetKeys: dataSource.targetKeys,
-				option: item => item.title + " - " + item.description,
+				formatter: option => option.title + " - " + option.description,
 				searchable: true,
 				filter: (keyword, option) => option.title.indexOf(keyword) > -1 || option.description.indexOf(keyword) > -1
 			};
 		},
 		methods: {
 			getDataSource() {
-				let data = [];
+				let options = [];
 				let targetKeys = [];
 
 				for (let i = 0; i < 20; i++) {
 					const key = i + 1;
 
-					data.push({
+					options.push({
 						key: key,
 						title: "Option " + key,
 						description: "Description of option " + key
@@ -66,7 +66,7 @@
 				}
 
 				return {
-					data,
+					options,
 					targetKeys
 				};
 			},

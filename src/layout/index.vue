@@ -16,7 +16,7 @@
 					</li>
 				</ul>
 				<vui-space style="display: flex;">
-					<vui-button size="small" style="display: block;" v-on:click="handleChangeLanguage">English</vui-button>
+					<vui-button size="small" style="display: block;" v-on:click="handleChangeLanguage">{{language === "zh-CN" ? "English" : "中文"}}</vui-button>
 					<a href="https://npmjs.org/package/vui-design" target="_blank" class="npm">
 						<img src="https://camo.githubusercontent.com/5e58706616d56949dacf3deadaa10179a06bbc69aace9baf79133a22dbd5637e/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f7675692d64657369676e2e7376673f7374796c653d666c61742d737175617265" />
 					</a>

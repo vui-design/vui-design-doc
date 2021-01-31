@@ -45,6 +45,7 @@ import FormItem from "./components/form-item";
 import Input from "./components/input";
 import InputGroup from "./components/input-group";
 import InputNumber from "./components/input-number";
+import MultipleCascader from "./components/multiple-cascader";
 import Radio from "./components/radio";
 import RadioGroup from "./components/radio-group";
 import Rate from "./components/rate";
@@ -154,6 +155,7 @@ const components = [
 	Input,
 	InputGroup,
 	InputNumber,
+	MultipleCascader,
 	Radio,
 	RadioGroup,
 	Rate,
@@ -293,6 +295,7 @@ export default {
 	Input,
 	InputGroup,
 	InputNumber,
+	MultipleCascader,
 	Radio,
 	RadioGroup,
 	Rate,

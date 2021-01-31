@@ -14,7 +14,7 @@ const code =
     <vui-transfer
       v-bind:titles="titles"
       v-bind:panelStyle="panelStyle"
-      v-bind:data="data"
+      v-bind:options="options"
       v-bind:selectedKeys="selectedKeys"
       v-bind:targetKeys="targetKeys"
       v-bind:showSelectAll="showSelectAll"
@@ -42,7 +42,7 @@ const code =
           width: "400px",
           height: "451px"
         },
-        data: dataSource.data,
+        options: dataSource.options,
         selectedKeys: [],
         targetKeys: dataSource.targetKeys,
         showSelectAll: false,
@@ -53,13 +53,13 @@ const code =
     },
     methods: {
       getDataSource() {
-        let data = [];
+        let options = [];
         let targetKeys = [];
 
         for (let i = 0; i < 20; i++) {
           const key = i + 1;
 
-          data.push({
+          options.push({
             key: key,
             title: "Option " + key,
             description: "Description of option " + key,
@@ -72,7 +72,7 @@ const code =
         }
 
         return {
-          data,
+          options,
           targetKeys
         };
       },

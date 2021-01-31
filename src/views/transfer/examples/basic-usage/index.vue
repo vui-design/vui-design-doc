@@ -3,10 +3,10 @@
 		<template slot="demo">
 			<vui-transfer
 				v-bind:titles="titles"
-				v-bind:data="data"
+				v-bind:options="options"
 				v-bind:selectedKeys="selectedKeys"
 				v-bind:targetKeys="targetKeys"
-				v-bind:option="option"
+				v-bind:formatter="formatter"
 				v-on:scroll="handleScroll"
 				v-on:select="handleSelect"
 				v-on:change="handleChange"
@@ -14,7 +14,7 @@
 		</template>
 		<template slot="title">基本用法</template>
 		<template slot="description">
-			<p>最基本的用法，展示了 <code>titles</code>、<code>data</code>、<code>selectedKeys</code>、<code>targetKeys</code>、选项的渲染函数 <code>option</code> 以及回调函数 <code>onScroll</code>、<code>onSelect</code>、<code>onChange</code> 的用法。</p>
+			<p>最基本的用法，展示了 <code>titles</code>、<code>options</code>、<code>selectedKeys</code>、<code>targetKeys</code>、选项的渲染函数 <code>formatter</code> 以及回调函数 <code>onScroll</code>、<code>onSelect</code>、<code>onChange</code> 的用法。</p>
 		</template>
 	</vui-doc-example>
 </template>
@@ -33,21 +33,21 @@
 			return {
 				code,
 				titles: ["Source", "Target"],
-				data: dataSource.data,
+				options: dataSource.options,
 				selectedKeys: [],
 				targetKeys: dataSource.targetKeys,
-				option: item => item.title
+				formatter: option => option.title
 			};
 		},
 		methods: {
 			getDataSource() {
-				let data = [];
+				let options = [];
 				let targetKeys = [];
 
 				for (let i = 0; i < 20; i++) {
 					const key = i + 1;
 
-					data.push({
+					options.push({
 						key: key,
 						title: "Option " + key,
 						description: "Description of option " + key
@@ -59,7 +59,7 @@
 				}
 
 				return {
-					data,
+					options,
 					targetKeys
 				};
 			},

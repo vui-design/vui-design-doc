@@ -7,10 +7,10 @@ const code =
     </vui-switch>
     <vui-transfer
       v-bind:titles="titles"
-      v-bind:data="data"
+      v-bind:options="options"
       v-bind:selectedKeys="selectedKeys"
       v-bind:targetKeys="targetKeys"
-      v-bind:option="option"
+      v-bind:formatter="formatter"
       v-bind:searchable="searchable"
       v-bind:filterOptionProp="filterOptionProp"
       v-bind:disabled="disabled"
@@ -27,10 +27,10 @@ const code =
 
       return {
         titles: ["Source", "Target"],
-        data: dataSource.data,
+        options: dataSource.options,
         selectedKeys: [],
         targetKeys: dataSource.targetKeys,
-        option: item => item.title,
+        formatter: option => option.title,
         searchable: true,
         filterOptionProp: "title",
         disabled: false
@@ -38,13 +38,13 @@ const code =
     },
     methods: {
       getDataSource() {
-        let data = [];
+        let options = [];
         let targetKeys = [];
 
         for (let i = 0; i < 20; i++) {
           const key = i + 1;
 
-          data.push({
+          options.push({
             key: key,
             title: "Option " + key,
             description: "Description of option " + key
@@ -56,7 +56,7 @@ const code =
         }
 
         return {
-          data,
+          options,
           targetKeys
         };
       },
