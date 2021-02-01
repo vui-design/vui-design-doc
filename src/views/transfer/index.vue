@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<ExampleCascadeTransferDemo />
 		<vui-doc-markdown>
 			<h1>Transfer 穿梭框</h1>
 			<p>双栏穿梭选择框。</p>
@@ -240,7 +239,6 @@
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import ExampleCascadeTransferDemo from "./examples/demo";
 	import VuiDocMarkdown from "src/components/markdown";
 	import ExampleTransferBasicUsage from "./examples/basic-usage";
 	import ExampleTransferSearchable1 from "./examples/searchable";
@@ -256,7 +254,6 @@
 			MixinAnchors
 		],
 		components: {
-			ExampleCascadeTransferDemo,
 			VuiDocMarkdown,
 			ExampleTransferBasicUsage,
 			ExampleTransferSearchable1,

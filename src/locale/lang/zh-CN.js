@@ -42,6 +42,7 @@ export default {
         "data-entry-form": "Form 表单",
         "data-entry-input": "Input 输入框",
         "data-entry-input-number": "InputNumber 数字输入框",
+        "data-entry-multiple-cascader": "MultipleCascader 级联多选框",
         "data-entry-radio": "Radio 单选框",
         "data-entry-rate": "Rate 评分",
         "data-entry-select": "Select 选择器",
@@ -264,6 +265,8 @@ export default {
         "example-input-number-formatter": "格式化展示",
         "example-input-number-size": "尺寸",
         "example-input-number-disabled": "禁用",
+
+        "example-multiple-cascader-basic-usage": "基本用法",
 
         "example-radio-basic-usage": "基本用法",
         "example-radio-disabled": "禁用状态",

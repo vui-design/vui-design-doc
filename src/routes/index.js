@@ -264,6 +264,15 @@ export default [
 				},
 				component: () => import("src/views/input-number/index")
 			},
+			// {
+			// 	path: "/components/multiple-cascader",
+			// 	name: "multiple-cascader",
+			// 	meta: {
+			// 		title: "MultipleCascader",
+			// 		group: "data-entry"
+			// 	},
+			// 	component: () => import("src/views/multiple-cascader/index")
+			// },
 			{
 				path: "/components/radio",
 				name: "radio",
