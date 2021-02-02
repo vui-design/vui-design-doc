@@ -143,6 +143,24 @@
 						<td>--</td>
 					</tr>
 					<tr>
+						<td>headerStyle</td>
+						<td>用于设置对话框头部的样式</td>
+						<td>String | Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>bodyStyle</td>
+						<td>用于设置对话框内容部分的样式</td>
+						<td>String | Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>footerStyle</td>
+						<td>用于设置对话框底部的样式</td>
+						<td>String | Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
 						<td>backdrop</td>
 						<td>是否显示背景遮罩</td>
 						<td>Boolean</td>
@@ -331,6 +349,24 @@
 						<td>className</td>
 						<td>对话框样式类名</td>
 						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>headerStyle</td>
+						<td>用于设置对话框头部的样式</td>
+						<td>String | Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>bodyStyle</td>
+						<td>用于设置对话框内容部分的样式</td>
+						<td>String | Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>footerStyle</td>
+						<td>用于设置对话框底部的样式</td>
+						<td>String | Object</td>
 						<td>--</td>
 					</tr>
 					<tr>
