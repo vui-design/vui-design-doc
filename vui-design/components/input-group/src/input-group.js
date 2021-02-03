@@ -28,7 +28,7 @@ const VuiInputGroup = {
 
 		// render
 		return (
-			<div class={classes}>{slots.default}</div>
+			<div class={classes.el}>{slots.default}</div>
 		);
 	}
 };

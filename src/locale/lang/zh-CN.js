@@ -46,6 +46,7 @@ export default {
         "data-entry-radio": "Radio 单选框",
         "data-entry-rate": "Rate 评分",
         "data-entry-select": "Select 选择器",
+        "data-entry-slider": "Slider 滑动输入条",
         "data-entry-switch": "Switch 开关",
         "data-entry-textarea": "Textarea 文本域",
         "data-entry-timepicker": "Timepicker 时间选择器",

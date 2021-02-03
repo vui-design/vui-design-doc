@@ -301,6 +301,15 @@ export default [
 				component: () => import("src/views/select/index")
 			},
 			{
+				path: "/components/slider",
+				name: "slider",
+				meta: {
+					title: "Slider",
+					group: "data-entry"
+				},
+				component: () => import("src/views/slider/index")
+			},
+			{
 				path: "/components/switch",
 				name: "switch",
 				meta: {

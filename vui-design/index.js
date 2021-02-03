@@ -52,6 +52,7 @@ import Rate from "./components/rate";
 import Select from "./components/select";
 import Option from "./components/option";
 import OptionGroup from "./components/option-group";
+import Slider from "./components/slider";
 import Switch from "./components/switch";
 import Textarea from "./components/textarea";
 import Timeroutine from "./components/timeroutine";
@@ -162,6 +163,7 @@ const components = [
 	Select,
 	Option,
 	OptionGroup,
+	Slider,
 	Switch,
 	Textarea,
 	Timeroutine,
@@ -302,6 +304,7 @@ export default {
 	Select,
 	Option,
 	OptionGroup,
+	Slider,
 	Switch,
 	Textarea,
 	Timeroutine,
