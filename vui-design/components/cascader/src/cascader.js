@@ -68,21 +68,22 @@ const VuiCascader = {
 	data() {
 		const { $props: props } = this;
 		const optionKeys = utils.getOptionKeys(props.optionKeys);
+		const state = {
+			hovered: false,
+			focused: false,
+			actived: false,
+			searching: false,
+			keyword: "",
+			value: this.getDerivedStateValueFromProps({
+				value: props.value,
+				options: props.options,
+				optionKeys: optionKeys
+			}),
+			options: []
+		};
 
 		return {
-			state: {
-				hovered: false,
-				focused: false,
-				actived: false,
-				searching: false,
-				keyword: "",
-				value: this.getDerivedStateValueFromProps({
-					value: props.value,
-					options: props.options,
-					optionKeys: optionKeys
-				}),
-				options: []
-			}
+			state
 		};
 	},
 	watch: {
@@ -169,13 +170,6 @@ const VuiCascader = {
 		blur() {
 			this.$refs.selection && this.$refs.selection.blur();
 		},
-		handleDropdownBeforeOpen() {
-
-		},
-		handleDropdownAfterClose() {
-			this.state.searching = false;
-			this.state.options = [];
-		},
 		handleSelectionMouseenter(e) {
 			this.state.hovered = true;
 			this.$emit("mouseenter", e);
@@ -246,6 +240,13 @@ const VuiCascader = {
 				this.dispatch("vui-form-item", "change", value);
 			}
 		},
+		handleDropdownBeforeOpen() {
+
+		},
+		handleDropdownAfterClose() {
+			this.state.searching = false;
+			this.state.options = [];
+		},
 		handleMenuListSelect(options) {
 			const { $props: props } = this;
 			const optionKeys = utils.getOptionKeys(props.optionKeys);
@@ -281,7 +282,7 @@ const VuiCascader = {
 		}
 	},
 	render(h) {
-		const { $vui: vui, vuiForm, vuiInputGroup, $slots: slots, $props: props, state, t: translate } = this;
+		const { $vui: vui, vuiForm, vuiInputGroup, $props: props, state, t: translate } = this;
 		const { handleSelectionMouseenter, handleSelectionMouseleave, handleSelectionClick, handleSelectionFocus, handleSelectionBlur, handleSelectionKeydown, handleSelectionInput, handleSelectionClear } = this;
 		const { handleDropdownBeforeOpen, handleDropdownAfterClose } = this;
 		const { handleMenuListSelect, handleMenuSelect } = this;

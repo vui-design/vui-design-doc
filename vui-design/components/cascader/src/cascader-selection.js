@@ -136,7 +136,7 @@ export default {
 		const value = props.formatter(labels, clone(props.value));
 
 		// showBtnClear
-		const showBtnClear = props.clearable && !props.disabled && props.hovered && (props.keyword || props.value.length > 0);
+		const showBtnClear = props.clearable && props.hovered && !props.disabled && (props.keyword || props.value.length > 0);
 
 		// class
 		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "selection");
