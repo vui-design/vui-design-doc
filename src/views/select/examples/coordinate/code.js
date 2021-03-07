@@ -2,10 +2,22 @@ const code =
 `<template>
   <div class="example-select-coordinate">
     <vui-select v-model="province">
-      <vui-option v-for="province in provinces" :value="province">{{province}}</vui-option>
+      <vui-option
+        v-for="province in provinces"
+        v-bind:key="province"
+        v-bind:value="province"
+      >
+        {{province}}
+      </vui-option>
     </vui-select>
     <vui-select v-model="city">
-      <vui-option v-for="city in cities" :value="city">{{city}}</vui-option>
+      <vui-option
+        v-for="city in cities"
+        v-bind:key="city"
+        v-bind:value="city"
+      >
+        {{city}}
+      </vui-option>
     </vui-select>
   </div>
 </template>
@@ -14,7 +26,7 @@ const code =
   const provinces = ["Zhejiang", "Jiangsu"];
   const cities = {
     Zhejiang: ["Hangzhou", "Ningbo", "Wenzhou"],
-    Jiangsu: ["Nanjing", "Suzhou", "Zhenjiang"],
+    Jiangsu: ["Nanjing", "Suzhou", "Zhenjiang"]
   };
 
   export default {
@@ -39,7 +51,7 @@ const code =
 </script>
 
 <style>
-  .example-select-coordinate .vui-select { width:120px; margin-left:10px; }
+  .example-select-coordinate .vui-select { margin-left:16px; }
 </style>
 `;
 

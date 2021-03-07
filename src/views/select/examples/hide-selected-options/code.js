@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-select multiple v-model="value" @change="handleChange">
+  <vui-select v-model="value" multiple>
     <vui-option
       v-for="option in options"
       v-if="value.indexOf(option) === -1"
@@ -22,11 +22,6 @@ const code =
           "Ottawa", "Paris", "Canberra"
         ]
       };
-    },
-    methods: {
-      handleChange(value) {
-        console.log(value);
-      }
     }
   };
 </script>

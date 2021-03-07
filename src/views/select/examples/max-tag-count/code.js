@@ -2,10 +2,10 @@ const code =
 `<template>
   <div class="example-select-max-tag-count">
     <vui-select
-      multiple
       v-model="value1"
-      :maxTagCount="2"
-      @change="handleChange1"
+      v-bind:maxTagCount="2"
+      multiple
+      v-on:change="handleChange1"
     >
       <vui-option value="new york">New York</vui-option>
       <vui-option value="london">London</vui-option>
@@ -15,11 +15,11 @@ const code =
       <vui-option value="canberra">Canberra</vui-option>
     </vui-select>
     <vui-select
-      multiple
       v-model="value2"
-      :maxTagCount="2"
-      :maxTagPlaceholder="maxTagPlaceholder"
-      @change="handleChange2"
+      v-bind:maxTagCount="2"
+      v-bind:maxTagPlaceholder="maxTagPlaceholder"
+      multiple
+      v-on:change="handleChange2"
     >
       <vui-option value="new york">New York</vui-option>
       <vui-option value="london">London</vui-option>
@@ -54,7 +54,7 @@ const code =
 </script>
 
 <style>
-  .example-select-max-tag-count .vui-select + .vui-select { margin-top:15px; }
+  .example-select-max-tag-count .vui-select + .vui-select { margin-top:16px; }
 </style>
 `;
 

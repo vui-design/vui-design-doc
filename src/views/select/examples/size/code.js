@@ -8,7 +8,7 @@ const code =
         <vui-radio label="Large" value="large" />
       </vui-radio-group>
     </div>
-    <vui-select v-model="value1" :size="size" style="width: 200px;">
+    <vui-select v-model="value1" v-bind:size="size" style="width: 200px;">
       <vui-option value="new york">New York</vui-option>
       <vui-option value="london">London</vui-option>
       <vui-option value="sydney">Sydney</vui-option>
@@ -16,7 +16,7 @@ const code =
       <vui-option value="paris">Paris</vui-option>
       <vui-option value="canberra">Canberra</vui-option>
     </vui-select>
-    <vui-select v-model="value2" :size="size" multiple>
+    <vui-select v-model="value2" v-bind:size="size" multiple>
       <vui-option value="new york">New York</vui-option>
       <vui-option value="london">London</vui-option>
       <vui-option value="sydney">Sydney</vui-option>
@@ -40,7 +40,7 @@ const code =
 </script>
 
 <style>
-  .example-select-size .vui-select { display:block; margin-top:15px; }
+  .example-select-size .vui-select { display:block; margin-top:16px; }
 </style>
 `;
 

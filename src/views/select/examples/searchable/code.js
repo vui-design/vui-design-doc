@@ -9,7 +9,7 @@ const code =
       <vui-option value="paris">Paris</vui-option>
       <vui-option value="canberra">Canberra</vui-option>
     </vui-select>
-    <vui-select v-model="value2" searchable multiple>
+    <vui-select v-model="value2" multiple searchable>
       <vui-option value="new york">New York</vui-option>
       <vui-option value="london">London</vui-option>
       <vui-option value="sydney">Sydney</vui-option>
@@ -38,6 +38,10 @@ const code =
     }
   };
 </script>
+
+<style>
+  .example-select-searchable .vui-select + .vui-select { margin-top:16px; }
+</style>
 `;
 
 export default code;

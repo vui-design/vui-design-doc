@@ -1,14 +1,14 @@
 const code =
 `<template>
-  <vui-select backfillOptionProp="label" v-model="value" style="width: 200px;">
-    <vui-option label="New York" value="new york">
-      New York<span style="float: right; color: #bfbfbf;">America</span>
+  <vui-select v-model="value" backfillOptionProp="label" style="width: 200px;">
+    <vui-option value="new york" label="New York">
+      New York<span style="float: right; opacity: 0.5;">America</span>
     </vui-option>
-    <vui-option label="London" value="london">
-      London<span style="float: right; color: #bfbfbf;">U.K.</span>
+    <vui-option value="london" label="London">
+      London<span style="float: right; opacity: 0.5;">U.K.</span>
     </vui-option>
-    <vui-option label="Sydney" value="sydney">
-      Sydney<span style="float: right; color: #bfbfbf;">Australian</span>
+    <vui-option value="sydney" label="Sydney">
+      Sydney<span style="float: right; opacity: 0.5;">Australian</span>
     </vui-option>
   </vui-select>
 </template>

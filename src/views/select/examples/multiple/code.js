@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-select multiple v-model="value" @change="handleChange">
+  <vui-select v-model="value" multiple v-on:change="handleChange">
     <vui-option value="new york">New York</vui-option>
     <vui-option value="london">London</vui-option>
     <vui-option value="sydney">Sydney</vui-option>

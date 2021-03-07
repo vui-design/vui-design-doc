@@ -1,15 +1,21 @@
 const code =
 `<template>
   <vui-select
-    style="width: 200px;"
-    placeholder="请输入关键字..."
-    searchable
     v-model="value"
-    :filter="false"
-    :loading="loading"
-    @search="handleSearch"
+    v-bind:filter="false"
+    v-bind:loading="loading"
+    v-on:search="handleSearch"
+    searchable
+    style="width: 200px;"
+    placeholder="请输入关键字"
   >
-    <vui-option v-for="option in options" :key="option" :value="option">{{option}}</vui-option>
+    <vui-option
+      v-for="option in options"
+      v-bind:key="option"
+      v-bind:value="option"
+    >
+      {{option}}
+    </vui-option>
   </vui-select>
 </template>
 
