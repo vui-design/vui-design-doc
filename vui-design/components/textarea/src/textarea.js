@@ -60,6 +60,12 @@ const VuiTextarea = {
 			if (props.validator) {
 				this.dispatch("vui-form-item", "change", value);
 			}
+		},
+		rows() {
+			this.resizeTextarea();
+		},
+		autosize() {
+			this.resizeTextarea();
 		}
 	},
 	methods: {
@@ -74,13 +80,18 @@ const VuiTextarea = {
 				return;
 			}
 
-			this.$nextTick(() => {
+			const nextTick = () => {
 				const { $refs: references, $props: props } = this;
 				let styles = null;
 
 				if (!props.autosize) {
+					const minHeight = getTextareaSize(references.textarea, props.rows).minHeight;
+
 					styles = {
-						minHeight: getTextareaSize(references.textarea).minHeight
+						height: minHeight,
+						minHeight: minHeight,
+						maxHeight: minHeight,
+						overflowY: "unset"
 					};
 				}
 				else {
@@ -92,7 +103,9 @@ const VuiTextarea = {
 				css(references.textarea, merge(styles, {
 					resize: props.resize ? "vertical" : "none"
 				}));
-			});
+			}
+
+			this.$nextTick(nextTick);
 		},
 		handleMouseenter(e) {
 			const { $props: props } = this;
