@@ -153,8 +153,8 @@
           <tr>
             <td>dropdownClassName</td>
             <td>下拉弹窗的样式类名</td>
-            <td>Function</td>
-            <td><code>() => document.body</code></td>
+            <td>String</td>
+            <td>--</td>
           </tr>
           <tr>
             <td>dropdownAutoWidth</td>
@@ -221,7 +221,7 @@
             <td>change</td>
             <td>选中项发生变化时触发的事件回调函数</td>
             <td>Function</td>
-            <td><code>value</code></td>
+            <td><code>value, label[s]</code></td>
           </tr>
         </tbody>
       </table>

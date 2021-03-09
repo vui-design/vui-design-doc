@@ -14,7 +14,7 @@ const code =
   export default {
     data() {
       return {
-        value: undefined
+        value: "london"
       };
     },
     watch: {

@@ -4,7 +4,7 @@ import utils from "./src/utils";
 
 const valueProp = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const VuiSelectWrapper = {
-  name: "vui-select",
+  name: VuiSelect.name,
   components: {
     VuiSelect
   },

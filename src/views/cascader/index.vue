@@ -134,19 +134,25 @@
 					</tr>
 					<tr>
 						<td>placement</td>
-						<td>选项弹出位置，可选值为 <code>top</code>、<code>top-start</code>、<code>top-end</code>、<code>bottom</code>、<code>bottom-start</code>、<code>bottom-end</code> 或者不设</td>
+						<td>下拉弹窗的弹出位置，可选值为 <code>top</code>、<code>top-start</code>、<code>top-end</code>、<code>bottom</code>、<code>bottom-start</code>、<code>bottom-end</code> 或者不设</td>
 						<td>String</td>
 						<td><code>bottom-start</code></td>
 					</tr>
+                    <tr>
+						<td>dropdownClassName</td>
+						<td>下拉弹窗的样式类名</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
 					<tr>
 						<td>dropdownAutoWidth</td>
-						<td>选项列表的宽度是否自适应，设为 <code>false</code> 时将适配输入框宽度</td>
+						<td>下拉弹框宽度是否根据选项内容自动设置，默认将设置 <code>min-width</code>，保持最小宽度与选择框同宽</td>
 						<td>Boolean</td>
-						<td><code>false</code></td>
+						<td><code>true</code></td>
 					</tr>
 					<tr>
 						<td>getPopupContainer</td>
-						<td>指定选项弹框挂载的 HTML 节点</td>
+						<td>指定下拉弹框挂载的 HTML 节点</td>
 						<td>Function</td>
 						<td><code>() => document.body</code></td>
 					</tr>

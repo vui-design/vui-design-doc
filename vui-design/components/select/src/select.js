@@ -4,7 +4,6 @@ import VuiSelectSpin from "./select-spin";
 import VuiSelectEmpty from "./select-empty";
 import VuiSelectMenu from "./select-menu";
 import Emitter from "vui-design/mixins/emitter";
-import Locale from "vui-design/mixins/locale";
 import PropTypes from "vui-design/utils/prop-types";
 import is from "vui-design/utils/is";
 import getStyle from "vui-design/utils/getStyle";
@@ -35,8 +34,7 @@ const VuiSelect = {
     VuiSelectMenu
   },
   mixins: [
-    Emitter,
-    Locale
+    Emitter
   ],
   model: {
     prop: "value",
@@ -374,9 +372,10 @@ const VuiSelect = {
           }
 
           const value = this.state.value.map(item => item.value);
+          const label = this.state.value.map(item => item.label);
 
           this.$emit("input", value);
-          this.$emit("change", value);
+          this.$emit("change", value, label);
 
           if (props.validator) {
             this.dispatch("vui-form-item", "change", value);
@@ -419,9 +418,10 @@ const VuiSelect = {
           this.state.value = data;
 
           const value = data.value;
+          const label = data.label;
 
           this.$emit("input", value);
-          this.$emit("change", value);
+          this.$emit("change", value, label);
 
           if (props.validator) {
             this.dispatch("vui-form-item", "change", value);
@@ -454,9 +454,10 @@ const VuiSelect = {
         this.state.value.splice(index, 1);
 
         const value = this.state.value.map(item => item.value);
+        const label = this.state.value.map(item => item.label);
 
         this.$emit("input", value);
-        this.$emit("change", value);
+        this.$emit("change", value, label);
 
         if (props.validator) {
           this.dispatch("vui-form-item", "change", value);
@@ -483,13 +484,14 @@ const VuiSelect = {
       const { $props: props } = this;
       const keyword = "";
       const value = props.multiple ? [] : undefined;
+      const label = props.multiple ? [] : undefined;
 
       this.state.searching = false;
       this.state.keyword = keyword;
       this.state.value = value;
       this.state.options = [];
       this.$emit("input", value);
-      this.$emit("change", value);
+      this.$emit("change", value, label);
 
       if (props.validator) {
         this.dispatch("vui-form-item", "change", value);
@@ -522,7 +524,7 @@ const VuiSelect = {
     }
   },
   render() {
-    const { $vui: vui, vuiForm, vuiInputGroup, $props: props, state, t: translate } = this;
+    const { $vui: vui, vuiForm, vuiInputGroup, $props: props, state } = this;
     const { handleMouseenter, handleMouseleave, handleFocus, handleBlur, handleToggle, handleKeydown, handleInput, handleActive, handleSelect, handleDeselect, handleClear, handleResize } = this;
     const { handleBeforeOpen, handleAfterOpen, handleBeforeClose, handleAfterClose } = this;
 
@@ -570,11 +572,10 @@ const VuiSelect = {
 
     // dropdownVisible
     let dropdownVisible = state.actived;
-    // let notFound = options.length === 0;
 
-    // if (props.searchable && props.filter === false && !props.loading && state.keyword === "" && notFound) {
-    // 	show = false;
-    // }
+    if (props.searchable && props.filter === false && !props.loading && state.keyword === "" && options.length === 0) {
+      dropdownVisible = false;
+    }
 
     // class
     let classNamePrefix = getClassNamePrefix(props.classNamePrefix, "select");
