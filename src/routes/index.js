@@ -228,6 +228,7 @@ export default [
 				},
 				component: () => import("src/views/checkbox/index")
 			},
+			/*
 			{
 				path: "/components/datepicker",
 				name: "datepicker",
@@ -237,6 +238,7 @@ export default [
 				},
 				component: () => import("src/views/datepicker/index")
 			},
+			*/
 			{
 				path: "/components/form",
 				name: "form",
