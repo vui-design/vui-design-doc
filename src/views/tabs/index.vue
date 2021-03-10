@@ -36,10 +36,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="80">属性</th>
+						<th width="120">属性</th>
 						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="80">默认值</th>
+						<th width="200">类型</th>
+						<th width="100">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -62,6 +62,12 @@
 						<td>--</td>
 					</tr>
 					<tr>
+						<td>extra</td>
+						<td>页签右侧附加内容</td>
+						<td>String | Number | Slot</td>
+						<td>--</td>
+					</tr>
+					<tr>
 						<td>addable</td>
 						<td>是否可以添加页签</td>
 						<td>Boolean</td>
@@ -79,24 +85,23 @@
 						<td>Boolean</td>
 						<td><code>false</code></td>
 					</tr>
-				</tbody>
-			</table>
-			<h3>Tabs 插槽</h3>
-			<table class="example-api-props">
-				<thead>
 					<tr>
-						<th width="80">名称</th>
-						<th>说明</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>extra</td>
-						<td>页签右侧附加内容</td>
+						<td>animated</td>
+						<td>是否使用动画切换标签页</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
 					</tr>
 					<tr>
-						<td>default</td>
-						<td>页签面板列表</td>
+						<td>headerStyle</td>
+						<td>用于设置标签页头部的样式</td>
+						<td>String | Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>bodyStyle</td>
+						<td>用于设置标签页内容部分的样式</td>
+						<td>String | Object</td>
+						<td>--</td>
 					</tr>
 				</tbody>
 			</table>
@@ -104,10 +109,10 @@
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="80">事件名</th>
+						<th width="120">事件名</th>
 						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="80">回调参数</th>
+						<th width="200">类型</th>
+						<th width="100">回调参数</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -141,10 +146,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="80">属性</th>
+						<th width="120">属性</th>
 						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="80">默认值</th>
+						<th width="200">类型</th>
+						<th width="100">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -156,19 +161,19 @@
 					</tr>
 					<tr>
 						<td>icon</td>
-						<td>当前页签图标类型</td>
-						<td>String</td>
+						<td>当前页签图标类型/图标</td>
+						<td>String | Slot</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>title</td>
 						<td>当前页签标题</td>
-						<td>String | Number</td>
+						<td>String | Number | Slot</td>
 						<td>--</td>
 					</tr>
 					<tr>
 						<td>closable</td>
-						<td>是否允许关闭当前页签</td>
+						<td>是否允许关闭当前页签，默认继承 <code>Tabs</code> 的 <code>closable</code> 属性</td>
 						<td>Boolean</td>
 						<td>--</td>
 					</tr>
@@ -177,25 +182,6 @@
 						<td>是否禁用当前页签</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
-					</tr>
-				</tbody>
-			</table>
-			<h3>TabPanel 插槽</h3>
-			<table class="example-api-props">
-				<thead>
-					<tr>
-						<th width="80">名称</th>
-						<th>说明</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>title</td>
-						<td>当前页签标题</td>
-					</tr>
-					<tr>
-						<td>default</td>
-						<td>当前页签主体内容</td>
 					</tr>
 				</tbody>
 			</table>
