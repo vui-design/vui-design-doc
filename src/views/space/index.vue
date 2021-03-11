@@ -37,14 +37,26 @@
 				</thead>
 				<tbody>
 					<tr>
+						<td>block</td>
+						<td><code>Space</code> 组件是否以块级元素（宽度撑满父级元素）的方式渲染</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
 						<td>direction</td>
 						<td>项目排列方向，可选值为 <code>horizontal</code>、<code>vertical</code> 或者不设</td>
 						<td>String</td>
 						<td><code>horizontal</code></td>
 					</tr>
 					<tr>
+						<td>justify</td>
+						<td>项目在主轴上的对齐方式，可选值为 <code>start</code>、<code>center</code>、<code>end</code>、<code>around</code>、<code>between</code> 或者不设。该属性仅在 <code>direction</code> 为 <code>horizontal</code> 时有效</td>
+						<td>String</td>
+						<td><code>start</code></td>
+					</tr>
+					<tr>
 						<td>align</td>
-						<td>项目对齐方式，可选值为 <code>start</code>、<code>center</code>、<code>end</code> 或者不设。该属性仅在 <code>direction</code> 为 <code>horizontal</code> 时有效</td>
+						<td>项目在交叉轴上的对齐方式，可选值为 <code>start</code>、<code>center</code>、<code>end</code>、<code>baseline</code>、<code>stretch</code> 或者不设。该属性仅在 <code>direction</code> 为 <code>horizontal</code> 时有效</td>
 						<td>String</td>
 						<td><code>center</code></td>
 					</tr>
