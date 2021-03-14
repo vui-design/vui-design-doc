@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-space direction="vertical" style="width: 100%;">
+  <vui-space block direction="vertical">
     <vui-card style="width: 300px;" title="Card title">
       <p>Card content...</p>
       <p>Card content...</p>

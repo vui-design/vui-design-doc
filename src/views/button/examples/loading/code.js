@@ -2,8 +2,17 @@ const code =
 `<template>
   <div class="example-button-loading">
     <section>
-      <vui-button type="primary" icon="dustbin" :loading="loading2" @click="handleClick2">Click me</vui-button>
-      <vui-button type="primary" :loading="loading1" @click="handleClick1">Click me</vui-button>
+      <vui-button
+        type="primary"
+        icon="dustbin"
+        v-bind:loading="loading2"
+        v-on:click="handleClick2"
+      >Click me</vui-button>
+      <vui-button
+        type="primary"
+        v-bind:loading="loading1"
+        v-on:click="handleClick1"
+      >Click me</vui-button>
       <vui-button type="primary" loading>Loading...</vui-button>
     </section>
     <section>
@@ -33,8 +42,8 @@ const code =
 </script>
 
 <style>
-  .example-button-loading > section:not(:last-child) { margin-bottom:20px; }
-  .example-button-loading > section > .vui-button { margin-right:10px; }
+  .example-button-loading > section:not(:last-child) { margin-bottom:16px; }
+  .example-button-loading > section > .vui-button { margin-right:16px; }
 </style>
 `;
 

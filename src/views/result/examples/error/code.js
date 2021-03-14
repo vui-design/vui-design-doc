@@ -8,12 +8,12 @@ const code =
     <div class="example-result-error-content">
       <h4 class="example-result-error-content-title">The content you submitted has the following error:</h4>
       <div class="example-result-error-content-reason">
-        <vui-icon type="crossmark-circle" color="#ed5565" />
+        <vui-icon type="crossmark-circle" color="#ff4d4f" />
         <span>Your account has been frozen.</span>
         <a href="javascript:;">Thaw immediately ></a>
       </div>
       <div class="example-result-error-content-reason">
-        <vui-icon type="crossmark-circle" color="#ed5565" />
+        <vui-icon type="crossmark-circle" color="#ff4d4f" />
         <span>Your account is not yet eligible to apply.</span>
         <a href="javascript:;">Apply Unlock ></a>
       </div>

@@ -2,11 +2,11 @@ const code =
 `<template>
   <div class="example-descriptions-size">
     <vui-radio-group v-model="size">
-      <vui-radio label="Small" value="small" />
-      <vui-radio label="Medium" value="medium" />
-      <vui-radio label="Large" value="large" />
+      <vui-radio value="small" label="Small" />
+      <vui-radio value="medium" label="Medium" />
+      <vui-radio value="large" label="Large" />
     </vui-radio-group>
-    <vui-descriptions bordered title="Custom Size" v-bind:size="size">
+    <vui-descriptions bordered v-bind:size="size" title="Custom Size">
       <vui-description label="Product">Cloud Database</vui-description>
       <vui-description label="Billing">Prepaid</vui-description>
       <vui-description label="time">18:00:00</vui-description>
@@ -22,7 +22,7 @@ const code =
         <p>Region: East China 1</p>
       </vui-description>
     </vui-descriptions>
-    <vui-descriptions title="Custom Size" v-bind:size="size">
+    <vui-descriptions v-bind:size="size" title="Custom Size">
       <vui-description label="Product">Cloud Database</vui-description>
       <vui-description label="Billing">Prepaid</vui-description>
       <vui-description label="time">18:00:00</vui-description>
@@ -44,8 +44,7 @@ const code =
 </script>
 
 <style>
-  .example-descriptions-size {  }
-  .example-descriptions-size .vui-descriptions { margin-top:20px; }
+  .example-descriptions-size .vui-descriptions { margin-top:24px; }
 </style>
 `;
 

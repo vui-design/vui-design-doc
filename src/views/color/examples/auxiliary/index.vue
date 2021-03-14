@@ -11,7 +11,7 @@
 				<vui-doc-color value="#52c41a" light="#63ca31" dark="#4ab017" title="Success" />
 			</vui-col>
 			<vui-col v-bind:span="6">
-				<vui-doc-color value="#ed5565" light="#ef6674" dark="#d54d5b" title="Error" />
+				<vui-doc-color value="#ff4d4f" light="#ff5f61" dark="#e64547" title="Error" />
 			</vui-col>
 		</vui-row>
 	</div>

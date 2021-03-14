@@ -1,141 +1,141 @@
 <template>
-	<div>
-		<vui-doc-markdown>
-			<h1>Descriptions 描述列表</h1>
-			<p>成组展示多个只读字段。</p>
-			<h2>何时使用</h2>
-			<p>常见于详情页的信息展示。</p>
-			<h2>代码演示</h2>
-		</vui-doc-markdown>
-		<DescriptionsBasicUsage />
-		<DescriptionsBordered />
-		<DescriptionsVertical />
-		<DescriptionsVerticalBordered />
-		<DescriptionsSize />
-		<vui-doc-markdown>
-			<h2 id="example-api">API</h2>
-			<h3>Descriptions 属性</h3>
-			<table class="example-api-props">
-				<thead>
-					<tr>
-						<th width="100">属性</th>
-						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="100">默认值</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>layout</td>
-						<td>列表布局，可选值为 <code>horizontal</code>、<code>vertical</code> 或者不设</td>
-						<td>String</td>
-						<td><code>horizontal</code></td>
-					</tr>
-					<tr>
-						<td>bordered</td>
-						<td>是否展示边框</td>
-						<td>Boolean</td>
-						<td><code>false</code></td>
-					</tr>
-					<tr>
-						<td>fixed</td>
-						<td>描述列表内部 <code>table</code> 表格是否使用 <code>fixed</code> 布局算法，<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout" target="_blank">详见 table-layout</a></td>
-						<td>Boolean</td>
-						<td><code>false</code></td>
-					</tr>
-					<tr>
-						<td>size</td>
-						<td>描述列表的尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
-						<td>String</td>
-						<td><code>medium</code></td>
-					</tr>
-					<tr>
-						<td>columns</td>
-						<td>描述列表的列数，即一行中显示的 <code>Description</code> 数量</td>
-						<td>Number</td>
-						<td><code>3</code></td>
-					</tr>
-					<tr>
-						<td>colon</td>
-						<td>描述标签右侧是否显示冒号，在不含边框的描述列表中默认为 <code>true</code>，即显示冒号</td>
-						<td>Boolean</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>labelWidth</td>
-						<td>用于设置描述标签的宽度，设为 <code>String</code> 类型时支持百分比宽度；该属性仅在 <code>layout</code> 为 <code>horizontal</code> 且含有边框的描述列表中有效</td>
-						<td>String | Number</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>labelAlign</td>
-						<td>用于设置描述标签的文本对齐方式，可选值为 <code>left</code>、<code>center</code>、<code>right</code> 或者不设；该属性仅在 <code>layout</code> 为 <code>horizontal</code> 且含有边框的描述列表中有效</td>
-						<td>String</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>title</td>
-						<td>描述列表的标题，显示在最顶部</td>
-						<td>String | Slot</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>extra</td>
-						<td>描述列表的额外内容，显示在最顶部标题的右侧</td>
-						<td>String | Slot</td>
-						<td>--</td>
-					</tr>
-				</tbody>
-			</table>
-			<h3>Description 属性</h3>
-			<table class="example-api-props">
-				<thead>
-					<tr>
-						<th width="100">属性</th>
-						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="100">默认值</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>label</td>
-						<td>描述标签的文本</td>
-						<td>String</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>span</td>
-						<td>所占的列数</td>
-						<td>Number</td>
-						<td><code>1</code></td>
-					</tr>
-				</tbody>
-			</table>
-		</vui-doc-markdown>
-	</div>
+  <div>
+    <vui-doc-markdown>
+      <h1>Descriptions 描述列表</h1>
+      <p>成组展示多个只读字段。</p>
+      <h2>何时使用</h2>
+      <p>常见于详情页的信息展示。</p>
+      <h2>代码演示</h2>
+    </vui-doc-markdown>
+    <DescriptionsBasicUsage />
+    <DescriptionsBordered />
+    <DescriptionsVertical />
+    <DescriptionsVerticalBordered />
+    <DescriptionsSize />
+    <vui-doc-markdown>
+      <h2 id="example-api">API</h2>
+      <h3>Descriptions 属性</h3>
+      <table class="example-api-props">
+        <thead>
+          <tr>
+            <th width="120">属性</th>
+            <th>说明</th>
+            <th width="160">类型</th>
+            <th width="120">默认值</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>layout</td>
+            <td>列表布局，可选值为 <code>horizontal</code>、<code>vertical</code> 或者不设</td>
+            <td>String</td>
+            <td><code>horizontal</code></td>
+          </tr>
+          <tr>
+            <td>bordered</td>
+            <td>是否展示边框</td>
+            <td>Boolean</td>
+            <td><code>false</code></td>
+          </tr>
+          <tr>
+            <td>size</td>
+            <td>描述列表的尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
+            <td>String</td>
+            <td><code>medium</code></td>
+          </tr>
+          <tr>
+            <td>columns</td>
+            <td>描述列表的列数，即一行中显示的 <code>Description</code> 数量</td>
+            <td>Number</td>
+            <td><code>3</code></td>
+          </tr>
+          <tr>
+            <td>colon</td>
+            <td>描述标签右侧是否显示冒号，在不含边框的描述列表中默认为 <code>true</code>，即显示冒号</td>
+            <td>Boolean</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>labelWidth</td>
+            <td>用于设置描述标签的宽度，设为 <code>String</code> 类型时支持百分比宽度；该属性仅在 <code>layout</code> 为 <code>horizontal</code> 且含有边框的描述列表中有效</td>
+            <td>String | Number</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>labelAlign</td>
+            <td>用于设置描述标签的文本对齐方式，可选值为 <code>left</code>、<code>center</code>、<code>right</code> 或者不设；该属性仅在 <code>layout</code> 为 <code>horizontal</code> 且含有边框的描述列表中有效</td>
+            <td>String</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>title</td>
+            <td>描述列表的标题，显示在最顶部</td>
+            <td>String | Slot</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>extra</td>
+            <td>描述列表的额外内容，显示在最顶部标题的右侧</td>
+            <td>String | Slot</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>equivalent</td>
+            <td>描述列表中，各列是否等宽分布。该属性仅在 <code>bordered</code> 为 <code>true</code> 时有效，在非边框的描述列表中始终为 <code>true</code></code></td>
+            <td>Boolean</td>
+            <td><code>false</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Description 属性</h3>
+      <table class="example-api-props">
+        <thead>
+          <tr>
+            <th width="120">属性</th>
+            <th>说明</th>
+            <th width="160">类型</th>
+            <th width="120">默认值</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>label</td>
+            <td>描述标签的文本</td>
+            <td>String</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>span</td>
+            <td>所占的列数</td>
+            <td>Number</td>
+            <td><code>1</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </vui-doc-markdown>
+  </div>
 </template>
 
 <script>
-	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
-	import DescriptionsBasicUsage from "./examples/basic-usage";
-	import DescriptionsBordered from "./examples/bordered";
-	import DescriptionsVertical from "./examples/vertical";
-	import DescriptionsVerticalBordered from "./examples/vertical-bordered";
-	import DescriptionsSize from "./examples/size";
+  import MixinAnchors from "src/mixins/anchors";
+  import VuiDocMarkdown from "src/components/markdown";
+  import DescriptionsBasicUsage from "./examples/basic-usage";
+  import DescriptionsBordered from "./examples/bordered";
+  import DescriptionsVertical from "./examples/vertical";
+  import DescriptionsVerticalBordered from "./examples/vertical-bordered";
+  import DescriptionsSize from "./examples/size";
 
-	export default {
-		mixins: [
-			MixinAnchors
-		],
-		components: {
-			VuiDocMarkdown,
-			DescriptionsBasicUsage,
-			DescriptionsBordered,
-			DescriptionsVertical,
-			DescriptionsVerticalBordered,
-			DescriptionsSize
-		}
-	};
+  export default {
+    mixins: [
+      MixinAnchors
+    ],
+    components: {
+      VuiDocMarkdown,
+      DescriptionsBasicUsage,
+      DescriptionsBordered,
+      DescriptionsVertical,
+      DescriptionsVerticalBordered,
+      DescriptionsSize
+    }
+  };
 </script>

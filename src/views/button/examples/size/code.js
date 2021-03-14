@@ -9,18 +9,18 @@ const code =
       </vui-radio-group>
     </section>
     <section>
-      <vui-button type="primary" :size="size">Primary</vui-button>
-      <vui-button :size="size">Default</vui-button>
-      <vui-button type="dashed" :size="size">Dashed</vui-button>
-      <vui-button type="text" :size="size">Text</vui-button>
+      <vui-button type="primary" v-bind:size="size">Primary</vui-button>
+      <vui-button v-bind:size="size">Default</vui-button>
+      <vui-button type="dashed" v-bind:size="size">Dashed</vui-button>
+      <vui-button type="text" v-bind:size="size">Text</vui-button>
     </section>
     <section>
-      <vui-button type="primary" icon="download-package" :size="size">Download</vui-button>
-      <vui-button type="primary" icon="download-package" shape="round" :size="size">Download</vui-button>
-      <vui-button type="primary" icon="download-package" shape="circle" :size="size" />
+      <vui-button type="primary" icon="download-package" v-bind:size="size">Download</vui-button>
+      <vui-button type="primary" icon="download-package" shape="round" v-bind:size="size">Download</vui-button>
+      <vui-button type="primary" icon="download-package" shape="circle" v-bind:size="size" />
     </section>
     <section>
-      <vui-button-group type="primary" :size="size">
+      <vui-button-group type="primary" v-bind:size="size">
         <vui-button>
           <vui-icon type="chevron-left" />Backward
         </vui-button>
@@ -43,8 +43,8 @@ const code =
 </script>
 
 <style>
-  .example-button-size > section:not(:last-child) { margin-bottom:20px; }
-  .example-button-size > section > .vui-button { margin-right:10px; }
+  .example-button-size > section:not(:last-child) { margin-bottom:16px; }
+  .example-button-size > section > .vui-button { margin-right:16px; }
 </style>
 `;
 

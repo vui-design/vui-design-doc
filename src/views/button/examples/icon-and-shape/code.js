@@ -33,8 +33,8 @@ const code =
 </script>
 
 <style>
-  .example-button-icon-and-shape > section:not(:last-child) { margin-bottom:20px; }
-  .example-button-icon-and-shape > section > .vui-button { margin-right:10px; }
+  .example-button-icon-and-shape > section:not(:last-child) { margin-bottom:16px; }
+  .example-button-icon-and-shape > section > .vui-button { margin-right:16px; }
 </style>
 `;
 

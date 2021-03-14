@@ -25,9 +25,8 @@ const code =
 </script>
 
 <style>
-  .example-button-link > section:not(:last-child) { margin-bottom:20px; }
-  .example-button-link > section > h4 { margin-bottom:10px; }
-  .example-button-link > section > .vui-button { margin-right:10px; }
+  .example-button-link > section > h4 { margin-bottom:16px; }
+  .example-button-link > section > .vui-button { margin:0 16px 16px 0; }
 </style>
 `;
 

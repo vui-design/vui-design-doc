@@ -27,8 +27,8 @@ const code =
 </script>
 
 <style>
-  .example-button-disabled > section:not(:last-child) { margin-bottom:20px; }
-  .example-button-disabled > section > .vui-button { margin-right:10px; }
+  .example-button-disabled > section:not(:last-child) { margin-bottom:16px; }
+  .example-button-disabled > section > .vui-button { margin-right:16px; }
 </style>
 `;
 
