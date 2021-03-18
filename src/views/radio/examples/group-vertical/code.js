@@ -1,10 +1,10 @@
 const code =
 `<template>
-  <vui-radio-group vertical v-model="value">
-    <vui-radio :value="1">A</vui-radio>
-    <vui-radio :value="2">B</vui-radio>
-    <vui-radio :value="3">C</vui-radio>
-    <vui-radio :value="4">D</vui-radio>
+  <vui-radio-group layout="vertical" v-model="value">
+    <vui-radio v-bind:value="1">A</vui-radio>
+    <vui-radio v-bind:value="2">B</vui-radio>
+    <vui-radio v-bind:value="3">C</vui-radio>
+    <vui-radio v-bind:value="4">D</vui-radio>
   </vui-radio-group>
 </template>
 

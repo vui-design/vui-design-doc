@@ -1,18 +1,14 @@
 const code =
 `<template>
-  <div>
-    <vui-checkbox checked :disabled="disabled">Checkbox</vui-checkbox>
-    <vui-checkbox :disabled="disabled" style="margin-left: 10px;">Checkbox</vui-checkbox>
-  </div>
+  <vui-space>
+    <vui-checkbox checked disabled>Checkbox</vui-checkbox>
+    <vui-checkbox disabled>Checkbox</vui-checkbox>
+  </vui-space>
 </template>
 
 <script>
   export default {
-    data() {
-      return {
-        disabled: true
-      };
-    }
+
   };
 </script>
 `;

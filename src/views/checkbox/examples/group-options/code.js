@@ -1,15 +1,15 @@
 const code =
 `<template>
   <div class="example-checkbox-group-options">
-    <div style="font-size: 0;">
-      <vui-checkbox-group :options="options1" v-model="value1" />
-    </div>
-    <div style="margin-top: 15px; font-size: 0;">
-      <vui-checkbox-group :options="options2" v-model="value2" />
-    </div>
-    <div style="margin-top: 15px; font-size: 0;">
-      <vui-checkbox-group disabled :options="options3" v-model="value3" />
-    </div>
+    <section>
+      <vui-checkbox-group v-model="value1" v-bind:options="options1" />
+    </section>
+    <section>
+      <vui-checkbox-group v-model="value2" v-bind:options="options2" />
+    </section>
+    <section>
+      <vui-checkbox-group v-model="value3" v-bind:options="options3" disabled />
+    </section>
   </div>
 </template>
 
@@ -17,22 +17,22 @@ const code =
   export default {
     data() {
       return {
-        options1: ["A", "B", "C", "D"],
         value1: ["A"],
+        options1: ["A", "B", "C", "D"],
+        value2: ["A"],
         options2: [
           { label: "A", value: "A" },
           { label: "B", value: "B", disabled: true },
           { label: "C", value: "C" },
           { label: "D", value: "D" }
         ],
-        value2: ["A"],
+        value3: ["A"],
         options3: [
           { label: "A", value: "A" },
           { label: "B", value: "B" },
           { label: "C", value: "C" },
           { label: "D", value: "D" }
-        ],
-        value3: ["A"]
+        ]
       };
     },
     watch: {
@@ -48,6 +48,10 @@ const code =
     }
   };
 </script>
+
+<style>
+  .example-checkbox-group-options section + section { margin-top:16px; }
+</style>
 `;
 
 export default code;

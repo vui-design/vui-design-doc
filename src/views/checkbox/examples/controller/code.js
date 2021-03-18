@@ -1,18 +1,17 @@
 const code =
 `<template>
-  <div>
-    <vui-checkbox v-model="checked" :disabled="disabled">
+  <div class="example-checkbox-controller">
+    <vui-checkbox v-model="checked" v-bind:disabled="disabled">
       {{checked ? "Checked" : "Unchecked"}} - {{disabled ? "Disabled" : "Enabled"}}
     </vui-checkbox>
-    <br>
-    <div style="margin-top: 10px;">
+    <section>
       <vui-button type="primary" size="small" @click="checked = !checked">
         {{checked ? "Unchecked" : "Checked"}}
       </vui-button>
       <vui-button type="primary" size="small" @click="disabled = !disabled" style="margin-left: 10px;">
         {{disabled ? "Enabled" : "Disabled"}}
       </vui-button>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -26,6 +25,10 @@ const code =
     }
   };
 </script>
+
+<style>
+  .example-checkbox-controller section { margin-top:16px; font-size:0; }
+</style>
 `;
 
 export default code;

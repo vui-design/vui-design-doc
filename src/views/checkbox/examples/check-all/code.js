@@ -1,17 +1,21 @@
 const code =
 `<template>
   <div class="example-checkbox-check-all">
-    <vui-checkbox :indeterminate="indeterminate" :checked="checkAll" @change="handleChange">Check All</vui-checkbox>
-    <div style="margin-top: 15px; font-size: 0;">
-      <vui-checkbox-group :options="options" v-model="checkedList" @change="handleGroupChange" />
-    </div>
+    <vui-checkbox
+      v-bind:indeterminate="indeterminate"
+      v-bind:checked="checkedAll"
+      v-on:change="handleChange"
+    >Check All</vui-checkbox>
+    <section>
+      <vui-checkbox-group v-model="checkedList" v-bind:options="options" v-on:change="handleGroupChange" />
+    </section>
   </div>
 </template>
 
 <script>
-  let options = ["A", "B", "C", "D"];
-  let checkedList = ["A"];
-  let indeterminate = checkedList.length < options.length;
+  const options = ["A", "B", "C", "D"];
+  const checkedList = ["A"];
+  const indeterminate = checkedList.length < options.length;
 
   export default {
     data() {
@@ -19,22 +23,26 @@ const code =
         options,
         checkedList,
         indeterminate,
-        checkAll: false
+        checkedAll: false
       };
     },
     methods: {
       handleChange(checked) {
         this.checkedList = checked ? options : [];
         this.indeterminate = false;
-        this.checkAll = checked;
+        this.checkedAll = checked;
       },
       handleGroupChange(checkedList) {
         this.indeterminate = !!checkedList.length && (checkedList.length < options.length);
-        this.checkAll = checkedList.length === options.length;
+        this.checkedAll = checkedList.length === options.length;
       }
     }
   };
 </script>
+
+<style>
+  .example-checkbox-check-all section { margin-top:16px; }
+</style>
 `;
 
 export default code;

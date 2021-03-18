@@ -1,10 +1,10 @@
 const code =
 `<template>
   <vui-checkbox-group v-model="value">
-    <vui-checkbox :value="1">A</vui-checkbox>
-    <vui-checkbox :value="2">B</vui-checkbox>
-    <vui-checkbox :value="3">C</vui-checkbox>
-    <vui-checkbox :value="4">D</vui-checkbox>
+    <vui-checkbox v-bind:value="1">A</vui-checkbox>
+    <vui-checkbox v-bind:value="2">B</vui-checkbox>
+    <vui-checkbox v-bind:value="3">C</vui-checkbox>
+    <vui-checkbox v-bind:value="4">D</vui-checkbox>
   </vui-checkbox-group>
 </template>
 
