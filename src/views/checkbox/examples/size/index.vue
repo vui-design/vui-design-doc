@@ -64,7 +64,6 @@
   import code from "./code";
 
   export default {
-    name: "ExampleCheckboxSize",
     components: {
       VuiDocExample
     },

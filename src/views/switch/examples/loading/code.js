@@ -13,7 +13,7 @@ const code =
 </script>
 
 <style>
-  .example-switch-loading .vui-switch { margin-right:10px; }
+  .example-switch-loading .vui-switch + .vui-switch { margin-left:16px; }
 </style>
 `;
 

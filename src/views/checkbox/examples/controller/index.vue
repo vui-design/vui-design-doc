@@ -27,7 +27,6 @@
   import code from "./code";
 
   export default {
-    name: "ExampleCheckboxController",
     components: {
       VuiDocExample
     },

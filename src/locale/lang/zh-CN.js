@@ -238,6 +238,7 @@ export default {
     "example-checkbox-basic-usage": "基本用法",
     "example-checkbox-disabled": "禁用状态",
     "example-checkbox-controller": "与其它组件通信",
+    "example-checkbox-state-value": "自定义状态值",
     "example-checkbox-group": "单选组合",
     "example-checkbox-group-vertical": "垂直排列",
     "example-checkbox-group-options": "配置方式",
@@ -274,6 +275,7 @@ export default {
 
     "example-radio-basic-usage": "基本用法",
     "example-radio-disabled": "禁用状态",
+    "example-radio-state-value": "自定义状态值",
     "example-radio-group": "单选组合",
     "example-radio-group-vertical": "垂直排列",
     "example-radio-group-options": "配置方式",
@@ -307,6 +309,9 @@ export default {
     "example-switch-text": "文字图标",
     "example-switch-disabled": "禁用状态",
     "example-switch-loading": "加载状态",
+    "example-switch-state-value": "自定义状态值",
+    "example-switch-color": "自定义颜色",
+    "example-switch-before-change": "阻止切换",
 
     "example-textarea-basic-usage": "基本用法",
     "example-textarea-autosize": "适应内容高度的文本域/后置标签",

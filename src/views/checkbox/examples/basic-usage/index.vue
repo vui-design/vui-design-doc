@@ -15,7 +15,6 @@
   import code from "./code";
 
   export default {
-    name: "ExampleCheckboxBasicUsage",
     components: {
       VuiDocExample
     },

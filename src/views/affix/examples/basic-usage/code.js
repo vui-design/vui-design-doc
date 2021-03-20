@@ -1,16 +1,16 @@
 const code =
 `<template>
   <div class="example-affix-basic-usage">
-    <div class="example-affix-basic-usage-section">
+    <section>
       <vui-affix v-bind:offsetTop="top">
         <vui-button type="primary" v-on:click="addTop">Affix top</vui-button>
       </vui-affix>
-    </div>
-    <div class="example-affix-basic-usage-section">
+    </section>
+    <section>
       <vui-affix v-bind:offsetBottom="bottom">
         <vui-button type="primary" v-on:click="addBottom">Affix bottom</vui-button>
       </vui-affix>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -34,8 +34,7 @@ const code =
 </script>
 
 <style>
-  .example-affix-basic-usage {  }
-  .example-affix-basic-usage-section + .example-affix-basic-usage-section { margin-top:10px; }
+  .example-affix-basic-usage section + section { margin-top:16px; }
 </style>
 `;
 

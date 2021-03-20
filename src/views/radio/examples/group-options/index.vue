@@ -25,7 +25,6 @@
   import code from "./code";
 
   export default {
-    name: "ExampleRadioGroupOptions",
     components: {
       VuiDocExample
     },

@@ -1,22 +1,21 @@
 const code =
 `<template>
-  <vui-switch v-model="value" />
+  <div class="example-switch-size">
+    <vui-switch size="small" />
+    <vui-switch />
+    <vui-switch size="large" />
+  </div>
 </template>
 
 <script>
   export default {
-    data() {
-      return {
-        value: false
-      };
-    },
-    watch: {
-      value(value) {
-        console.log(value);
-      }
-    }
+
   };
 </script>
+
+<style>
+  .example-switch-size .vui-switch + .vui-switch { margin-left:16px; }
+</style>
 `;
 
 export default code;

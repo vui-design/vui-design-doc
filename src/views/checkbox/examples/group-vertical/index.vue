@@ -20,7 +20,6 @@
   import code from "./code";
 
   export default {
-    name: "ExampleCheckboxGroupVertical",
     components: {
       VuiDocExample
     },

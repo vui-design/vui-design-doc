@@ -1,13 +1,10 @@
 const code =
 `<template>
-  <div>
-    <vui-switch v-model="value" :disabled="disabled" />
-    <br>
-    <div style="margin-top: 10px;">
-      <vui-button type="primary" size="small" @click="disabled = !disabled">
-        {{disabled ? "Enabled" : "Disabled"}}
-      </vui-button>
-    </div>
+  <div class="example-switch-disabled">
+    <vui-switch v-model="value" v-bind:disabled="disabled" />
+    <vui-button type="primary" size="small" v-on:click="disabled = !disabled">
+      {{disabled ? "Enabled" : "Disabled"}}
+    </vui-button>
   </div>
 </template>
 
@@ -26,6 +23,10 @@ const code =
     }
   };
 </script>
+
+<style>
+  .example-switch-disabled .vui-button { margin-left:16px; }
+</style>
 `;
 
 export default code;

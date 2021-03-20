@@ -18,7 +18,6 @@
   import code from "./code";
 
   export default {
-    name: "ExampleRadioDisabled",
     components: {
       VuiDocExample
     },

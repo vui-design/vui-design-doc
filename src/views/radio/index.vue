@@ -14,6 +14,7 @@
       <vui-col v-bind:span="12">
         <ExampleRadioBasicUsage />
         <ExampleRadioDisabled />
+        <ExampleRadioStateValue />
         <ExampleRadioGroup />
         <ExampleRadioGroupVertical />
       </vui-col>
@@ -32,7 +33,7 @@
             <th width="140">属性</th>
             <th>说明</th>
             <th width="220">类型</th>
-            <th width="200">默认值</th>
+            <th width="248">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -79,14 +80,14 @@
             <td><code>false</code></td>
           </tr>
           <tr>
-            <td>trueValue</td>
-            <td>该属性仅在单独使用时有效，用于设置选中时的值，当使用类似 <code>0</code> 和 <code>1</code> 来判断是否选中时会很有用</td>
+            <td>checkedValue</td>
+            <td>该属性仅在单独使用时有效，用于设置选中时的值，例如使用 <code>0</code> 和 <code>1</code> 来标记单选框的选中状态</td>
             <td>Boolean | String | Number</td>
             <td><code>true</code></td>
           </tr>
           <tr>
-            <td>falseValue</td>
-            <td>该属性仅在单独使用时有效，用于设置未选中时的值，当使用类似 <code>0</code> 和 <code>1</code> 来判断是否选中时会很有用</td>
+            <td>uncheckedValue</td>
+            <td>该属性仅在单独使用时有效，用于设置未选中时的值，例如使用 <code>0</code> 和 <code>1</code> 来标记单选框的选中状态</td>
             <td>Boolean | String | Number</td>
             <td><code>false</code></td>
           </tr>
@@ -99,7 +100,7 @@
             <th width="140">事件名</th>
             <th>说明</th>
             <th width="220">类型</th>
-            <th width="200">回调参数</th>
+            <th width="248">回调参数</th>
           </tr>
         </thead>
         <tbody>
@@ -107,13 +108,13 @@
             <td>input</td>
             <td>在单选框的选中状态发生变化时触发的事件回调函数，可以使用 <code>v-model</code> 双向绑定数据</td>
             <td>Function</td>
-            <td><code>trueValue</code> | <code>falseValue</code></td>
+            <td><code>checkedValue</code> | <code>uncheckedValue</code></td>
           </tr>
           <tr>
             <td>change</td>
             <td>在单选框的选中状态发生变化时触发的事件回调函数</td>
             <td>Function</td>
-            <td><code>trueValue</code> | <code>falseValue</code></td>
+            <td><code>checkedValue</code> | <code>uncheckedValue</code></td>
           </tr>
         </tbody>
       </table>
@@ -124,7 +125,7 @@
             <th width="140">属性</th>
             <th>说明</th>
             <th width="220">类型</th>
-            <th width="200">默认值</th>
+            <th width="248">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -179,7 +180,7 @@
             <th width="140">事件名</th>
             <th>说明</th>
             <th width="220">类型</th>
-            <th width="200">回调参数</th>
+            <th width="248">回调参数</th>
           </tr>
         </thead>
         <tbody>
@@ -206,6 +207,7 @@
   import VuiDocMarkdown from "src/components/markdown";
   import ExampleRadioBasicUsage from "./examples/basic-usage";
   import ExampleRadioDisabled from "./examples/disabled";
+  import ExampleRadioStateValue from "./examples/state-value";
   import ExampleRadioGroup from "./examples/group";
   import ExampleRadioGroupVertical from "./examples/group-vertical";
   import ExampleRadioGroupOptions from "./examples/group-options";
@@ -221,6 +223,7 @@
       VuiDocMarkdown,
       ExampleRadioBasicUsage,
       ExampleRadioDisabled,
+      ExampleRadioStateValue,
       ExampleRadioGroup,
       ExampleRadioGroupVertical,
       ExampleRadioGroupOptions,

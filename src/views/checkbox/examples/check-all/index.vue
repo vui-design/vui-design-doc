@@ -28,7 +28,6 @@
   const indeterminate = checkedList.length < options.length;
 
   export default {
-    name: "ExampleCheckboxCheckAll",
     components: {
       VuiDocExample
     },

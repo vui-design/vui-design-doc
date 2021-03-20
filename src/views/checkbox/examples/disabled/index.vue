@@ -18,7 +18,6 @@
   import code from "./code";
 
   export default {
-    name: "ExampleCheckboxDisabled",
     components: {
       VuiDocExample
     },

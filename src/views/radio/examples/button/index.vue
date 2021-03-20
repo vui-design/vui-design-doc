@@ -40,7 +40,6 @@
   import code from "./code";
 
   export default {
-    name: "ExampleRadioButton",
     components: {
       VuiDocExample
     },
