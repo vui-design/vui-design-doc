@@ -5,10 +5,10 @@ const code =
     title="This is result title"
     description="Here is a brief description of the result of the operation."
   >
-    <template slot="extra">
+    <vui-space slot="extra">
       <vui-button type="primary">Back Home</vui-button>
       <vui-button>Continue</vui-button>
-    </template>
+    </vui-space>
   </vui-result>
 </template>
 

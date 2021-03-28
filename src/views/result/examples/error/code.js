@@ -18,10 +18,10 @@ const code =
         <a href="javascript:;">Apply Unlock ></a>
       </div>
     </div>
-    <template slot="extra">
+    <vui-space slot="extra">
       <vui-button type="primary">Back Home</vui-button>
       <vui-button>Try Again</vui-button>
-    </template>
+    </vui-space>
   </vui-result>
 </template>
 
