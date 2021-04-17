@@ -1,15 +1,17 @@
 const code =
 `<template>
   <div class="example-modal-headless-and-footless">
-    <vui-button type="primary" @click="showModal1">No Header</vui-button>
+    <vui-space>
+      <vui-button type="primary" v-on:click="showModal1">No Header</vui-button>
+      <vui-button type="primary" v-on:click="showModal2">No Footer</vui-button>
+    </vui-space>
     <vui-modal v-model="visible1">
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
     </vui-modal>
-    <vui-button type="primary" @click="showModal2">No Footer</vui-button>
-    <vui-modal title="Modal Title" :showFooter="false" v-model="visible2">
+    <vui-modal v-model="visible2" v-bind:showFooter="false" title="Modal Title">
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
@@ -36,10 +38,6 @@ const code =
     }
   };
 </script>
-
-<style>
-  .example-modal-headless-and-footless > .vui-button { margin-right:10px; }
-</style>
 `;
 
 export default code;

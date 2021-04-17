@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-button type="primary" @click="showSuccessNotice">Close automatically after 5s</vui-button>
+  <vui-button type="primary" v-on:click="showSuccessNotice">Close automatically after 5s</vui-button>
 </template>
 
 <script>

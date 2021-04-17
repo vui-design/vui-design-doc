@@ -1,16 +1,16 @@
 const code =
 `<template>
   <div class="example-modal-customized-footer">
-    <vui-button type="primary" @click="showModal">Open modal with customized footer</vui-button>
+    <vui-button type="primary" v-on:click="showModal">Open modal with customized footer</vui-button>
     <vui-modal v-model="visible" title="Modal Title">
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
-      <template slot="footer">
-        <vui-button @click="handleReturn">Return</vui-button>
-        <vui-button type="primary" :loading="loading" @click="handleSubmit">Submit</vui-button>
-      </template>
+      <vui-space slot="footer">
+        <vui-button v-on:click="handleReturn">Return</vui-button>
+        <vui-button type="primary" v-bind:loading="loading" v-on:click="handleSubmit">Submit</vui-button>
+      </vui-space>
     </vui-modal>
   </div>
 </template>

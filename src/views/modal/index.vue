@@ -388,49 +388,49 @@
 						<td>() => document.body</td>
 					</tr>
 					<tr>
-						<td>onCancel</td>
+						<td>cancel</td>
 						<td>点击取消按钮的事件回调函数，<code>cancelAsync</code> 启用模式下回调参数为 <code>done</code> 函数，该选项仅在 <code>confirm</code> 对话框中有效</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>onOk</td>
+						<td>ok</td>
 						<td>点击确定按钮的事件回调函数，<code>okAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>onBeforeOpen</td>
+						<td>beforeOpen</td>
 						<td>对话框打开前触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>onOpen</td>
+						<td>open</td>
 						<td>对话框打开时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>onAfterOpen</td>
+						<td>afterOpen</td>
 						<td>对话框完全打开时（打开动画完成后）触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>onBeforeClose</td>
+						<td>beforeClose</td>
 						<td>对话框关闭前触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>onClose</td>
+						<td>close</td>
 						<td>对话框关闭时触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>onAfterClose</td>
+						<td>afterClose</td>
 						<td>对话框完全关闭时（关闭动画完成后）触发的事件回调函数</td>
 						<td>Function</td>
 						<td>--</td>

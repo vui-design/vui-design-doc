@@ -36,7 +36,7 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="120">属性</th>
+						<th width="140">属性</th>
 						<th>说明</th>
 						<th width="200">类型</th>
 						<th width="100">默认值</th>
@@ -86,8 +86,8 @@
 						<td><code>false</code></td>
 					</tr>
 					<tr>
-						<td>animated</td>
-						<td>是否使用动画切换标签页</td>
+						<td>destroyOnHide</td>
+						<td>隐藏时销毁 TabPanel 的子元素</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
 					</tr>
@@ -109,7 +109,7 @@
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="120">事件名</th>
+						<th width="140">事件名</th>
 						<th>说明</th>
 						<th width="200">类型</th>
 						<th width="100">回调参数</th>
@@ -146,7 +146,7 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="120">属性</th>
+						<th width="140">属性</th>
 						<th>说明</th>
 						<th width="200">类型</th>
 						<th width="100">默认值</th>

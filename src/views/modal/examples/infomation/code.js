@@ -1,11 +1,11 @@
 const code =
 `<template>
-  <div class="example-modal-information">
-    <vui-button type="primary" @click="showInfoNotice">消息</vui-button>
-    <vui-button type="warning" @click="showWarningNotice">警告</vui-button>
-    <vui-button type="success" @click="showSuccessNotice">成功</vui-button>
-    <vui-button type="error" @click="showErrorNotice">失败</vui-button>
-  </div>
+      <vui-space>
+        <vui-button type="primary" v-on:click="showInfoNotice">消息</vui-button>
+        <vui-button type="warning" v-on:click="showWarningNotice">警告</vui-button>
+        <vui-button type="success" v-on:click="showSuccessNotice">成功</vui-button>
+        <vui-button type="error" v-on:click="showErrorNotice">失败</vui-button>
+      </vui-space>
 </template>
 
 <script>
@@ -38,10 +38,6 @@ const code =
     }
   };
 </script>
-
-<style>
-  .example-modal-information > .vui-button { margin-right:10px; }
-</style>
 `;
 
 export default code;

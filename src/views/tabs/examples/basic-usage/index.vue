@@ -1,7 +1,7 @@
 <template>
 	<vui-doc-example v-bind:code="code" id="example-tabs-basic-usage">
 		<template slot="demo">
-			<vui-tabs>
+			<vui-tabs destroyOnHide>
 				<vui-tab-panel key="tab1" title="Tab 1">
 					Content of Tab Panel 1
 				</vui-tab-panel>

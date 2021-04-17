@@ -1,57 +1,57 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-modal-customized-footer">
-		<template slot="demo">
-			<div class="example-modal-customized-footer">
-				<vui-button type="primary" @click="showModal">Open modal with customized footer</vui-button>
-				<vui-modal v-model="visible" title="Modal Title">
-					<p>Some contents...</p>
-					<p>Some contents...</p>
-					<p>Some contents...</p>
-					<p>Some contents...</p>
-					<template slot="footer">
-						<vui-button @click="handleReturn">Return</vui-button>
-						<vui-button type="primary" :loading="loading" @click="handleSubmit">Submit</vui-button>
-					</template>
-				</vui-modal>
-			</div>
-		</template>
-		<template slot="title">自定义页脚</template>
-		<template slot="description">
-			<p>利用 <code>footer</code> 插槽自定义对话框底部内容。点击提交后进入 <code>loading</code> 状态，完成后关闭。</p>
-		</template>
-	</vui-doc-example>
+  <vui-doc-example v-bind:code="code" id="example-modal-customized-footer">
+    <template slot="demo">
+      <div class="example-modal-customized-footer">
+        <vui-button type="primary" v-on:click="showModal">Open modal with customized footer</vui-button>
+        <vui-modal v-model="visible" title="Modal Title">
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <vui-space slot="footer">
+            <vui-button v-on:click="handleReturn">Return</vui-button>
+            <vui-button type="primary" v-bind:loading="loading" v-on:click="handleSubmit">Submit</vui-button>
+          </vui-space>
+        </vui-modal>
+      </div>
+    </template>
+    <template slot="title">自定义页脚</template>
+    <template slot="description">
+      <p>利用 <code>footer</code> 插槽自定义对话框底部内容。点击提交后进入 <code>loading</code> 状态，完成后关闭。</p>
+    </template>
+  </vui-doc-example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
-	import code from "./code";
+  import VuiDocExample from "src/components/example";
+  import code from "./code";
 
-	export default {
-		components: {
-			VuiDocExample
-		},
-		data() {
-			return {
-				code,
-				visible: false,
-				loading: false
-			};
-		},
-		methods: {
-			showModal() {
-				this.visible = true;
-			},
-			handleReturn() {
-				this.visible = false;
-			},
-			handleSubmit() {
-				this.loading = true;
+  export default {
+    components: {
+      VuiDocExample
+    },
+    data() {
+      return {
+        code,
+        visible: false,
+        loading: false
+      };
+    },
+    methods: {
+      showModal() {
+        this.visible = true;
+      },
+      handleReturn() {
+        this.visible = false;
+      },
+      handleSubmit() {
+        this.loading = true;
 
-				setTimeout(() => {
-					this.visible = false;
-					this.loading = false;
-				}, 3000);
-			}
-		}
-	};
+        setTimeout(() => {
+          this.visible = false;
+          this.loading = false;
+        }, 3000);
+      }
+    }
+  };
 </script>

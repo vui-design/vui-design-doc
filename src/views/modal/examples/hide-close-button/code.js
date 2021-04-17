@@ -1,8 +1,8 @@
 const code =
 `<template>
   <div class="example-modal-hide-close-button">
-    <vui-button type="primary" @click="showModal">Hide Close Button</vui-button>
-    <vui-modal title="Modal Title" :closable="false" v-model="visible">
+    <vui-button type="primary" v-on:click="showModal">Hide Close Button</vui-button>
+    <vui-modal v-model="visible" v-bind:closable="false" title="Modal Title">
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>

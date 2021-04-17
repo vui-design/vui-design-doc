@@ -1,10 +1,10 @@
 const code =
 `<template>
-  <div class="example-modal-confirm">
-    <vui-button type="primary" @click="showConfirm">Confirm</vui-button>
-    <vui-button @click="showDeleteConfirm">Delete</vui-button>
-    <vui-button @click="showAsynchronouslyCloseConfirm">Asynchronously close</vui-button>
-  </div>
+  <vui-space>
+    <vui-button type="primary" v-on:click="showConfirm">Confirm</vui-button>
+    <vui-button v-on:click="showDeleteConfirm">Delete</vui-button>
+    <vui-button v-on:click="showAsynchronouslyCloseConfirm">Asynchronously close</vui-button>
+  </vui-space>
 </template>
 
 <script>
@@ -14,12 +14,8 @@ const code =
         this.$modal.confirm({
           title: "Do you want to delete these items?",
           description: "Some descriptions...",
-          onCancel() {
-            console.log("Cancel");
-          },
-          onOk() {
-            console.log("OK");
-          }
+          cancel: () => console.log("Cancel"),
+          ok: () => console.log("OK")
         });
       },
       showDeleteConfirm() {
@@ -33,12 +29,8 @@ const code =
               type: "error"
             }
           },
-          onCancel() {
-            console.log("Cancel");
-          },
-          onOk() {
-            console.log("OK");
-          }
+          cancel: () => console.log("No"),
+          ok: () => console.log("Yes")
         });
       },
       showAsynchronouslyCloseConfirm() {
@@ -48,10 +40,10 @@ const code =
           cancelText: "Cancel",
           okText: "Continue",
           okAsync: true,
-          onCancel: () => {
+          cancel: () => {
             console.log("Cancel");
           },
-          onOk: done => {
+          ok: done => {
             // 模拟异步任务的执行
             const task = () => {
               // bool 为 true 表示异步任务执行成功
@@ -79,10 +71,6 @@ const code =
     }
   };
 </script>
-
-<style>
-  .example-modal-confirm > .vui-button { margin-right:10px; }
-</style>
 `;
 
 export default code;

@@ -1,8 +1,8 @@
 const code =
 `<template>
   <div class="example-modal-asynchronously-close">
-    <vui-button type="primary" @click="showModal">Open modal with async logic</vui-button>
-    <vui-modal v-model="visible" title="Modal Title" @cancel="handleCancel" okAsync @ok="handleOk">
+    <vui-button type="primary" v-on:click="showModal">Open modal with async logic</vui-button>
+    <vui-modal v-model="visible" v-on:cancel="handleCancel" okAsync v-on:ok="handleOk" title="Modal Title">
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>

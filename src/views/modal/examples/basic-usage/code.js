@@ -1,12 +1,12 @@
 const code =
 `<template>
   <div class="example-modal-basic-usage">
-    <vui-button type="primary" @click="showModal">Open basic modal</vui-button>
+    <vui-button type="primary" v-on:click="showModal">Open basic modal</vui-button>
     <vui-modal
       v-model="visible"
       title="Modal Title"
-      @ok="handleOk"
-      @cancel="handleCancel"
+      v-on:ok="handleOk"
+      v-on:cancel="handleCancel"
     >
       <p>Some contents...</p>
       <p>Some contents...</p>

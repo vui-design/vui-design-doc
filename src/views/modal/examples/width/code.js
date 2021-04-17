@@ -1,8 +1,8 @@
 const code =
 `<template>
   <div class="example-modal-width">
-    <vui-button type="primary" @click="showModal">Modal width</vui-button>
-    <vui-modal v-model="visible" title="Modal Title" :width="360">
+    <vui-button type="primary" v-on:click="showModal">Modal width</vui-button>
+    <vui-modal v-model="visible" v-bind:width="360" title="Modal Title">
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>

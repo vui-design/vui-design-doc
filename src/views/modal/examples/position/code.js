@@ -1,15 +1,17 @@
 const code =
 `<template>
   <div class="example-modal-position">
-    <vui-button type="primary" @click="showModal1">Open modal at 50px to top</vui-button>
-    <vui-modal v-model="visible1" title="Modal Title" :top="50">
+    <vui-space>
+      <vui-button type="primary" v-on:click="showModal1">Open modal at 50px to top</vui-button>
+      <vui-button type="primary" v-on:click="showModal2">Vertically centered modal</vui-button>
+    </vui-space>
+    <vui-modal v-model="visible1" v-bind:top="50" title="Modal Title">
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
     </vui-modal>
-    <vui-button type="primary" @click="showModal2">Vertically centered modal</vui-button>
-    <vui-modal v-model="visible2" title="Modal Title" centered>
+    <vui-modal v-model="visible2" centered title="Modal Title">
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
@@ -36,10 +38,6 @@ const code =
     }
   };
 </script>
-
-<style>
-  .example-modal-position > .vui-button { margin-right:10px; }
-</style>
 `;
 
 export default code;

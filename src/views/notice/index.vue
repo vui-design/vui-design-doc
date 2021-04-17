@@ -93,25 +93,25 @@
 						<td><code>top-right</code></td>
 					</tr>
 					<tr>
-						<td>onOpen</td>
+						<td>open</td>
 						<td>提醒打开时触发的回调函数</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>onAfterOpen</td>
+						<td>afterOpen</td>
 						<td>提醒完全打开时（打开动画完成后）触发的事件回调</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>onClose</td>
+						<td>close</td>
 						<td>提醒关闭时触发的事件回调</td>
 						<td>Function</td>
 						<td>--</td>
 					</tr>
 					<tr>
-						<td>onAfterClose</td>
+						<td>afterClose</td>
 						<td>提醒完全关闭时（关闭动画完成后）触发的事件回调</td>
 						<td>Function</td>
 						<td>--</td>
