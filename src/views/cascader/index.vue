@@ -146,7 +146,7 @@
 					</tr>
 					<tr>
 						<td>dropdownAutoWidth</td>
-						<td>下拉弹框宽度是否根据选项内容自动设置，默认将设置 <code>min-width</code>，保持最小宽度与选择框同宽</td>
+						<td>下拉弹框宽度是否根据选项内容自动设置，该属性仅在搜索状态下有效</td>
 						<td>Boolean</td>
 						<td><code>true</code></td>
 					</tr>
