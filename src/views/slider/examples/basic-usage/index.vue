@@ -35,5 +35,6 @@
 
 <style>
 	.example-slider-basic-usage section + section { margin-top:20px; }
-	.example-slider-basic-usage .vui-slider + .vui-slider { margin-top:20px; }
+	.example-slider-basic-usage .vui-slider { margin-top:20px; }
+	.example-slider-basic-usage .vui-slider + .vui-slider { margin-top:40px; }
 </style>

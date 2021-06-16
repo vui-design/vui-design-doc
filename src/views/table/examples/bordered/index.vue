@@ -29,7 +29,7 @@
 		},
 		data() {
 			const columns = [
-				{ key: "name", dataIndex: "name", width: 200, slot: "name", title: "Name" },
+				{ key: "name", dataIndex: "name", width: 200, ellipsis: true, slot: "name", title: "这里时姓名列的列头这里时姓名列的列头" },
 				{ key: "age", dataIndex: "age", width: 140, title: "Age" },
 				{ key: "tags", dataIndex: "tags", slot: "tags", title: "Tags" },
 				{ key: "address", dataIndex: "address", title: "Address" },

@@ -575,7 +575,13 @@ const VuiTable = {
 			// 计算 class 样式
 			let classNamePrefix = getClassNamePrefix(props.classNamePrefix, "table");
 			let classes = {
-				el: `${classNamePrefix}-left`,
+				el: {
+					[`${classNamePrefix}`]: true,
+					[`${classNamePrefix}-bordered`]: props.bordered,
+					[`${classNamePrefix}-striped`]: props.striped,
+					[`${classNamePrefix}-${props.size}`]: props.size,
+					[`${classNamePrefix}-left`]: true
+				},
 				elHeader: `${classNamePrefix}-header`,
 				elHeaderScrollbar: `${classNamePrefix}-header-scrollbar`,
 				elBody: `${classNamePrefix}-body`,
@@ -680,7 +686,12 @@ const VuiTable = {
 			// 计算 class 样式
 			let classNamePrefix = getClassNamePrefix(props.classNamePrefix, "table");
 			let classes = {
-				el: `${classNamePrefix}-middle`,
+				el: {
+					[`${classNamePrefix}`]: true,
+					[`${classNamePrefix}-bordered`]: props.bordered,
+					[`${classNamePrefix}-striped`]: props.striped,
+					[`${classNamePrefix}-${props.size}`]: props.size
+				},
 				elHeader: `${classNamePrefix}-header`,
 				elHeaderScrollbar: `${classNamePrefix}-header-scrollbar`,
 				elBody: `${classNamePrefix}-body`,
@@ -790,7 +801,13 @@ const VuiTable = {
 			// 计算 class 样式
 			let classNamePrefix = getClassNamePrefix(props.classNamePrefix, "table");
 			let classes = {
-				el: `${classNamePrefix}-right`,
+				el: {
+					[`${classNamePrefix}`]: true,
+					[`${classNamePrefix}-bordered`]: props.bordered,
+					[`${classNamePrefix}-striped`]: props.striped,
+					[`${classNamePrefix}-${props.size}`]: props.size,
+					[`${classNamePrefix}-right`]: true
+				},
 				elHeader: `${classNamePrefix}-header`,
 				elHeaderScrollbar: `${classNamePrefix}-header-scrollbar`,
 				elBody: `${classNamePrefix}-body`,
@@ -922,12 +939,6 @@ const VuiTable = {
 			[`${classNamePrefix}-wrapper`]: true,
 			[`${classNamePrefix}-wrapper-bordered`]: props.bordered
 		};
-		classes.elTable = {
-			[`${classNamePrefix}`]: true,
-			[`${classNamePrefix}-bordered`]: props.bordered,
-			[`${classNamePrefix}-striped`]: props.striped,
-			[`${classNamePrefix}-${props.size}`]: props.size
-		};
 
 		// render
 		const showLeftTable = state.columns.some(column => column.fixed === "left");
@@ -936,11 +947,9 @@ const VuiTable = {
 		return (
 			<VuiSpin spinning={props.loading}>
 				<div class={classes.el}>
-					<div ref="table" class={classes.elTable}>
-						{showLeftTable && renderLeftTable()}
-						{renderMiddleTable()}
-						{showRightTable && renderRightTable()}
-					</div>
+					{showLeftTable && renderLeftTable()}
+					{renderMiddleTable()}
+					{showRightTable && renderRightTable()}
 				</div>
 			</VuiSpin>
 		);

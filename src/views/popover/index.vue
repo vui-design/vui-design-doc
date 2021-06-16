@@ -26,10 +26,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="140">属性</th>
+						<th width="160">属性</th>
 						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="160">默认值</th>
+						<th width="160">类型</th>
+						<th width="180">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -81,16 +81,28 @@
 						<td>Function</td>
 						<td><code>() => document.body</code></td>
 					</tr>
+					<tr>
+						<td>beforeOpen</td>
+						<td>气泡卡片打开前触发的回调函数，可用于判断是否允许打开，返回 <code>false</code> 时禁止打开，支持返回 <code>Promise</code> 对象</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>beforeClose</td>
+						<td>气泡卡片关闭前触发的回调函数，可用于判断是否允许关闭，返回 <code>false</code> 时禁止关闭，支持返回 <code>Promise</code> 对象</td>
+						<td>Function</td>
+						<td>--</td>
+					</tr>
 				</tbody>
 			</table>
 			<h3>Popover 事件</h3>
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="140">事件名</th>
+						<th width="160">事件名</th>
 						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="160">回调参数</th>
+						<th width="160">类型</th>
+						<th width="180">回调参数</th>
 					</tr>
 				</thead>
 				<tbody>

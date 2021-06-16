@@ -199,8 +199,7 @@ const VuiTableThead = {
 
 			return {
 				[`${props.classNamePrefix}-column-sorter-caret`]: true,
-				[`${props.classNamePrefix}-column-sorter-caret-${type}`]: true,
-				[`on`]: column.sorter.order === type
+				[`active`]: column.sorter.order === type
 			};
 		},
 		handleSelectAll(checked) {
