@@ -2,7 +2,7 @@
 	<vui-doc-example v-bind:code="code" id="example-table-size">
 		<template slot="demo">
 			<div class="example-table-size">
-				<vui-radio-group v-model="size">
+				<vui-radio-group type="button" v-model="size">
 					<vui-radio value="small" label="Small" />
 					<vui-radio value="medium" label="Medium" />
 					<vui-radio value="large" label="Large" />

@@ -79,6 +79,18 @@
 						<td><code>true</code></td>
 					</tr>
 					<tr>
+						<td>affixHeader</td>
+						<td>是否启用浮动表头，当表格滚动至可视区域外部时，表头浮动至窗口顶部。设置为 <code>Object</code> 类型时，属性请参考 <code>Affix</code> 固钉组件</td>
+						<td>Boolean | Object</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>size</td>
+						<td>表格尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
+						<td>String</td>
+						<td><code>medium</code></td>
+					</tr>
+					<tr>
 						<td>bordered</td>
 						<td>是否显示外边框和列边框</td>
 						<td>Boolean</td>
@@ -91,22 +103,10 @@
 						<td><code>false</code></td>
 					</tr>
 					<tr>
-						<td>size</td>
-						<td>表格尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
-						<td>String</td>
-						<td><code>medium</code></td>
-					</tr>
-					<tr>
 						<td>scroll</td>
 						<td>设置横向或纵向滚动，格式：<code>{ x: number, y: number }</code></td>
 						<td>Object</td>
 						<td>--</td>
-					</tr>
-					<tr>
-						<td>affix</td>
-						<td>是否启用浮动表头，当表格滚动至可视区域外部时，表头浮动至窗口顶部</td>
-						<td>Boolean</td>
-						<td><code>false</code></td>
 					</tr>
 					<tr>
 						<td>loading</td>
@@ -295,6 +295,12 @@
 						<td>--</td>
 					</tr>
 					<tr>
+						<td>tooltip</td>
+						<td>列头提示文本。设置为 <code>Object</code> 类型时，属性请参考 <code>Tooltip</code> 文字提示组件</td>
+						<td>String | Object</td>
+						<td>--</td>
+					</tr>
+					<tr>
 						<td>fixed</td>
 						<td>列是否固定，可选值为 <code>left</code>、<code>right</code> 或者不设</td>
 						<td>String</td>
@@ -321,12 +327,6 @@
 					<tr>
 						<td>ellipsis</td>
 						<td>开启后，文本将不换行，超出部分显示为省略号</td>
-						<td>Boolean</td>
-						<td><code>false</code></td>
-					</tr>
-					<tr>
-						<td>tooltip</td>
-						<td>开启后，文本将不换行，超出部分显示为省略号，并使用 <code>Tooltip</code> 组件显示完整内容</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
 					</tr>

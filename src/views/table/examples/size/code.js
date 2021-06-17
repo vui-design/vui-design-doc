@@ -1,7 +1,7 @@
 const code =
 `<template>
   <div class="example-table-size">
-    <vui-radio-group v-model="size">
+    <vui-radio-group type="button" v-model="size">
       <vui-radio value="small" label="Small" />
       <vui-radio value="medium" label="Medium" />
       <vui-radio value="large" label="Large" />
