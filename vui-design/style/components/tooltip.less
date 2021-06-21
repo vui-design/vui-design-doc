@@ -1,22 +1,25 @@
 @vui-tooltip: ~"@{vui}-tooltip";
 
 .@{vui-tooltip} {
-	box-sizing:border-box;
 	display:inline-block;
+	box-sizing:border-box;
 	vertical-align:middle;
 
 	&-trigger {
+		display:block;
 		box-sizing:border-box;
 		cursor:pointer;
 	}
 
 	&-content {
+		display:block;
 		box-sizing:border-box;
 		border-radius:@tooltip-border-radius;
 		box-shadow:@tooltip-box-shadow;
 		padding:@tooltip-padding;
 
 		&-main {
+			display:block;
 			box-sizing:border-box;
 			font-size:@tooltip-font-size;
 			line-height:@tooltip-line-height;
@@ -25,6 +28,7 @@
 
 		&-arrow {
 			position:absolute;
+			display:block;
 			box-sizing:border-box;
 			width:@tooltip-arrow-size;
 			height:@tooltip-arrow-size;

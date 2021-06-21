@@ -1,0 +1,96 @@
+import PropTypes from "vui-design/utils/prop-types";
+import is from "vui-design/utils/is";
+import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
+import utils from "./utils";
+
+const VuiSliderSteps = {
+	name: "vui-slider-steps",
+	props: {
+		classNamePrefix: PropTypes.string.def("vui-slider"),
+		vertical: PropTypes.bool.def(false),
+		value: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+		range: PropTypes.bool.def(false),
+		included: PropTypes.bool.def(true),
+		min: PropTypes.number.def(0),
+		max: PropTypes.number.def(100),
+		step: PropTypes.number.def(1),
+		showSteps: PropTypes.bool.def(false),
+		stepStyle: PropTypes.object,
+		activeStepStyle: PropTypes.object,
+		marks: PropTypes.object.def({})
+	},
+	render(h) {
+		const { $props: props } = this;
+		const difference = props.max - props.min;
+		const steps = utils.getSteps(props.min, props.max, props.step, props.showSteps, props.marks);
+
+		let lower;
+		let upper;
+
+		if (props.range) {
+			lower = props.value[0];
+			upper = props.value[1];
+		}
+		else {
+			lower = props.min;
+			upper = props.value;
+		}
+
+		// class
+		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "steps");
+		let classes = {};
+
+		classes.el = {
+			[`${classNamePrefix}`]: true
+		};
+
+		// render
+		if (steps.length === 0) {
+			return null;
+		}
+
+		return (
+			<div class={classes.el}>
+				{
+					steps.map(step => {
+						const offset = (Math.abs(step - props.min) / difference) * 100 + "%";
+						let isActive = false;
+
+						if (props.included) {
+							isActive = step >= lower && step <= upper;
+						}
+						else {
+							isActive = step === upper;
+						}
+
+						const stepClass = {
+							[`${classNamePrefix}-item`]: true,
+							[`${classNamePrefix}-item-active`]: isActive
+						};
+
+						let stepStyle = {
+							...props.stepStyle
+						};
+
+						if (isActive) {
+							stepStyle = { ...stepStyle, ...props.activeStepStyle };
+						}
+
+						if (props.vertical) {
+							stepStyle.bottom = offset;
+						}
+						else {
+							stepStyle.left = offset;
+						}
+
+						return (
+							<div key={step} class={stepClass} style={stepStyle}></div>
+						);
+					})
+				}
+			</div>
+		);
+	}
+};
+
+export default VuiSliderSteps;
