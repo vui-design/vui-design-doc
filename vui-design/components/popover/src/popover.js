@@ -111,65 +111,53 @@ const VuiPopover = {
 		handleMouseenter(e) {
 			const { $props: props } = this;
 
-			if (props.trigger !== "hover") {
-				return;
+			if (props.trigger === "hover") {
+				clearTimeout(this.timeout);
+				this.timeout = setTimeout(() => this.toggle(true), 100);
 			}
-
-			clearTimeout(this.timeout);
-			this.timeout = setTimeout(() => this.toggle(true), 100);
 		},
 		handleMouseleave(e) {
 			const { $props: props } = this;
 
-			if (props.trigger !== "hover") {
-				return;
+			if (props.trigger === "hover") {
+				clearTimeout(this.timeout);
+				this.timeout = setTimeout(() => this.toggle(false), 100);
 			}
-
-			clearTimeout(this.timeout);
-			this.timeout = setTimeout(() => this.toggle(false), 100);
 		},
 		handleFocusin() {
 			const { $props: props } = this;
 
-			if (props.trigger !== "focus") {
-				return;
+			if (props.trigger === "focus") {
+				this.toggle(true);
 			}
-
-			this.toggle(true);
 		},
 		handleFocusout() {
 			const { $props: props } = this;
 
-			if (props.trigger !== "focus") {
-				return;
+			if (props.trigger === "focus") {
+				this.toggle(false);
 			}
-
-			this.toggle(false);
 		},
 		handleClick(e) {
 			const { $props: props, state } = this;
 
-			if (props.trigger !== "click") {
-				return;
+			if (props.trigger === "click") {
+				this.toggle(!state.visible);
 			}
-
-			this.toggle(!state.visible);
 		},
 		handleOutClick(e) {
 			const { $props: props } = this;
 
-			if (props.trigger !== "click") {
-				return;
+			if (props.trigger === "click") {
+				const { $refs: references } = this;
+				const element = getElementByEvent(e);
+
+				if (!element || !references.popup || references.popup === element || references.popup.contains(element)) {
+					return;
+				}
+
+				this.toggle(false);
 			}
-
-			const { $refs: references } = this;
-			const target = getElementByEvent(e);
-
-			if (!target || !references.popup || target === references.popup || references.popup.contains(target)) {
-				return;
-			}
-
-			this.toggle(false);
 		},
 		handleBeforeEnter() {
 			this.$nextTick(() => this.register());
@@ -240,11 +228,7 @@ const VuiPopover = {
 									<div class={classes.elPopupHeader}>{title}</div>
 								)
 							}
-							{
-								content && (
-									<div class={classes.elPopupBody}>{content}</div>
-								)
-							}
+							<div class={classes.elPopupBody}>{content}</div>
 							<div class={classes.elPopupArrow}></div>
 						</div>
 					</transition>

@@ -30,7 +30,7 @@ const VuiTooltip = {
 		content: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		placement: PropTypes.oneOf(["top", "top-start", "top-end", "bottom", "bottom-start", "bottom-end", "left", "left-start", "left-end", "right", "right-start", "right-end"]).def("top"),
-		animation: PropTypes.string.def("vui-tooltip-content-scale"),
+		animation: PropTypes.string.def("vui-tooltip-popup-scale"),
 		getPopupContainer: PropTypes.func.def(() => document.body),
 		beforeOpen: PropTypes.func,
 		beforeClose: PropTypes.func
@@ -112,65 +112,53 @@ const VuiTooltip = {
 		handleMouseenter(e) {
 			const { $props: props } = this;
 
-			if (props.trigger !== "hover") {
-				return;
+			if (props.trigger === "hover") {
+				clearTimeout(this.timeout);
+				this.timeout = setTimeout(() => this.toggle(true), 100);
 			}
-
-			clearTimeout(this.timeout);
-			this.timeout = setTimeout(() => this.toggle(true), 100);
 		},
 		handleMouseleave(e) {
 			const { $props: props } = this;
 
-			if (props.trigger !== "hover") {
-				return;
+			if (props.trigger === "hover") {
+				clearTimeout(this.timeout);
+				this.timeout = setTimeout(() => this.toggle(false), 100);
 			}
-
-			clearTimeout(this.timeout);
-			this.timeout = setTimeout(() => this.toggle(false), 100);
 		},
 		handleFocusin() {
 			const { $props: props } = this;
 
-			if (props.trigger !== "focus") {
-				return;
+			if (props.trigger === "focus") {
+				this.toggle(true);
 			}
-
-			this.toggle(true);
 		},
 		handleFocusout() {
 			const { $props: props } = this;
 
-			if (props.trigger !== "focus") {
-				return;
+			if (props.trigger === "focus") {
+				this.toggle(false);
 			}
-
-			this.toggle(false);
 		},
 		handleClick(e) {
 			const { $props: props, state } = this;
 
-			if (props.trigger !== "click") {
-				return;
+			if (props.trigger === "click") {
+				this.toggle(!state.visible);
 			}
-
-			this.toggle(!state.visible);
 		},
 		handleOutClick(e) {
 			const { $props: props } = this;
 
-			if (props.trigger !== "click") {
-				return;
+			if (props.trigger === "click") {
+				const { $refs: references } = this;
+				const element = getElementByEvent(e);
+
+				if (!element || !references.popup || references.popup === element || references.popup.contains(element)) {
+					return;
+				}
+
+				this.toggle(false);
 			}
-
-			const { $refs: references } = this;
-			const target = getElementByEvent(e);
-
-			if (!target || !references.popup || target === references.popup || references.popup.contains(target)) {
-				return;
-			}
-
-			this.toggle(false);
 		},
 		handleBeforeEnter() {
 			this.$nextTick(() => this.register());
@@ -208,30 +196,33 @@ const VuiTooltip = {
 			maxWidth = is.string(props.maxWidth) ? props.maxWidth : `${props.maxWidth}px`;
 		}
 
+		// content
+		const content = slots.content || props.content;
+
 		// class
 		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "tooltip");
 		let classes = {};
 
 		classes.el = `${classNamePrefix}`;
 		classes.elTrigger = `${classNamePrefix}-trigger`;
-		classes.elContent = {
-			[`${classNamePrefix}-content`]: true,
-			[`${classNamePrefix}-content-${props.color}`]: withPresetColor
+		classes.elPopup = {
+			[`${classNamePrefix}-popup`]: true,
+			[`${classNamePrefix}-popup-${props.color}`]: withPresetColor
 		};
-		classes.elContentMain = `${classNamePrefix}-content-main`;
-		classes.elContentArrow = `${classNamePrefix}-content-arrow`;
+		classes.elPopupBody = `${classNamePrefix}-popup-body`;
+		classes.elPopupArrow = `${classNamePrefix}-popup-arrow`;
 
 		// style
 		let styles = {};
 
-		styles.elContent = {
+		styles.elPopup = {
 			maxWidth: maxWidth,
 			backgroundColor: withCustomColor && props.color
 		};
-		styles.elContentMain = {
+		styles.elPopupBody = {
 			color: withCustomColor &&`#fff`
 		};
-		styles.elContentArrow = {
+		styles.elPopupArrow = {
 			backgroundColor: withCustomColor && props.color
 		};
 
@@ -243,9 +234,9 @@ const VuiTooltip = {
 				</div>
 				<VuiLazyRender status={state.visible}>
 					<transition appear name={props.animation} onBeforeEnter={handleBeforeEnter} onAfterLeave={handleAfterLeave}>
-						<div ref="popup" v-portal={props.getPopupContainer} v-show={state.visible} class={classes.elContent} style={styles.elContent} onMouseenter={handleMouseenter} onMouseleave={handleMouseleave}>
-							<div class={classes.elContentMain} style={styles.elContentMain}>{slots.content || props.content}</div>
-							<div class={classes.elContentArrow} style={styles.elContentArrow}></div>
+						<div ref="popup" v-portal={props.getPopupContainer} v-show={state.visible} class={classes.elPopup} style={styles.elPopup} onMouseenter={handleMouseenter} onMouseleave={handleMouseleave}>
+							<div class={classes.elPopupBody} style={styles.elPopupBody}>{content}</div>
+							<div class={classes.elPopupArrow} style={styles.elPopupArrow}></div>
 						</div>
 					</transition>
 				</VuiLazyRender>
