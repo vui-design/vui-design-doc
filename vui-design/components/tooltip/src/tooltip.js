@@ -1,8 +1,10 @@
 import VuiLazyRender from "vui-design/components/lazy-render";
 import Portal from "vui-design/directives/portal";
+import Outclick from "vui-design/directives/outclick";
 import Popup from "vui-design/utils/popup";
 import PropTypes from "vui-design/utils/prop-types";
 import is from "vui-design/utils/is";
+import getElementByEvent from "vui-design/utils/getElementByEvent";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 
 const colors = ["dark", "light", "blue", "cyan", "geekblue", "gold", "green", "lime", "magenta", "orange", "pink", "purple", "red", "volcano", "yellow"];
@@ -13,7 +15,8 @@ const VuiTooltip = {
 		VuiLazyRender
 	},
 	directives: {
-		Portal
+		Portal,
+		Outclick
 	},
 	model: {
 		prop: "visible",
@@ -21,6 +24,7 @@ const VuiTooltip = {
 	},
 	props: {
 		classNamePrefix: PropTypes.string,
+		trigger: PropTypes.oneOf(["hover", "focus", "click"]).def("hover"),
 		visible: PropTypes.bool.def(false),
 		color: PropTypes.string.def("dark"),
 		content: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -70,14 +74,14 @@ const VuiTooltip = {
 				callback();
 			}
 		},
-		createPopup() {
+		register() {
 			if (is.server || this.popup) {
 				return;
 			}
 
 			const { $refs: references, $props: props } = this;
 			const reference = references.trigger;
-			const target = references.content;
+			const target = references.popup;
 			const settings = {
 				placement:  props.placement
 			};
@@ -89,7 +93,15 @@ const VuiTooltip = {
 			this.popup = new Popup(reference, target, settings);
 			this.popup.target.style.zIndex = Popup.nextZIndex();
 		},
-		destroyPopup() {
+		reregister() {
+			if (is.server || !this.popup) {
+				return;
+			}
+
+			this.popup.update();
+			this.popup.target.style.zIndex = Popup.nextZIndex();
+		},
+		unregister() {
 			if (is.server || !this.popup) {
 				return;
 			}
@@ -97,24 +109,93 @@ const VuiTooltip = {
 			this.popup.destroy();
 			this.popup = null;
 		},
-		handleMouseenter() {
+		handleMouseenter(e) {
+			const { $props: props } = this;
+
+			if (props.trigger !== "hover") {
+				return;
+			}
+
 			clearTimeout(this.timeout);
 			this.timeout = setTimeout(() => this.toggle(true), 100);
 		},
-		handleMouseleave() {
+		handleMouseleave(e) {
+			const { $props: props } = this;
+
+			if (props.trigger !== "hover") {
+				return;
+			}
+
 			clearTimeout(this.timeout);
 			this.timeout = setTimeout(() => this.toggle(false), 100);
 		},
-		handleBeforeEnter(el) {
-			this.$nextTick(() => this.createPopup());
+		handleFocusin() {
+			const { $props: props } = this;
+
+			if (props.trigger !== "focus") {
+				return;
+			}
+
+			this.toggle(true);
 		},
-		handleAfterLeave(el) {
-			this.$nextTick(() => this.destroyPopup());
+		handleFocusout() {
+			const { $props: props } = this;
+
+			if (props.trigger !== "focus") {
+				return;
+			}
+
+			this.toggle(false);
+		},
+		handleClick(e) {
+			const { $props: props, state } = this;
+
+			if (props.trigger !== "click") {
+				return;
+			}
+
+			this.toggle(!state.visible);
+		},
+		handleOutClick(e) {
+			const { $props: props } = this;
+
+			if (props.trigger !== "click") {
+				return;
+			}
+
+			const { $refs: references } = this;
+			const target = getElementByEvent(e);
+
+			if (!target || !references.popup || target === references.popup || references.popup.contains(target)) {
+				return;
+			}
+
+			this.toggle(false);
+		},
+		handleBeforeEnter() {
+			this.$nextTick(() => this.register());
+			this.$emit("beforeOpen");
+		},
+		handleEnter() {
+			this.$emit("open");
+		},
+		handleAfterEnter() {
+			this.$emit("afterOpen");
+		},
+		handleBeforeLeave() {
+			this.$emit("beforeClose");
+		},
+		handleLeave() {
+			this.$emit("close");
+		},
+		handleAfterLeave() {
+			this.$nextTick(() => this.unregister());
+			this.$emit("afterClose");
 		}
 	},
 	render() {
 		const { $slots: slots, $props: props, state } = this;
-		const { handleMouseenter, handleMouseleave, handleBeforeEnter, handleAfterLeave } = this;
+		const { handleMouseenter, handleMouseleave, handleFocusin, handleFocusout, handleClick, handleOutClick, handleBeforeEnter, handleEnter, handleAfterEnter, handleBeforeLeave, handleLeave, handleAfterLeave } = this;
 
 		// color
 		const withPresetColor = props.color && colors.indexOf(props.color) > -1;
@@ -157,10 +238,12 @@ const VuiTooltip = {
 		// render
 		return (
 			<div class={classes.el}>
-				<div ref="trigger" class={classes.elTrigger} onMouseenter={handleMouseenter} onMouseleave={handleMouseleave}>{slots.default}</div>
+				<div ref="trigger" class={classes.elTrigger} onMouseenter={handleMouseenter} onMouseleave={handleMouseleave} onFocusin={handleFocusin} onFocusout={handleFocusout} onClick={handleClick} v-outclick={handleOutClick}>
+					{slots.default}
+				</div>
 				<VuiLazyRender status={state.visible}>
 					<transition appear name={props.animation} onBeforeEnter={handleBeforeEnter} onAfterLeave={handleAfterLeave}>
-						<div ref="content" v-portal={props.getPopupContainer} v-show={state.visible} class={classes.elContent} style={styles.elContent} onMouseenter={handleMouseenter} onMouseleave={handleMouseleave}>
+						<div ref="popup" v-portal={props.getPopupContainer} v-show={state.visible} class={classes.elContent} style={styles.elContent} onMouseenter={handleMouseenter} onMouseleave={handleMouseleave}>
 							<div class={classes.elContentMain} style={styles.elContentMain}>{slots.content || props.content}</div>
 							<div class={classes.elContentArrow} style={styles.elContentArrow}></div>
 						</div>

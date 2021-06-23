@@ -1,12 +1,29 @@
 import is from "vui-design/utils/is";
 import clone from "vui-design/utils/clone";
 
+export const getSliderSize = (container, vertical) => {
+	if (!is.element(container)) {
+		return;
+	}
 
+	return container[vertical ? "clientHeight" : "clientWidth"];
+};
 
+const getPrecision = value => {
+	const decimal = String(value).split(".")[1];
+
+	return decimal ? decimal.length : 0;
+};
+
+export const getValuePrecision = (min, max, step) => {
+	const precisions = [min, max, step].map(getPrecision);
+
+	return Math.max.apply(null, precisions);
+};
 
 export const getValueFromProps = (value, props) => {
 	if (props.range) {
-		if (is.array(value)) {
+		if (is.array(value) && value.length === 2) {
 			value = [
 				Math.max(props.min, value[0]),
 				Math.min(props.max, value[1])
@@ -64,6 +81,8 @@ export const getMarks = (min, max, marks) => {
 };
 
 export default {
+	getSliderSize,
+	getValuePrecision,
 	getValueFromProps,
 	getSteps,
 	getMarks

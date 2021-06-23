@@ -73,7 +73,7 @@ const VuiPopover = {
 				callback();
 			}
 		},
-		createPopup() {
+		register() {
 			if (is.server || this.popup) {
 				return;
 			}
@@ -92,7 +92,15 @@ const VuiPopover = {
 			this.popup = new Popup(reference, target, settings);
 			this.popup.target.style.zIndex = Popup.nextZIndex();
 		},
-		destroyPopup() {
+		reregister() {
+			if (is.server || !this.popup) {
+				return;
+			}
+
+			this.popup.update();
+			this.popup.target.style.zIndex = Popup.nextZIndex();
+		},
+		unregister() {
 			if (is.server || !this.popup) {
 				return;
 			}
@@ -100,7 +108,7 @@ const VuiPopover = {
 			this.popup.destroy();
 			this.popup = null;
 		},
-		handleMouseEnter(e) {
+		handleMouseenter(e) {
 			const { $props: props } = this;
 
 			if (props.trigger !== "hover") {
@@ -110,7 +118,7 @@ const VuiPopover = {
 			clearTimeout(this.timeout);
 			this.timeout = setTimeout(() => this.toggle(true), 100);
 		},
-		handleMouseLeave(e) {
+		handleMouseleave(e) {
 			const { $props: props } = this;
 
 			if (props.trigger !== "hover") {
@@ -164,7 +172,7 @@ const VuiPopover = {
 			this.toggle(false);
 		},
 		handleBeforeEnter() {
-			this.$nextTick(() => this.createPopup());
+			this.$nextTick(() => this.register());
 			this.$emit("beforeOpen");
 		},
 		handleEnter() {
@@ -180,13 +188,13 @@ const VuiPopover = {
 			this.$emit("close");
 		},
 		handleAfterLeave() {
-			this.$nextTick(() => this.destroyPopup());
+			this.$nextTick(() => this.unregister());
 			this.$emit("afterClose");
 		}
 	},
 	render() {
 		const { $slots: slots, $props: props, state } = this;
-		const { handleMouseEnter, handleMouseLeave, handleFocusin, handleFocusout, handleClick, handleOutClick, handleBeforeEnter, handleEnter, handleAfterEnter, handleBeforeLeave, handleLeave, handleAfterLeave } = this;
+		const { handleMouseenter, handleMouseleave, handleFocusin, handleFocusout, handleClick, handleOutClick, handleBeforeEnter, handleEnter, handleAfterEnter, handleBeforeLeave, handleLeave, handleAfterLeave } = this;
 
 		// title
 		const title = slots.title || props.title;
@@ -221,12 +229,12 @@ const VuiPopover = {
 		// render
 		return (
 			<div class={classes.el}>
-				<div ref="trigger" class={classes.elTrigger} onMouseenter={handleMouseEnter} onMouseleave={handleMouseLeave} onFocusin={handleFocusin} onFocusout={handleFocusout} onClick={handleClick} v-outclick={handleOutClick}>
+				<div ref="trigger" class={classes.elTrigger} onMouseenter={handleMouseenter} onMouseleave={handleMouseleave} onFocusin={handleFocusin} onFocusout={handleFocusout} onClick={handleClick} v-outclick={handleOutClick}>
 					{slots.default}
 				</div>
 				<VuiLazyRender status={state.visible}>
 					<transition appear name={props.animation} onBeforeEnter={handleBeforeEnter} onEnter={handleEnter} onAfterEnter={handleAfterEnter} onBeforeLeave={handleBeforeLeave} onLeave={handleLeave} onAfterLeave={handleAfterLeave}>
-						<div ref="popup" v-portal={props.getPopupContainer} v-show={state.visible} class={classes.elPopup} style={styles.elPopup} onMouseenter={handleMouseEnter} onMouseleave={handleMouseLeave}>
+						<div ref="popup" v-portal={props.getPopupContainer} v-show={state.visible} class={classes.elPopup} style={styles.elPopup} onMouseenter={handleMouseenter} onMouseleave={handleMouseleave}>
 							{
 								title && (
 									<div class={classes.elPopupHeader}>{title}</div>
