@@ -153,7 +153,7 @@ const VuiSliderHandler = {
 			handler = (
 				<VuiTooltip ref="tooltip" trigger="focus" color={props.tooltip.color} placement={props.tooltip.placement} getPopupContainer={props.tooltip.getPopupContainer}>
 					{handler}
-					<div slot="content">{props.tooltip.formatter(50)}</div>
+					<div slot="content">{props.tooltip.formatter(props.value)}</div>
 				</VuiTooltip>
 			);
 		}
