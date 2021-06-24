@@ -1,5 +1,6 @@
 import PropTypes from "vui-design/utils/prop-types";
 import is from "vui-design/utils/is";
+import clone from "vui-design/utils/clone";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 import utils from "./utils";
 
@@ -22,17 +23,17 @@ const VuiSliderMarks = {
 		const difference = props.max - props.min;
 		const marks = utils.getMarks(props.min, props.max, props.marks);
 
-		let lower;
-		let upper;
+		// value
+		let value = props.value;
 
 		if (props.range) {
-			lower = props.value[0];
-			upper = props.value[1];
+			value = clone(value);
+			value.sort((a, b) => a - b);
 		}
-		else {
-			lower = props.min;
-			upper = props.value;
-		}
+
+		// min & max
+		const min = props.range ? value[0] : props.min;
+		const max = props.range ? value[1] : value;
 
 		// class
 		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "marks");
@@ -51,14 +52,14 @@ const VuiSliderMarks = {
 			<div class={classes.el}>
 				{
 					marks.map(mark => {
-						const offset = (Math.abs(mark.value - props.min) / difference) * 100 + "%";
+						const offset = (mark.value - props.min) / difference * 100 + "%";
 						let isActive = false;
 
 						if (props.included) {
-							isActive = mark.value >= lower && mark.value <= upper;
+							isActive = mark.value >= min && mark.value <= max;
 						}
 						else {
-							isActive = mark.value === upper;
+							isActive = mark.value === max;
 						}
 
 						const markClass = {

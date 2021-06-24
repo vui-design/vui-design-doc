@@ -35,86 +35,109 @@ const VuiSliderHandler = {
 				dragging: false,
 				dragStart: 0,
 				dragEnd: 0,
-				dragPosition: 0
+				dragStartOffset: 0,
+				dragEndOffset: 0
 			}
 		};
 	},
 	methods: {
-		changePosition(position) {
+		change(offset) {
 			const { $props: props } = this;
 
-			if (position === null || is.nan(position)) {
+			if (!is.number(offset)) {
 				return;
 			}
 
-			if (position < 0) {
-				position = 0;
+			if (offset < 0) {
+				offset = 0;
 			}
-			else if (position > 100) {
-				position = 100;
+			else if (offset > 100) {
+				offset = 100;
 			}
 
 			const average = 100 / ((props.max - props.min) / props.step);
-			const steps = Math.round(position / average);
-			const precision = utils.getValuePrecision(props.min, props.max, props.step);
-			let value = steps * average * (props.max - props.min) * 0.01 + props.min;
+			const steps = Math.round(offset / average);
+			const precision = utils.getPrecision(props.min, props.max, props.step);
+			let value = (steps * average * (props.max - props.min)) / 100 + props.min;
 
 			value = parseFloat(value.toFixed(precision));
 
-			this.$emit("change", props.type, value);
 			this.$nextTick(() => this.$refs.tooltip && this.$refs.tooltip.reregister());
+
+			if (value === props.value) {
+				return;
+			}
+
+			this.$emit("change", props.type, value);
 		},
 		handleDragstart(e) {
 			const { $props: props } = this;
 
-			this.state.dragging = true;
+			if (props.disabled || this.state.dragging) {
+				return;
+			}
+
+			let dragStart = 0;
 
 			if (props.vertical) {
-				this.state.dragStart = e.type === "touchstart" ? e.touches[0].clientY : e.clientY;
+				dragStart = e.type === "touchstart" ? e.touches[0].clientY : e.clientY;
 			}
 			else {
-				this.state.dragStart = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
+				dragStart = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
 			}
 
-			this.state.dragPosition = (props.value - props.min) / (props.max - props.min) * 100;
-			this.mousemoveEvent = addEventListener(document.body, "mousemove", this.handleDragging);
-			this.touchmoveEvent = addEventListener(document.body, "touchmove", this.handleDragging);
-			this.mouseupEvent = addEventListener(document.body, "mouseup", this.handleDragend);
-			this.touchendEvent = addEventListener(document.body, "touchend", this.handleDragend);
+			this.state.dragging = true;
+			this.state.dragStart = dragStart;
+			this.state.dragEnd = 0;
+			this.state.dragStartOffset = (props.value - props.min) / (props.max - props.min) * 100;
+			this.mousemoveEvent = addEventListener(window, "mousemove", this.handleDragging);
+			this.touchmoveEvent = addEventListener(window, "touchmove", this.handleDragging);
+			this.mouseupEvent = addEventListener(window, "mouseup", this.handleDragend);
+			this.touchendEvent = addEventListener(window, "touchend", this.handleDragend);
 		},
 		handleDragging(e) {
 			const { $props: props } = this;
 
-			if (!this.state.dragging) {
+			if (props.disabled || !this.state.dragging) {
 				return;
 			}
 
-			const container = this.getContainer();
-			const size = utils.getSliderSize(container, props.vertical);
-			let difference = 0;
+			let dragEnd = 0;
 
 			if (props.vertical) {
-				this.state.dragEnd = e.type === "touchstart" ? e.touches[0].clientY : e.clientY;
-				difference = (this.state.dragEnd - this.state.dragStart) / size * 100;
+				dragEnd = e.type === "touchstart" ? e.touches[0].clientY : e.clientY;
 			}
 			else {
-				this.state.dragEnd = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
-				difference = (this.state.dragEnd - this.state.dragStart) / size * 100;
+				dragEnd = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
 			}
 
-			this.changePosition(this.state.dragPosition + difference);
+			const container = props.getContainer();
+			const size = utils.getSliderSize(container, props.vertical);
+			let distance = 0;
+
+			if (props.vertical) {
+				distance = (dragEnd - this.state.dragStart) / size * 100;
+			}
+			else {
+				distance = (dragEnd - this.state.dragStart) / size * 100;
+			}
+
+			this.state.dragEnd = dragEnd;
+			this.state.dragEndOffset = this.state.dragStartOffset + distance;
+			this.change(this.state.dragEndOffset);
 		},
 		handleDragend() {
 			const { $props: props } = this;
 
-			if (!this.state.dragging) {
+			if (props.disabled || !this.state.dragging) {
 				return;
 			}
 
 			this.state.dragging = false;
 			this.state.dragStart = 0;
 			this.state.dragEnd = 0;
-			this.state.dragPosition = 0;
+			this.state.dragStartOffset = 0;
+			this.state.dragEndOffset = 0;
 			this.mousemoveEvent && this.mousemoveEvent.remove();
 			this.touchmoveEvent && this.touchmoveEvent.remove();
 			this.mouseupEvent && this.mouseupEvent.remove();
@@ -123,7 +146,6 @@ const VuiSliderHandler = {
 	},
 	render(h) {
 		const { $props: props } = this;
-		const offset = (props.value - props.min) / (props.max - props.min) * 100 + "%";
 
 		// class
 		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "handler");
@@ -133,6 +155,7 @@ const VuiSliderHandler = {
 		classes.el = `${classNamePrefix}`;
 
 		// style
+		const offset = (props.value - props.min) / (props.max - props.min) * 100 + "%";
 		let styles = {};
 
 		styles.elWrapper = {};
@@ -146,12 +169,18 @@ const VuiSliderHandler = {
 
 		// render
 		let handler = (
-			<div tabIndex="0" class={classes.el}></div>
+			<button type="button" class={classes.el} />
 		);
 
 		if (props.tooltip && is.function(props.tooltip.formatter)) {
 			handler = (
-				<VuiTooltip ref="tooltip" trigger="focus" color={props.tooltip.color} placement={props.tooltip.placement} getPopupContainer={props.tooltip.getPopupContainer}>
+				<VuiTooltip
+					ref="tooltip"
+					trigger="focus"
+					color={props.tooltip.color}
+					placement={props.tooltip.placement}
+					getPopupContainer={props.tooltip.getPopupContainer}
+				>
 					{handler}
 					<div slot="content">{props.tooltip.formatter(props.value)}</div>
 				</VuiTooltip>
@@ -159,7 +188,12 @@ const VuiSliderHandler = {
 		}
 
 		return (
-			<div class={classes.elWrapper} style={styles.elWrapper} onMousedown={this.handleDragstart} onTouchstart={this.handleDragstart}>
+			<div
+				class={classes.elWrapper}
+				style={styles.elWrapper}
+				onMousedown={this.handleDragstart}
+				onTouchstart={this.handleDragstart}
+			>
 				{handler}
 			</div>
 		);

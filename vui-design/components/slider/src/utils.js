@@ -1,6 +1,7 @@
 import is from "vui-design/utils/is";
 import clone from "vui-design/utils/clone";
 
+// 获取 Slider 容器宽度或高度
 export const getSliderSize = (container, vertical) => {
 	if (!is.element(container)) {
 		return;
@@ -9,18 +10,20 @@ export const getSliderSize = (container, vertical) => {
 	return container[vertical ? "clientHeight" : "clientWidth"];
 };
 
-const getPrecision = value => {
+// 获取数值精度
+const mapper = value => {
 	const decimal = String(value).split(".")[1];
 
 	return decimal ? decimal.length : 0;
 };
 
-export const getValuePrecision = (min, max, step) => {
-	const precisions = [min, max, step].map(getPrecision);
+export const getPrecision = (min, max, step) => {
+	const precisions = [min, max, step].map(mapper);
 
 	return Math.max.apply(null, precisions);
 };
 
+// 根据组件的 props 属性获取内部 value 状态值
 export const getValueFromProps = (value, props) => {
 	if (props.range) {
 		if (is.array(value) && value.length === 2) {
@@ -46,6 +49,7 @@ export const getValueFromProps = (value, props) => {
 	return value;
 };
 
+// 获取 step 集合
 export const getSteps = (min, max, step, showSteps, marks) => {
 	const steps = Object.keys(marks).map(parseFloat);
 
@@ -57,13 +61,14 @@ export const getSteps = (min, max, step, showSteps, marks) => {
 		}
 	}
 
-	return steps.filter(step => step <= max && step >= min).sort((a, b) => a - b);
+	return steps.filter(step => step >= min && step <= max).sort((a, b) => a - b);
 };
 
+// 获取 mark 集合
 export const getMarks = (min, max, marks) => {
 	const marksKeys = Object.keys(marks).map(parseFloat);
 
-	return marksKeys.filter(marksKey => marksKey <= max && marksKey >= min).sort((a, b) => a - b).map(marksKey => {
+	return marksKeys.filter(marksKey => marksKey >= min && marksKey <= max).sort((a, b) => a - b).map(marksKey => {
 		let attributes = {};
 
 		if (is.json(marks[marksKey])) {
@@ -80,9 +85,10 @@ export const getMarks = (min, max, marks) => {
 	});
 };
 
+// 默认导出所有接口
 export default {
 	getSliderSize,
-	getValuePrecision,
+	getPrecision,
 	getValueFromProps,
 	getSteps,
 	getMarks

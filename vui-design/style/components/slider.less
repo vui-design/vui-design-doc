@@ -16,6 +16,7 @@
 		box-sizing:border-box;
 		border-radius:2px;
 		background-color:#ececec;
+		overflow:hidden;
 		transition:background-color @transition-duration @transition-timing-function;
 
 		&-bar {
@@ -84,6 +85,7 @@
 	}
 
 	&-handler {
+		cursor:pointer;
 		display:block;
 		box-sizing:border-box;
 		width:12px;
@@ -92,6 +94,8 @@
 		border-radius:50%;
 		background-color:#fff;
 		box-shadow:none;
+		appearance:none;
+		outline:none;
 		transition:all @transition-duration @transition-timing-function;
 
 		&-wrapper {

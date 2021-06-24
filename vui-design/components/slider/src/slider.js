@@ -51,6 +51,8 @@ const VuiSlider = {
 		value(value) {
 			const { $props: props } = this;
 
+			console.log(3, clone(value))
+
 			this.state.value = utils.getValueFromProps(value, props);
 		}
 	},
@@ -59,26 +61,32 @@ const VuiSlider = {
 			return this.$refs.slider;
 		},
 		handleDragging(type, value) {
-			const { $props: props, state } = this;
+			const { $props: props } = this;
 
 			if (props.range) {
-				let array = clone(state.value);
-
 				if (type === "min") {
-					array.splice(0, 1, value);
+					this.state.value.splice(0, 1, value);
 				}
 				else if (type === "max") {
-					array.splice(1, 1, value);
+					this.state.value.splice(1, 1, value);
 				}
 
-				console.log(type, array.sort((a, b) => a - b))
+				console.log(1, clone(this.state.value))
 
-				this.state.value = array.sort((a, b) => a - b);
+				const newValue = clone(this.state.value);
+
+				console.log(2, newValue.sort((a, b) => a - b))
+
+				this.$emit("input", newValue);
 			}
 			else {
 				if (type === "max") {
 					this.state.value = value;
 				}
+
+				const newValue = this.state.value;
+
+				this.$emit("input", newValue);
 			}
 		}
 	},
@@ -94,8 +102,6 @@ const VuiSlider = {
 			[`${classNamePrefix}`]: true,
 			[`${classNamePrefix}-${direction}`]: true
 		};
-		classes.elHandlerWrapper = `${classNamePrefix}-handler-wrapper`;
-		classes.elHandler = `${classNamePrefix}-handler`;
 
 		// render
 		let children = [];

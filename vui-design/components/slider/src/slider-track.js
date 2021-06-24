@@ -1,4 +1,5 @@
 import PropTypes from "vui-design/utils/prop-types";
+import clone from "vui-design/utils/clone";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 
 const VuiSliderTrack = {
@@ -16,6 +17,14 @@ const VuiSliderTrack = {
 		const { $props: props } = this;
 		const difference = props.max - props.min;
 
+		// value
+		let value = props.value;
+
+		if (props.range) {
+			value = clone(value);
+			value.sort((a, b) => a - b);
+		}
+
 		// class
 		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "track");
 		let classes = {};
@@ -31,12 +40,12 @@ const VuiSliderTrack = {
 			let size;
 
 			if (props.range) {
-				offset = (Math.abs(props.value[0] - props.min) / difference) * 100 + "%";
-				size = (Math.abs(props.value[1] - props.value[0]) / difference) * 100 + "%";
+				offset = (value[0] - props.min) / difference * 100 + "%";
+				size = (value[1] - value[0]) / difference * 100 + "%";
 			}
 			else {
 				offset = "0%";
-				size = (Math.abs(props.value - props.min) / difference) * 100 + "%";
+				size = (value - props.min) / difference * 100 + "%";
 			}
 
 			let barStyle = {};

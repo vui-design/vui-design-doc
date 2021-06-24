@@ -2,12 +2,12 @@
 	<vui-doc-example v-bind:code="code" id="example-slider-basic-usage">
 		<template slot="demo">
 			<div class="example-slider-basic-usage">
-				<vui-slider v-model="value1" v-bind:disabled="disabled" />
+<!-- 				<vui-slider v-model="value1" v-bind:disabled="disabled" />
 				<vui-slider v-model="value1" showSteps v-bind:step="10" v-bind:disabled="disabled" />
 				<vui-slider v-model="value1" v-bind:marks="marks" v-bind:disabled="disabled" />
-				<vui-slider v-model="value2" range v-bind:disabled="disabled" />
+				<vui-slider v-model="value2" range v-bind:disabled="disabled" /> -->
 				<vui-slider v-model="value2" range showSteps v-bind:step="10" v-bind:disabled="disabled" />
-				<vui-slider v-model="value2" range v-bind:marks="marks" v-bind:disabled="disabled" />
+<!-- 				<vui-slider v-model="value2" range v-bind:marks="marks" v-bind:disabled="disabled" /> -->
 			</div>
 		</template>
 		<template slot="title">基本用法</template>
