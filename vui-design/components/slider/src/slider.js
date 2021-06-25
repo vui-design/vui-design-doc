@@ -158,7 +158,8 @@ const VuiSlider = {
 
 		classes.el = {
 			[`${classNamePrefix}`]: true,
-			[`${classNamePrefix}-${direction}`]: true
+			[`${classNamePrefix}-${direction}`]: true,
+			[`${classNamePrefix}-disabled`]: props.disabled
 		};
 
 		// render
