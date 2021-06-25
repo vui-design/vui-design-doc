@@ -52,7 +52,7 @@ const VuiSliderMarks = {
 			<div class={classes.el}>
 				{
 					marks.map(mark => {
-						const offset = (mark.value - props.min) / difference * 100 + "%";
+						const position = (mark.value - props.min) / difference * 100 + "%";
 						let isActive = false;
 
 						if (props.included) {
@@ -80,10 +80,10 @@ const VuiSliderMarks = {
 						}
 
 						if (props.vertical) {
-							markStyle.bottom = offset;
+							markStyle.bottom = position;
 						}
 						else {
-							markStyle.left = offset;
+							markStyle.left = position;
 						}
 
 						let label;

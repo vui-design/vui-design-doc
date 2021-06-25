@@ -1,6 +1,7 @@
 import PropTypes from "vui-design/utils/prop-types";
 import clone from "vui-design/utils/clone";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
+import utils from "./utils";
 
 const VuiSliderTrack = {
 	name: "vui-slider-track",
@@ -11,7 +12,49 @@ const VuiSliderTrack = {
 		range: PropTypes.bool.def(false),
 		included: PropTypes.bool.def(true),
 		min: PropTypes.number.def(0),
-		max: PropTypes.number.def(100)
+		max: PropTypes.number.def(100),
+		step: PropTypes.number.def(1),
+		getContainer: PropTypes.func.def(element => element.parentNode),
+		disabled: PropTypes.bool.def(false)
+	},
+	methods: {
+		handleMousedown(e) {
+			e.preventDefault();
+		},
+		handleClick(e) {
+			const { $props: props } = this;
+
+			if (props.disabled) {
+				return;
+			}
+
+			const container = props.getContainer();
+			const size = utils.getSliderSize(container, props.vertical);
+			let position;
+
+			if (props.vertical) {
+				const rectX = container.getBoundingClientRect().bottom;
+
+				position = (rectY - e.clientY) / size * 100
+			}
+			else {
+				const rectX = container.getBoundingClientRect().left;
+
+				position = (e.clientX - rectX) / size * 100;
+			}
+
+			const value = utils.getSliderDraggerValue(position, props);
+			let type;
+
+			if (props.range) {
+				type = Math.abs(props.value[0] - value) < Math.abs(props.value[1] - value) ? "min" : "max";
+			}
+			else {
+				type = "max";
+			}
+
+			this.$emit("click", type, value);
+		}
 	},
 	render(h) {
 		const { $props: props } = this;
@@ -36,26 +79,26 @@ const VuiSliderTrack = {
 		let bar;
 
 		if (props.included) {
-			let offset;
+			let position;
 			let size;
 
 			if (props.range) {
-				offset = (value[0] - props.min) / difference * 100 + "%";
+				position = (value[0] - props.min) / difference * 100 + "%";
 				size = (value[1] - value[0]) / difference * 100 + "%";
 			}
 			else {
-				offset = "0%";
+				position = "0%";
 				size = (value - props.min) / difference * 100 + "%";
 			}
 
 			let barStyle = {};
 
 			if (props.vertical) {
-				barStyle.bottom = offset;
+				barStyle.bottom = position;
 				barStyle.height = size;
 			}
 			else {
-				barStyle.left = offset;
+				barStyle.left = position;
 				barStyle.width = size;
 			}
 
@@ -65,7 +108,7 @@ const VuiSliderTrack = {
 		}
 
 		return (
-			<div class={classes.el}>
+			<div class={classes.el} onMousedown={this.handleMousedown} onClick={this.handleClick}>
 				{bar}
 			</div>
 		);

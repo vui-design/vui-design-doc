@@ -31,7 +31,7 @@
 				disabled: false,
 				value1: 70,
 				value2: [20, 70],
-					marks: {
+				marks: {
 					0: "0°C",
 					30: "30°C",
 					50: "50°C",
@@ -44,6 +44,14 @@
 					}
 				}
 			};
+		},
+		watch: {
+			value1(value) {
+				console.log(value);
+			},
+			value2(value) {
+				console.log(value.map(number => number));
+			}
 		}
 	};
 </script>

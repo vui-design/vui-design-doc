@@ -54,7 +54,7 @@ const VuiSliderSteps = {
 			<div class={classes.el}>
 				{
 					steps.map(step => {
-						const offset = (step - props.min) / difference * 100 + "%";
+						const position = (step - props.min) / difference * 100 + "%";
 						let isActive = false;
 
 						if (props.included) {
@@ -78,10 +78,10 @@ const VuiSliderSteps = {
 						}
 
 						if (props.vertical) {
-							stepStyle.bottom = offset;
+							stepStyle.bottom = position;
 						}
 						else {
-							stepStyle.left = offset;
+							stepStyle.left = position;
 						}
 
 						return (

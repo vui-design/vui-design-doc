@@ -10,6 +10,23 @@ export const getSliderSize = (container, vertical) => {
 	return container[vertical ? "clientHeight" : "clientWidth"];
 };
 
+// 根据 SliderDragger 的当前位置计算状态值
+export const getSliderDraggerValue = (position, props) => {
+	if (position < 0) {
+		position = 0;
+	}
+	else if (position > 100) {
+		position = 100;
+	}
+
+	const stepSize = 100 / ((props.max - props.min) / props.step);
+	const steps = Math.round(position / stepSize);
+	const precision = getPrecision(props.min, props.max, props.step);
+	const value = (steps * stepSize * (props.max - props.min)) / 100 + props.min;
+
+	return parseFloat(value.toFixed(precision));
+};
+
 // 获取数值精度
 const mapper = value => {
 	const decimal = String(value).split(".")[1];
@@ -88,6 +105,7 @@ export const getMarks = (min, max, marks) => {
 // 默认导出所有接口
 export default {
 	getSliderSize,
+	getSliderDraggerValue,
 	getPrecision,
 	getValueFromProps,
 	getSteps,
