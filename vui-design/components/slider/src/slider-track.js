@@ -14,6 +14,7 @@ const VuiSliderTrack = {
 		min: PropTypes.number.def(0),
 		max: PropTypes.number.def(100),
 		step: PropTypes.number.def(1),
+		marks: PropTypes.object,
 		getContainer: PropTypes.func.def(element => element.parentNode),
 		disabled: PropTypes.bool.def(false)
 	},
@@ -24,7 +25,7 @@ const VuiSliderTrack = {
 		handleClick(e) {
 			const { $props: props } = this;
 
-			if (props.disabled) {
+			if (props.disabled || (!props.step && !props.marks)) {
 				return;
 			}
 

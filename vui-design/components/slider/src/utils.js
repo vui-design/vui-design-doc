@@ -68,6 +68,10 @@ export const getValueFromProps = (value, props) => {
 
 // 获取 step 集合
 export const getSteps = (min, max, step, showSteps, marks) => {
+	if (!marks) {
+		marks = {};
+	}
+
 	const steps = Object.keys(marks).map(parseFloat);
 
 	if (step && showSteps) {
@@ -83,6 +87,10 @@ export const getSteps = (min, max, step, showSteps, marks) => {
 
 // 获取 mark 集合
 export const getMarks = (min, max, marks) => {
+	if (!marks) {
+		marks = {};
+	}
+
 	const marksKeys = Object.keys(marks).map(parseFloat);
 
 	return marksKeys.filter(marksKey => marksKey >= min && marksKey <= max).sort((a, b) => a - b).map(marksKey => {
@@ -111,13 +119,3 @@ export default {
 	getSteps,
 	getMarks
 };
-
-
-
-
-
-
-
-
-
-

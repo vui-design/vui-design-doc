@@ -1,5 +1,5 @@
-const code = `
-<template>
+const code =
+`<template>
   <div class="example-slider-basic-usage">
     <section>
       <div>Disabled:</div>
@@ -29,4 +29,4 @@ const code = `
 </style>
 `;
 
-export default code.trim();
+export default code;

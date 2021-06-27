@@ -304,6 +304,14 @@ export default {
     "example-select-size": "尺寸",
     "example-select-disabled": "禁用",
 
+    "example-slider-basic-usage": "基本用法",
+    "example-slider-input-number": "带输入框的滑块",
+    "example-slider-icon": "带图标的滑块",
+    "example-slider-tooltip": "自定义提示",
+    "example-slider-tooltip-visible": "控制 Tooltip 显示",
+    "example-slider-marks": "带标签的滑块",
+    "example-slider-vertical": "垂直",
+
     "example-switch-basic-usage": "基本用法",
     "example-switch-size": "尺寸",
     "example-switch-text": "文字图标",

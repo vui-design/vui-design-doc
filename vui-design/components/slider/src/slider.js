@@ -30,7 +30,7 @@ const VuiSlider = {
 		max: PropTypes.number.def(100),
 		step: PropTypes.number.def(1),
 		showSteps: PropTypes.bool.def(false),
-		marks: PropTypes.object.def({}),
+		marks: PropTypes.object,
 		tooltip: PropTypes.object.def({
 			formatter: value => value,
 			color: "dark",
@@ -56,6 +56,15 @@ const VuiSlider = {
 		}
 	},
 	watch: {
+		dragging(value) {
+			const { $props: props } = this;
+
+			if (value) {
+				return;
+			}
+
+			this.state.value = utils.getValueFromProps(props.value, props);
+		},
 		value(value) {
 			const { $props: props } = this;
 
@@ -65,14 +74,11 @@ const VuiSlider = {
 
 			this.state.value = utils.getValueFromProps(value, props);
 		},
-		dragging(value) {
-			const { $props: props } = this;
-
-			if (value) {
-				return;
-			}
-
-			this.state.value = utils.getValueFromProps(props.value, props);
+		min() {
+			this.state.value = utils.getValueFromProps(value, props);
+		},
+		max() {
+			this.state.value = utils.getValueFromProps(value, props);
 		}
 	},
 	methods: {
@@ -175,6 +181,7 @@ const VuiSlider = {
 				min={props.min}
 				max={props.max}
 				step={props.step}
+				marks={props.marks}
 				getContainer={this.getContainer}
 				disabled={props.disabled}
 				onClick={this.handleMove}

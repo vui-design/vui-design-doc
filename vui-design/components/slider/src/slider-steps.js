@@ -18,7 +18,7 @@ const VuiSliderSteps = {
 		showSteps: PropTypes.bool.def(false),
 		stepStyle: PropTypes.object,
 		activeStepStyle: PropTypes.object,
-		marks: PropTypes.object.def({})
+		marks: PropTypes.object
 	},
 	render(h) {
 		const { $props: props } = this;

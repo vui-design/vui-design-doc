@@ -22,7 +22,7 @@ const VuiPopover = {
 	},
 	props: {
 		classNamePrefix: PropTypes.string,
-		trigger: PropTypes.oneOf(["hover", "focus", "click"]).def("hover"),
+		trigger: PropTypes.oneOf(["hover", "focus", "click", "always"]).def("hover"),
 		visible: PropTypes.bool.def(false),
 		title: PropTypes.string,
 		content: PropTypes.string,
@@ -39,13 +39,15 @@ const VuiPopover = {
 
 		return {
 			state: {
-				visible: props.visible
+				visible: props.trigger === "always" ? true : props.visible
 			}
 		};
 	},
 	watch: {
 		visible(value) {
-			this.state.visible = value;
+			const { $props: props } = this;
+
+			this.state.visible = props.trigger === "always" ? true : value;
 		}
 	},
 	methods: {

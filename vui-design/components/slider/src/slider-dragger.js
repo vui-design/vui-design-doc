@@ -122,7 +122,7 @@ const VuiSliderDragger = {
 			let distance = 0;
 
 			if (props.vertical) {
-				distance = (dragEnd - this.state.dragStart) / size * 100;
+				distance = (this.state.dragStart - dragEnd) / size * 100;
 			}
 			else {
 				distance = (dragEnd - this.state.dragStart) / size * 100;
@@ -186,16 +186,18 @@ const VuiSliderDragger = {
 		);
 
 		if (props.tooltip && is.function(props.tooltip.formatter)) {
+			const tooltip = props.tooltip;
+
 			dragger = (
 				<VuiTooltip
 					ref="tooltip"
-					trigger="focus"
-					color={props.tooltip.color}
-					placement={props.tooltip.placement}
-					getPopupContainer={props.tooltip.getPopupContainer}
+					trigger={tooltip.trigger === "always" ? "always" : "focus"}
+					color={tooltip.color}
+					placement={tooltip.placement}
+					getPopupContainer={tooltip.getPopupContainer}
 				>
 					{dragger}
-					<div slot="content">{props.tooltip.formatter(props.value)}</div>
+					<div slot="content">{tooltip.formatter(props.value)}</div>
 				</VuiTooltip>
 			);
 		}

@@ -14,7 +14,7 @@ const VuiSliderMarks = {
 		included: PropTypes.bool.def(true),
 		min: PropTypes.number.def(0),
 		max: PropTypes.number.def(100),
-		marks: PropTypes.object.def({}),
+		marks: PropTypes.object,
 		markStyle: PropTypes.object,
 		activeMarkStyle: PropTypes.object
 	},
