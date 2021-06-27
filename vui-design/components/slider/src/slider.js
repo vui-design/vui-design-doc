@@ -108,21 +108,44 @@ const VuiSlider = {
 			if (props.range) {
 				if (type === "min") {
 					const maybeReverse = value > this.state.value[1];
+					const callback = () => {
+						if (maybeReverse) {
+							this.$refs.maxDragger.focus();
+						}
+						else {
+							this.$refs.minDragger.focus();
+							this.$refs.minDragger.$refs.tooltip && this.$refs.minDragger.$refs.tooltip.reregister();
+						}
+					};
 
 					this.state.value.splice(0, 1, value);
-					this.$nextTick(() => maybeReverse ? this.$refs.maxDragger.focus() : this.$refs.minDragger.focus());
+					this.$nextTick(callback);
 				}
 				else if (type === "max") {
 					const maybeReverse = value < this.state.value[0];
+					const callback = () => {
+						if (maybeReverse) {
+							this.$refs.minDragger.focus();
+						}
+						else {
+							this.$refs.maxDragger.focus();
+							this.$refs.maxDragger.$refs.tooltip && this.$refs.maxDragger.$refs.tooltip.reregister();
+						}
+					};
 
 					this.state.value.splice(1, 1, value);
-					this.$nextTick(() => maybeReverse ? this.$refs.minDragger.focus() : this.$refs.maxDragger.focus());
+					this.$nextTick(callback);
 				}
 			}
 			else {
 				if (type === "max") {
+					const callback = () => {
+						this.$refs.maxDragger.focus();
+						this.$refs.maxDragger.$refs.tooltip && this.$refs.maxDragger.$refs.tooltip.reregister();
+					};
+
 					this.state.value = value;
-					this.$nextTick(() => this.$refs.maxDragger.focus());
+					this.$nextTick(callback);
 				}
 			}
 
@@ -230,6 +253,7 @@ const VuiSlider = {
 					classNamePrefix={classNamePrefix}
 					vertical={props.vertical}
 					value={state.value[0]}
+					other={state.value[1]}
 					min={props.min}
 					max={props.max}
 					step={props.step}
@@ -251,6 +275,7 @@ const VuiSlider = {
 				classNamePrefix={classNamePrefix}
 				vertical={props.vertical}
 				value={props.range ? state.value[1] : state.value}
+				other={props.range ? state.value[0] : 0}
 				min={props.min}
 				max={props.max}
 				step={props.step}

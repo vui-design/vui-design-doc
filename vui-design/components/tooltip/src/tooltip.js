@@ -101,7 +101,6 @@ const VuiTooltip = {
 			}
 
 			this.popup.update();
-			this.popup.target.style.zIndex = Popup.nextZIndex();
 		},
 		unregister() {
 			if (is.server || !this.popup) {

@@ -73,7 +73,6 @@ const VuiSliderDragger = {
 			}
 
 			this.$emit("move", props.type, utils.getSliderDraggerValue(moveEndPosition, props));
-			this.$nextTick(() => this.$refs.tooltip && this.$refs.tooltip.reregister());
 		},
 		handleDragstart(e) {
 			const { $props: props } = this;

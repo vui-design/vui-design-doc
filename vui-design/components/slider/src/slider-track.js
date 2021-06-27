@@ -34,7 +34,7 @@ const VuiSliderTrack = {
 			let position;
 
 			if (props.vertical) {
-				const rectX = container.getBoundingClientRect().bottom;
+				const rectY = container.getBoundingClientRect().bottom;
 
 				position = (rectY - e.clientY) / size * 100
 			}
