@@ -58,26 +58,6 @@
 					}
 				}
 			};
-		},
-		watch: {
-			value1(value) {
-				console.log(value)
-			},
-			value2(value) {
-				console.log([...value])
-			},
-			value3(value) {
-				console.log(value)
-			},
-			value4(value) {
-				console.log([...value])
-			},
-			value5(value) {
-				console.log(value)
-			},
-			value6(value) {
-				console.log(value)
-			}
 		}
 	};
 </script>

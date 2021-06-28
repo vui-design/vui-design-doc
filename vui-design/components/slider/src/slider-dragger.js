@@ -19,6 +19,7 @@ const VuiSliderDragger = {
 		min: PropTypes.number.def(0),
 		max: PropTypes.number.def(100),
 		step: PropTypes.number.def(1),
+		marks: PropTypes.object,
 		tooltip: PropTypes.object.def({
 			formatter: value => value,
 			color: "dark",
@@ -78,6 +79,10 @@ const VuiSliderDragger = {
 			const { $props: props } = this;
 
 			if (props.disabled || this.state.dragging) {
+				return;
+			}
+
+			if (e.type === "mousedown" && e.button !== 0) {
 				return;
 			}
 

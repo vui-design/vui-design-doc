@@ -1,6 +1,57 @@
 import is from "vui-design/utils/is";
 import clone from "vui-design/utils/clone";
 
+export function getValuePrecision(step) {
+	const string = String(step);
+	let precision = 0;
+
+	if (string.indexOf(".") > -1) {
+		precision = string.length - string.indexOf(".") - 1;
+	}
+
+	return precision;
+};
+
+export function getClosestStep(value, props) {
+	let steps = [];
+
+	if (props.marks) {
+		steps = Object.keys(props.marks).map(parseFloat);
+	}
+
+	if (props.step !== null) {
+		const precision = getValuePrecision(props.step);
+		const times = Math.pow(10, precision);
+
+		const maxSteps = Math.floor((props.max * times - props.min * times) / (props.step * times));
+		const nowSteps = Math.min((value - props.min) / props.step, maxSteps);
+
+		steps.push(Math.round(nowSteps) * props.step + props.min);
+	}
+
+	console.log(steps)
+
+	const array = steps.map(breakpoint => Math.abs(value - breakpoint));
+
+	return steps[array.indexOf(Math.min(...array))];
+};
+
+export function getClosestValue(value, props) {
+	const closestStep = isFinite(getClosestStep(value, props)) ? getClosestStep(value, props) : 0;
+
+	console.log(2, closestStep)
+
+	if (props.step === null) {
+		return closestStep;
+	}
+	else {
+		return parseFloat(closestStep.toFixed(getValuePrecision(props.step)));
+	}
+};
+
+
+
+
 // 获取 Slider 容器宽度或高度
 export const getSliderSize = (container, vertical) => {
 	if (!is.element(container)) {
@@ -12,6 +63,20 @@ export const getSliderSize = (container, vertical) => {
 
 // 根据 SliderDragger 的当前位置计算状态值
 export const getSliderDraggerValue = (position, props) => {
+	// if (position < 0) {
+	// 	position = 0;
+	// }
+	// else if (position > 100) {
+	// 	position = 100;
+	// }
+
+	// const stepSize = 100 / ((props.max - props.min) / props.step);
+	// const steps = Math.round(position / stepSize);
+	// const precision = getPrecision(props.min, props.max, props.step);
+	// const value = (steps * stepSize * (props.max - props.min)) / 100 + props.min;
+
+	// return parseFloat(value.toFixed(precision));
+
 	if (position < 0) {
 		position = 0;
 	}
@@ -21,10 +86,9 @@ export const getSliderDraggerValue = (position, props) => {
 
 	const stepSize = 100 / ((props.max - props.min) / props.step);
 	const steps = Math.round(position / stepSize);
-	const precision = getPrecision(props.min, props.max, props.step);
 	const value = (steps * stepSize * (props.max - props.min)) / 100 + props.min;
 
-	return parseFloat(value.toFixed(precision));
+	return getClosestValue(value, props);
 };
 
 // 获取数值精度
@@ -91,20 +155,20 @@ export const getMarks = (min, max, marks) => {
 		marks = {};
 	}
 
-	const marksKeys = Object.keys(marks).map(parseFloat);
+	const keys = Object.keys(marks).map(parseFloat);
 
-	return marksKeys.filter(marksKey => marksKey >= min && marksKey <= max).sort((a, b) => a - b).map(marksKey => {
+	return keys.filter(key => key >= min && key <= max).sort((a, b) => a - b).map(key => {
 		let attributes = {};
 
-		if (is.json(marks[marksKey])) {
-			attributes = clone(marks[marksKey]);
+		if (is.json(marks[key])) {
+			attributes = clone(marks[key]);
 		}
 		else {
-			attributes.label = marks[marksKey];
+			attributes.label = marks[key];
 		}
 
 		return {
-			value: marksKey,
+			value: key,
 			attributes
 		};
 	});
@@ -112,6 +176,7 @@ export const getMarks = (min, max, marks) => {
 
 // 默认导出所有接口
 export default {
+	getClosestValue,
 	getSliderSize,
 	getSliderDraggerValue,
 	getPrecision,
