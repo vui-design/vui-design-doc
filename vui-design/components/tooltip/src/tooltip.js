@@ -126,14 +126,14 @@ const VuiTooltip = {
 				this.timeout = setTimeout(() => this.toggle(false), 100);
 			}
 		},
-		handleFocusin() {
+		handleFocusin(e) {
 			const { $props: props } = this;
 
 			if (props.trigger === "focus") {
 				this.toggle(true);
 			}
 		},
-		handleFocusout() {
+		handleFocusout(e) {
 			const { $props: props } = this;
 
 			if (props.trigger === "focus") {
