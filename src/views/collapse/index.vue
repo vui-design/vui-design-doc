@@ -30,7 +30,7 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="100">属性</th>
+						<th width="180">属性</th>
 						<th>说明</th>
 						<th width="180">类型</th>
 						<th width="140">默认值</th>
@@ -61,13 +61,19 @@
 						<td>String</td>
 						<td><code>left</code></td>
 					</tr>
+					<tr>
+						<td>destroyInactivePanel</td>
+						<td>销毁折叠隐藏的面板</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
 				</tbody>
 			</table>
 			<h3>Collapse 事件</h3>
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="100">事件名</th>
+						<th width="180">事件名</th>
 						<th>说明</th>
 						<th width="180">类型</th>
 						<th width="140">回调参数</th>
@@ -92,7 +98,7 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="100">属性</th>
+						<th width="180">属性</th>
 						<th>说明</th>
 						<th width="180">类型</th>
 						<th width="140">默认值</th>
