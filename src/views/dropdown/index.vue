@@ -7,16 +7,17 @@
 			<p>当页面上的操作命令过多时，用此组件可以收纳操作元素。点击或移入触点，会出现一个下拉菜单。可在列表中进行选择，并执行相应的命令。</p>
 			<h2>代码演示</h2>
 		</vui-doc-markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleDropdownBasicUsage />
 				<ExampleDropdownOtherElements />
 				<ExampleDropdownTrigger />
-			</vui-col>
-			<vui-col :span="12">
 				<ExampleDropdownEvent />
+			</vui-col>
+			<vui-col v-bind:span="12">
 				<ExampleDropdownCascaded />
 				<ExampleDropdownPlacement />
+				<ExampleDropdownButton />
 			</vui-col>
 		</vui-row>
 		<vui-doc-markdown>
@@ -25,10 +26,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="150">属性</th>
+						<th width="160">属性</th>
 						<th>说明</th>
-						<th width="100">类型</th>
-						<th width="100">默认值</th>
+						<th width="140">类型</th>
+						<th width="180">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -50,22 +51,114 @@
 						<td>String</td>
 						<td><code>bottom-start</code></td>
 					</tr>
+					<tr>
+						<td>dropdownAutoWidth</td>
+						<td>下拉菜单的容器宽度是否根据菜单内容自动设置，设置为 <code>false</code> 时将保持与操作按钮或链接同宽</td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+					</tr>
+					<tr>
+						<td>getPopupContainer</td>
+						<td>指定下拉菜单挂载的 HTML 节点</td>
+						<td>Function</td>
+						<td><code>() => document.body</code></td>
+					</tr>
 				</tbody>
 			</table>
 			<h3>Dropdown 事件</h3>
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="150">事件名</th>
+						<th width="160">事件名</th>
 						<th>说明</th>
-						<th width="100">类型</th>
-						<th width="100">回调参数</th>
+						<th width="140">类型</th>
+						<th width="180">回调参数</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>change</td>
-						<td>菜单显示状态发生变化时触发</td>
+						<td>菜单显示状态发生变化时触发的事件回调函数</td>
+						<td>Function</td>
+						<td><code>visible</code></td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>DropdownButton 属性</h3>
+			<table class="example-api-props">
+				<thead>
+					<tr>
+						<th width="160">属性</th>
+						<th>说明</th>
+						<th width="140">类型</th>
+						<th width="180">默认值</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>type</td>
+						<td>按钮类型，可选值为 <code>default</code>、<code>primary</code>、<code>info</code>、<code>warning</code>、<code>success</code>、<code>error</code>、<code>dashed</code>、<code>text</code> 或者不设</td>
+						<td>String</td>
+						<td><code>default</code></td>
+					</tr>
+					<tr>
+						<td>icon</td>
+						<td>按钮图标类型/图标</td>
+						<td>String | Slot</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>trigger</td>
+						<td>触发方式，可选值为 <code>hover</code>、<code>click</code> 或者不设</td>
+						<td>String</td>
+						<td><code>hover</code></td>
+					</tr>
+					<tr>
+						<td>visible</td>
+						<td>菜单是否显示，可以使用 <code>v-model</code> 双向绑定数据</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>placement</td>
+						<td>菜单弹出位置，可选值为 <code>top</code>、<code>top-start</code>、<code>top-end</code>、<code>bottom</code>、<code>bottom-start</code>、<code>bottom-end</code> 或者不设</td>
+						<td>String</td>
+						<td><code>bottom-end</code></td>
+					</tr>
+					<tr>
+						<td>dropdownAutoWidth</td>
+						<td>下拉菜单的容器宽度是否根据菜单内容自动设置，设置为 <code>false</code> 时将保持与操作按钮或链接同宽</td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+					</tr>
+					<tr>
+						<td>getPopupContainer</td>
+						<td>指定下拉菜单挂载的 HTML 节点</td>
+						<td>Function</td>
+						<td><code>() => document.body</code></td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>DropdownButton 事件</h3>
+			<table class="example-api-events">
+				<thead>
+					<tr>
+						<th width="160">事件名</th>
+						<th>说明</th>
+						<th width="140">类型</th>
+						<th width="180">回调参数</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>click</td>
+						<td>左侧按钮点击时触发的事件回调函数</td>
+						<td>Function</td>
+						<td><code>visible</code></td>
+					</tr>
+					<tr>
+						<td>change</td>
+						<td>右侧按钮的下拉菜单显示状态发生变化时触发的事件回调函数</td>
 						<td>Function</td>
 						<td><code>visible</code></td>
 					</tr>
@@ -75,15 +168,15 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="150">属性</th>
+						<th width="160">属性</th>
 						<th>说明</th>
-						<th width="100">类型</th>
-						<th width="100">默认值</th>
+						<th width="140">类型</th>
+						<th width="180">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>theme</td>
+						<td>color</td>
 						<td>主题颜色，可选值为 <code>light</code>、<code>dark</code> 或者不设</td>
 						<td>String</td>
 						<td><code>light</code></td>
@@ -94,18 +187,18 @@
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="150">事件名</th>
+						<th width="160">事件名</th>
 						<th>说明</th>
-						<th width="100">类型</th>
-						<th width="100">回调参数</th>
+						<th width="140">类型</th>
+						<th width="180">回调参数</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>click</td>
-						<td><code>MenuItem</code> 被点击时触发</td>
+						<td>点击 <code>DropdownMenuItem</code> 时触发的事件回调函数</td>
 						<td>Function</td>
-						<td><code>name</code></td>
+						<td><code>value</code></td>
 					</tr>
 				</tbody>
 			</table>
@@ -113,16 +206,22 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="150">属性</th>
+						<th width="160">属性</th>
 						<th>说明</th>
-						<th width="100">类型</th>
-						<th width="100">默认值</th>
+						<th width="140">类型</th>
+						<th width="180">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>name</td>
-						<td>子菜单唯一名称标志，默认自动生成</td>
+						<td>子菜单的唯一名称标识（将在后续版本移除，请使用 <code>value</code> 属性替代）</td>
+						<td>String | Number</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>value</td>
+						<td>子菜单的唯一值</td>
 						<td>String | Number</td>
 						<td>--</td>
 					</tr>
@@ -150,10 +249,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="150">属性</th>
+						<th width="160">属性</th>
 						<th>说明</th>
-						<th width="100">类型</th>
-						<th width="100">默认值</th>
+						<th width="140">类型</th>
+						<th width="180">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -169,16 +268,22 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="150">属性</th>
+						<th width="160">属性</th>
 						<th>说明</th>
-						<th width="100">类型</th>
-						<th width="100">默认值</th>
+						<th width="140">类型</th>
+						<th width="180">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>name</td>
-						<td>菜单项唯一名称标志，默认自动生成</td>
+						<td>菜单项的唯一名称标识（将在后续版本移除，请使用 <code>value</code> 属性替代）</td>
+						<td>String | Number</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>value</td>
+						<td>菜单项的唯一值</td>
 						<td>String | Number</td>
 						<td>--</td>
 					</tr>
@@ -245,6 +350,7 @@
 	import ExampleDropdownEvent from "./examples/event";
 	import ExampleDropdownCascaded from "./examples/cascaded";
 	import ExampleDropdownPlacement from "./examples/placement";
+	import ExampleDropdownButton from "./examples/button";
 
 	export default {
 		mixins: [
@@ -257,7 +363,8 @@
 			ExampleDropdownTrigger,
 			ExampleDropdownEvent,
 			ExampleDropdownCascaded,
-			ExampleDropdownPlacement
+			ExampleDropdownPlacement,
+			ExampleDropdownButton
 		}
 	};
 </script>

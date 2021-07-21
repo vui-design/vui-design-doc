@@ -179,6 +179,7 @@ export default {
     "example-dropdown-event": "触发事件",
     "example-dropdown-cascaded": "级联菜单",
     "example-dropdown-placement": "弹出位置",
+    "example-dropdown-button": "带下拉框的按钮",
 
     "example-menu-horizontal": "水平菜单",
     "example-menu-vertical": "垂直菜单",
