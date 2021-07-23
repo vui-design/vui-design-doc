@@ -35,11 +35,11 @@ const VuiCascadeTransferSource = {
 		classNamePrefix: PropTypes.string,
 		level: PropTypes.number.def(1),
 		parent: PropTypes.object,
-		title: PropTypes.func.def(props => ""),
 		selectedKeys: PropTypes.array.def([]),
 		options: PropTypes.array.def([]),
 		valueKey: PropTypes.string.def("value"),
 		childrenKey: PropTypes.string.def("children"),
+		title: PropTypes.func.def(props => ""),
 		formatter: PropTypes.func.def(option => option.label),
 		body: PropTypes.func,
 		showSelectAll: PropTypes.bool.def(true),
@@ -164,7 +164,7 @@ const VuiCascadeTransferSource = {
 								direction: props.direction,
 								value: value,
 								children: children,
-								data: option,
+								option: option,
 								formatter: props.formatter,
 								expanded: expanded,
 								indeterminate: indeterminate,
@@ -188,7 +188,7 @@ const VuiCascadeTransferSource = {
 			if (is.function(props.formatter)) {
 				const attributes = {
 					direction: props.direction,
-					data: props.data
+					option: props.option
 				};
 
 				content = props.formatter(attributes);
@@ -202,13 +202,13 @@ const VuiCascadeTransferSource = {
 
 			// onClick
 			const onClick = () => {
-				props.onExpand(props.value, props.data);
-				props.onClick(props.value, props.data);
+				props.onExpand(props.value, props.option);
+				props.onClick(props.value, props.option);
 			};
 
 			// onSelect
 			const onSelect = checked => {
-				props.onSelect(checked, props.value, props.data);
+				props.onSelect(checked, props.value, props.option);
 			};
 
 			// class
@@ -301,16 +301,16 @@ const VuiCascadeTransferSource = {
 						classNamePrefix={props.classNamePrefix}
 						level={subSourceLevel}
 						parent={subSourceParent}
-						title={props.title}
 						selectedKeys={subSourceSelectedKeys}
 						options={subSourceOptions}
 						valueKey={props.valueKey}
 						childrenKey={props.childrenKey}
+						title={props.title}
 						formatter={props.formatter}
 						body={props.body}
+						locale={props.locale}
 						showSelectAll={props.showSelectAll}
 						disabled={props.disabled}
-						locale={props.locale}
 						getContainer={props.getContainer}
 						onClick={props.onClick}
 						onSelect={props.onSelect}
@@ -371,15 +371,35 @@ const VuiCascadeTransferSource = {
 			const index = this.state.selectedKeys.indexOf(value);
 
 			if (checked) {
-				if (index === -1) {
-					this.state.selectedKeys.push(value);
-				}
+				this.state.selectedKeys.push(value);
 			}
 			else {
-				if (index > -1) {
-					this.state.selectedKeys.splice(index, 1);
-				}
+				this.state.selectedKeys.splice(index, 1);
 			}
+
+			// 更新全局的选中状态
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			return;
 
 			// 更新全局的选中状态
 			props.options.forEach(option => {
@@ -404,7 +424,7 @@ const VuiCascadeTransferSource = {
 						data: props.parent
 					};
 
-					this.vuiCascadeTransferSource.handleSelect(true, option);
+					this.vuiCascadeTransferSource.handleSelect(true, value, option);
 				}
 			}
 			else {
@@ -414,7 +434,7 @@ const VuiCascadeTransferSource = {
 						data: props.parent
 					};
 
-					this.vuiCascadeTransferSource.handleSelect(false, option);
+					this.vuiCascadeTransferSource.handleSelect(false, value, option);
 				}
 			}
 		}
@@ -435,16 +455,16 @@ const VuiCascadeTransferSource = {
 			classNamePrefix: props.classNamePrefix,
 			level: props.level,
 			parent: props.parent,
-			title: props.title,
 			expandedKey: state.expandedKey,
 			selectedKeys: state.selectedKeys,
 			options: props.options,
 			valueKey: props.valueKey,
 			childrenKey: props.childrenKey,
+			title: props.title,
 			formatter: props.formatter,
+			locale: props.locale,
 			showSelectAll: props.showSelectAll,
 			disabled: props.disabled,
-			locale: props.locale,
 			getContainer: props.getContainer,
 			onExpand: handleExpand,
 			onClick: handleClick,

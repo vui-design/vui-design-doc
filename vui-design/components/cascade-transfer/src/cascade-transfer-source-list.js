@@ -16,16 +16,16 @@ const VuiCascadeTransferSourceList = {
 	},
 	props: {
 		classNamePrefix: PropTypes.string,
-		title: PropTypes.func.def(props => ""),
 		value: PropTypes.array.def([]),
 		options: PropTypes.array.def([]),
 		valueKey: PropTypes.string.def("value"),
 		childrenKey: PropTypes.string.def("children"),
+		title: PropTypes.func.def(props => ""),
 		formatter: PropTypes.func.def(option => option.key),
 		body: PropTypes.func,
+		locale: PropTypes.object,
 		showSelectAll: PropTypes.bool.def(true),
-		disabled: PropTypes.bool.def(false),
-		locale: PropTypes.object
+		disabled: PropTypes.bool.def(false)
 	},
 	data() {
 		const { $props: props } = this;
@@ -86,6 +86,9 @@ const VuiCascadeTransferSourceList = {
 		const { $props: props, state, getContainer } = this;
 		const { handleClick, handleSelect } = this;
 
+		// selectedKeys
+		const selectedKeys = props.options.map(option => option[props.valueKey]).filter(optionKey => state.value.indexOf(optionKey) > -1);
+
 		// class
 		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "source-list");
 		let classes = {};
@@ -93,23 +96,20 @@ const VuiCascadeTransferSourceList = {
 		classes.el = `${classNamePrefix}`;
 
 		// render
-		const optionKeys = props.options.map(option => option[props.valueKey]);
-		const selectedKeys = optionKeys.filter(optionKey => state.value.indexOf(optionKey) > -1);
-
 		return (
 			<div class={classes.el}>
 				<VuiCascadeTransferSource
 					classNamePrefix={props.classNamePrefix}
-					title={props.title}
 					selectedKeys={selectedKeys}
 					options={props.options}
 					valueKey={props.valueKey}
 					childrenKey={props.childrenKey}
+					title={props.title}
 					formatter={props.formatter}
 					body={props.body}
+					locale={props.locale}
 					showSelectAll={props.showSelectAll}
 					disabled={props.disabled}
-					locale={props.locale}
 					getContainer={getContainer}
 					onClick={handleClick}
 					onSelect={handleSelect}

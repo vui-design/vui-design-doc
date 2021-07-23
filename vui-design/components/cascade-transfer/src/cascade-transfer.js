@@ -25,17 +25,17 @@ const VuiCascadeTransfer = {
 	},
 	props: {
 		classNamePrefix: PropTypes.string,
-		title: PropTypes.func.def(props => ""),
 		value: PropTypes.array.def([]),
 		options: PropTypes.array.def([]),
 		valueKey: PropTypes.string.def("value"),
 		childrenKey: PropTypes.string.def("children"),
+		title: PropTypes.func.def(props => ""),
 		formatter: PropTypes.func.def(option => option.label),
+		locale: PropTypes.object,
 		showTargetPanel: PropTypes.bool.def(true),
 		showSelectAll: PropTypes.bool.def(true),
 		showClear: PropTypes.bool.def(true),
 		disabled: PropTypes.bool.def(false),
-		locale: PropTypes.object,
 		validator: PropTypes.bool.def(true)
 	},
 	data() {
@@ -89,7 +89,12 @@ const VuiCascadeTransfer = {
 			}
 		},
 		handleClear() {
-			const { $props: props } = this;
+			const { $props: props, state } = this;
+
+			if (state.value.length === 0) {
+				return;
+			}
+
 			const value = [];
 
 			this.state.value = value;
@@ -126,16 +131,16 @@ const VuiCascadeTransfer = {
 		children.push(
 			<VuiCascadeTransferSourceList
 				classNamePrefix={classNamePrefix}
-				title={props.title}
 				value={state.value}
 				options={props.options}
 				valueKey={props.valueKey}
 				childrenKey={props.childrenKey}
+				title={props.title}
 				formatter={formatter}
 				body={body}
+				locale={props.locale}
 				showSelectAll={props.showSelectAll}
 				disabled={props.disabled}
-				locale={props.locale}
 				onClick={handleClick}
 				onSelect={handleSelect}
 			/>
