@@ -1,20 +1,20 @@
-import VuiCascadeSelectorSourceList from "./cascade-selector-source-list";
-import VuiCascadeSelectorTarget from "./cascade-selector-target";
+import VuiCascadeTransferSourceList from "./cascade-transfer-source-list";
+import VuiCascadeTransferTarget from "./cascade-transfer-target";
 import Emitter from "vui-design/mixins/emitter";
 import PropTypes from "vui-design/utils/prop-types";
 import clone from "vui-design/utils/clone";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 
-const VuiCascadeSelector = {
-	name: "vui-cascade-selector",
+const VuiCascadeTransfer = {
+	name: "vui-cascade-transfer",
 	inject: {
 		vuiForm: {
 			default: undefined
 		}
 	},
 	components: {
-		VuiCascadeSelectorSourceList,
-		VuiCascadeSelectorTarget
+		VuiCascadeTransferSourceList,
+		VuiCascadeTransferTarget
 	},
 	mixins: [
 		Emitter
@@ -26,12 +26,12 @@ const VuiCascadeSelector = {
 	props: {
 		classNamePrefix: PropTypes.string,
 		title: PropTypes.func.def(props => ""),
-		showTargetPanel: PropTypes.bool.def(true),
 		value: PropTypes.array.def([]),
 		options: PropTypes.array.def([]),
 		valueKey: PropTypes.string.def("value"),
 		childrenKey: PropTypes.string.def("children"),
 		formatter: PropTypes.func.def(option => option.label),
+		showTargetPanel: PropTypes.bool.def(true),
 		showSelectAll: PropTypes.bool.def(true),
 		showClear: PropTypes.bool.def(true),
 		disabled: PropTypes.bool.def(false),
@@ -54,8 +54,8 @@ const VuiCascadeSelector = {
 		}
 	},
 	methods: {
-		handleClick(option) {
-			this.$emit("click", option);
+		handleClick(value, option) {
+			this.$emit("click", value, option);
 		},
 		handleSelect(value) {
 			const { $props: props } = this;
@@ -112,7 +112,7 @@ const VuiCascadeSelector = {
 		const body = scopedSlots.body;
 
 		// class
-		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "cascade-selector");
+		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "cascade-transfer");
 		let classes = {};
 
 		classes.el = {
@@ -121,9 +121,29 @@ const VuiCascadeSelector = {
 		};
 
 		// render
-		return (
-			<div class={classes.el}>
-				<VuiCascadeSelectorSourceList
+		let children = [];
+
+		children.push(
+			<VuiCascadeTransferSourceList
+				classNamePrefix={classNamePrefix}
+				title={props.title}
+				value={state.value}
+				options={props.options}
+				valueKey={props.valueKey}
+				childrenKey={props.childrenKey}
+				formatter={formatter}
+				body={body}
+				showSelectAll={props.showSelectAll}
+				disabled={props.disabled}
+				locale={props.locale}
+				onClick={handleClick}
+				onSelect={handleSelect}
+			/>
+		);
+
+		if (props.showTargetPanel) {
+			children.push(
+				<VuiCascadeTransferTarget
 					classNamePrefix={classNamePrefix}
 					title={props.title}
 					value={state.value}
@@ -132,34 +152,21 @@ const VuiCascadeSelector = {
 					childrenKey={props.childrenKey}
 					formatter={formatter}
 					body={body}
-					showSelectAll={props.showSelectAll}
+					showClear={props.showClear}
 					disabled={props.disabled}
 					locale={props.locale}
-					onClick={handleClick}
-					onSelect={handleSelect}
+					onDeselect={handleDeselect}
+					onClear={handleClear}
 				/>
-				{
-					props.showTargetPanel && (
-						<VuiCascadeSelectorTarget
-							classNamePrefix={classNamePrefix}
-							title={props.title}
-							value={state.value}
-							options={props.options}
-							valueKey={props.valueKey}
-							childrenKey={props.childrenKey}
-							formatter={formatter}
-							body={body}
-							showClear={props.showClear}
-							disabled={props.disabled}
-							locale={props.locale}
-							onDeselect={handleDeselect}
-							onClear={handleClear}
-						/>
-					)
-				}
+			);
+		}
+
+		return (
+			<div class={classes.el}>
+				{children}
 			</div>
 		);
 	}
 };
 
-export default VuiCascadeSelector;
+export default VuiCascadeTransfer;

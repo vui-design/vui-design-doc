@@ -1,5 +1,5 @@
 import VuiIcon from "vui-design/components/icon";
-import VuiCascadeSelectorEmpty from "./cascade-selector-empty";
+import VuiCascadeTransferEmpty from "./cascade-transfer-empty";
 import Locale from "vui-design/mixins/locale";
 import PropTypes from "vui-design/utils/prop-types";
 import is from "vui-design/utils/is";
@@ -7,11 +7,11 @@ import clone from "vui-design/utils/clone";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 import utils from "./utils";
 
-const VuiCascadeSelectorTarget = {
-	name: "vui-cascade-selector-target",
+const VuiCascadeTransferTarget = {
+	name: "vui-cascade-transfer-target",
 	components: {
 		VuiIcon,
-		VuiCascadeSelectorEmpty
+		VuiCascadeTransferEmpty
 	},
 	mixins: [
 		Locale
@@ -60,7 +60,7 @@ const VuiCascadeSelectorTarget = {
 					btnClearText = props.locale.clear;
 				}
 				else {
-					btnClearText = this.t("vui.cascadeSelector.clear");
+					btnClearText = this.t("vui.cascadeTransfer.clear");
 				}
 
 				content.push(
@@ -96,7 +96,7 @@ const VuiCascadeSelectorTarget = {
 			}
 			else {
 				content = (
-					<VuiCascadeSelectorEmpty
+					<VuiCascadeTransferEmpty
 						classNamePrefix={props.classNamePrefix}
 						description={props.locale ? props.locale.notFound : undefined}
 					/>
@@ -259,4 +259,4 @@ const VuiCascadeSelectorTarget = {
 	}
 };
 
-export default VuiCascadeSelectorTarget;
+export default VuiCascadeTransferTarget;

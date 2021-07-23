@@ -1,18 +1,18 @@
-import VuiCascadeSelectorSource from "./cascade-selector-source";
+import VuiCascadeTransferSource from "./cascade-transfer-source";
 import PropTypes from "vui-design/utils/prop-types";
 import clone from "vui-design/utils/clone";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 import utils from "./utils";
 
-const VuiCascadeSelectorSourceList = {
-	name: "vui-cascade-selector-source-list",
+const VuiCascadeTransferSourceList = {
+	name: "vui-cascade-transfer-source-list",
 	provide() {
 		return {
-			vuiCascadeSelectorSourceList: this
+			vuiCascadeTransferSourceList: this
 		};
 	},
 	components: {
-		VuiCascadeSelectorSource
+		VuiCascadeTransferSource
 	},
 	props: {
 		classNamePrefix: PropTypes.string,
@@ -46,8 +46,8 @@ const VuiCascadeSelectorSourceList = {
 		getContainer() {
 			return this.$el;
 		},
-		handleClick(option) {
-			this.$emit("click", clone(option));
+		handleClick(value, option) {
+			this.$emit("click", value, option);
 		},
 		handleSelect(checked, option) {
 			const { $props: props, state } = this;
@@ -84,6 +84,7 @@ const VuiCascadeSelectorSourceList = {
 	},
 	render(h) {
 		const { $props: props, state, getContainer } = this;
+		const { handleClick, handleSelect } = this;
 
 		// class
 		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "source-list");
@@ -97,7 +98,7 @@ const VuiCascadeSelectorSourceList = {
 
 		return (
 			<div class={classes.el}>
-				<VuiCascadeSelectorSource
+				<VuiCascadeTransferSource
 					classNamePrefix={props.classNamePrefix}
 					title={props.title}
 					selectedKeys={selectedKeys}
@@ -110,10 +111,12 @@ const VuiCascadeSelectorSourceList = {
 					disabled={props.disabled}
 					locale={props.locale}
 					getContainer={getContainer}
+					onClick={handleClick}
+					onSelect={handleSelect}
 				/>
 			</div>
 		);
 	}
 };
 
-export default VuiCascadeSelectorSourceList;
+export default VuiCascadeTransferSourceList;
