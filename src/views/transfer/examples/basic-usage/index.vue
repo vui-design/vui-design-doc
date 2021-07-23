@@ -10,6 +10,7 @@
 				v-bind:formatter="formatter"
 				v-bind:showTargetPanel="showTargetPanel"
 				v-bind:validator="validator"
+				v-on:click="handleClick"
 				v-on:change="handleSelect"
 			/>
 		</template>
@@ -101,13 +102,16 @@
 				options: getCountis(tree(districts)),
 				valueKey: "value",
 				childrenKey:"children",
-				title: props => props.direction === "source" ? (props.level === 1 ? "行为类目词" : props.parent.label) : "已选",
+				title: props => props.type === "source" ? (props.level === 1 ? "行为类目词" : props.parent.label) : "已选",
 				formatter: props => props.option.label,
 				showTargetPanel: true,
 				validator: false
 			};
 		},
 		methods: {
+			handleClick(value) {
+				console.log(value);
+			},
 			handleSelect() {
 				console.log(66);
 			}

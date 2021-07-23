@@ -1,9 +1,11 @@
 import VuiCascadeTransferSourceList from "./cascade-transfer-source-list";
+import VuiCascadeTransferSource from "./cascade-transfer-source";
 import VuiCascadeTransferTarget from "./cascade-transfer-target";
 import Emitter from "vui-design/mixins/emitter";
 import PropTypes from "vui-design/utils/prop-types";
 import clone from "vui-design/utils/clone";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
+import utils from "./utils";
 
 const VuiCascadeTransfer = {
 	name: "vui-cascade-transfer",
@@ -14,6 +16,7 @@ const VuiCascadeTransfer = {
 	},
 	components: {
 		VuiCascadeTransferSourceList,
+		VuiCascadeTransferSource,
 		VuiCascadeTransferTarget
 	},
 	mixins: [
@@ -40,33 +43,54 @@ const VuiCascadeTransfer = {
 	},
 	data() {
 		const { $props: props } = this;
-		const state = {
-			value: clone(props.value)
+		const sourceList = [];
+		const source = {
+			parent: undefined,
+			options: props.options
 		};
 
 		return {
-			state
+			state: {
+				value: clone(props.value),
+				sourceList: sourceList.concat(source)
+			}
 		};
 	},
 	watch: {
 		value(value) {
 			this.state.value = clone(value);
+		},
+		options(value) {
+			const sourceList = [];
+			const source = {
+				parent: undefined,
+				options: value
+			};
+
+			this.state.sourceList = sourceList.concat(source);
 		}
 	},
 	methods: {
-		handleClick(value, option) {
-			this.$emit("click", value, option);
+		handleClick(level, parent, option, optionIndex, value, children) {
+			const { $props: props, state } = this;
+
+			if (children && children.length > 0) {
+				const sourceList = state.sourceList.slice(0, level);
+				const source = {
+					parent: option,
+					options: children
+				};
+
+				this.state.sourceList = sourceList.concat(source);
+			}
+
+			this.$emit("click", option, optionIndex, value, children);
 		},
 		handleSelect(value) {
 			const { $props: props } = this;
 
 			this.state.value = value;
-			this.$emit("input", value);
-			this.$emit("change", value);
-
-			if (props.validator) {
-				this.dispatch("vui-form-item", "change", value);
-			}
+			this.handleChange();
 		},
 		handleDeselect(option) {
 			const { $props: props, state } = this;
@@ -81,12 +105,7 @@ const VuiCascadeTransfer = {
 			value.splice(index, 1);
 
 			this.state.value = value;
-			this.$emit("input", value);
-			this.$emit("change", value);
-
-			if (props.validator) {
-				this.dispatch("vui-form-item", "change", value);
-			}
+			this.handleChange();
 		},
 		handleClear() {
 			const { $props: props, state } = this;
@@ -95,9 +114,13 @@ const VuiCascadeTransfer = {
 				return;
 			}
 
-			const value = [];
+			this.state.value = [];
+			this.handleChange();
+		},
+		handleChange() {
+			const { $props: props } = this;
+			const value = clone(this.state.value);
 
-			this.state.value = value;
 			this.$emit("input", value);
 			this.$emit("change", value);
 
@@ -129,21 +152,32 @@ const VuiCascadeTransfer = {
 		let children = [];
 
 		children.push(
-			<VuiCascadeTransferSourceList
-				classNamePrefix={classNamePrefix}
-				value={state.value}
-				options={props.options}
-				valueKey={props.valueKey}
-				childrenKey={props.childrenKey}
-				title={props.title}
-				formatter={formatter}
-				body={body}
-				locale={props.locale}
-				showSelectAll={props.showSelectAll}
-				disabled={props.disabled}
-				onClick={handleClick}
-				onSelect={handleSelect}
-			/>
+			<VuiCascadeTransferSourceList classNamePrefix={classNamePrefix}>
+				{
+					state.sourceList.map((source, index) => {
+						return (
+							<VuiCascadeTransferSource
+								key={index}
+								classNamePrefix={classNamePrefix}
+								level={index + 1}
+								parent={source.parent}
+								value={state.value}
+								options={source.options}
+								valueKey={props.valueKey}
+								childrenKey={props.childrenKey}
+								title={props.title}
+								formatter={props.formatter}
+								body={props.body}
+								locale={props.locale}
+								showSelectAll={props.showSelectAll}
+								disabled={props.disabled}
+								onClick={handleClick}
+								onSelect={handleSelect}
+							/>
+						);
+					})
+				}
+			</VuiCascadeTransferSourceList>
 		);
 
 		if (props.showTargetPanel) {

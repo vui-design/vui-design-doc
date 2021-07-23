@@ -1,7 +1,6 @@
 import VuiCheckbox from "vui-design/components/checkbox";
 import VuiIcon from "vui-design/components/icon";
 import VuiCascadeTransferEmpty from "./cascade-transfer-empty";
-import Portal from "vui-design/directives/portal";
 import PropTypes from "vui-design/utils/prop-types";
 import is from "vui-design/utils/is";
 import clone from "vui-design/utils/clone";
@@ -10,48 +9,31 @@ import utils from "./utils";
 
 const VuiCascadeTransferSource = {
 	name: "vui-cascade-transfer-source",
-	inject: {
-		vuiCascadeTransferSourceList: {
-			default: undefined
-		},
-		vuiCascadeTransferSource: {
-			default: undefined
-		}
-	},
-	provide() {
-		return {
-			vuiCascadeTransferSource: this
-		};
-	},
 	components: {
 		VuiCheckbox,
 		VuiIcon,
 		VuiCascadeTransferEmpty
 	},
-	directives: {
-		Portal
-	},
 	props: {
 		classNamePrefix: PropTypes.string,
 		level: PropTypes.number.def(1),
 		parent: PropTypes.object,
-		selectedKeys: PropTypes.array.def([]),
+		value: PropTypes.array.def([]),
 		options: PropTypes.array.def([]),
 		valueKey: PropTypes.string.def("value"),
 		childrenKey: PropTypes.string.def("children"),
 		title: PropTypes.func.def(props => ""),
 		formatter: PropTypes.func.def(option => option.label),
 		body: PropTypes.func,
-		showSelectAll: PropTypes.bool.def(true),
-		disabled: PropTypes.bool.def(false),
 		locale: PropTypes.object,
-		getContainer: PropTypes.any.def(element => element.parentNode)
+		showSelectAll: PropTypes.bool.def(true),
+		disabled: PropTypes.bool.def(false)
 	},
 	data() {
 		const { $props: props } = this;
 		const state = {
 			expandedKey: undefined,
-			selectedKeys: clone(props.selectedKeys)
+			selectedKeys: []
 		};
 
 		return {
@@ -59,8 +41,8 @@ const VuiCascadeTransferSource = {
 		};
 	},
 	watch: {
-		selectedKeys(value) {
-			this.state.selectedKeys = clone(value);
+		value(value) {
+			this.state.selectedKeys = [];
 		}
 	},
 	methods: {
@@ -75,7 +57,7 @@ const VuiCascadeTransferSource = {
 
 			// title
 			const title = props.title({
-				direction: props.direction,
+				type: props.type,
 				level: props.level,
 				parent: props.parent
 			});
@@ -84,10 +66,10 @@ const VuiCascadeTransferSource = {
 			let content = [];
 
 			if (props.showSelectAll) {
-				const selectedStatus = utils.getSelectedStatus(props.selectedKeys, props.options, props.valueKey);
+				const checkedStatus = utils.getCheckedStatus(props.selectedKeys, props.options, props.valueKey);
 
-				const checked = selectedStatus === "all";
-				const indeterminate = utils.getIndeterminateStatus(this.vuiCascadeTransferSourceList.state.value, props.options, props.valueKey, props.childrenKey);;
+				const checked = checkedStatus === "all";
+				const indeterminate = utils.getIndeterminateStatus(props.value, props.options, props.valueKey, props.childrenKey);;
 				const disabled = props.disabled;
 
 				content.push(
@@ -151,26 +133,28 @@ const VuiCascadeTransferSource = {
 			return (
 				<div class={classes.el}>
 					{
-						props.options.map(option => {
+						props.options.map((option, optionIndex) => {
 							const value = option[props.valueKey];
 							const children = option[props.childrenKey];
 
 							const expanded = props.expandedKey === value;
-							const indeterminate = utils.getIndeterminateStatus(this.vuiCascadeTransferSourceList.state.value, children, props.valueKey, props.childrenKey);
+							const indeterminate = utils.getIndeterminateStatus(props.value, children, props.valueKey, props.childrenKey);
 							const checked = props.selectedKeys.indexOf(value) > -1;
 
 							const attributes = {
 								classNamePrefix: classNamePrefix,
-								direction: props.direction,
+								type: props.type,
+								level: props.level,
+								parent: props.parent,
+								option: option,
+								optionIndex: optionIndex,
 								value: value,
 								children: children,
-								option: option,
 								formatter: props.formatter,
 								expanded: expanded,
 								indeterminate: indeterminate,
 								checked: checked,
 								disabled: props.disabled,
-								onExpand: props.onExpand,
 								onClick: props.onClick,
 								onSelect: props.onSelect
 							};
@@ -187,8 +171,11 @@ const VuiCascadeTransferSource = {
 
 			if (is.function(props.formatter)) {
 				const attributes = {
-					direction: props.direction,
-					option: props.option
+					type: props.type,
+					level: props.level,
+					parent: props.parent,
+					option: props.option,
+					optionIndex: props.optionIndex
 				};
 
 				content = props.formatter(attributes);
@@ -201,14 +188,13 @@ const VuiCascadeTransferSource = {
 			const onStopPropagation = e => e.stopPropagation();
 
 			// onClick
-			const onClick = () => {
-				props.onExpand(props.value, props.option);
-				props.onClick(props.value, props.option);
+			const onClick = e => {
+				props.onClick(props.level, props.parent, props.option, props.optionIndex, props.value, props.children);
 			};
 
 			// onSelect
 			const onSelect = checked => {
-				props.onSelect(checked, props.value, props.option);
+				props.onSelect(checked, props.level, props.parent, props.option, props.optionIndex, props.value, props.children);
 			};
 
 			// class
@@ -255,70 +241,25 @@ const VuiCascadeTransferSource = {
 				</div>
 			);
 		},
-		getChildren(props) {
-			// show sub source
-			let subSourceLevel = props.level + 1;
-			let subSourceParent;
-			let subSourceParentKey;
-			let subSourceOptions = [];
-			let subSourceOptionKeys = [];
-			let showSubSource = false;
 
-			if (props.expandedKey) {
-				subSourceParent = props.options.find(option => option[props.valueKey] === props.expandedKey);
 
-				if (subSourceParent) {
-					subSourceParentKey = props.expandedKey;
-					subSourceOptions = subSourceParent[props.childrenKey];
-					subSourceOptionKeys = subSourceOptions ? subSourceOptions.map(option => option[props.valueKey]) : [];
-					showSubSource = subSourceOptions && subSourceOptions.length > 0;
-				}
-			}
 
-			if (!showSubSource) {
-				return;
-			}
 
-			let subSourceSelectedKeys = [];
 
-			if (props.selectedKeys.indexOf(subSourceParentKey) > -1) {
-				subSourceSelectedKeys = subSourceOptions.map(option => option[props.valueKey]);
-			}
-			else {
-				subSourceSelectedKeys = subSourceOptionKeys.filter(optionKey => this.vuiCascadeTransferSourceList.state.value.indexOf(optionKey) > -1);
-			}
 
-			// class
-			const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "source-children");
-			let classes = {};
 
-			classes.el = `${classNamePrefix}`;
 
-			// render
-			return (
-				<div key={props.expandedKey} class={classes.el}>
-					<VuiCascadeTransferSource
-						classNamePrefix={props.classNamePrefix}
-						level={subSourceLevel}
-						parent={subSourceParent}
-						selectedKeys={subSourceSelectedKeys}
-						options={subSourceOptions}
-						valueKey={props.valueKey}
-						childrenKey={props.childrenKey}
-						title={props.title}
-						formatter={props.formatter}
-						body={props.body}
-						locale={props.locale}
-						showSelectAll={props.showSelectAll}
-						disabled={props.disabled}
-						getContainer={props.getContainer}
-						onClick={props.onClick}
-						onSelect={props.onSelect}
-					/>
-				</div>
-			);
-		},
-		handleExpand(value, option) {
+
+
+
+
+
+
+
+
+
+
+		handleClick(level, parent, option, optionIndex, value, children) {
 			const { $props: props } = this;
 
 			if (props.disabled) {
@@ -326,15 +267,7 @@ const VuiCascadeTransferSource = {
 			}
 
 			this.state.expandedKey = value;
-		},
-		handleClick(value, option) {
-			const { $props: props } = this;
-
-			if (props.disabled) {
-				return;
-			}
-
-			this.$emit("click", value, option);
+			this.$emit("click", level, parent, option, optionIndex, value, children);
 		},
 		handleSelectAll(checked) {
 			const { $props: props } = this;
@@ -360,7 +293,7 @@ const VuiCascadeTransferSource = {
 				});
 			}
 		},
-		handleSelect(checked, value, option) {
+		handleSelect(checked, level, parent, option, optionIndex, value, children) {
 			const { $props: props } = this;
 
 			if (props.disabled) {
@@ -378,70 +311,33 @@ const VuiCascadeTransferSource = {
 			}
 
 			// 更新全局的选中状态
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			return;
-
-			// 更新全局的选中状态
-			props.options.forEach(option => {
-				const value = option[props.valueKey];
-				const children = option[props.childrenKey];
-				const checked = this.state.selectedKeys.indexOf(value) > -1;
-
-				this.vuiCascadeTransferSourceList.handleSelect(checked, {
-					value: value,
-					children: children,
-					data: option
-				});
-			});
-
-			// 通过判断自身是否全选、半选、未选状态，触发父级选项的选择事件
-			const selectedStatus = utils.getSelectedStatus(this.state.selectedKeys, props.options, props.valueKey);
-
-			if (selectedStatus === "all") {
-				if (this.vuiCascadeTransferSource && props.parent) {
-					const option = {
-						value: props.parent[props.valueKey],
-						data: props.parent
-					};
-
-					this.vuiCascadeTransferSource.handleSelect(true, value, option);
-				}
-			}
-			else {
-				if (this.vuiCascadeTransferSource && props.parent) {
-					const option = {
-						value: props.parent[props.valueKey],
-						data: props.parent
-					};
-
-					this.vuiCascadeTransferSource.handleSelect(false, value, option);
-				}
-			}
+			this.$emit("select", []);
 		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	},
 	render(h) {
 		const { $props: props, state } = this;
-		const { handleExpand, handleClick, handleSelectAll, handleSelect } = this;
+		const { handleClick, handleSelectAll, handleSelect } = this;
 
 		// class
 		const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "source");
@@ -451,12 +347,11 @@ const VuiCascadeTransferSource = {
 
 		// render
 		const attributes = {
-			direction: "source",
+			type: "source",
 			classNamePrefix: props.classNamePrefix,
 			level: props.level,
 			parent: props.parent,
-			expandedKey: state.expandedKey,
-			selectedKeys: state.selectedKeys,
+			value: props.value,
 			options: props.options,
 			valueKey: props.valueKey,
 			childrenKey: props.childrenKey,
@@ -465,18 +360,17 @@ const VuiCascadeTransferSource = {
 			locale: props.locale,
 			showSelectAll: props.showSelectAll,
 			disabled: props.disabled,
-			getContainer: props.getContainer,
-			onExpand: handleExpand,
+			expandedKey: state.expandedKey,
+			selectedKeys: state.selectedKeys,
 			onClick: handleClick,
 			onSelectAll: handleSelectAll,
 			onSelect: handleSelect
 		};
 
 		return (
-			<div v-portal={props.getContainer} class={classes.el}>
+			<div class={classes.el}>
 				{this.getHeader(attributes)}
 				{this.getBody(is.function(props.body) ? props.body(attributes) : undefined, attributes)}
-				{this.getChildren(attributes)}
 			</div>
 		);
 	}
