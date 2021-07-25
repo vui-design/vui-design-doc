@@ -41,7 +41,7 @@ const VuiCascadeTransferTarget = {
 
 			// title
 			const title = props.title({
-				direction: props.direction
+				type: props.type
 			});
 
 			// render
@@ -129,10 +129,10 @@ const VuiCascadeTransferTarget = {
 
 							const attributes = {
 								classNamePrefix: classNamePrefix,
-								direction: props.direction,
-								value: value,
-								children: children,
-								data: option,
+								type: props.type,
+								valueKey: props.valueKey,
+								childrenKey: props.childrenKey,
+								option: option,
 								formatter: props.formatter,
 								disabled: props.disabled,
 								onDeselect: props.onDeselect
@@ -145,31 +145,6 @@ const VuiCascadeTransferTarget = {
 			);
 		},
 		getChoiceItem(props) {
-			// content
-			let content;
-
-			if (is.function(props.formatter)) {
-				const attributes = {
-					direction: props.direction,
-					data: clone(props.data)
-				};
-
-				content = props.formatter(attributes);
-			}
-			else {
-				content = props.value;
-			}
-
-			// onDeselect
-			const onDeselect = () => {
-				const option = {
-					value: props.value,
-					data: clone(props.data)
-				};
-
-				props.onDeselect(option);
-			};
-
 			// class
 			const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "item");
 			let classes = {};
@@ -180,6 +155,26 @@ const VuiCascadeTransferTarget = {
 			};
 			classes.elLabel = `${classNamePrefix}-label`;
 			classes.elBtnDeselect = `${classNamePrefix}-btn-deselect`;
+
+			// content
+			let content;
+
+			if (is.function(props.formatter)) {
+				const attributes = {
+					type: props.type,
+					option: props.option
+				};
+
+				content = props.formatter(attributes);
+			}
+			else {
+				content = props.option[props.valueKey];
+			}
+
+			// onDeselect
+			const onDeselect = e => {
+				props.onDeselect(props.option);
+			};
 
 			// render
 			let children = [];
@@ -235,7 +230,7 @@ const VuiCascadeTransferTarget = {
 
 		// render
 		const attributes = {
-			direction: "target",
+			type: "target",
 			classNamePrefix: props.classNamePrefix,
 			title: props.title,
 			value: props.value,

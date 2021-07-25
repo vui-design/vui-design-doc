@@ -4,6 +4,7 @@ import VuiCascadeTransferTarget from "./cascade-transfer-target";
 import Emitter from "vui-design/mixins/emitter";
 import PropTypes from "vui-design/utils/prop-types";
 import clone from "vui-design/utils/clone";
+import flatten from "vui-design/utils/flatten";
 import getClassNamePrefix from "vui-design/utils/getClassNamePrefix";
 import utils from "./utils";
 
@@ -51,31 +52,92 @@ const VuiCascadeTransfer = {
 
 		return {
 			state: {
-				value: clone(props.value),
-				sourceList: sourceList.concat(source)
+				sourceList: sourceList.concat(source),
+				selectedKeys: utils.mapValueToSelectedKeys(props.value, props.options, props.valueKey, props.childrenKey),
+				value: clone(props.value)
 			}
 		};
 	},
 	watch: {
 		value(value) {
-			this.state.value = clone(value);
-		},
-		options(value) {
-			const sourceList = [];
-			const source = {
-				parent: undefined,
-				options: value
-			};
+			const { $props: props } = this;
 
-			this.state.sourceList = sourceList.concat(source);
+			this.state.selectedKeys = utils.mapValueToSelectedKeys(value, props.options, props.valueKey, props.childrenKey);
+			this.state.value = clone(value);
 		}
 	},
 	methods: {
-		handleClick(level, parent, option, optionIndex, value, children) {
-			const { $props: props, state } = this;
+		upward(checked, option, selectedKeys) {
+			const { $props: props } = this;
+			const parent = utils.getParent(option, undefined, props.options, props.valueKey, props.childrenKey);
+
+			if (!parent) {
+				return;
+			}
+
+			if (checked) {
+				const siblings = parent[props.childrenKey];
+				const isEveryChecked = siblings.every(sibling => selectedKeys.indexOf(sibling[props.valueKey]) > -1);
+
+				if (!isEveryChecked) {
+					return;
+				}
+
+				const value = parent[props.valueKey];
+				const index = selectedKeys.indexOf(value);
+
+				if (index === -1) {
+					selectedKeys.push(value);
+					this.upward(checked, parent, selectedKeys);
+				}
+			}
+			else {
+				const value = parent[props.valueKey];
+				const index = selectedKeys.indexOf(value);
+
+				if (index > -1) {
+					selectedKeys.splice(index, 1);
+					this.upward(checked, parent, selectedKeys);
+				}
+			}
+		},
+		downward(checked, option, selectedKeys) {
+			const { $props: props } = this;
+			const children = option[props.childrenKey];
+
+			if (!children || children.length === 0) {
+				return;
+			}
+
+			children.forEach(child => {
+				const value = child[props.valueKey];
+				const index = selectedKeys.indexOf(value);
+
+				if (checked) {
+					if (index === -1) {
+						selectedKeys.push(value);
+					}
+				}
+				else {
+					if (index > -1) {
+						selectedKeys.splice(index, 1);
+					}
+				}
+
+				this.downward(checked, child, selectedKeys);
+			});
+		},
+		handleClick(option, level) {
+			const { $props: props } = this;
+
+			if (props.disabled) {
+				return;
+			}
+
+			const children = option[props.childrenKey];
 
 			if (children && children.length > 0) {
-				const sourceList = state.sourceList.slice(0, level);
+				const sourceList = this.state.sourceList.slice(0, level);
 				const source = {
 					parent: option,
 					options: children
@@ -84,43 +146,92 @@ const VuiCascadeTransfer = {
 				this.state.sourceList = sourceList.concat(source);
 			}
 
-			this.$emit("click", option, optionIndex, value, children);
+			this.$emit("click", option);
 		},
-		handleSelect(value) {
+		handleSelectAll(checked, option, level) {
 			const { $props: props } = this;
 
-			this.state.value = value;
+			if (props.disabled) {
+				return;
+			}
+
+			if (level > 0) {
+				this.handleSelect(checked, option);
+				return;
+			}
+
+			let selectedKeys = clone(this.state.selectedKeys);
+			const options = flatten(props.options, props.childrenKey, true);
+
+			if (checked) {
+				const unSelectedKeys = options.map(target => target[props.valueKey]).filter(targetKey => selectedKeys.indexOf(targetKey) === -1);
+
+				selectedKeys = selectedKeys.concat(unSelectedKeys);
+			}
+			else {
+				selectedKeys = [];
+			}
+
+			this.state.selectedKeys = selectedKeys;
+			this.handleChange();
+		},
+		handleSelect(checked, option) {
+			const { $props: props } = this;
+
+			if (props.disabled) {
+				return;
+			}
+
+			let selectedKeys = clone(this.state.selectedKeys);
+			const value = option[props.valueKey];
+			const index = selectedKeys.indexOf(value);
+
+			if (checked) {
+				if (index === -1) {
+					selectedKeys.push(value);
+				}
+			}
+			else {
+				if (index > -1) {
+					selectedKeys.splice(index, 1);
+				}
+			}
+
+			this.upward(checked, option, selectedKeys);
+			this.downward(checked, option, selectedKeys);
+
+			this.state.selectedKeys = selectedKeys;
 			this.handleChange();
 		},
 		handleDeselect(option) {
-			const { $props: props, state } = this;
+			const { $props: props } = this;
 
-			let value = clone(state.value);
-			const index = value.findIndex(element => element === option.value);
-
-			if (index === -1) {
+			if (props.disabled) {
 				return;
 			}
 
-			value.splice(index, 1);
-
-			this.state.value = value;
-			this.handleChange();
+			this.handleSelect(false, option);
 		},
 		handleClear() {
-			const { $props: props, state } = this;
+			const { $props: props } = this;
 
-			if (state.value.length === 0) {
+			if (props.disabled) {
 				return;
 			}
 
-			this.state.value = [];
+			this.state.selectedKeys = [];
 			this.handleChange();
 		},
 		handleChange() {
 			const { $props: props } = this;
-			const value = clone(this.state.value);
 
+			if (props.disabled) {
+				return;
+			}
+
+			const value = utils.mapSelectedKeysToValue(this.state.selectedKeys, props.options, props.valueKey, props.childrenKey);
+
+			this.state.value = value;
 			this.$emit("input", value);
 			this.$emit("change", value);
 
@@ -131,7 +242,7 @@ const VuiCascadeTransfer = {
 	},
 	render() {
 		const { $scopedSlots: scopedSlots, $props: props, state } = this;
-		const { handleClick, handleSelect, handleDeselect, handleClear } = this;
+		const { handleClick, handleSelectAll, handleSelect, handleDeselect, handleClear } = this;
 
 		// formatter
 		const formatter = scopedSlots.formatter || props.formatter;
@@ -161,7 +272,7 @@ const VuiCascadeTransfer = {
 								classNamePrefix={classNamePrefix}
 								level={index + 1}
 								parent={source.parent}
-								value={state.value}
+								selectedKeys={state.selectedKeys}
 								options={source.options}
 								valueKey={props.valueKey}
 								childrenKey={props.childrenKey}
@@ -172,6 +283,7 @@ const VuiCascadeTransfer = {
 								showSelectAll={props.showSelectAll}
 								disabled={props.disabled}
 								onClick={handleClick}
+								onSelectAll={handleSelectAll}
 								onSelect={handleSelect}
 							/>
 						);

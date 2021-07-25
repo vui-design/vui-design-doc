@@ -18,7 +18,7 @@ const VuiCascadeTransferSource = {
 		classNamePrefix: PropTypes.string,
 		level: PropTypes.number.def(1),
 		parent: PropTypes.object,
-		value: PropTypes.array.def([]),
+		selectedKeys: PropTypes.array.def([]),
 		options: PropTypes.array.def([]),
 		valueKey: PropTypes.string.def("value"),
 		childrenKey: PropTypes.string.def("children"),
@@ -30,20 +30,13 @@ const VuiCascadeTransferSource = {
 		disabled: PropTypes.bool.def(false)
 	},
 	data() {
-		const { $props: props } = this;
 		const state = {
-			expandedKey: undefined,
-			selectedKeys: []
+			expandedKey: undefined
 		};
 
 		return {
 			state
 		};
-	},
-	watch: {
-		value(value) {
-			this.state.selectedKeys = [];
-		}
 	},
 	methods: {
 		getHeader(props) {
@@ -62,19 +55,23 @@ const VuiCascadeTransferSource = {
 				parent: props.parent
 			});
 
+			// onSelectAll
+			const onSelectAll = checked => {
+				props.onSelectAll(checked, props.parent, props.level - 1);
+			};
+
 			// render
 			let content = [];
 
 			if (props.showSelectAll) {
 				const checkedStatus = utils.getCheckedStatus(props.selectedKeys, props.options, props.valueKey);
-
+				const indeterminate = utils.getIndeterminateStatus(props.selectedKeys, props.options, props.valueKey, props.childrenKey);
 				const checked = checkedStatus === "all";
-				const indeterminate = utils.getIndeterminateStatus(props.value, props.options, props.valueKey, props.childrenKey);;
 				const disabled = props.disabled;
 
 				content.push(
 					<div class={classes.elCheckbox}>
-						<VuiCheckbox checked={checked} indeterminate={indeterminate} disabled={disabled} validator={false} onChange={props.onSelectAll} />
+						<VuiCheckbox checked={checked} indeterminate={indeterminate} disabled={disabled} validator={false} onChange={onSelectAll} />
 					</div>
 				);
 			}
@@ -133,12 +130,12 @@ const VuiCascadeTransferSource = {
 			return (
 				<div class={classes.el}>
 					{
-						props.options.map((option, optionIndex) => {
+						props.options.map(option => {
 							const value = option[props.valueKey];
 							const children = option[props.childrenKey];
 
 							const expanded = props.expandedKey === value;
-							const indeterminate = utils.getIndeterminateStatus(props.value, children, props.valueKey, props.childrenKey);
+							const indeterminate = utils.getIndeterminateStatus(props.selectedKeys, children, props.valueKey, props.childrenKey);
 							const checked = props.selectedKeys.indexOf(value) > -1;
 
 							const attributes = {
@@ -147,9 +144,8 @@ const VuiCascadeTransferSource = {
 								level: props.level,
 								parent: props.parent,
 								option: option,
-								optionIndex: optionIndex,
-								value: value,
-								children: children,
+								valueKey: props.valueKey,
+								childrenKey: props.childrenKey,
 								formatter: props.formatter,
 								expanded: expanded,
 								indeterminate: indeterminate,
@@ -166,37 +162,6 @@ const VuiCascadeTransferSource = {
 			);
 		},
 		getMenuItem(props) {
-			// content
-			let content;
-
-			if (is.function(props.formatter)) {
-				const attributes = {
-					type: props.type,
-					level: props.level,
-					parent: props.parent,
-					option: props.option,
-					optionIndex: props.optionIndex
-				};
-
-				content = props.formatter(attributes);
-			}
-			else {
-				content = props.value;
-			}
-
-			// onStopPropagation
-			const onStopPropagation = e => e.stopPropagation();
-
-			// onClick
-			const onClick = e => {
-				props.onClick(props.level, props.parent, props.option, props.optionIndex, props.value, props.children);
-			};
-
-			// onSelect
-			const onSelect = checked => {
-				props.onSelect(checked, props.level, props.parent, props.option, props.optionIndex, props.value, props.children);
-			};
-
 			// class
 			const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "item");
 			let classes = {};
@@ -211,6 +176,36 @@ const VuiCascadeTransferSource = {
 			classes.elCheckbox = `${classNamePrefix}-checkbox`;
 			classes.elLabel = `${classNamePrefix}-label`;
 			classes.elArrow = `${classNamePrefix}-arrow`;
+
+			// content
+			let content;
+
+			if (is.function(props.formatter)) {
+				const attributes = {
+					type: props.type,
+					level: props.level,
+					parent: props.parent,
+					option: props.option
+				};
+
+				content = props.formatter(attributes);
+			}
+			else {
+				content = props.option[props.valueKey];
+			}
+
+			// onStopPropagation
+			const onStopPropagation = e => e.stopPropagation();
+
+			// onClick
+			const onClick = e => {
+				props.onClick(props.option, props.level);
+			};
+
+			// onSelect
+			const onSelect = checked => {
+				props.onSelect(checked, props.option);
+			};
 
 			// render
 			let children = [];
@@ -227,7 +222,7 @@ const VuiCascadeTransferSource = {
 				</div>
 			);
 
-			if (props.children && props.children.length > 0) {
+			if (props.option[props.childrenKey] && props.option[props.childrenKey].length > 0) {
 				children.push(
 					<div class={classes.elArrow}>
 						<VuiIcon type="chevron-right" />
@@ -241,99 +236,34 @@ const VuiCascadeTransferSource = {
 				</div>
 			);
 		},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		handleClick(level, parent, option, optionIndex, value, children) {
+		handleClick(option, level) {
 			const { $props: props } = this;
 
 			if (props.disabled) {
 				return;
 			}
 
-			this.state.expandedKey = value;
-			this.$emit("click", level, parent, option, optionIndex, value, children);
+			this.state.expandedKey = option[props.valueKey];
+			this.$emit("click", option, level);
 		},
-		handleSelectAll(checked) {
+		handleSelectAll(checked, option, level) {
 			const { $props: props } = this;
 
 			if (props.disabled) {
 				return;
 			}
 
-			if (this.vuiCascadeTransferSource && props.parent) {
-				const option = {
-					value: props.parent[props.valueKey],
-					data: props.parent
-				};
-
-				this.vuiCascadeTransferSource.handleSelect(checked, option);
-			}
-			else {
-				props.options.forEach(option => {
-					this.handleSelect(checked, {
-						value: option[props.valueKey],
-						data: option
-					});
-				});
-			}
+			this.$emit("selectAll", checked, option, level);
 		},
-		handleSelect(checked, level, parent, option, optionIndex, value, children) {
+		handleSelect(checked, option) {
 			const { $props: props } = this;
 
 			if (props.disabled) {
 				return;
 			}
 
-			// 更新当前面板的选中状态
-			const index = this.state.selectedKeys.indexOf(value);
-
-			if (checked) {
-				this.state.selectedKeys.push(value);
-			}
-			else {
-				this.state.selectedKeys.splice(index, 1);
-			}
-
-			// 更新全局的选中状态
-			this.$emit("select", []);
+			this.$emit("select", checked, option);
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	},
 	render(h) {
 		const { $props: props, state } = this;
@@ -351,7 +281,8 @@ const VuiCascadeTransferSource = {
 			classNamePrefix: props.classNamePrefix,
 			level: props.level,
 			parent: props.parent,
-			value: props.value,
+			expandedKey: state.expandedKey,
+			selectedKeys: props.selectedKeys,
 			options: props.options,
 			valueKey: props.valueKey,
 			childrenKey: props.childrenKey,
@@ -360,8 +291,6 @@ const VuiCascadeTransferSource = {
 			locale: props.locale,
 			showSelectAll: props.showSelectAll,
 			disabled: props.disabled,
-			expandedKey: state.expandedKey,
-			selectedKeys: state.selectedKeys,
 			onClick: handleClick,
 			onSelectAll: handleSelectAll,
 			onSelect: handleSelect
