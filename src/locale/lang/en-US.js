@@ -71,6 +71,7 @@ export default {
     "data-display-timeline": "Timeline 时间轴",
     "data-display-tooltip": "Tooltip 文字提示",
     "data-display-tree": "Tree 树形控件",
+    "data-display-watermark": "Watermark 水印",
 
     "feedback": "反馈",
     "feedback-alert": "Alert 警告提示",
@@ -436,6 +437,13 @@ export default {
     "example-tooltip-customized-content": "自定义内容",
     "example-tooltip-placement": "位置",
     "example-tooltip-colorful": "多彩文字提示",
+
+    "example-tree-basic-usage": "基本用法",
+
+    "example-watermark-basic-usage": "基本用法",
+    "example-watermark-font": "字体",
+    "example-watermark-size": "画布尺寸",
+    "example-watermark-rotate": "旋转角度",
 
     "example-alert-basic-usage": "基本用法",
     "example-alert-type": "四种类型",

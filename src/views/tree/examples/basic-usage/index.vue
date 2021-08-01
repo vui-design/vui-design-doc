@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-card-basic-usage">
+	<vui-doc-example v-bind:code="code" id="example-tree-basic-usage">
 		<template slot="demo">
 			<vui-tree showIcon checkable :data="data" :expendedKeys="expendedKeys" />
 		</template>

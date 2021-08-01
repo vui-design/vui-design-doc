@@ -266,15 +266,6 @@ export default [
 				},
 				component: () => import("src/views/input-number/index")
 			},
-			// {
-			// 	path: "/components/multiple-cascader",
-			// 	name: "multiple-cascader",
-			// 	meta: {
-			// 		title: "MultipleCascader",
-			// 		group: "data-entry"
-			// 	},
-			// 	component: () => import("src/views/multiple-cascader/index")
-			// },
 			{
 				path: "/components/radio",
 				name: "radio",
@@ -500,6 +491,15 @@ export default [
 					group: "data-display"
 				},
 				component: () => import("src/views/tree/index")
+			},
+			{
+				path: "/components/watermark",
+				name: "watermark",
+				meta: {
+					title: "Watermark",
+					group: "data-display"
+				},
+				component: () => import("src/views/watermark/index")
 			},
 			// 反馈
 			{

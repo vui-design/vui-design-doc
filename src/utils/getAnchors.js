@@ -14,7 +14,7 @@ export default containter => {
   nodeList.forEach(node => {
     const id = node.getAttribute("id");
 
-    if (id.includes("example-api-")) {
+    if (id.includes("example-api-") || id.includes("vui-watermark-")) {
       return;
     }
 
