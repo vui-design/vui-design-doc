@@ -7,17 +7,17 @@
 			<p>文件夹、组织架构、生物分类、国家地区等等，世间万物的大多数结构都是树形结构。使用 <code>Tree</code> 组件可以完整展现其中的层级关系，并具有展开收起选择等交互功能。</p>
 			<h2>代码演示</h2>
 		</vui-doc-markdown>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
 				<ExampleTreeBasicUsage />
 			</vui-col>
-			<vui-col :span="12">
+			<vui-col v-bind:span="12">
 
 			</vui-col>
 		</vui-row>
 		<vui-doc-markdown>
 			<h2 id="example-api">API</h2>
-			<h3>Cascader 属性</h3>
+			<h3>Tree 属性</h3>
 			<table class="example-api-props">
 				<thead>
 					<tr>
@@ -138,7 +138,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<h3>Select 事件</h3>
+			<h3>Tree 事件</h3>
 			<table class="example-api-events">
 				<thead>
 					<tr>
@@ -178,62 +178,6 @@
 						<td>选中项发生变化时触发的事件回调</td>
 						<td>Function</td>
 						<td><code>value</code></td>
-					</tr>
-				</tbody>
-			</table>
-			<h3>OptionGroup 属性</h3>
-			<table class="example-api-props">
-				<thead>
-					<tr>
-						<th width="150">属性</th>
-						<th>说明</th>
-						<th width="160">类型</th>
-						<th width="150">默认值</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>label</td>
-						<td>分组名称</td>
-						<td>String</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>disabled</td>
-						<td>是否禁用该分组下所有选项</td>
-						<td>Boolean</td>
-						<td><code>false</code></td>
-					</tr>
-				</tbody>
-			</table>
-			<h3>Option 属性</h3>
-			<table class="example-api-props">
-				<thead>
-					<tr>
-						<th width="150">属性</th>
-						<th>说明</th>
-						<th width="160">类型</th>
-						<th width="150">默认值</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>label</td>
-						<td>选项标签</td>
-						<td>String</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>value</td>
-						<td>选项的值，默认根据此属性值进行筛选，必填</td>
-						<td>String | Number</td>
-						<td>--</td>
-					</tr>
-					<tr>
-						<td>disabled</td>
-						<td>是否禁用</td>
-						<td>Boolean</td>
-						<td><code>false</code></td>
 					</tr>
 				</tbody>
 			</table>

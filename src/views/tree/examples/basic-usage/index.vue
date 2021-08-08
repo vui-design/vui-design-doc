@@ -1,7 +1,7 @@
 <template>
 	<vui-doc-example v-bind:code="code" id="example-tree-basic-usage">
 		<template slot="demo">
-			<vui-tree showIcon checkable :data="data" :expendedKeys="expendedKeys" />
+			<vui-tree showIcon checkable v-bind:data="data" v-bind:expendedKeys="expendedKeys" />
 		</template>
 		<template slot="title">基本用法</template>
 		<template slot="description">

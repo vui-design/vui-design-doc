@@ -430,6 +430,15 @@ export default [
 				component: () => import("src/views/popover/index")
 			},
 			{
+				path: "/components/qrcode",
+				name: "qrcode",
+				meta: {
+					title: "Qrcode",
+					group: "data-display"
+				},
+				component: () => import("src/views/qrcode/index")
+			},
+			{
 				path: "/components/statistic",
 				name: "statistic",
 				meta: {
