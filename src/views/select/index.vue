@@ -37,7 +37,7 @@
           <tr>
             <th width="180">属性</th>
             <th>说明</th>
-            <th width="210">类型</th>
+            <th width="280">类型</th>
             <th width="180">默认值</th>
           </tr>
         </thead>
@@ -57,7 +57,7 @@
           <tr>
             <td>value</td>
             <td>指定选中项目的 <code>value</code> 值，可以使用 <code>v-model</code> 双向绑定数据</td>
-            <td>String | Number | Array</td>
+            <td>String | Number | Boolean | Array</td>
             <td>--</td>
           </tr>
           <tr>
@@ -188,7 +188,7 @@
           <tr>
             <th width="180">事件名</th>
             <th>说明</th>
-            <th width="210">类型</th>
+            <th width="280">类型</th>
             <th width="180">回调参数</th>
           </tr>
         </thead>
@@ -231,7 +231,7 @@
           <tr>
             <th width="180">属性</th>
             <th>说明</th>
-            <th width="210">类型</th>
+            <th width="280">类型</th>
             <th width="180">默认值</th>
           </tr>
         </thead>
@@ -256,7 +256,7 @@
           <tr>
             <th width="180">属性</th>
             <th>说明</th>
-            <th width="210">类型</th>
+            <th width="280">类型</th>
             <th width="180">默认值</th>
           </tr>
         </thead>
