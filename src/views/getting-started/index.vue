@@ -1,13 +1,79 @@
 <template>
-	<div>敬请期待...</div>
+  <div>
+    <vui-doc-markdown>
+      <h1>快速上手</h1>
+      <p>Vui Design 致力于提供给程序员愉悦的开发体验。</p>
+      <blockquote>
+      	<p>在开始之前，推荐先学习 <a href="https://vuejs.org/" target="_blank">Vue</a> 和 <a href="http://babeljs.io/docs/learn-es2015/" target="_blank">ES2015</a>，并正确安装和配置了 <a href="https://nodejs.org/">Node.js</a> v8 或以上。该文档假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 Vue 全家桶的正确开发方式。如果你刚开始学习前端或者 Vue，将 UI 框架作为你的第一步可能不是最好的主意。</p>
+      </blockquote>
+      <h2 id="example-getting-started-vue-cli">使用 vue-cli@3</h2>
+      <p>我们为新版的 vue-cli 准备了相应的 <a href="https://github.com/vui-design/vue-cli-plugin-vui-design" target="_blank">Vui Design Vue</a> 插件，你可以用它们快速地搭建一个基于 Vui Design 的 Vue 项目。</p>
+      <h2 id="example-getting-started-codesandbox">在线演示</h2>
+      <p>最简单的使用方式参照以下 CodeSandbox 演示：</p>
+      <a href="https://codesandbox.io/s/vui-design-8tpc6" target="_blank">
+        <img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Vui Design" />
+      </a>
+      <h2 id="example-getting-started-import">引入 Vui Design</h2>
+      <h3 id="example-getting-started-import-1">1. 安装脚手架工具</h3>
+      <p>使用下列命令安装 <a href="https://github.com/vuejs/vue-cli" target="_blank">vue-cli</a> 脚手架：</p>
+      <ExampleGettingStartedVueCli />
+      <h3 id="example-getting-started-import-2">2. 创建一个项目</h3>
+      <p>使用命令行进行初始化并配置项目。</p>
+      <ExampleGettingStartedCreate />
+      <p>若安装缓慢报错，可尝试用 <code>cnpm</code> 或别的镜像源自行安装：<code>rm -rf node_modules && cnpm install</code>。</p>
+      <h3 id="example-getting-started-import-3">3. 使用组件</h3>
+      <ExampleGettingStartedInstall />
+      <p>完整引入</p>
+      <ExampleGettingStartedGlobalRegistration />
+      <p>以上代码便完成了 Vui Design 的引入。需要注意的是，样式文件需要单独引入。</p>
+      <p>局部导入组件</p>
+      <ExampleGettingStartedLocalRegistration />
+      <h3 id="example-getting-started-import-4">4. 组件列表</h3>
+      <p><a href="https://github.com/vui-design/vui-design/blob/master/src/index.js" target="_blank">完整组件列表</a></p>
+      <ExampleGettingStartedComponents />
+      <h2 id="example-getting-started-compatibility">兼容性</h2>
+      <p>Vui Design 支持所有的现代浏览器和 IE9+。</p>
+      <p>对于 IE 系列浏览器，需要提供 <a href="https://github.com/es-shims/es5-shim" target="_blank">es5-shim</a> 和 <a href="https://github.com/paulmillr/es6-shim" target="_blank">es6-shim</a> 等 Polyfills 的支持。</p>
+      <p>如果你使用了 babel，强烈推荐使用 <a href="https://babeljs.io/docs/en/babel-polyfill/" target="_blank">babel-polyfill</a> 和 <a href="https://babeljs.io/docs/en/babel-plugin-transform-runtime/" target="_blank">babel-plugin-transform-runtime</a> 来替代以上两个 shim。</p>
+      <blockquote>
+        <p>避免同时使用 babel 和 shim 两种兼容方法</p>
+      </blockquote>
+      <h2 id="example-getting-started-settings">配置主题和语言包</h2>
+      <ul>
+        <li><router-link to="/guide/theme">定制主题</router-link></li>
+        <li><router-link to="/guide/i18n">国际化语言包</router-link></li>
+      </ul>
+      <h2 id="example-getting-started-tips">小贴士</h2>
+      <ul>
+        <li>你可以享用 <code>npm</code> 生态圈里的所有模块。</li>
+        <li>虽然 Vue 官方推荐使用模板语法来编写组件，不过对于复杂组件，<a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx" target="">jsx</a> 未必不是一个更好的选择。</li>
+      </ul>
+    </vui-doc-markdown>
+  </div>
 </template>
 
 <script>
-	import MixinAnchors from "src/mixins/anchors";
+  import MixinAnchors from "src/mixins/anchors";
+  import VuiDocMarkdown from "src/components/markdown";
+  import ExampleGettingStartedVueCli from "./examples/vue-cli";
+  import ExampleGettingStartedCreate from "./examples/create";
+  import ExampleGettingStartedInstall from "./examples/install";
+  import ExampleGettingStartedGlobalRegistration from "./examples/global-registration";
+  import ExampleGettingStartedLocalRegistration from "./examples/local-registration";
+  import ExampleGettingStartedComponents from "./examples/components";
 
-	export default {
-		mixins: [
-			MixinAnchors
-		]
-	};
+  export default {
+    mixins: [
+      MixinAnchors
+    ],
+    components: {
+      VuiDocMarkdown,
+      ExampleGettingStartedVueCli,
+      ExampleGettingStartedCreate,
+      ExampleGettingStartedInstall,
+      ExampleGettingStartedGlobalRegistration,
+      ExampleGettingStartedLocalRegistration,
+      ExampleGettingStartedComponents
+    }
+  };
 </script>

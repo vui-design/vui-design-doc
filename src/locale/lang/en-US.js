@@ -7,11 +7,11 @@ export default {
   },
 
   "menu": {
-    "installation": "安装",
+    "install": "安装",
     "getting-started": "快速上手",
     "i18n": "国际化",
-    "customize-theme": "定制主题",
-    "change-log": "更新日志",
+    "theme": "定制主题",
+    "changelog": "更新日志",
 
     "general": "通用",
     "general-color": "Color 色彩",
@@ -95,8 +95,19 @@ export default {
     "title": "目录",
     "example-api": "API",
 
-    "example-cdn": "CDN 引入",
-    "example-npm": "NPM 安装",
+    "example-install-npm": "NPM 安装",
+    "example-install-cdn": "CDN 引入",
+
+    "example-getting-started-vue-cli": "使用 vue-cli@3",
+    "example-getting-started-codesandbox": "在线演示",
+    "example-getting-started-import": "引入 Vui Design",
+    "example-getting-started-import-1": "1. 安装脚手架工具",
+    "example-getting-started-import-2": "2. 创建一个项目",
+    "example-getting-started-import-3": "3. 使用组件",
+    "example-getting-started-import-4": "4. 组件列表",
+    "example-getting-started-compatibility": "兼容性",
+    "example-getting-started-settings": "配置主题和语言包",
+    "example-getting-started-tips": "小贴士",
 
     "example-color-primary": "主色彩",
     "example-color-auxiliary": "辅助色",

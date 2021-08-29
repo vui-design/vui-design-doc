@@ -1,5 +1,5 @@
 <template>
-  <pre v-highlightjs><code class="html"><slot>{{code}}</slot></code></pre>
+  <pre v-highlightjs><code v-bind:class="language"><slot>{{code}}</slot></code></pre>
 </template>
 
 <script>
@@ -8,6 +8,10 @@
       code: {
         type: String,
         default: undefined
+      },
+      language: {
+        type: String,
+        default: "html"
       }
     }
   };

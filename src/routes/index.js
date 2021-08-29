@@ -17,15 +17,15 @@ export default [
 			title: "guide",
 		},
 		component: Layout,
-		redirect: "/guide/installation",
+		redirect: "/guide/install",
 		children: [
 			{
-				path: "/guide/installation",
-				name: "installation",
+				path: "/guide/install",
+				name: "install",
 				meta: {
-					title: "Installation"
+					title: "Install"
 				},
-				component: () => import("src/views/installation/index")
+				component: () => import("src/views/install/index")
 			},
 			{
 				path: "/guide/getting-started",
@@ -44,20 +44,20 @@ export default [
 				component: () => import("src/views/i18n/index")
 			},
 			{
-				path: "/guide/customize-theme",
-				name: "customize-theme",
+				path: "/guide/theme",
+				name: "theme",
 				meta: {
-					title: "customize-theme"
+					title: "theme"
 				},
-				component: () => import("src/views/customize-theme/index")
+				component: () => import("src/views/theme/index")
 			},
 			{
-				path: "/guide/change-log",
-				name: "change-log",
+				path: "/guide/changelog",
+				name: "changelog",
 				meta: {
-					title: "change-log"
+					title: "changelog"
 				},
-				component: () => import("src/views/change-log/index")
+				component: () => import("src/views/changelog/index")
 			}
 		]
 	},

@@ -4,9 +4,7 @@ const code =
 <head>
   <meta charset="utf-8" />
   <title>Vui Design Example</title>
-  <link type="text/css" rel="stylesheet" href="http://unpkg.com/vui-design/dist/style/vui-design.css" />
-  <script src="http://vuejs.org/js/vue.min.js"></script>
-  <script src="http://unpkg.com/vui-design/dist/vui-design.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="//unpkg.com/vui-design/dist/style/vui-design.css" />
 </head>
 
 <body>
@@ -14,6 +12,8 @@ const code =
     <vui-button @click="showModal">Click me!</vui-button>
     <vui-modal v-model="visible" title="Welcome">Welcome to Vui Design!</vui-modal>
   </div>
+  <script src="//vuejs.org/js/vue.min.js"></script>
+  <script src="//unpkg.com/vui-design/dist/vui-design.min.js"></script>
   <script>
     new Vue({
       el: "#app",
