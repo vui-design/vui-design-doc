@@ -3,7 +3,7 @@ const code =
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Vui Design Example</title>
+  <title>Vui Design Demo</title>
   <link type="text/css" rel="stylesheet" href="//unpkg.com/vui-design/dist/style/vui-design.css" />
 </head>
 

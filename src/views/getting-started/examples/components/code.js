@@ -1,5 +1,5 @@
 const code =
-`import "vui-design-vue/dist/style/vui-design.css";
+`import "vui-design/dist/style/vui-design.css";
 import {
   // General
   Icon,
