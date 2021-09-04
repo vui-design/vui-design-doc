@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-form-required-mark">
+	<example v-bind:code="code" id="example-form-required-mark">
 		<template slot="demo">
 			<vui-form layout="vertical" v-bind:model="form" v-bind:rules="rules" v-bind:requiredMark="form.requiredMark">
 				<vui-form-item label="Required Mark">
@@ -31,16 +31,16 @@
 		<template slot="description">
 			<p>通过 <code>requiredMark</code> 切换必选与可选样式。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

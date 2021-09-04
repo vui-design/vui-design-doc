@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-image-error">
+	<example v-bind:code="code" id="example-image-error">
 		<template slot="demo">
 			<ul class="example-image-error">
 				<li>
@@ -18,16 +18,16 @@
 		<template slot="description">
 			<p>可以通过 <code>error</code> 插槽自定义图片加载失败时的提示内容。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

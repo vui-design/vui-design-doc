@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-menu-inline-collapsed">
+	<example v-bind:code="code" id="example-menu-inline-collapsed">
 		<template slot="demo">
 			<div class="example-menu-inline-collapsed">
 				<vui-button @click="handleToggleCollapsed">
@@ -38,16 +38,16 @@
 		<template slot="description">
 			<p>内嵌菜单可以被折叠或展开。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

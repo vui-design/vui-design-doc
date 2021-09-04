@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-menu-horizontal">
+	<example v-bind:code="code" id="example-menu-horizontal">
 		<template slot="demo">
 			<vui-menu mode="horizontal" style="box-shadow: 0 -1px 0 #e6e6e6 inset;" :selectedName="selectedName" @select="handleSelect">
 				<vui-menu-item name="1" icon="apps" title="Navigation 1" />
@@ -21,16 +21,16 @@
 		<template slot="description">
 			<p>水平的顶部导航菜单，子菜单是弹出式的。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

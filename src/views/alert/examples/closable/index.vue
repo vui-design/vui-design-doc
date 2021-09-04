@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-alert-closable">
+	<example v-bind:code="code" id="example-alert-closable">
 		<template slot="demo">
 			<div class="example-alert-closable">
 				<vui-alert type="warning" message="Warning" closable />
@@ -10,16 +10,16 @@
 		<template slot="description">
 			<p>显示关闭按钮，点击可关闭警告提示。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

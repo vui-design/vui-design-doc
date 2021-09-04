@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-notice-placement">
+	<example v-bind:code="code" id="example-notice-placement">
 		<template slot="demo">
 			<div class="example-notice-placement">
 				<vui-button type="primary" @click="showTopLeftNotice">Top Left</vui-button>
@@ -12,16 +12,16 @@
 		<template slot="description">
 			<p>可以设置通知提醒从左上角、右上角、左下角或右下角弹出，默认从右上角弹出。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

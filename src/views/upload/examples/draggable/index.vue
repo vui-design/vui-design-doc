@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-upload-draggable">
+	<example v-bind:code="code" id="example-upload-draggable">
 		<template slot="demo">
 			<vui-upload draggable multiple v-bind:action="action">
 				<div class="example-upload-draggable-button">
@@ -13,16 +13,16 @@
 		<template slot="description">
 			<p>把文件拖入指定区域完成上传，同样支持点击上传。设置 <code>multiple</code> 后，可以一次上传多个文件。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-tag-checkable">
+	<example v-bind:code="code" id="example-tag-checkable">
 		<template slot="demo">
 			<div class="example-tag-checkable">
 				<vui-tag color="primary" checkable>Tag 1</vui-tag>
@@ -13,16 +13,16 @@
 		<template slot="description">
 			<p>设置 <code>checkable</code> 属性后可以对标签进行选择，属性 <code>checked</code> 控制当前选择状态。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-grid-flex-align">
+	<example v-bind:code="code" id="example-grid-flex-align">
 		<template slot="demo">
 			<div class="example-grid-flex-align">
 				<vui-row type="flex" justify="center" align="top">
@@ -26,16 +26,16 @@
 		<template slot="description">
 			<p>为 <code>row</code> 的 <code>align</code> 属性设置不同的值，来定义子元素在垂直方向上的排版方式，仅在 <code>flex</code> 模式下有效。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

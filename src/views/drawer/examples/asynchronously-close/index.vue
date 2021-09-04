@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-drawer-asynchronously-close">
+	<example v-bind:code="code" id="example-drawer-asynchronously-close">
 		<template slot="demo">
 			<div class="example-drawer-asynchronously-close">
 				<vui-button type="primary" v-on:click="showDrawer">Open drawer with async logic</vui-button>
@@ -18,16 +18,16 @@
 			<p>1、<code>done()</code> 或 <code>done(true)</code> 表示 <code>loading</code> 状态结束后自动关闭抽屉；</p>
 			<p>2、<code>done(false)</code> 表示 <code>loading</code> 状态结束后禁止关闭抽屉。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

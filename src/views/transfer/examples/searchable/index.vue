@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-transfer-searchable">
+	<example v-bind:code="code" id="example-transfer-searchable">
 		<template slot="demo">
 			<vui-transfer
 				v-bind:titles="titles"
@@ -18,16 +18,16 @@
 			<p>带搜索框的穿梭框，默认使用内置的过滤函数进行筛选，通过 <code>filterOptionProp</code> 属性来指定选项的筛选字段。</p>
 			<p>本示例演示了搜索时，通过选项的 <code>title</code> 字段与查询关键词进行比较来筛选。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const dataSource = this.getDataSource();

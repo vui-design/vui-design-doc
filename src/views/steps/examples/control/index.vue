@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-steps-control">
+	<example v-bind:code="code" id="example-steps-control">
 		<template slot="demo">
 			<div class="example-steps-control">
 				<vui-steps v-bind:step="step">
@@ -16,16 +16,16 @@
 		<template slot="description">
 			<p>通常配合内容及按钮使用，表示一个流程的处理进度。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

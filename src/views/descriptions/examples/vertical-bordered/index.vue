@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-descriptions-vertical-bordered">
+  <example v-bind:code="code" id="example-descriptions-vertical-bordered">
     <template slot="demo">
       <vui-descriptions layout="vertical" bordered title="User Info">
         <vui-description label="Product">Cloud Database</vui-description>
@@ -27,16 +27,16 @@
     <template slot="description">
       <p>垂直带边框和背景颜色的描述列表。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

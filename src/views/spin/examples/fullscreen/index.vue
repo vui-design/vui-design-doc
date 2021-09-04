@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-spin-fullscreen">
+	<example v-bind:code="code" id="example-spin-fullscreen">
 		<template slot="demo">
 			<div class="example-spin-fullscreen">
 				<vui-button type="primary" v-on:click="showShowSpin">全屏加载，3秒后关闭</vui-button>
@@ -10,16 +10,16 @@
 		<template slot="description">
 			<p>全屏加载方式，可以使用 <code>Vue</code> 的 <code>createElement</code> 函数自定义指示符，<a href="https://cn.vuejs.org/v2/guide/render-function.html" target="_blank">学习渲染函数 & JSX</a>。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

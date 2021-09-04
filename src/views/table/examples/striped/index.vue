@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-table-striped">
+	<example v-bind:code="code" id="example-table-striped">
 		<template slot="demo">
 			<vui-table striped v-bind:columns="columns" v-bind:data="data" rowKey="id" />
 		</template>
@@ -7,16 +7,16 @@
 		<template slot="description">
 			<p>设置属性 <code>striped</code> ，表格行会间隔显示不同颜色，用于区分不同行数据。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const columns = [

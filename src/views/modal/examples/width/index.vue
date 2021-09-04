@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-modal-width">
+  <example v-bind:code="code" id="example-modal-width">
     <template slot="demo">
       <div class="example-modal-width">
         <vui-button type="primary" v-on:click="showModal">Modal width</vui-button>
@@ -16,16 +16,16 @@
       <p>设置对话框的宽度为 <code>360px</code>。</p>
       <p>对话框的宽度是响应式的。当屏幕宽度小于 <code>768px</code> 时，宽度会被强制设为 <code>auto</code>。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

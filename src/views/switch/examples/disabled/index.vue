@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-switch-disabled">
+  <example v-bind:code="code" id="example-switch-disabled">
     <template slot="demo">
       <div class="example-switch-disabled">
         <vui-switch v-model="value" v-bind:disabled="disabled" />
@@ -12,16 +12,16 @@
     <template slot="description">
       <p>添加 <code>disabled</code> 属性即可让开关处于禁用状态。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

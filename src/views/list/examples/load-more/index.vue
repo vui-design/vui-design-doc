@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-list-load-more">
+	<example v-bind:code="code" id="example-list-load-more">
 		<template slot="demo">
 			<vui-list>
 				<vui-list-item v-for="(item, index) in data" v-bind:key="index">
@@ -21,16 +21,16 @@
 		<template slot="description">
 			<p>加载更多。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

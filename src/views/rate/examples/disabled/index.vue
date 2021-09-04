@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-rate-disabled">
+	<example v-bind:code="code" id="example-rate-disabled">
 		<template slot="demo">
 			<vui-rate v-model="value" disabled />
 		</template>
@@ -7,16 +7,16 @@
 		<template slot="description">
 			<p>只读，无法进行鼠标交互。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

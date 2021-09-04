@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-timeline-color">
+	<example v-bind:code="code" id="example-timeline-color">
 		<template slot="demo">
 			<div class="example-timeline-color">
 				<vui-timeline>
@@ -17,16 +17,16 @@
 			<p>轴点颜色，灰色表示未完成或失效状态，蓝色表示正在进行或其他默认状态，黄色表示警告状态，绿色用于已完成、成功状态，红色则表示错误或失败状态。</p>
 			<p>如果预设值不能满足你的需求，可以设置为具体的颜色值。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

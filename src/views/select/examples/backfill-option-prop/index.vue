@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-select-backfill-option-prop">
+  <example v-bind:code="code" id="example-select-backfill-option-prop">
     <template slot="demo">
       <vui-select v-model="value" backfillOptionProp="label" style="width: 200px;">
         <vui-option value="new york" label="New York">
@@ -17,16 +17,16 @@
     <template slot="description">
       <p>可以对选项的内容进行自定义，使用 <code>backfillOptionProp</code> 指定回填到选择框的 <code>Option</code> 属性。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

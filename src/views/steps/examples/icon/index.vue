@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-steps-icon">
+	<example v-bind:code="code" id="example-steps-icon">
 		<template slot="demo">
 			<vui-steps v-bind:step="2">
 				<vui-step icon="user" title="Login" />
@@ -12,16 +12,16 @@
 		<template slot="description">
 			<p>通过 <code>Step</code> 的 <code>icon</code> 属性，可以使用自定义图标。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

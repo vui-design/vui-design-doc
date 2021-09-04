@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-table-treeview-more">
+	<example v-bind:code="code" id="example-table-treeview-more">
 		<template slot="demo">
 			<vui-table
 				v-bind:columns="columns"
@@ -20,16 +20,16 @@
 		<template slot="description">
 			<p>该示例演示了树形表格的默认展开、点击行展开、多选，以及筛选和排序功能。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const columns = [

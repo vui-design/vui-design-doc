@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-drawer-multi-level">
+	<example v-bind:code="code" id="example-drawer-multi-level">
 		<template slot="demo">
 			<div class="example-drawer-multi-level">
 				<vui-button type="primary" v-on:click="handleOpenDrawer">Open drawer</vui-button>
@@ -15,16 +15,16 @@
 		<template slot="description">
 			<p>在抽屉内打开新的抽屉，用以解决多分支任务的复杂状况。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

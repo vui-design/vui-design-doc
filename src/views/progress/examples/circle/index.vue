@@ -1,6 +1,6 @@
 
 <template>
-	<vui-doc-example v-bind:code="code" id="example-progress-circle">
+	<example v-bind:code="code" id="example-progress-circle">
 		<template slot="demo">
 			<div class="example-progress-circle">
 				<vui-progress type="circle" :percentage="75" />
@@ -12,16 +12,16 @@
 		<template slot="description">
 			<p>环形的进度。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

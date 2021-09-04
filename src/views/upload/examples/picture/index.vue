@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-upload-picture">
+	<example v-bind:code="code" id="example-upload-picture">
 		<template slot="demo">
 			<div class="example-upload-picture">
 				<vui-upload
@@ -21,16 +21,16 @@
 		<template slot="description">
 			<p>上传文件为图片，可展示本地缩略图。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

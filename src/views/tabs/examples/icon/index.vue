@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-tabs-icon">
+	<example v-bind:code="code" id="example-tabs-icon">
 		<template slot="demo">
 			<vui-tabs>
 				<vui-tab-panel key="tab1" icon="apps" title="Tab 1">
@@ -17,16 +17,16 @@
 		<template slot="description">
 			<p>通过设置 <code>icon</code> 属性，可以为页签添加一个图标</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

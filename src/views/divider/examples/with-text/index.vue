@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" jsFiddle="14be5f7d" id="example-divider-with-text">
+	<example v-bind:code="code" jsFiddle="14be5f7d" id="example-divider-with-text">
 		<template slot="demo">
 			<div class="example-divider-with-text">
 				<p>Be careful how you judge people, most of all friends. You don’t sum up a man’s life in one moment.</p>
@@ -15,16 +15,16 @@
 		<template slot="description">
 			<p>分割线中可以加入文本，使用 <code>orientation</code> 指定文本位置。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

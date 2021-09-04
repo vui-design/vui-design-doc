@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-table-bordered">
+	<example v-bind:code="code" id="example-table-bordered">
 		<template slot="demo">
 			<vui-table bordered v-bind:columns="columns" v-bind:data="data" rowKey="id">
 				<a href="javascript:;" slot="name" slot-scope="{ row, rowIndex }">{{row.name}}</a>
@@ -16,16 +16,16 @@
 		<template slot="description">
 			<p>添加 <code>bordered</code> 属性以使用带边框的表格。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const columns = [

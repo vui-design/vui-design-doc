@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-slider-input-number">
+	<example v-bind:code="code" id="example-slider-input-number">
 		<template slot="demo">
 			<div class="example-slider-input-number">
 				<section>
@@ -16,16 +16,16 @@
 		<template slot="description">
 			<p>和 <router-link to="/components/input-number">数字输入框</router-link> 组件保持同步。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

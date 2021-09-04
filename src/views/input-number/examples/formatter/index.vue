@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-input-number-formatter">
+	<example v-bind:code="code" id="example-input-number-formatter">
 		<template slot="demo">
 			<div class="example-input-number-formatter">
 				<vui-input-number :min="0" :formatter="formatter1" :parser="parser1" v-model="value1" />
@@ -10,16 +10,16 @@
 		<template slot="description">
 			<p>通过 <code>formatter</code> 格式化数字，以展示具有具体含义的数据，往往需要配合 <code>parser</code> 一起使用。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

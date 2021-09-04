@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-checkbox-controller">
+  <example v-bind:code="code" id="example-checkbox-controller">
     <template slot="demo">
       <div class="example-checkbox-controller">
         <vui-checkbox v-model="checked" v-bind:disabled="disabled">
@@ -19,16 +19,16 @@
     <template slot="description">
       <p>与其它组件进行数据联动。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

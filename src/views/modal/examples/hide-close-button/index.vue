@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-modal-hide-close-button">
+  <example v-bind:code="code" id="example-modal-hide-close-button">
     <template slot="demo">
       <div class="example-modal-hide-close-button">
         <vui-button type="primary" v-on:click="showModal">Hide Close Button</vui-button>
@@ -15,16 +15,16 @@
     <template slot="description">
       <p>将 <code>closable</code> 属性设置为 <code>false</code>，可以隐藏对话框右上角的关闭按钮。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

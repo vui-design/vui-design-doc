@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-modal-information">
+  <example v-bind:code="code" id="example-modal-information">
     <template slot="demo">
       <vui-space>
         <vui-button type="primary" v-on:click="showInfoNotice">消息</vui-button>
@@ -12,16 +12,16 @@
     <template slot="description">
       <p>四种类型的信息提示，只提供一个确定按钮用于关闭。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

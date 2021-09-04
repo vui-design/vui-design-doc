@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-pagination-page-size">
+	<example v-bind:code="code" id="example-pagination-page-size">
 		<template slot="demo">
 			<vui-pagination v-model="page" :total="500" showPageSizer @changePageSize="handleChangePageSize" />
 		</template>
@@ -7,16 +7,16 @@
 		<template slot="description">
 			<p>可以切换每页显示的数量。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

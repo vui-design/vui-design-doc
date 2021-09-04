@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-message-closable">
+	<example v-bind:code="code" id="example-message-closable">
 		<template slot="demo">
 			<vui-button type="primary" @click="showClosableMessage">Closable</vui-button>
 		</template>
@@ -7,16 +7,16 @@
 		<template slot="description">
 			<p>将参数设置为一个对象，并指定 <code>closable</code> 为 <code>true</code> 后可以手动关闭提示，完整参数详见下述 API 文档。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

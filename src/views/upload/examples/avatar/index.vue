@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-upload-avatar">
+	<example v-bind:code="code" id="example-upload-avatar">
 		<template slot="demo">
 			<div class="example-upload-avatar">
 				<vui-upload
@@ -21,11 +21,11 @@
 		<template slot="description">
 			<p>点击上传用户头像，并使用 <code>beforeUpload</code> 限制用户上传的图片格式和大小。<code>beforeUpload</code> 的返回值可以是一个 <code>Promise</code> 以支持异步处理，如服务端校验等</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	function getBase64(image, callback) {
@@ -37,7 +37,7 @@
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

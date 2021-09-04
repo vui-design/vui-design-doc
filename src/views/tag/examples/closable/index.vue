@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-tag-closable">
+	<example v-bind:code="code" id="example-tag-closable">
 		<template slot="demo">
 			<div class="example-tag-closable">
 				<vui-tag v-if="showTag1" closable v-on:close="showTag1 = false">Tag 1</vui-tag>
@@ -11,16 +11,16 @@
 		<template slot="description">
 			<p>通过设置 <code>closable</code> 属性来定义一个标签是否可以关闭，点击关闭按钮将会触发 <code>onClose</code> 事件，需要自行实现关闭逻辑。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

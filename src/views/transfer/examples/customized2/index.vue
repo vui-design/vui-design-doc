@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-transfer-customized2">
+	<example v-bind:code="code" id="example-transfer-customized2">
 		<template slot="demo">
 			<vui-transfer
 				v-bind:titles="titles"
@@ -21,16 +21,16 @@
 		<template slot="description">
 			<p>通过 <code>formatter</code> 作用域插槽自定义渲染选项数据。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const dataSource = this.getDataSource();

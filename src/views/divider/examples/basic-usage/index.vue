@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" jsFiddle="3axb104s" id="example-divider-basic-usage">
+	<example v-bind:code="code" jsFiddle="3axb104s" id="example-divider-basic-usage">
 		<template slot="demo">
 			<div class="example-divider-basic-usage">
 				<p>Be careful how you judge people, most of all friends. You don’t sum up a man’s life in one moment.</p>
@@ -13,16 +13,16 @@
 		<template slot="description">
 			<p>基本用法，支持虚线样式。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

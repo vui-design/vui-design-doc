@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-grid-flex-order">
+	<example v-bind:code="code" id="example-grid-flex-order">
 		<template slot="demo">
 			<div class="example-grid-flex-order">
 				<vui-row type="flex">
@@ -14,16 +14,16 @@
 		<template slot="description">
 			<p>通过 Flex 布局的 <code>order</code> 来改变列的顺序。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

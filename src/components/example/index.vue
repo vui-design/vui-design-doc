@@ -1,6 +1,6 @@
 <template>
-  <div class="vui-doc-example">
-    <div ref="case" class="vui-doc-example-case">
+  <div class="example">
+    <div ref="case" class="example-case">
       <div class="demo">
         <slot name="demo"></slot>
       </div>
@@ -34,7 +34,7 @@
         </vui-tooltip>
       </div>
     </div>
-    <div ref="code" class="vui-doc-example-code" v-bind:style="styles.code">
+    <div ref="code" class="example-code" v-bind:style="styles.code">
     <pre v-highlightjs><code class="html" ref="source"><slot name="code">{{code}}</slot></code></pre>
     </div>
   </div>
@@ -150,29 +150,29 @@
 </script>
 
 <style>
-  .vui-doc-example { border:1px solid #f0f0f0; border-radius:2px; background-color:#fff; margin:16px 0; color:rgba(0,0,0,0.85); font-size:14px; line-height:2; }
-  .vui-doc-example:first-child { margin-top:0; }
-  .vui-doc-example:last-child { margin-bottom:0; }
+  .example { border:1px solid #f0f0f0; border-radius:2px; background-color:#fff; margin:16px 0; color:rgba(0,0,0,0.85); font-size:14px; line-height:2; }
+  .example:first-child { margin-top:0; }
+  .example:last-child { margin-bottom:0; }
 
-  .vui-doc-example-case { position:relative; box-sizing:border-box; }
-  .vui-doc-example-case .demo { padding:24px; }
-  .vui-doc-example-case .title { position:relative; margin:0; }
-  .vui-doc-example-case .description { position:relative; padding:24px; }
-  .vui-doc-example-case .description ul { list-style:circle; margin-bottom:10px; padding-left:18px; }
-  .vui-doc-example-case .description ul li p { margin-bottom:0; }
-  .vui-doc-example-case .description ol { list-style:circle; padding-left:18px; }
-  .vui-doc-example-case .description ol li p { margin-bottom:0; }
-  .vui-doc-example-case .description p { margin:0; }
-  .vui-doc-example-case .description code { border-radius:2px; border:1px solid #f0f0f0; background-color:#fafafa; margin:0; padding:2px 4px; color:rgba(0,0,0,0.65); font-size:13px; font-family:SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; }
-  .vui-doc-example-case .actions { display:flex; justify-content:center; align-items:center; border-top:1px dashed #e6e6e6; padding:12px 0; }
-  .vui-doc-example-case .actions .vui-tooltip { display:block; margin:0 4px; }
-  .vui-doc-example-case .actions .btn { cursor:pointer; display:block; width:24px; height:24px; background-repeat:no-repeat; background-position:50% 50%; padding:4px; opacity:0.5; transition:all 0.2s; }
-  .vui-doc-example-case .actions .btn svg { display:block; width:100%; height:100%; }
-  .vui-doc-example-case .actions .btn:hover { opacity:1; }
+  .example-case { position:relative; box-sizing:border-box; }
+  .example-case .demo { padding:24px; }
+  .example-case .title { position:relative; margin:0; }
+  .example-case .description { position:relative; padding:24px; }
+  .example-case .description ul { list-style:circle; margin-bottom:10px; padding-left:18px; }
+  .example-case .description ul li p { margin-bottom:0; }
+  .example-case .description ol { list-style:circle; padding-left:18px; }
+  .example-case .description ol li p { margin-bottom:0; }
+  .example-case .description p { margin:0; }
+  .example-case .description code { border-radius:2px; border:1px solid #f0f0f0; background-color:#fafafa; margin:0; padding:2px 4px; color:rgba(0,0,0,0.65); font-size:13px; font-family:SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; }
+  .example-case .actions { display:flex; justify-content:center; align-items:center; border-top:1px dashed #e6e6e6; padding:12px 0; }
+  .example-case .actions .vui-tooltip { display:block; margin:0 4px; }
+  .example-case .actions .btn { cursor:pointer; display:block; width:24px; height:24px; background-repeat:no-repeat; background-position:50% 50%; padding:4px; opacity:0.5; transition:all 0.2s; }
+  .example-case .actions .btn svg { display:block; width:100%; height:100%; }
+  .example-case .actions .btn:hover { opacity:1; }
 
-  .vui-doc-example-code { position:relative; box-sizing:border-box; overflow:hidden; transition:height 0.2s ease-in-out; }
-  .vui-doc-example-code:before { content:""; position:absolute; top:0; left:0; right:0; border-top:1px dashed #e6e6e6; }
-  .vui-doc-example-code pre { box-sizing:border-box; display:block; width:100%; height:100%; }
-  .vui-doc-example-code pre code { box-sizing:border-box; display:block; width:100%; height:100%; background-color:transparent; padding:24px; overflow-x:hidden; overflow-y:hidden; color:rgba(0,0,0,0.65); font-size:13px; font-family:"Lucida Console", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace; }
-  .vui-doc-example-code pre code:hover { overflow-x:auto; overflow-y:hidden; }
+  .example-code { position:relative; box-sizing:border-box; overflow:hidden; transition:height 0.2s ease-in-out; }
+  .example-code:before { content:""; position:absolute; top:0; left:0; right:0; border-top:1px dashed #e6e6e6; }
+  .example-code pre { box-sizing:border-box; display:block; width:100%; height:100%; }
+  .example-code pre code { box-sizing:border-box; display:block; width:100%; height:100%; background-color:transparent; padding:24px; overflow-x:hidden; overflow-y:hidden; color:rgba(0,0,0,0.65); font-size:13px; font-family:"Lucida Console", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace; }
+  .example-code pre code:hover { overflow-x:auto; overflow-y:hidden; }
 </style>

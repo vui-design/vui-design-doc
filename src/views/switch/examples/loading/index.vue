@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-switch-loading">
+  <example v-bind:code="code" id="example-switch-loading">
     <template slot="demo">
       <div class="example-switch-loading">
         <vui-switch loading />
@@ -10,16 +10,16 @@
     <template slot="description">
       <p>标识开关操作仍在执行当中。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

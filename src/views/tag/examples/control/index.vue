@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-tag-control">
+	<example v-bind:code="code" id="example-tag-control">
 		<template slot="demo">
 			<div class="example-tag-control">
 				<vui-tag v-for="tag in tags" v-bind:key="tag" closable v-on:close="handleRemove(tag)">{{tag}}</vui-tag>
@@ -20,16 +20,16 @@
 		<template slot="description">
 			<p>用数组生成一组标签，可以动态添加和删除。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

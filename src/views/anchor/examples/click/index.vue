@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-anchor-click">
+	<example v-bind:code="code" id="example-anchor-click">
 		<template slot="demo">
 			<vui-anchor v-bind:affix="false" v-on:click="handleClick">
 				<vui-anchor-link href="#example-anchor-basic-usage" title="Basic Usage" />
@@ -15,16 +15,16 @@
 		<template slot="description">
 			<p>通过在 <code>onClick</code> 事件中禁止点击链接的默认行为，以使点击锚点时不记录历史。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

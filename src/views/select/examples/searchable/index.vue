@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-select-searchable">
+  <example v-bind:code="code" id="example-select-searchable">
     <template slot="demo">
       <div class="example-select-searchable">
         <vui-select v-model="value1" searchable style="width: 200px;">
@@ -24,16 +24,16 @@
     <template slot="description">
       <p>展开后可对选项进行搜索。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

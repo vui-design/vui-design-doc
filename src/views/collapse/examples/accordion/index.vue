@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-collapse-accordion">
+	<example v-bind:code="code" id="example-collapse-accordion">
 		<template slot="demo">
 			<vui-collapse accordion>
 				<vui-panel title="This is panel header 1">
@@ -17,16 +17,16 @@
 		<template slot="description">
 			<p>手风琴模式，每次只能打开一个面板。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

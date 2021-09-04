@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-tag-size">
+	<example v-bind:code="code" id="example-tag-size">
 		<template slot="demo">
 			<div class="example-tag-size">
 				<vui-tag size="small">Small</vui-tag>
@@ -11,16 +11,16 @@
 		<template slot="description">
 			<p>设置 <code>size</code> 属性可以显示不同尺寸的标签，默认为中等尺寸。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

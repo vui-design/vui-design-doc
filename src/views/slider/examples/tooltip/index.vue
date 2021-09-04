@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-slider-tooltip">
+	<example v-bind:code="code" id="example-slider-tooltip">
 		<template slot="demo">
 			<div class="example-slider-tooltip">
 				<vui-slider v-model="value1" v-bind:tooltip="tooltip1" />
@@ -10,16 +10,16 @@
 		<template slot="description">
 			<p>利用 <code>tooltip</code> 属性格式化 <router-link to="/components/tooltip">文字提示</router-link> 的内容，<code>tooltip</code> 为 <code>null</code> 时隐藏 <router-link to="/components/tooltip">文字提示</router-link>。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

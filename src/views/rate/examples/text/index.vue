@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-rate-text">
+	<example v-bind:code="code" id="example-rate-text">
 		<template slot="demo">
 			<div class="example-rate-text">
 				<vui-rate v-model="value" v-bind:tooltips="tooltips" />
@@ -10,16 +10,16 @@
 		<template slot="description">
 			<p>给评分组件加上文案提示。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

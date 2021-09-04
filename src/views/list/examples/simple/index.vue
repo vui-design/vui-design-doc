@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-list-simple">
+	<example v-bind:code="code" id="example-list-simple">
 		<template slot="demo">
 			<div class="example-list-simple">
 				<vui-list header="Header" footer="Footer" size="small" bordered>
@@ -30,16 +30,16 @@
 			<p>列表拥有大、中、小三种尺寸，默认为中型尺寸。</p>
 			<p>可通过设置 <code>header</code> 和 <code>footer</code>，来自定义列表头部和尾部。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

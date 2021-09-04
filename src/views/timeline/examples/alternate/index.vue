@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-timeline-alternate">
+	<example v-bind:code="code" id="example-timeline-alternate">
 		<template slot="demo">
 			<div class="example-timeline-alternate">
 				<vui-timeline mode="alternate" pending>
@@ -31,16 +31,16 @@
 		<template slot="description">
 			<p>内容在时间轴两侧轮流出现。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

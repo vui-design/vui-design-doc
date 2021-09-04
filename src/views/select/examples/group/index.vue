@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-select-option-group">
+  <example v-bind:code="code" id="example-select-option-group">
     <template slot="demo">
       <vui-select v-model="value" style="width: 200px;">
         <vui-option-group label="Hot Cities">
@@ -18,16 +18,16 @@
     <template slot="description">
       <p>使用 <code>OptionGroup</code> 进行选项分组。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

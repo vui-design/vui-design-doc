@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-steps-basic-usage">
+	<example v-bind:code="code" id="example-steps-basic-usage">
 		<template slot="demo">
 			<vui-steps v-bind:step="1">
 				<vui-step title="Finished" description="This is a description." />
@@ -12,16 +12,16 @@
 		<template slot="description">
 			<p>简单的步骤条。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

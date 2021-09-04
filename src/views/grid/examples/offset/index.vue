@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-grid-offset">
+	<example v-bind:code="code" id="example-grid-offset">
 		<template slot="demo">
 			<div class="example-grid-offset">
 				<vui-row>
@@ -19,16 +19,16 @@
 		<template slot="description">
 			<p>通过设置 <code>offset</code> 属性，将列进行左右偏移，偏移栅格数为 <code>offset</code> 的值。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

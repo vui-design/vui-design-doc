@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-table-single-selection">
+	<example v-bind:code="code" id="example-table-single-selection">
 		<template slot="demo">
 			<vui-table
 				rowKey="id"
@@ -18,16 +18,16 @@
 		<template slot="description">
 			<p>设置 <code>rowSelection.multiple</code> 属性为 <code>false</code>，表格行将只允许单选。<a href="javascript:;">详见下文 API 说明</a>。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const columns = [

@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-descriptions-size">
+  <example v-bind:code="code" id="example-descriptions-size">
     <template slot="demo">
       <div class="example-descriptions-size">
         <vui-radio-group v-model="size">
@@ -37,16 +37,16 @@
     <template slot="description">
       <p>不同尺寸，适应在各种容器中展示。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

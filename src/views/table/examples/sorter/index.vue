@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-table-sorter">
+	<example v-bind:code="code" id="example-table-sorter">
 		<template slot="demo">
 			<vui-table v-bind:columns="columns" v-bind:data="data" rowKey="id">
 				<vui-space divider slot="action" slot-scope="{ row, rowIndex }">
@@ -16,16 +16,16 @@
 			<p>如果使用远程排序，可以设置 <code>sorter.useServerSort</code> 为 <code>true</code>，并监听表格的 <code>sort</code> 排序事件进行远程排序，并手动更新 <code>data</code> 数据源。</p>
 			<p>注意，本地排序并不会影响到源数据 <code>data</code>。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const columns = [

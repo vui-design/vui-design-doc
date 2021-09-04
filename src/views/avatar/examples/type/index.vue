@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-avatar-type">
+	<example v-bind:code="code" id="example-avatar-type">
 		<template slot="demo">
 			<div class="example-avatar-type">
 				<vui-avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
@@ -14,16 +14,16 @@
 		<template slot="description">
 			<p>支持三种类型：图片、图标以及字符，其中图标和字符可以自定义颜色及背景色。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

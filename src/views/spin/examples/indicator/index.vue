@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-spin-indicator">
+	<example v-bind:code="code" id="example-spin-indicator">
 		<template slot="demo">
 			<div class="example-spin-indicator">
 				<vui-spin>
@@ -12,16 +12,16 @@
 		<template slot="description">
 			<p>使用自定义指示符。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

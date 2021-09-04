@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-table-fixed-header">
+	<example v-bind:code="code" id="example-table-fixed-header">
 		<template slot="demo">
 			<vui-table v-bind:columns="columns" v-bind:data="data" v-bind:scroll="scroll" rowKey="id">
 				<vui-space divider slot="action" slot-scope="{ row, rowIndex }">
@@ -13,16 +13,16 @@
 			<p>方便一页内展示大量数据。</p>
 			<p>需要指定 <code>column</code> 的 <code>width</code> 属性，否则列头和内容可能不对齐。如果指定 <code>width</code> 不生效，请尝试留一列不设宽度以适应弹性布局，或者检查是否有超长连续字段破坏布局。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const columns = [

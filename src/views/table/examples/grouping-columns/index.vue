@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-table-grouping-columns">
+	<example v-bind:code="code" id="example-table-grouping-columns">
 		<template slot="demo">
 			<vui-table bordered v-bind:columns="columns" v-bind:data="data" v-bind:scroll="scroll" rowKey="id" />
 		</template>
@@ -7,16 +7,16 @@
 		<template slot="description">
 			<p><code>columns[n]</code> 可以内嵌 <code>children</code>，以渲染分组表头。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const columns = [

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-table-expansion">
+	<example v-bind:code="code" id="example-table-expansion">
 		<template slot="demo">
 			<vui-table
 				rowKey="id"
@@ -18,16 +18,16 @@
 		<template slot="description">
 			<p>当表格内容较多，不能一次性完全展示时使用。<a href="javascript:;">详见下文 API 说明</a>。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const columns = [

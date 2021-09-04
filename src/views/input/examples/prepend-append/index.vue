@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-input-prepend-append">
+	<example v-bind:code="code" id="example-input-prepend-append">
 		<template slot="demo">
 			<div class="example-input-prepend-append">
 				<vui-input prepend="https://github.com/u/" placeholder="Enter something..." />
@@ -14,16 +14,16 @@
 		<template slot="description">
 			<p>通过设置 <code>prepend</code> 和 <code>append</code> 或同名插槽设置前置/后置标签。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

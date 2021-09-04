@@ -1,7 +1,7 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-layout-responsive">
+	<example v-bind:code="code" id="example-layout-responsive">
 		<template slot="demo">
-			<vui-doc-browser>
+			<browser>
 				<vui-layout>
 					<vui-sider color="dark" breakpoint="lg" v-bind:collapsedWidth="80" v-on:collapse="handleCollapse">
 						<h1 style="height: 30px; background-color: rgba(255,255,255,0.2); margin: 17px;"></h1>
@@ -45,25 +45,25 @@
 						<vui-footer style="padding: 24px 20px; text-align: center;">2010-2020 © EXAMPLE</vui-footer>
 					</vui-layout>
 				</vui-layout>
-			</vui-doc-browser>
+			</browser>
 		</template>
 		<template slot="title">响应式布局</template>
 		<template slot="description">
 			<p><code>Sider</code> 支持响应式布局。</p>
 			<p>配置 <code>breakpoint</code> 属性即可生效，视窗宽度小于 <code>breakpoint</code> 时 <code>Sider</code> 缩小为 <code>collapsedWidth</code> 宽度。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
-	import VuiDocBrowser from "src/components/browser";
+	import Example from "src/components/example";
+	import Browser from "src/components/browser";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample,
-			VuiDocBrowser
+			Example,
+			Browser
 		},
 		data() {
 			return {

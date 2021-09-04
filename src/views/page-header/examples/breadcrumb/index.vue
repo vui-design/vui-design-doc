@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-page-header-breadcrumb">
+	<example v-bind:code="code" id="example-page-header-breadcrumb">
 		<template slot="demo">
 			<vui-page-header
 				style="border: 1px solid #f0f0f0;"
@@ -18,16 +18,16 @@
 		<template slot="description">
 			<p>含面包屑的页头，适合层级比较深的页面，让用户可以快速导航。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

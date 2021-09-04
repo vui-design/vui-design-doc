@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-pagination-flip-button">
+	<example v-bind:code="code" id="example-pagination-flip-button">
 		<template slot="demo">
 			<vui-pagination v-model="page" :total="100" prevPageText="上一页" nextPageText="下一页" />
 		</template>
@@ -7,16 +7,16 @@
 		<template slot="description">
 			<p>自定义翻页按钮的文本。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

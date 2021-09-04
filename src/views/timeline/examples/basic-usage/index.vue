@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-timeline-basic-usage">
+	<example v-bind:code="code" id="example-timeline-basic-usage">
 		<template slot="demo">
 			<div class="example-timeline-basic-usage">
 				<vui-timeline>
@@ -14,16 +14,16 @@
 		<template slot="description">
 			<p>最简单定义一个时间轴的用法。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

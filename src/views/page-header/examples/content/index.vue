@@ -1,7 +1,7 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-page-header-content">
+	<example v-bind:code="code" id="example-page-header-content">
 		<template slot="demo">
-			<vui-doc-browser>
+			<browser>
 				<vui-page-header
 					avatar="https://dummyimage.com/32x32/2d8cf0/fff"
 					title="Title"
@@ -36,24 +36,24 @@
 						<vui-menu-item name="2" title="Navigation 2" />
 					</vui-menu>
 				</vui-page-header>
-			</vui-doc-browser>
+			</browser>
 		</template>
 		<template slot="title">组合示例</template>
 		<template slot="description">
 			<p>使用了 <code>PageHeader</code> 提供的所有能力。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
-	import VuiDocBrowser from "src/components/browser";
+	import Example from "src/components/example";
+	import Browser from "src/components/browser";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample,
-			VuiDocBrowser
+			Example,
+			Browser
 		},
 		data() {
 			return {

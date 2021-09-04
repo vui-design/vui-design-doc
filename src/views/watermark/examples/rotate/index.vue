@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-watermark-rotate">
+  <example v-bind:code="code" id="example-watermark-rotate">
     <template slot="demo">
       <vui-watermark v-bind:rotate="20" text="zhangsan 张三">
         <vui-table bordered v-bind:columns="columns" v-bind:data="data" rowKey="id">
@@ -18,16 +18,16 @@
     <template slot="description">
       <p>自定义水印的旋转角度。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       const columns = [

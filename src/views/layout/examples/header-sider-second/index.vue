@@ -1,7 +1,7 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-layout-header-sider-second">
+	<example v-bind:code="code" id="example-layout-header-sider-second">
 		<template slot="demo">
-			<vui-doc-browser>
+			<browser>
 				<vui-layout>
 					<vui-header color="dark">
 						<h1 style="float: left; width: 124px; height: 30px; background-color: rgba(255,255,255,0.2); margin: 17px 0;"></h1>
@@ -53,24 +53,24 @@
 						</vui-layout>
 					</vui-layout>
 				</vui-layout>
-			</vui-doc-browser>
+			</browser>
 		</template>
 		<template slot="title">顶部 - 侧边布局</template>
 		<template slot="description">
 			<p>同样拥有顶部导航及侧边栏，区别是两边未留边距，多用于应用型的网站。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
-	import VuiDocBrowser from "src/components/browser";
+	import Example from "src/components/example";
+	import Browser from "src/components/browser";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample,
-			VuiDocBrowser
+			Example,
+			Browser
 		},
 		data() {
 			return {

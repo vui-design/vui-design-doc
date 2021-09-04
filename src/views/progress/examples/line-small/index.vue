@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-progress-line-small">
+	<example v-bind:code="code" id="example-progress-line-small">
 		<template slot="demo">
 			<div class="example-progress-line-small">
 				<vui-progress size="small" :percentage="30" />
@@ -13,16 +13,16 @@
 		<template slot="description">
 			<p>适合放在较狭窄的区域内。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-spin-message">
+	<example v-bind:code="code" id="example-spin-message">
 		<template slot="demo">
 			<div class="example-spin-message">
 				<vui-spin message="Loading...">
@@ -15,16 +15,16 @@
 		<template slot="description">
 			<p>通过 <code>message</code> 属性设置消息文案。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

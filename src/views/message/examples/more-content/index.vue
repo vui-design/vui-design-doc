@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-message-more-content">
+	<example v-bind:code="code" id="example-message-more-content">
 		<template slot="demo">
 			<div class="example-message-more-content">
 				<vui-button type="primary" @click="showVNodeMessage">VNode</vui-button>
@@ -11,16 +11,16 @@
 			<p>选项  <code>content</code> 支持传入 VNode 虚拟节点。</p>
 			<p>另外，您也可以将它设置为一个回调函数，该函数接收 <code>createElement</code> 作为参数，您所需要做的就是在函数内部返回提示内容即可。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

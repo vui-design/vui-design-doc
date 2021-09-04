@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-drawer-basic-usage">
+	<example v-bind:code="code" id="example-drawer-basic-usage">
 		<template slot="demo">
 			<div class="example-drawer-basic-usage">
 				<vui-button type="primary" v-on:click="handleOpen">Open basic drawer</vui-button>
@@ -15,16 +15,16 @@
 		<template slot="description">
 			<p>点击打开按钮抽屉从右滑出，点击遮罩区关闭。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

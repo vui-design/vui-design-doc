@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-textarea-autosize">
+	<example v-bind:code="code" id="example-textarea-autosize">
 		<template slot="demo">
 			<div class="example-textarea-autosize">
 				<vui-textarea
@@ -18,16 +18,16 @@
 		<template slot="description">
 			<p>启用 <code>autosize</code> 属性，文本域会自动适应内容高度变化。<code>autosize</code> 也可以设定为一个对象，指定最小行数和最大行数。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-collapse-borderless">
+	<example v-bind:code="code" id="example-collapse-borderless">
 		<template slot="demo">
 			<vui-collapse v-bind:bordered="false">
 				<vui-panel title="This is panel header 1">
@@ -17,16 +17,16 @@
 		<template slot="description">
 			<p>一套无外边框的简洁样式。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

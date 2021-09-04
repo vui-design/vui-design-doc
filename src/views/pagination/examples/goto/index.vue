@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-pagination-goto">
+	<example v-bind:code="code" id="example-pagination-goto">
 		<template slot="demo">
 			<vui-pagination
 				v-model="page"
@@ -12,16 +12,16 @@
 		<template slot="description">
 			<p>快速跳转到某一页。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

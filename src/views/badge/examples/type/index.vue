@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-badge-type">
+	<example v-bind:code="code" id="example-badge-type">
 		<template slot="demo">
 			<div class="example-badge-type">
 				<vui-badge type="default" v-bind:count="10">
@@ -26,16 +26,16 @@
 		<template slot="description">
 			<p>使用 <code>type</code> 属性，可以创建不同类型的徽标。默认情况下使用 <code>error</code> 类型。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

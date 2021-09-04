@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-switch-color">
+  <example v-bind:code="code" id="example-switch-color">
     <template slot="demo">
       <vui-switch v-model="value" checkedColor="#52c41a" uncheckedColor="#ff4d4f" />
     </template>
@@ -7,16 +7,16 @@
     <template slot="description">
       <p>通过 <code>checkedColor</code> 和 <code>uncheckedColor</code> 属性自定义颜色。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

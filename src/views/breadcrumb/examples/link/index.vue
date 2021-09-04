@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-breadcrumb-link">
+	<example v-bind:code="code" id="example-breadcrumb-link">
 		<template slot="demo">
 			<div class="example-breadcrumb-link">
 				<section>
@@ -48,16 +48,16 @@
 			<p>当需要支持用户在具有路由功能的应用中导航（同 <code>&lt;router-link /&gt;</code> 组件）时，请通过 <code>to</code> 属性指定目标地址。</p>
 			<p>当然，您也可以显式地使用 <code>a</code> 链接或者 <code>&lt;router-link /&gt;</code> 组件。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

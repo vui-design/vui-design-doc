@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-cascader-formatter">
+	<example v-bind:code="code" id="example-cascader-formatter">
 		<template slot="demo">
 			<vui-cascader
 				v-model="value"
@@ -12,11 +12,11 @@
 		<template slot="description">
 			<p>对于显示结果，可以通过 <code>formatter</code> 属性来实现自定义。其中第一个参数 <code>labels</code> 是当前已选选项的 <code>label</code> 集合，第二个参数 <code>selectedOptions</code> 是当前已选选项的数据集合，可以利用它们组合出你想要显示的内容。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	const options = [
@@ -64,7 +64,7 @@
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

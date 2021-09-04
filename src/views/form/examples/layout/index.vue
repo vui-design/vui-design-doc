@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-form-layout">
+	<example v-bind:code="code" id="example-form-layout">
 		<template slot="demo">
 			<vui-form v-bind:layout="form.layout" v-bind:model="form" v-bind:labelWidth="labelWidth">
 				<vui-form-item label="Layout">
@@ -31,16 +31,16 @@
 		<template slot="description">
 			<p>包含三种表单布局。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

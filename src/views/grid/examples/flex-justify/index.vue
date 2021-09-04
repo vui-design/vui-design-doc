@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-grid-flex-justify">
+	<example v-bind:code="code" id="example-grid-flex-justify">
 		<template slot="demo">
 			<div class="example-grid-flex-justify">
 				<vui-row type="flex">
@@ -38,16 +38,16 @@
 		<template slot="description">
 			<p>为 <code>row</code> 设置 <code>type</code> 属性来定义 <code>flex</code> 布局，其子元素根据不同的值 <code>start</code>、<code>center</code>、<code>end</code>、<code>space-around</code>、<code>space-between</code>，分别定义其在父节点里面的排版方式。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-menu-inline">
+	<example v-bind:code="code" id="example-menu-inline">
 		<template slot="demo">
 			<vui-menu mode="inline" :selectedName="selectedName" @select="handleSelect" style="border-right: 1px solid #e6e6e6; width: 250px;">
 				<vui-submenu name="1" icon="apps" title="Navigation 1">
@@ -33,16 +33,16 @@
 		<template slot="description">
 			<p>垂直的侧栏导航菜单，子菜单是内嵌式的。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-badge-overflow-count">
+	<example v-bind:code="code" id="example-badge-overflow-count">
 		<template slot="demo">
 			<div class="example-badge-overflow-count">
 				<vui-badge v-bind:count="99">
@@ -17,16 +17,16 @@
 		<template slot="description">
 			<p>当 <code>count</code> 大于 <code>overflowCount</code> 限定的值时会显示为 <code>overflowCount+</code>，默认的 <code>overflowCount</code> 为 <code>99</code>。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

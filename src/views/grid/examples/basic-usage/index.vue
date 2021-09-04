@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-grid-basic-usage">
+	<example v-bind:code="code" id="example-grid-basic-usage">
 		<template slot="demo">
 			<div class="example-grid-basic-usage">
 				<vui-row>
@@ -23,16 +23,16 @@
 		<template slot="description">
 			<p>使用单一的一组 <code>row</code> 和 <code>col</code> 栅格组件，就可以创建一个基本的栅格系统，所有列 <code>col</code> 必须放在 <code>row</code> 内。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

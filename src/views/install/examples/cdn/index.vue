@@ -1,14 +1,14 @@
 <template>
-  <vui-doc-code>{{code}}</vui-doc-code>
+  <coding>{{code}}</coding>
 </template>
 
 <script>
-  import VuiDocCode from "src/components/code";
+  import Coding from "src/components/coding";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocCode
+      Coding
     },
     data() {
       return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-progress-dashboard">
+	<example v-bind:code="code" id="example-progress-dashboard">
 		<template slot="demo">
 			<div class="example-progress-dashboard">
 				<vui-progress type="dashboard" :percentage="75" />
@@ -11,16 +11,16 @@
 		<template slot="description">
 			<p>通过设置 <code>type</code> 为 <code>dashboard</code>，可以很方便地实现仪表盘样式的进度条。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

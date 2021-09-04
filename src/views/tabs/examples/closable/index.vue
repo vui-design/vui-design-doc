@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-tabs-closable">
+	<example v-bind:code="code" id="example-tabs-closable">
 		<template slot="demo">
 			<vui-tabs type="card" v-model="activeKey" closable v-on:close="handleClose">
 				<vui-tab-panel v-for="panel in panels" v-bind:key="panel.key" v-bind:title="panel.title" v-bind:closable="panel.closable">
@@ -12,16 +12,16 @@
 			<p>结合 <code>closable</code> 属性和 <code>close</code> 事件实现动态关闭页签。</p>
 			<p>可以显式设置某个 <code>TabPanel</code> 的 <code>closable</code> 属性为 <code>false</code>，禁止其关闭。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			let panels = [];

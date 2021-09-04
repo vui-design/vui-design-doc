@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-badge-dot">
+	<example v-bind:code="code" id="example-badge-dot">
 		<template slot="demo">
 			<div class="example-badge-dot">
 				<vui-badge dot v-bind:count="99">
@@ -17,16 +17,16 @@
 		<template slot="description">
 			<p>不显示具体的数值或文本。友情提醒，强迫症患者慎用！</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

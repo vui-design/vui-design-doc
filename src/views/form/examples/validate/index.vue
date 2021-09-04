@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-form-validate">
+	<example v-bind:code="code" id="example-form-validate">
 		<template slot="demo">
 			<vui-form ref="form" v-bind:model="form" v-bind:rules="rules" v-bind:labelWidth="100">
 				<vui-form-item prop="name" label="Name">
@@ -57,16 +57,16 @@
 		<template slot="description">
 			<p><code>Form</code> 组件是基于 <a href="https://github.com/yiminghe/async-validator" target="_blank">async-validator</a> 实现数据验证的，给 <code>Form</code> 设置 <code>rules</code> 属性，同时给需要验证的 <code>FormItem</code> 设置 <code>prop</code> 属性指向对应字段即可。去 <a href="https://github.com/yiminghe/async-validator" target="_blank">async-validator</a> 了解完整的验证规则。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-spin-nested">
+	<example v-bind:code="code" id="example-spin-nested">
 		<template slot="demo">
 			<div class="example-spin-nested">
 				<vui-switch v-model="spinning" />
@@ -16,16 +16,16 @@
 		<template slot="description">
 			<p>可以直接把内容内嵌到 <code>Spin</code> 中，将现有容器变为加载状态。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

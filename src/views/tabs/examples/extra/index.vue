@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-tabs-extra">
+	<example v-bind:code="code" id="example-tabs-extra">
 		<template slot="demo">
 			<vui-tabs type="card">
 				<vui-tab-panel key="tab1" title="Tab 1">
@@ -18,16 +18,16 @@
 		<template slot="description">
 			<p>可以在页签右侧添加附加内容。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

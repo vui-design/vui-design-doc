@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-transfer-basic-usage">
+	<example v-bind:code="code" id="example-transfer-basic-usage">
 		<template slot="demo">
 			<vui-transfer
 				v-bind:titles="titles"
@@ -16,16 +16,16 @@
 		<template slot="description">
 			<p>最基本的用法，展示了 <code>titles</code>、<code>options</code>、<code>selectedKeys</code>、<code>targetKeys</code>、选项的渲染函数 <code>formatter</code> 以及回调函数 <code>onScroll</code>、<code>onSelect</code>、<code>onChange</code> 的用法。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const dataSource = this.getDataSource();

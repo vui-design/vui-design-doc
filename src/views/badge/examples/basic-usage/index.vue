@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-badge-basic-usage">
+	<example v-bind:code="code" id="example-badge-basic-usage">
 		<template slot="demo">
 			<div class="example-badge-basic-usage">
 				<vui-badge v-bind:count="10">
@@ -14,16 +14,16 @@
 		<template slot="description">
 			<p>简单的徽标展示。当 <code>count</code> 为 <code>0</code> 时，不会显示。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-table-basic-usage">
+	<example v-bind:code="code" id="example-table-basic-usage">
 		<template slot="demo">
 			<vui-table v-bind:columns="columns" v-bind:data="data" rowKey="id">
 				<a href="javascript:;" slot="name" slot-scope="{ row, rowIndex }">{{row.name}}</a>
@@ -16,16 +16,16 @@
 		<template slot="description">
 			<p>表格的基本用法，最后一列是为操作列。注意，请务必使用 <code>rowKey</code> 来指定数据项的唯一主键，默认取值为 <code>rowKey="key"</code>。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const columns = [

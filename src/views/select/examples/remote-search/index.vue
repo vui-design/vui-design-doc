@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-select-remote-search">
+  <example v-bind:code="code" id="example-select-remote-search">
     <template slot="demo">
       <vui-select
         v-model="value"
@@ -23,11 +23,11 @@
     <template slot="description">
       <p>搜索和远程数据结合。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   const dataSource = [
@@ -45,7 +45,7 @@
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-select-coordinate">
+  <example v-bind:code="code" id="example-select-coordinate">
     <template slot="demo">
       <div class="example-select-coordinate">
         <vui-select v-model="province">
@@ -26,11 +26,11 @@
     <template slot="description">
       <p>省市联动是典型的例子。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	const provinces = ["Zhejiang", "Jiangsu"];
@@ -41,7 +41,7 @@
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const province = provinces[0];

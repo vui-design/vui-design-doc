@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-upload-picture-card">
+	<example v-bind:code="code" id="example-upload-picture-card">
 		<template slot="demo">
 			<div class="example-upload-picture-card">
 				<vui-upload
@@ -24,16 +24,16 @@
 		<template slot="description">
 			<p>用户可以上传图片并在列表中显示缩略图。当上传照片数到达限制后，上传按钮消失。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

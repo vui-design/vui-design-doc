@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-popover-trigger">
+	<example v-bind:code="code" id="example-popover-trigger">
 		<template slot="demo">
 			<div class="example-popover-trigger">
 				<vui-popover title="Title" content="This is a popover.">
@@ -17,16 +17,16 @@
 		<template slot="description">
 			<p>鼠标移入、聚集、点击。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

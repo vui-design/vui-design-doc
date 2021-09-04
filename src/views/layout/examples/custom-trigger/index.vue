@@ -1,7 +1,7 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-layout-custom-trigger">
+	<example v-bind:code="code" id="example-layout-custom-trigger">
 		<template slot="demo">
-			<vui-doc-browser>
+			<browser>
 				<vui-layout>
 					<vui-sider color="dark" collapsible v-bind:collapsed="collapsed" v-bind:showTrigger="false">
 						<h1 style="height: 30px; background-color: rgba(255,255,255,0.2); margin: 17px;"></h1>
@@ -52,24 +52,24 @@
 						<vui-footer style="padding: 24px 20px; text-align: center;">2010-2020 © EXAMPLE</vui-footer>
 					</vui-layout>
 				</vui-layout>
-			</vui-doc-browser>
+			</browser>
 		</template>
 		<template slot="title">自定义触发器</template>
 		<template slot="description">
 			<p>自定义触发器时，可以将 <code>showTrigger</code> 设为 <code>false</code> 来隐藏默认设定。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
-	import VuiDocBrowser from "src/components/browser";
+	import Example from "src/components/example";
+	import Browser from "src/components/browser";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample,
-			VuiDocBrowser
+			Example,
+			Browser
 		},
 		data() {
 			return {

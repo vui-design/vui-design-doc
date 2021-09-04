@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-select-clearable">
+  <example v-bind:code="code" id="example-select-clearable">
     <template slot="demo">
       <div class="example-select-clearable">
         <vui-select v-model="value1" clearable style="width: 200px;">
@@ -24,16 +24,16 @@
     <template slot="description">
       <p>含有清空图标的选择器，点击图标清空已选选项。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

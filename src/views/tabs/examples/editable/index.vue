@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-tabs-editable">
+	<example v-bind:code="code" id="example-tabs-editable">
 		<template slot="demo">
 			<vui-tabs type="card" v-model="activeKey" editable v-on:add="handleAdd" v-on:close="handleClose">
 				<vui-tab-panel v-for="panel in panels" v-bind:key="panel.key" v-bind:title="panel.title" v-bind:closable="panel.closable">
@@ -11,16 +11,16 @@
 		<template slot="description">
 			<p>同时具有添加和关闭功能。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			let panels = [];

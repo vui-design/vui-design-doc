@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-input-prefix-suffix">
+	<example v-bind:code="code" id="example-input-prefix-suffix">
 		<template slot="demo">
 			<div class="example-input-prefix-suffix">
 				<vui-input prefix="mic" placeholder="Enter something..." />
@@ -16,16 +16,16 @@
 		<template slot="description">
 			<p>通过设置 <code>prefix</code> 和 <code>suffix</code> 或同名插槽设置前缀/后缀图标。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-tag-hot-tags">
+	<example v-bind:code="code" id="example-tag-hot-tags">
 		<template slot="demo">
 			<div class="example-tag-hot-tags">
 				<h4>Categories:</h4>
@@ -19,16 +19,16 @@
 		<template slot="description">
 			<p>选择你感兴趣的话题。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

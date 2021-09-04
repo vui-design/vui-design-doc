@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-avatar-dynamic">
+	<example v-bind:code="code" id="example-avatar-dynamic">
 		<template slot="demo">
 			<div class="example-avatar-dynamic">
 				<vui-avatar v-bind:style="{backgroundColor: color}">{{user}}</vui-avatar>
@@ -10,11 +10,11 @@
 		<template slot="description">
 			<p>对于字符型的头像，当字符串较长时，字体大小可以根据头像宽度自动调整。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	const colors = ["#f56a00", "#7265e6", "#ffbf00", "#00a2ae"];
@@ -22,7 +22,7 @@
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-backtop-custom">
+	<example v-bind:code="code" id="example-backtop-custom">
 		<template slot="demo">
 			<div>
 				Scroll down to see the bottom-right blue button.
@@ -12,16 +12,16 @@
 		<template slot="description">
 			<p>可以自定义回到顶部按钮的样式。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

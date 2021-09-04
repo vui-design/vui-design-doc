@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-page-header-ghost">
+	<example v-bind:code="code" id="example-page-header-ghost">
 		<template slot="demo">
 			<div class="example-page-header-ghost">
 				<vui-page-header title="Title" subTitle="This is a subtitle" v-bind:ghost="false" v-on:back="handleBack">
@@ -24,16 +24,16 @@
 		<template slot="description">
 			<p>默认 <code>PageHeader</code> 是透明底色的。在某些情况下，<code>PageHeader</code> 需要自己的背景颜色。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

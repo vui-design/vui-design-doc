@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-modal-basic-usage">
+  <example v-bind:code="code" id="example-modal-basic-usage">
     <template slot="demo">
       <div class="example-modal-basic-usage">
         <vui-button type="primary" v-on:click="showModal">Open basic modal</vui-button>
@@ -20,16 +20,16 @@
     <template slot="description">
       <p>最简单的使用方法，通过控制 <code>visible</code> 属性来显示或隐藏对话框。可以使用 <code>v-model</code> 双向绑定。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

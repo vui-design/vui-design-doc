@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-tabs-custom-add-trigger">
+	<example v-bind:code="code" id="example-tabs-custom-add-trigger">
 		<template slot="demo">
 			<div class="example-tabs-custom-add-trigger">
 				<vui-button v-on:click="handleAdd">Add</vui-button>
@@ -14,16 +14,16 @@
 		<template slot="description">
 			<p>通过给自定义触发器绑定事件实现动态添加页签。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			let panels = [];

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-table-click-row-to-expand">
+	<example v-bind:code="code" id="example-table-click-row-to-expand">
 		<template slot="demo">
 			<vui-table
 				rowKey="id"
@@ -22,16 +22,16 @@
 			<p>点击行来展开子行，展开子行的行为默认是由图标控制的。通过 <code>ignoreElements</code> 方法过滤需要忽略的元素，如本例中的操作按钮。</p>
 			<p>注意，该示例使用插槽的形式来自定义展开行的内容。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			const columns = [

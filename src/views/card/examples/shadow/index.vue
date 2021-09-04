@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-card-shadow">
+	<example v-bind:code="code" id="example-card-shadow">
 		<template slot="demo">
 			<div class="example-card-shadow">
 				<vui-row v-bind:gutter="16">
@@ -24,16 +24,16 @@
 		<template slot="description">
 			<p><code>hover</code> 表示鼠标移入时显示阴影，<code>always</code> 表示始终显示阴影。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

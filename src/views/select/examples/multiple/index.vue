@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-select-multiple">
+  <example v-bind:code="code" id="example-select-multiple">
     <template slot="demo">
       <vui-select v-model="value" multiple v-on:change="handleChange">
         <vui-option value="new york">New York</vui-option>
@@ -14,16 +14,16 @@
     <template slot="description">
       <p>设置 <code>multiple</code> 属性可以开启多选模式。多选模式下，<code>v-model</code> 接受数组类型的数据。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

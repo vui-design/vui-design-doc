@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-time-basic-usage">
+	<example v-bind:code="code" id="example-time-basic-usage">
 		<template slot="demo">
 			<div class="example-time-basic-usage">
 				<vui-time :time="time1" />
@@ -19,16 +19,16 @@
 		<template slot="description">
 			<p>设置一个 <code>Date</code> 对象、日期字符串或时间戳，可自动转换为相对于此时此刻的时间描述。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-collapse-arrowless">
+	<example v-bind:code="code" id="example-collapse-arrowless">
 		<template slot="demo">
 			<vui-collapse>
 				<vui-panel title="This is panel header 1">
@@ -17,16 +17,16 @@
 		<template slot="description">
 			<p>通过设置 <code>Panel</code> 组件的 <code>showArrow</code> 属性可以隐藏箭头图标。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

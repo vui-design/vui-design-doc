@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-anchor-customize-highlight">
+	<example v-bind:code="code" id="example-anchor-customize-highlight">
 		<template slot="demo">
 			<vui-anchor v-bind:affix="false" v-bind:getCurrentAnchorLink="getCurrentAnchorLink">
 				<vui-anchor-link href="#example-anchor-basic-usage" title="Basic Usage" />
@@ -15,16 +15,16 @@
 		<template slot="description">
 			<p>自定义锚点高亮。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-card-flexible-content">
+	<example v-bind:code="code" id="example-card-flexible-content">
 		<template slot="demo">
 			<vui-card style="width: 302px;">
 				<img slot="cover" src="https://dummyimage.com/300x200/ececec/595959" />
@@ -18,16 +18,16 @@
 		<template slot="description">
 			<p>支持封面、头像、标题、描述信息以及操作区的卡片。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

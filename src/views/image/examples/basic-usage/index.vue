@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-image-basic-usage">
+	<example v-bind:code="code" id="example-image-basic-usage">
 		<template slot="demo">
 			<ul class="example-image-basic-usage">
 				<li v-for="fit in fits" v-bind:key="fit">
@@ -12,16 +12,16 @@
 		<template slot="description">
 			<p>通过 <code>fit</code> 属性对图片进行保留原始比例的剪切、缩放或者直接进行拉伸等，同原生 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit" target="_blank">object-fit</a>。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

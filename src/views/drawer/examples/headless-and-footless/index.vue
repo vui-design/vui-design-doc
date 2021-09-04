@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-drawer-headless-and-footless">
+	<example v-bind:code="code" id="example-drawer-headless-and-footless">
 		<template slot="demo">
 			<div class="example-drawer-headless-and-footless">
 				<vui-button type="primary" v-bind:click="showDrawer1">No header</vui-button>
@@ -23,16 +23,16 @@
 			<p>未设置 <code>title</code> 标题时，头部将自动隐藏。</p>
 			<p>将 <code>showFooter</code> 属性设置为 <code>false</code> 来隐藏抽屉的底部内容。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {

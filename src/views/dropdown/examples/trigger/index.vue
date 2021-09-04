@@ -1,5 +1,5 @@
 <template>
-	<vui-doc-example v-bind:code="code" id="example-dropdown-trigger">
+	<example v-bind:code="code" id="example-dropdown-trigger">
 		<template slot="demo">
 			<vui-dropdown trigger="click">
 				<a href="javascript:;">Click me</a>
@@ -15,16 +15,16 @@
 		<template slot="description">
 			<p>默认是移入触发菜单，可以点击触发。</p>
 		</template>
-	</vui-doc-example>
+	</example>
 </template>
 
 <script>
-	import VuiDocExample from "src/components/example";
+	import Example from "src/components/example";
 	import code from "./code";
 
 	export default {
 		components: {
-			VuiDocExample
+			Example
 		},
 		data() {
 			return {
