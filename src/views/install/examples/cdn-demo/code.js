@@ -2,8 +2,8 @@ const code =
 `<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
   <title>Vui Design Demo</title>
+  <meta charset="utf-8" />
   <link type="text/css" rel="stylesheet" href="//unpkg.com/vui-design/dist/style/vui-design.css" />
 </head>
 

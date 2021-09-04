@@ -36,12 +36,12 @@ export default [
 				component: () => import("src/views/getting-started/index")
 			},
 			{
-				path: "/guide/i18n",
-				name: "i18n",
+				path: "/guide/use-with-vue-cli",
+				name: "use-with-vue-cli",
 				meta: {
-					title: "i18n"
+					title: "Use with vue-cli"
 				},
-				component: () => import("src/views/i18n/index")
+				component: () => import("src/views/use-with-vue-cli/index")
 			},
 			{
 				path: "/guide/theme",
@@ -50,6 +50,14 @@ export default [
 					title: "theme"
 				},
 				component: () => import("src/views/theme/index")
+			},
+			{
+				path: "/guide/i18n",
+				name: "i18n",
+				meta: {
+					title: "i18n"
+				},
+				component: () => import("src/views/i18n/index")
 			},
 			{
 				path: "/guide/changelog",

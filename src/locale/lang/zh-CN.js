@@ -9,8 +9,9 @@ export default {
   "menu": {
     "install": "安装",
     "getting-started": "快速上手",
-    "i18n": "国际化",
+    "use-with-vue-cli": "在 vue-cli 中使用",
     "theme": "定制主题",
+    "i18n": "国际化",
     "changelog": "更新日志",
 
     "general": "通用",
@@ -105,9 +106,17 @@ export default {
     "example-getting-started-import-2": "2. 创建一个项目",
     "example-getting-started-import-3": "3. 使用组件",
     "example-getting-started-import-4": "4. 组件列表",
-    "example-getting-started-compatibility": "兼容性",
+    "example-getting-started-babel-plugin-import": "按需加载",
     "example-getting-started-settings": "配置主题和语言包",
+    "example-getting-started-compatibility": "兼容性",
     "example-getting-started-tips": "小贴士",
+
+    "example-use-with-vue-cli-install": "安装和初始化",
+    "example-use-with-vue-cli-import-vui-design": "引入 Vui Design",
+    "example-use-with-vue-cli-advanced-configuration": "高级配置",
+    "example-use-with-vue-cli-babel-plugin-import": "1. 使用 babel-plugin-import",
+    "example-use-with-vue-cli2": "1.1 使用 vue-cli 2 的小伙伴",
+    "example-use-with-vue-cli3": "1.2 使用 vue-cli 3 的小伙伴",
 
     "example-color-primary": "主色彩",
     "example-color-auxiliary": "辅助色",
