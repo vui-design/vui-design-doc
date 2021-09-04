@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Layout 布局</h1>
 			<p>协助进行页面级整体布局。</p>
 			<h2>设计规则</h2>
@@ -37,7 +37,7 @@
 			</ul>
 			<p>注意：采用 <code>flex</code> 布局实现，请注意<a href="https://caniuse.com/#search=flex" target="_blank">浏览器兼容性</a>问题。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<ExampleLayoutBasicUsage />
 		<ExampleLayoutVertical />
 		<ExampleLayoutHeaderSiderFirst />
@@ -45,7 +45,7 @@
 		<ExampleLayoutSider />
 		<ExampleLayoutCustomTrigger />
 		<ExampleLayoutResponsive />
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Layout 属性</h3>
 			<table class="example-api-props">
@@ -168,13 +168,13 @@
 				<li><code>xl</code> - 1200px</li>
 				<li><code>xxl</code> - 1600px</li>
 			</ul>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleLayoutBasicUsage from "./examples/basic-usage";
 	import ExampleLayoutVertical from "./examples/vertical";
 	import ExampleLayoutHeaderSiderFirst from "./examples/header-sider-first";
@@ -188,7 +188,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleLayoutBasicUsage,
 			ExampleLayoutVertical,
 			ExampleLayoutHeaderSiderFirst,

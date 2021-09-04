@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Tabs 标签页</h1>
 			<p>选项卡切换组件。</p>
 			<h2>何时使用</h2>
@@ -12,7 +12,7 @@
 				<li><router-link to="radio">RadioButton</router-link> 可作为更次级的页签来使用。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleTabsBasicUsage />
@@ -30,7 +30,7 @@
 				<ExampleTabsCustomAddTrigger />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Tabs 属性</h3>
 			<table class="example-api-props">
@@ -185,13 +185,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleTabsBasicUsage from "./examples/basic-usage";
 	import ExampleTabsCard from "./examples/card";
 	import ExampleTabsIcon from "./examples/icon";
@@ -209,7 +209,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleTabsBasicUsage,
 			ExampleTabsCard,
 			ExampleTabsIcon,

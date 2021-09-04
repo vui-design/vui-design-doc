@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Transfer 穿梭框</h1>
 			<p>双栏穿梭选择框。</p>
 			<h2>何时使用</h2>
@@ -11,7 +11,7 @@
 			<p>穿梭选择框用直观的方式在两栏中移动元素，完成选择行为。</p>
 			<p>选择一个或以上的选项后，点击对应的方向键，可以把选中的选项移动到另一栏。其中，左边一栏为 <code>source</code>，右边一栏为 <code>target</code>，API 的设计也反映了这两个概念。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<ExampleTransferBasicUsage />
 		<ExampleTransferSearchable1 />
 		<ExampleTransferCustomizedSearch />
@@ -20,7 +20,7 @@
 		<ExampleTransferCustomized2 />
 		<ExampleTransferAdvanced />
 		<ExampleTransferTable />
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Transfer 属性</h3>
 			<table class="example-api-props">
@@ -233,13 +233,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleTransferBasicUsage from "./examples/basic-usage";
 	import ExampleTransferSearchable1 from "./examples/searchable";
 	import ExampleTransferCustomizedSearch from "./examples/customized-search";
@@ -254,7 +254,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleTransferBasicUsage,
 			ExampleTransferSearchable1,
 			ExampleTransferCustomizedSearch,

@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-button-type">
+  <example v-bind:code="code" id="example-button-type">
     <template slot="demo">
       <div class="example-button-type">
         <vui-button type="primary">Primary</vui-button>
@@ -16,16 +16,16 @@
     <template slot="description">
       <p>按钮包含八种类型。一般情况下，我们将 <code>primary</code> 类型用于主按钮，而次按钮使用 <code>default</code> 类型，建议主按钮在同一个操作区域最多出现一次。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

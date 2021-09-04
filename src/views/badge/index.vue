@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Badge 徽标</h1>
 			<p>图标右上角的圆形徽标。</p>
 			<h2>何时使用</h2>
 			<p>一般出现在通知图标或头像的右上角，用于显示需要处理的消息条数，通过醒目视觉形式吸引用户处理。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleBadgeBasicUsage />
@@ -21,7 +21,7 @@
 				<ExampleBadgeColorful />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Badge 属性</h3>
 			<table class="example-api-props">
@@ -84,13 +84,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleBadgeBasicUsage from "./examples/basic-usage";
 	import ExampleBadgeOverflowCount from "./examples/overflow-count";
 	import ExampleBadgeText from "./examples/text";
@@ -106,7 +106,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleBadgeBasicUsage,
 			ExampleBadgeOverflowCount,
 			ExampleBadgeText,

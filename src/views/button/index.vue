@@ -1,28 +1,28 @@
 <template>
   <div>
-    <vui-doc-markdown>
+    <document>
       <h1>Button 按钮</h1>
       <p>按钮用于开始一个即时操作。</p>
       <h2>何时使用</h2>
       <p>标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。</p>
       <h2>代码演示</h2>
-    </vui-doc-markdown>
+    </document>
     <vui-row v-bind:gutter="16">
       <vui-col v-bind:span="12">
-        <ExampleButtonType />
-        <ExampleButtonGhost />
-        <ExampleButtonBlock />
-        <ExampleButtonIconAndShape />
-        <ExampleButtonSize />
+        <example-type />
+        <example-ghost />
+        <example-block />
+        <example-icon-and-shape />
+        <example-size />
       </vui-col>
       <vui-col v-bind:span="12">
-        <ExampleButtonLoading />
-        <ExampleButtonDisabled />
-        <ExampleButtonLink />
-        <ExampleButtonGroup />
+        <example-loading />
+        <example-disabled />
+        <example-link />
+        <example-group />
       </vui-col>
     </vui-row>
-    <vui-doc-markdown>
+    <document>
       <h2 id="example-api">API</h2>
       <h3>Button 属性</h3>
       <table class="example-api-props">
@@ -177,38 +177,38 @@
           </tr>
         </tbody>
       </table>
-    </vui-doc-markdown>
+    </document>
   </div>
 </template>
 
 <script>
   import MixinAnchors from "src/mixins/anchors";
-  import VuiDocMarkdown from "src/components/markdown";
-  import ExampleButtonType from "./examples/type";
-  import ExampleButtonGhost from "./examples/ghost";
-  import ExampleButtonBlock from "./examples/block";
-  import ExampleButtonIconAndShape from "./examples/icon-and-shape";
-  import ExampleButtonSize from "./examples/size";
-  import ExampleButtonLoading from "./examples/loading";
-  import ExampleButtonDisabled from "./examples/disabled";
-  import ExampleButtonLink from "./examples/link";
-  import ExampleButtonGroup from "./examples/group";
+  import Document from "src/components/document";
+  import ExampleType from "./examples/type";
+  import ExampleGhost from "./examples/ghost";
+  import ExampleBlock from "./examples/block";
+  import ExampleIconAndShape from "./examples/icon-and-shape";
+  import ExampleSize from "./examples/size";
+  import ExampleLoading from "./examples/loading";
+  import ExampleDisabled from "./examples/disabled";
+  import ExampleLink from "./examples/link";
+  import ExampleGroup from "./examples/group";
 
   export default {
     mixins: [
       MixinAnchors
     ],
     components: {
-      VuiDocMarkdown,
-      ExampleButtonType,
-      ExampleButtonGhost,
-      ExampleButtonBlock,
-      ExampleButtonIconAndShape,
-      ExampleButtonSize,
-      ExampleButtonLoading,
-      ExampleButtonDisabled,
-      ExampleButtonLink,
-      ExampleButtonGroup
+      Document,
+      ExampleType,
+      ExampleGhost,
+      ExampleBlock,
+      ExampleIconAndShape,
+      ExampleSize,
+      ExampleLoading,
+      ExampleDisabled,
+      ExampleLink,
+      ExampleGroup
     }
   };
 </script>

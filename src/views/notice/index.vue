@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Notice 通知提醒</h1>
 			<p>全局展示通知提醒信息。</p>
 			<h2>何时使用</h2>
@@ -11,7 +11,7 @@
 				<li>系统主动推送。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row :gutter="20">
 			<vui-col :span="12">
 				<ExampleNoticeBasicUsage />
@@ -23,7 +23,7 @@
 				<ExampleNoticeMoreContent />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<p><code>Vui</code> 为 <code>Vue.prototype</code> 添加了全局方法 <code>$notice</code>，可以直接通过以下方式来使用：</p>
 			<ul>
@@ -124,13 +124,13 @@
 				<li><code>notice.close()</code></li>
 			</ul>
 			<p>其中 <code>notice.upadte</code> 方法的参数 <code>options</code> 同 <code>this.$notice[type]</code> 方法一致。</p>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleNoticeBasicUsage from "./examples/basic-usage";
 	import ExampleNoticeType from "./examples/type";
 	import ExampleNoticeDuration from "./examples/duration";
@@ -142,7 +142,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleNoticeBasicUsage,
 			ExampleNoticeType,
 			ExampleNoticeDuration,

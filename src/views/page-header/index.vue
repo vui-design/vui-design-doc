@@ -1,18 +1,18 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>PageHeader 页头</h1>
 			<p>页头位于页容器中，页容器顶部，起到了内容概览和引导页级操作的作用。包括由面包屑、标题、页面内容简介、页面级操作、页面级导航等组成。</p>
 			<h2>何时使用</h2>
 			<p>当需要使用户快速理解当前页是什么，以及方便用户使用页面功能时使用，通常也可被用作页面间导航。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
  		<ExamplePageHeaderBasicUsage />
  		<ExamplePageHeaderGhost />
  		<ExamplePageHeaderBreadcrumb />
  		<ExamplePageHeaderMore />
  		<ExamplePageHeaderContent />
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>PageHeader 属性</h3>
 			<table class="example-api-props">
@@ -100,13 +100,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExamplePageHeaderBasicUsage from "./examples/basic-usage";
 	import ExamplePageHeaderGhost from "./examples/ghost";
 	import ExamplePageHeaderBreadcrumb from "./examples/breadcrumb";
@@ -118,7 +118,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExamplePageHeaderBasicUsage,
 			ExamplePageHeaderGhost,
 			ExamplePageHeaderBreadcrumb,

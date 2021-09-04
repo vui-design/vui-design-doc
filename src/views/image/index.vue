@@ -1,17 +1,17 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Image 图片</h1>
 			<p>图片容器。</p>
 			<h2>何时使用</h2>
 			<p>在保留原生 <code>img</code> 标签的特性下，支持自定义图片填充方式、懒加载、自定义占位、加载失败等。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<ImageBasicUsage />
 		<ImagePlaceholder />
 		<ImageError />
 		<ImageLazyload />
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Image 属性</h3>
 			<table class="example-api-props">
@@ -74,13 +74,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ImageBasicUsage from "./examples/basic-usage";
 	import ImagePlaceholder from "./examples/placeholder";
 	import ImageError from "./examples/error";
@@ -91,7 +91,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ImageBasicUsage,
 			ImagePlaceholder,
 			ImageError,

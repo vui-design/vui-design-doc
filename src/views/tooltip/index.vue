@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Tooltip 文字提示</h1>
 			<p>简单的文字提示气泡框。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>可用来代替系统默认的 <code>title</code> 提示，提供一个按钮/文字/操作的文案解释。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleTooltipBasicUsage />
@@ -20,7 +20,7 @@
 				<ExampleTooltipColorful />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Tooltip 属性</h3>
 			<table class="example-api-props">
@@ -108,13 +108,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleTooltipBasicUsage from "./examples/basic-usage";
 	import ExampleTooltipCustomizedContent from "./examples/customized-content";
 	import ExampleTooltipPlacement from "./examples/placement";
@@ -125,7 +125,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleTooltipBasicUsage,
 			ExampleTooltipCustomizedContent,
 			ExampleTooltipPlacement,

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>InputNumber 数字输入框</h1>
 			<p>通过鼠标或键盘输入内容，是最基础的表单域的包装。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>提供组合型输入框，带搜索的输入框，还可以进行大小选择。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row :gutter="20">
 			<vui-col :span="12">
 				<ExampleInputNumberBasicUsage />
@@ -21,7 +21,7 @@
 				<ExampleInputNumberDisabled />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>InputNumber 属性</h3>
 			<table class="example-api-props">
@@ -151,13 +151,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleInputNumberBasicUsage from "./examples/basic-usage";
 	import ExampleInputNumberDigit from "./examples/digit";
 	import ExampleInputNumberFormatter from "./examples/formatter";
@@ -169,7 +169,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleInputNumberBasicUsage,
 			ExampleInputNumberDigit,
 			ExampleInputNumberFormatter,

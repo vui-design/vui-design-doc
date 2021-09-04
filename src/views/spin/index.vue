@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Spin 加载中</h1>
 			<p>用于页面和区块的加载中状态。</p>
 			<h2>何时使用</h2>
 			<p>页面局部处于等待异步数据或正在渲染过程时，合适的加载动效会有效缓解用户的焦虑。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleSpinBasicUsage />
@@ -21,7 +21,7 @@
 				<ExampleSpinFullscreen />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Spin 属性</h3>
 			<table class="example-api-props">
@@ -118,13 +118,13 @@
 			<ul>
 				<li><code>spin.cancel()</code></li>
 			</ul>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleSpinBasicUsage from "./examples/basic-usage";
 	import ExampleSpinSize from "./examples/size";
 	import ExampleSpinInside from "./examples/inside";
@@ -139,7 +139,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleSpinBasicUsage,
 			ExampleSpinSize,
 			ExampleSpinInside,

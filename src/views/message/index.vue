@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Message 消息提示</h1>
 			<p>全局展示操作反馈信息。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 			<li>顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row :gutter="20">
 			<vui-col :span="12">
 				<ExampleMessageBasicUsage />
@@ -22,7 +22,7 @@
 				<ExampleMessageMoreContent />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<p><code>Vui</code> 为 <code>Vue.prototype</code> 添加了全局方法 <code>$message</code>，可以直接通过以下方式来使用：</p>
 			<ul>
@@ -112,13 +112,13 @@
 				<li><code>message.close()</code></li>
 			</ul>
 			<p>其中 <code>message.upadte</code> 方法的参数 <code>options</code> 同 <code>this.$message[type]</code> 方法一致。</p>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleMessageBasicUsage from "./examples/basic-usage";
 	import ExampleMessageType from "./examples/type";
 	import ExampleMessageLoading from "./examples/loading";
@@ -131,7 +131,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleMessageBasicUsage,
 			ExampleMessageType,
 			ExampleMessageLoading,

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Popover 气泡卡片</h1>
 			<p>点击/鼠标移入元素，弹出气泡式的卡片浮层</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>和 <code>Tooltip</code> 的区别是，用户可以对浮层上的元素进行操作，因此它可以承载更复杂的内容，比如链接或按钮等。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExamplePopoverBasicUsage />
@@ -20,7 +20,7 @@
 				<ExamplePopoverPlacement />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Popover 属性</h3>
 			<table class="example-api-props">
@@ -156,13 +156,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExamplePopoverBasicUsage from "./examples/basic-usage";
 	import ExamplePopoverPlacement from "./examples/placement";
 	import ExamplePopoverTrigger from "./examples/trigger";
@@ -173,7 +173,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExamplePopoverBasicUsage,
 			ExamplePopoverPlacement,
 			ExamplePopoverTrigger,

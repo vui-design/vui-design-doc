@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Statistic 统计数值</h1>
 			<p>展示统计数值。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>当需要展示带描述的统计类数据时使用。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleStatisticBasicUsage />
@@ -20,7 +20,7 @@
 				<ExampleStatisticCountdown />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Statistic 属性</h3>
 			<table class="example-api-props">
@@ -205,13 +205,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleStatisticBasicUsage from "./examples/basic-usage";
 	import ExampleStatisticIconAndUnit from "./examples/icon-and-unit";
 	import ExampleStatisticCard from "./examples/card";
@@ -222,7 +222,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleStatisticBasicUsage,
 			ExampleStatisticIconAndUnit,
 			ExampleStatisticCard,

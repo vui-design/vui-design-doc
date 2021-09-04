@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-button-ghost">
+  <example v-bind:code="code" id="example-button-ghost">
     <template slot="demo">
       <div class="example-button-ghost">
         <vui-button type="primary" ghost>Primary</vui-button>
@@ -16,16 +16,16 @@
     <template slot="description">
       <p>幽灵按钮将按钮的内容反色，背景变为透明，常用在有色背景上。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

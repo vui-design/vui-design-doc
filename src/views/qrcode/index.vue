@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Qrcode 二维码</h1>
 			<p>为字符串进行二维码编码。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleQrcodeBasicUsage />
@@ -17,7 +17,7 @@
 				<ExampleQrcodeImage />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Qrcode 属性</h3>
 			<table class="example-api-props">
@@ -86,13 +86,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleQrcodeBasicUsage from "./examples/basic-usage";
 	import ExampleQrcodeTag from "./examples/tag";
 	import ExampleQrcodeSize from "./examples/size";
@@ -105,7 +105,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleQrcodeBasicUsage,
 			ExampleQrcodeTag,
 			ExampleQrcodeSize,

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Form 表单</h1>
 			<p>具有数据收集、验证和提交功能的表单，包含复选框、单选框、输入框、下拉选择框等元素。</p>
 			<h2>何时使用</h2>
@@ -18,7 +18,7 @@
 			<h2>表单域</h2>
 			<p>表单一定会包含表单域，表单域可以是输入控件，标准表单域，标签，下拉菜单，文本域等。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<ExampleFormInline />
 		<ExampleFormLayout />
 		<ExampleFormRequiredMark />
@@ -28,7 +28,7 @@
 		<ExampleFormValidate />
 		<ExampleFormCustomValidate />
 		<ExampleFormDynamic />
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Form 属性</h3>
 			<table class="example-api-props">
@@ -281,13 +281,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleFormInline from "./examples/inline";
 	import ExampleFormLayout from "./examples/layout";
 	import ExampleFormRequiredMark from "./examples/required-mark";
@@ -303,7 +303,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleFormInline,
 			ExampleFormLayout,
 			ExampleFormRequiredMark,

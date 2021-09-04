@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-button-group">
+  <example v-bind:code="code" id="example-button-group">
     <template slot="demo">
       <div class="example-button-group">
         <section>
@@ -67,16 +67,16 @@
       <p>可以将多个 <code>Button</code> 放入 <code>ButtonGroup</code> 容器中，实现按钮组合。</p>
       <p>通过 <code>shape</code> 属性设置按钮组合的形状，<code>size</code> 属性用于设置尺寸。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

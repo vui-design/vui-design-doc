@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vui-doc-markdown>
+    <document>
       <h1>Select 选择器</h1>
       <p>下拉选择器。</p>
       <h2>何时使用</h2>
@@ -9,7 +9,7 @@
         <li>当选项少时（少于 5 项），建议直接将选项平铺，使用 <code>Radio</code> 或 <code>Checkbox</code> 是更好的选择。</li>
       </ul>
       <h2>代码演示</h2>
-    </vui-doc-markdown>
+    </document>
     <vui-row v-bind:gutter="16">
       <vui-col v-bind:span="12">
         <ExampleSelectBasicUsage />
@@ -29,7 +29,7 @@
         <ExampleSelectDisabled />
       </vui-col>
     </vui-row>
-    <vui-doc-markdown>
+    <document>
       <h2 id="example-api">API</h2>
       <h3>Select 属性</h3>
       <table class="example-api-props">
@@ -281,13 +281,13 @@
           </tr>
         </tbody>
       </table>
-    </vui-doc-markdown>
+    </document>
   </div>
 </template>
 
 <script>
   import MixinAnchors from "src/mixins/anchors";
-  import VuiDocMarkdown from "src/components/markdown";
+  import Document from "src/components/document";
   import ExampleSelectBasicUsage from "./examples/basic-usage";
   import ExampleSelectMultiple from "./examples/multiple";
   import ExampleSelectSearchable from "./examples/searchable";
@@ -307,7 +307,7 @@
       MixinAnchors
     ],
     components: {
-      VuiDocMarkdown,
+      Document,
       ExampleSelectBasicUsage,
       ExampleSelectMultiple,
       ExampleSelectSearchable,

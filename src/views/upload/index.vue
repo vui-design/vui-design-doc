@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Upload 上传</h1>
 			<p>文件选择上传和拖拽上传控件。</p>
 			<h2>何时使用</h2>
@@ -11,7 +11,7 @@
 				<li>当需要使用拖拽交互时。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row :gutter="20">
 			<vui-col :span="12">
 				<ExampleUploadBasicUsage />
@@ -25,7 +25,7 @@
 				<ExampleUploadManually />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Upload 属性</h3>
 			<table class="example-api-props">
@@ -244,13 +244,13 @@
 				<li><code>response</code> - 文件上传成功后的响应内容，状态为 <code>success</code> 时有效</li>
 				<li><code>error</code> - 文件上传失败后的错误信息，状态为 <code>error</code> 时有效</li>
 			</ul>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleUploadBasicUsage from "./examples/basic-usage";
 	import ExampleUploadPicture from "./examples/picture";
 	import ExampleUploadPictureCard from "./examples/picture-card";
@@ -264,7 +264,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleUploadBasicUsage,
 			ExampleUploadPicture,
 			ExampleUploadPictureCard,

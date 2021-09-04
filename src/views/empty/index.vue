@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Empty 空状态</h1>
 			<p>空状态时的展示占位图。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>初始化场景时的引导创建流程。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleEmptyBasicUsage />
@@ -19,7 +19,7 @@
 				<ExampleEmptyCustomize />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Empty 属性</h3>
 			<table class="example-api-props">
@@ -52,13 +52,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleEmptyBasicUsage from "./examples/basic-usage";
 	import ExampleEmptyNoDescription from "./examples/no-description";
 	import ExampleEmptyCustomize from "./examples/customize";
@@ -68,7 +68,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleEmptyBasicUsage,
 			ExampleEmptyNoDescription,
 			ExampleEmptyCustomize

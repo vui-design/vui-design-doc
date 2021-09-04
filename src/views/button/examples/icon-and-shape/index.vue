@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-button-icon-and-shape">
+  <example v-bind:code="code" id="example-button-icon-and-shape">
     <template slot="demo">
       <div class="example-button-icon-and-shape">
         <section>
@@ -32,16 +32,16 @@
       <p>使用 <code>Button</code> 的 <code>icon</code> 属性，图标将被插入到按钮左侧，如果需要自定义位置，请使用 <code>Icon</code> 组件。</p>
       <p>属性 <code>shape</code> 用于设置按钮形状，可选值为 <code>round</code>、<code>circle</code>，或者不设。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Modal 对话框</h1>
 			<p>模态对话框。</p>
 			<h2>何时使用</h2>
 			<p>需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 <code>Modal</code> 在当前页面正中打开一个对话框，承载相应的操作。另外当需要一个简洁的确认框询问用户时，可以使用精心封装好的 <code>this.$modal.confirm()</code> 等方法。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row :gutter="20">
 			<vui-col :span="12">
 				<ExampleModalBasicUsage />
@@ -24,10 +24,10 @@
 				<ExampleModalUpdateAndClose />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<p>除了上述通过标准组件的使用方式，<code>Vui</code> 还精心封装了一些实例方法，用来创建一次性的轻量级对话框。实例以隐式创建 <code>Modal</code> 组件的方式在全局创建一个对话框，并在关闭时移除。</p>
-		</vui-doc-markdown>
-		<vui-doc-markdown>
+		</document>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Modal 属性</h3>
 			<table class="example-api-props">
@@ -443,13 +443,13 @@
 				<li><code>modal.close()</code></li>
 			</ul>
 			<p>其中 <code>modal.upadte</code> 方法的参数 <code>options</code> 同 <code>this.$modal[type]</code> 方法一致。</p>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleModalBasicUsage from "./examples/basic-usage";
 	import ExampleModalHeadlessAndFootless from "./examples/headless-and-footless";
 	import ExampleModalHideCloseButton from "./examples/hide-close-button";
@@ -467,7 +467,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleModalBasicUsage,
 			ExampleModalHeadlessAndFootless,
 			ExampleModalHideCloseButton,

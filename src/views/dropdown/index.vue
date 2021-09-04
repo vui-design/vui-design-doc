@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Dropdown 下拉菜单</h1>
 			<p>向下弹出的菜单列表。</p>
 			<h2>何时使用</h2>
 			<p>当页面上的操作命令过多时，用此组件可以收纳操作元素。点击或移入触点，会出现一个下拉菜单。可在列表中进行选择，并执行相应的命令。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="20">
 			<vui-col v-bind:span="12">
 				<ExampleDropdownBasicUsage />
@@ -20,7 +20,7 @@
 				<ExampleDropdownButton />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Dropdown 属性</h3>
 			<table class="example-api-props">
@@ -337,13 +337,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleDropdownBasicUsage from "./examples/basic-usage";
 	import ExampleDropdownOtherElements from "./examples/other-elements";
 	import ExampleDropdownTrigger from "./examples/trigger";
@@ -357,7 +357,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleDropdownBasicUsage,
 			ExampleDropdownOtherElements,
 			ExampleDropdownTrigger,

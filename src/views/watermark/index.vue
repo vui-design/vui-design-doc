@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vui-doc-markdown>
+    <document>
       <h1>Watermark 水印</h1>
       <p>水印，对页面敏感信息进行蒙层遮罩。</p>
       <h2>何时使用</h2>
@@ -9,12 +9,12 @@
         <li>要求水印内容为用户名，水印节点不能通过开发者工具修改、删除等。</li>
       </ul>
       <h2>代码演示</h2>
-    </vui-doc-markdown>
+    </document>
     <ExampleWatermarkBasicUsage />
     <ExampleWatermarkFont />
     <ExampleWatermarkSize />
     <ExampleWatermarkRotate />
-    <vui-doc-markdown>
+    <document>
       <h2 id="example-api">API</h2>
       <h3>Watermark 属性</h3>
       <table class="example-api-props">
@@ -77,13 +77,13 @@
           </tr>
         </tbody>
       </table>
-    </vui-doc-markdown>
+    </document>
   </div>
 </template>
 
 <script>
   import MixinAnchors from "src/mixins/anchors";
-  import VuiDocMarkdown from "src/components/markdown";
+  import Document from "src/components/document";
   import ExampleWatermarkBasicUsage from "./examples/basic-usage";
   import ExampleWatermarkFont from "./examples/font";
   import ExampleWatermarkSize from "./examples/size";
@@ -94,7 +94,7 @@
       MixinAnchors
     ],
     components: {
-      VuiDocMarkdown,
+      Document,
       ExampleWatermarkBasicUsage,
       ExampleWatermarkFont,
       ExampleWatermarkSize,

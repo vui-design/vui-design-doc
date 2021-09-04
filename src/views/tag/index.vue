@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Tag 标签</h1>
 			<p>进行标记和分类的小标签。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>进行分类。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleTagBasicUsage />
@@ -24,7 +24,7 @@
 				<ExampleTagHotTags />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Tag 属性</h3>
 			<table class="example-api-props">
@@ -112,13 +112,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleTagBasicUsage from "./examples/basic-usage";
 	import ExampleTagSize from "./examples/size";
 	import ExampleTagIcon from "./examples/icon";
@@ -133,7 +133,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleTagBasicUsage,
 			ExampleTagSize,
 			ExampleTagIcon,

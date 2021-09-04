@@ -9,7 +9,7 @@ const code =
 
 <body>
   <div id="app">
-    <vui-button @click="showModal">Click me!</vui-button>
+    <vui-button type="primary" @click="showModal">Click me!</vui-button>
     <vui-modal v-model="visible" title="Welcome">Welcome to Vui Design!</vui-modal>
   </div>
   <script src="//vuejs.org/js/vue.min.js"></script>

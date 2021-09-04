@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vui-doc-markdown>
+    <document>
       <h1>Switch 开关</h1>
       <p>开关选择器。</p>
       <h2>何时使用</h2>
@@ -9,7 +9,7 @@
         <li>和 Checkbox 的区别是，切换 Switch 会直接触发状态改变，而 Checkbox 一般用于状态标记，需要和提交操作配合。</li>
       </ul>
       <h2>代码演示</h2>
-    </vui-doc-markdown>
+    </document>
     <vui-row v-bind:gutter="20">
       <vui-col v-bind:span="12">
         <ExampleSwitchBasicUsage />
@@ -24,7 +24,7 @@
         <ExampleSwitchBeforeChange />
       </vui-col>
     </vui-row>
-    <vui-doc-markdown>
+    <document>
       <h2 id="example-api">API</h2>
       <h3>Switch 属性</h3>
       <table class="example-api-props">
@@ -130,13 +130,13 @@
           </tr>
         </tbody>
       </table>
-    </vui-doc-markdown>
+    </document>
   </div>
 </template>
 
 <script>
   import MixinAnchors from "src/mixins/anchors";
-  import VuiDocMarkdown from "src/components/markdown";
+  import Document from "src/components/document";
   import ExampleSwitchBasicUsage from "./examples/basic-usage";
   import ExampleSwitchSize from "./examples/size";
   import ExampleSwitchText from "./examples/text";
@@ -152,7 +152,7 @@
       MixinAnchors
     ],
     components: {
-      VuiDocMarkdown,
+      Document,
       ExampleSwitchBasicUsage,
       ExampleSwitchSize,
       ExampleSwitchText,

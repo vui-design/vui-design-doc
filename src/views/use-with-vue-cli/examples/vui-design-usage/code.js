@@ -1,8 +1,8 @@
 const code =
 `<template>
   <div id="app">
-    <vui-button type="primary" @click="showModal">按钮</vui-button>
-    <vui-modal v-model="visible" title="弹窗">这里是弹窗内容</vui-modal>
+    <vui-button type="primary" @click="showModal">Click me!</vui-button>
+    <vui-modal v-model="visible" title="Welcome">Welcome to Vui Design!</vui-modal>
   </div>
 </template>
 

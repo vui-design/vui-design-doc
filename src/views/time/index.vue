@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Time 相对时间</h1>
 			<p>用于表示几分钟前、几小时前等相对于此时此刻的时间描述。</p>
 			<h2>何时使用</h2>
 			<p>使用相对时间标记一条信息或资讯的发布时间。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row :gutter="20">
 			<vui-col :span="12">
 				<ExampleTimeBasicUsage />
@@ -16,7 +16,7 @@
 				<ExampleTimeInterval />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Time 属性</h3>
 			<table class="example-api-props">
@@ -49,13 +49,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleTimeBasicUsage from "./examples/basic-usage";
 	import ExampleTimeType from "./examples/type";
 	import ExampleTimeInterval from "./examples/interval";
@@ -65,7 +65,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleTimeBasicUsage,
 			ExampleTimeType,
 			ExampleTimeInterval

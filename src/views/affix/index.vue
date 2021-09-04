@@ -1,13 +1,13 @@
 <template>
   <div>
-    <vui-doc-markdown>
+    <document>
       <h1>Affix 固钉</h1>
       <p>将页面元素钉在可视范围。</p>
       <h2>何时使用</h2>
       <p>当内容区域比较长，需要滚动页面时，这部分内容对应的操作或者导航需要在滚动范围内始终展现。常用于侧边菜单和按钮组合。</p>
       <p>页面可视范围过小时，慎用此功能以免遮挡页面内容。</p>
       <h2>代码演示</h2>
-    </vui-doc-markdown>
+    </document>
     <vui-row v-bind:gutter="16">
       <vui-col v-bind:span="12">
         <ExampleAffixBasicUsage />
@@ -17,7 +17,7 @@
         <ExampleAffixContainer />
       </vui-col>
     </vui-row>
-    <vui-doc-markdown>
+    <document>
       <h2 id="example-api">API</h2>
       <h3>Affix 属性</h3>
       <table class="example-api-props">
@@ -69,13 +69,13 @@
           </tr>
         </tbody>
       </table>
-    </vui-doc-markdown>
+    </document>
   </div>
 </template>
 
 <script>
   import MixinAnchors from "src/mixins/anchors";
-  import VuiDocMarkdown from "src/components/markdown";
+  import Document from "src/components/document";
   import ExampleAffixBasicUsage from "./examples/basic-usage";
   import ExampleAffixChange from "./examples/change";
   import ExampleAffixContainer from "./examples/container";
@@ -85,7 +85,7 @@
       MixinAnchors
     ],
     components: {
-      VuiDocMarkdown,
+      Document,
       ExampleAffixBasicUsage,
       ExampleAffixChange,
       ExampleAffixContainer

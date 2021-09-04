@@ -1,18 +1,18 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>List 列表</h1>
 			<p>通用列表。</p>
 			<h2>何时使用</h2>
 			<p>最基础的列表展示，可承载文字、列表、图片、段落，常用于后台数据展示页面。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<ExampleListSimple />
 		<ExampleListBasicUsage />
 		<ExampleListLoadMore />
 		<ExampleListVertical />
 		<ExampleListGrid />
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>List 属性</h3>
 			<table class="example-api-props">
@@ -162,13 +162,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleListSimple from "./examples/simple";
 	import ExampleListBasicUsage from "./examples/basic-usage";
 	import ExampleListLoadMore from "./examples/load-more";
@@ -180,7 +180,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleListSimple,
 			ExampleListBasicUsage,
 			ExampleListLoadMore,

@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Anchor 锚点</h1>
 			<p>用于跳转到页面指定位置。</p>
 			<h2>何时使用</h2>
 			<p>需要展现当前页面上可供跳转的锚点链接，以及快速在锚点之间跳转。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleAnchorBasicUsage />
@@ -20,7 +20,7 @@
 				<ExampleAnchorChange />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Anchor 属性</h3>
 			<table id="example-api-anchor-props" class="example-api-props">
@@ -139,13 +139,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleAnchorBasicUsage from "./examples/basic-usage";
 	import ExampleAnchorOpenInNewWindow from "./examples/open-in-new-window";
 	import ExampleAnchorStatic from "./examples/static";
@@ -159,7 +159,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleAnchorBasicUsage,
 			ExampleAnchorOpenInNewWindow,
 			ExampleAnchorStatic,

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <vui-doc-markdown>
+    <document>
       <h1>Result 结果</h1>
       <p>用于反馈一系列操作任务的处理结果。</p>
       <h2>何时使用</h2>
       <p>当有重要操作需告知用户处理结果，且反馈内容较为复杂时使用。</p>
       <h2>代码演示</h2>
-    </vui-doc-markdown>
+    </document>
     <ExampleResultInfo />
     <ExampleResultWarning />
     <ExampleResultSuccess />
@@ -16,7 +16,7 @@
     <ExampleResult404 />
     <ExampleResult500 />
     <ExampleResultCustomIcon />
-    <vui-doc-markdown>
+    <document>
       <h2 id="example-api">API</h2>
       <h3>Result 属性</h3>
       <table class="example-api-props">
@@ -61,13 +61,13 @@
           </tr>
         </tbody>
       </table>
-    </vui-doc-markdown>
+    </document>
   </div>
 </template>
 
 <script>
   import MixinAnchors from "src/mixins/anchors";
-  import VuiDocMarkdown from "src/components/markdown";
+  import Document from "src/components/document";
   import ExampleResultInfo from "./examples/info";
   import ExampleResultWarning from "./examples/warning";
   import ExampleResultSuccess from "./examples/success";
@@ -83,7 +83,7 @@
       MixinAnchors
     ],
     components: {
-      VuiDocMarkdown,
+      Document,
       ExampleResultInfo,
       ExampleResultWarning,
       ExampleResultSuccess,

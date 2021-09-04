@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Steps 步骤条</h1>
 			<p>引导用户按照流程完成任务的导航条。</p>
 			<h2>何时使用</h2>
 			<p>当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<ExampleStepsBasicUsage />
 		<ExampleStepsSmall />
 		<ExampleStepsIcon />
@@ -15,7 +15,7 @@
 		<ExampleStepsVerticalSmall />
 		<ExampleStepsDot />
 		<ExampleStepsControl />
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Steps 属性</h3>
 			<table class="example-api-props">
@@ -97,13 +97,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleStepsBasicUsage from "./examples/basic-usage";
 	import ExampleStepsSmall from "./examples/small";
 	import ExampleStepsIcon from "./examples/icon";
@@ -118,7 +118,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleStepsBasicUsage,
 			ExampleStepsSmall,
 			ExampleStepsIcon,

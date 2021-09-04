@@ -1,5 +1,5 @@
 <template>
-  <vui-doc-example v-bind:code="code" id="example-button-size">
+  <example v-bind:code="code" id="example-button-size">
     <template slot="demo">
       <div class="example-button-size">
         <section>
@@ -37,16 +37,16 @@
       <p>按钮有小、中、大三种尺寸。</p>
       <p>通过设置 <code>size</code> 为 <code>small</code> 或 <code>large</code> 以使用小型或大型按钮。若不设置 <code>size</code>，则默认为中型尺寸。</p>
     </template>
-  </vui-doc-example>
+  </example>
 </template>
 
 <script>
-  import VuiDocExample from "src/components/example";
+  import Example from "src/components/example";
   import code from "./code";
 
   export default {
     components: {
-      VuiDocExample
+      Example
     },
     data() {
       return {

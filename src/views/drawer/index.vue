@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Drawer 抽屉</h1>
 			<p>屏幕边缘滑出的浮层面板。</p>
 			<h2>何时使用</h2>
@@ -10,7 +10,7 @@
 				<li>当需要在当前任务流中插入临时任务，创建或预览附加内容。比如展示协议条款，创建子对象。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleDrawerBasicUsage />
@@ -25,7 +25,7 @@
 				<ExampleDrawerMultiLevel />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Drawer 属性</h3>
 			<table class="example-api-props">
@@ -251,13 +251,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleDrawerBasicUsage from "./examples/basic-usage";
 	import ExampleDrawerPlacement from "./examples/placement";
 	import ExampleDrawerHeadlessAndFootless from "./examples/headless-and-footless";
@@ -272,7 +272,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleDrawerBasicUsage,
 			ExampleDrawerPlacement,
 			ExampleDrawerHeadlessAndFootless,

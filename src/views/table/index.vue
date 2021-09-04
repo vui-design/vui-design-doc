@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Table 表格</h1>
 			<p>展示行列数据。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>当需要对数据进行排序、筛选、分页、自定义操作等复杂行为时。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<ExampleTableBasicUsage />
 		<ExampleTableBordered />
 		<ExampleTableStriped />
@@ -29,7 +29,7 @@
 		<ExampleTableRowSpanColSpan />
 		<ExampleTableLoading />
 		<ExampleTableExport />
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Table 属性</h3>
 			<table class="example-api-props">
@@ -618,13 +618,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleTableBasicUsage from "./examples/basic-usage";
 	import ExampleTableBordered from "./examples/bordered";
 	import ExampleTableStriped from "./examples/striped";
@@ -650,7 +650,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleTableBasicUsage,
 			ExampleTableBordered,
 			ExampleTableStriped,

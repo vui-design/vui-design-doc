@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Progress 进度条</h1>
 			<p>展示操作的当前进度。</p>
 			<h2>何时使用</h2>
@@ -10,7 +10,7 @@
 				<li>当需要显示一个操作完成的百分比时。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row :gutter="20">
 			<vui-col :span="12">
 				<ExampleProgressLine />
@@ -26,7 +26,7 @@
 				<ExampleProgressLinecap />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Progress 共用属性</h3>
 			<table class="example-api-props">
@@ -133,13 +133,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleProgressLine from "./examples/line";
 	import ExampleProgressLineSmall from "./examples/line-small";
 	import ExampleProgressCircle from "./examples/circle";
@@ -155,7 +155,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleProgressLine,
 			ExampleProgressLineSmall,
 			ExampleProgressCircle,

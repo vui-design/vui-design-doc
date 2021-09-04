@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vui-doc-markdown>
+    <document>
       <h1>Space 间距</h1>
       <p>设置组件之间的间距。</p>
       <h2>何时使用</h2>
@@ -10,7 +10,7 @@
         <li>可以设置各种水平对齐方式。</li>
       </ul>
       <h2>代码演示</h2>
-    </vui-doc-markdown>
+    </document>
     <vui-row v-bind:gutter="16">
       <vui-col v-bind:span="12">
         <ExampleSpaceBasicUsage />
@@ -24,7 +24,7 @@
         <ExampleSpaceCustomize />
       </vui-col>
     </vui-row>
-    <vui-doc-markdown>
+    <document>
       <h2 id="example-api">API</h2>
       <h3>Space 属性</h3>
       <table class="example-api-props">
@@ -75,13 +75,13 @@
           </tr>
         </tbody>
       </table>
-    </vui-doc-markdown>
+    </document>
   </div>
 </template>
 
 <script>
   import MixinAnchors from "src/mixins/anchors";
-  import VuiDocMarkdown from "src/components/markdown";
+  import Document from "src/components/document";
   import ExampleSpaceBasicUsage from "./examples/basic-usage";
   import ExampleSpaceVertical from "./examples/vertical";
   import ExampleSpaceJustify from "./examples/justify";
@@ -95,7 +95,7 @@
       MixinAnchors
     ],
     components: {
-      VuiDocMarkdown,
+      Document,
       ExampleSpaceBasicUsage,
       ExampleSpaceVertical,
       ExampleSpaceJustify,

@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Tree 树形控件</h1>
 			<p>多层次的结构列表。</p>
 			<h2>何时使用</h2>
 			<p>文件夹、组织架构、生物分类、国家地区等等，世间万物的大多数结构都是树形结构。使用 <code>Tree</code> 组件可以完整展现其中的层级关系，并具有展开收起选择等交互功能。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="20">
 			<vui-col v-bind:span="12">
 				<ExampleTreeBasicUsage />
@@ -15,7 +15,7 @@
 
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Tree 属性</h3>
 			<table class="example-api-props">
@@ -181,13 +181,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleTreeBasicUsage from "./examples/basic-usage";
 
 	export default {
@@ -195,7 +195,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleTreeBasicUsage,
 		}
 	};

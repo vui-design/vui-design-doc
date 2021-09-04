@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Cascader 级联选择框</h1>
 			<p>级联选择框。</p>
 			<h2>何时使用</h2>
@@ -10,7 +10,7 @@
 				<li>比起 <code>Select</code> 组件，可以在同一个浮层中完成选择，有较好的体验。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleCascaderBasicUsage />
@@ -27,7 +27,7 @@
 				<ExampleCascaderOptionKeys />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Cascader 属性</h3>
 			<table class="example-api-props">
@@ -195,13 +195,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleCascaderBasicUsage from "./examples/basic-usage";
 	import ExampleCascaderValue from "./examples/value";
 	import ExampleCascaderSize from "./examples/size";
@@ -218,7 +218,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleCascaderBasicUsage,
 			ExampleCascaderValue,
 			ExampleCascaderSize,

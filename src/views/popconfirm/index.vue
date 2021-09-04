@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Popconfirm 气泡确认框</h1>
 			<p>点击元素，弹出气泡式的确认框。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>和 Modal Confirm 弹出的全屏居中模态对话框相比，交互形式更轻量。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExamplePopconfirmBasicUsage />
@@ -19,7 +19,7 @@
 				<ExamplePopconfirmPlacement />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Popconfirm 属性</h3>
 			<table class="example-api-props">
@@ -137,13 +137,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExamplePopconfirmBasicUsage from "./examples/basic-usage";
 	import ExamplePopconfirmPlacement from "./examples/placement";
 	import ExamplePopconfirmIcon from "./examples/icon";
@@ -153,7 +153,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExamplePopconfirmBasicUsage,
 			ExamplePopconfirmPlacement,
 			ExamplePopconfirmIcon

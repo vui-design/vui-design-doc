@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Divider 分割线</h1>
 			<p>区隔内容的分割线。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>对行内文字/链接进行分割，例如表格的操作列。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleDividerBasicUsage />
@@ -19,7 +19,7 @@
 				<ExampleDividerWithText />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Divider 属性</h3>
 			<table class="example-api-props">
@@ -58,13 +58,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleDividerBasicUsage from "./examples/basic-usage";
 	import ExampleDividerVertical from "./examples/vertical";
 	import ExampleDividerWithText from "./examples/with-text";
@@ -74,7 +74,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleDividerBasicUsage,
 			ExampleDividerVertical,
 			ExampleDividerWithText

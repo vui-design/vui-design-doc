@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vui-doc-markdown>
+    <document>
       <h1>Checkbox 多选框</h1>
       <p>多选框。</p>
       <h2>何时使用</h2>
@@ -9,7 +9,7 @@
         <li>单独使用可以表示两种状态之间的切换，和 Switch 类似。区别在于切换 Switch 会直接触发状态改变，而 Checkbox 一般用于状态标记，需要和提交操作配合。</li>
       </ul>
       <h2>代码演示</h2>
-    </vui-doc-markdown>
+    </document>
     <vui-row v-bind:gutter="20">
       <vui-col v-bind:span="12">
         <ExampleCheckboxBasicUsage />
@@ -26,7 +26,7 @@
         <ExampleCheckboxSize />
       </vui-col>
     </vui-row>
-    <vui-doc-markdown>
+    <document>
       <h2 id="example-api">API</h2>
       <h3>Checkbox 属性</h3>
       <table class="example-api-props">
@@ -206,13 +206,13 @@
           </tr>
         </tbody>
       </table>
-    </vui-doc-markdown>
+    </document>
   </div>
 </template>
 
 <script>
   import MixinAnchors from "src/mixins/anchors";
-  import VuiDocMarkdown from "src/components/markdown";
+  import Document from "src/components/document";
   import ExampleCheckboxBasicUsage from "./examples/basic-usage";
   import ExampleCheckboxDisabled from "./examples/disabled";
   import ExampleCheckboxController from "./examples/controller";
@@ -230,7 +230,7 @@
       MixinAnchors
     ],
     components: {
-      VuiDocMarkdown,
+      Document,
       ExampleCheckboxBasicUsage,
       ExampleCheckboxDisabled,
       ExampleCheckboxController,

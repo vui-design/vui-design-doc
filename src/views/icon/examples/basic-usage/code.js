@@ -19,7 +19,7 @@ const code =
 </script>
 
 <style>
-  .example-icon-basic-usage .vui-icon { margin-right:10px; }
+  .example-icon-basic-usage .vui-icon { margin-right:8px; }
 </style>
 `;
 

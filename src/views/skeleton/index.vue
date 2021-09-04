@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Skeleton 骨架屏</h1>
 			<p>在需要等待加载内容的位置提供一个占位图形组合。</p>
 			<h2>何时使用</h2>
@@ -11,13 +11,13 @@
 				<li>可以被 <code>Spin</code> 完全代替，但是在可用的场景下可以比 <code>Spin</code> 提供更好的视觉效果和用户体验。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<ExampleSkeletonBasicUsage />
 		<ExampleSkeletonComplex />
 		<ExampleSkeletonAnimated />
 		<ExampleSkeletonChildren />
 		<ExampleSkeletonList />
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Skeleton 属性</h3>
 			<table class="example-api-props">
@@ -131,13 +131,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleSkeletonBasicUsage from "./examples/basic-usage";
 	import ExampleSkeletonComplex from "./examples/complex";
 	import ExampleSkeletonAnimated from "./examples/animated";
@@ -149,7 +149,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleSkeletonBasicUsage,
 			ExampleSkeletonComplex,
 			ExampleSkeletonAnimated,

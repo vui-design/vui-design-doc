@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Card 卡片</h1>
 			<p>通用卡片容器。</p>
 			<h2>何时使用</h2>
 			<p>基础容器，可以承载文字、列表、图片、段落，常用于后台概览页面。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleCardBasicUsage />
@@ -20,7 +20,7 @@
 				<ExampleCardFlexibleContent />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Card 属性</h3>
 			<table class="example-api-props">
@@ -138,13 +138,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleCardBasicUsage from "./examples/basic-usage";
 	import ExampleCardSimple from "./examples/simple";
 	import ExampleCardNoBorder from "./examples/no-border";
@@ -158,7 +158,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleCardBasicUsage,
 			ExampleCardSimple,
 			ExampleCardNoBorder,

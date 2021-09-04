@@ -1,6 +1,6 @@
 <template>
-	<vui-layout class="vui-doc-layout">
-		<vui-header theme="light" class="vui-doc-layout-header">
+	<vui-layout class="layout">
+		<vui-header theme="light" class="layout-header">
 			<h1 class="logo">
 				<router-link to="/">
 					<img src="~src/assets/images/logo.svg" />Vui Design
@@ -33,8 +33,8 @@
 				</vui-space>
 			</vui-space>
 		</vui-header>
-		<vui-layout class="vui-doc-layout-main">
-			<vui-sider class="vui-doc-layout-main-sider" showScrollbar v-bind:width="240">
+		<vui-layout class="layout-body">
+			<vui-sider class="layout-body-sider" showScrollbar v-bind:width="240">
 				<a href="https://github.com/vui-design/vui-design-pro" target="_blank" class="ad">
 					<img src="~src/assets/images/vui-design-pro.png" />
 				</a>
@@ -54,20 +54,20 @@
 					</vui-menu>
 				</div>
 			</vui-sider>
-			<vui-layout class="vui-doc-layout-main-layout">
-				<vui-content class="vui-doc-layout-main-layout-content">
-					<div class="vui-doc-article">
-						<div class="vui-doc-article-content">
+			<vui-layout class="layout-body-content">
+				<vui-content class="layout-body-content-body">
+					<div class="article">
+						<div class="article-content">
 							<router-view v-bind:key="$route.fullPath" />
 						</div>
-						<div class="vui-doc-article-anchors">
+						<div class="article-anchors">
 							<vui-anchor v-bind:offset="96" v-bind:offsetTop="96" v-on:click="handleClickAnchor">
 								<vui-anchor-link v-for="anchor in anchors" v-bind:key="anchor" v-bind:href="'#' + anchor" v-bind:title="getAnchorTitle(anchor)" />
 							</vui-anchor>
 						</div>
 					</div>
 				</vui-content>
-				<vui-footer class="vui-doc-layout-main-layout-footer">
+				<vui-footer class="layout-body-content-footer">
 					<p>© 2018-{{year}} Coded By Dingwei</p>
 				</vui-footer>
 			</vui-layout>
@@ -123,37 +123,37 @@
 </script>
 
 <style>
-	.vui-doc-layout { position:relative; z-index:1; min-height:100vh; background-color:#fff; padding-top:64px; }
+	.layout { position:relative; z-index:1; min-height:100vh; background-color:#fff; padding-top:64px; }
 
-	.vui-doc-layout-header { position:fixed; top:0; left:0; right:0; z-index:100; border-bottom:1px solid #f0f0f0; padding:0 20px; }
-	.vui-doc-layout-header .logo { float:left; display:block; padding:16px 0; }
-	.vui-doc-layout-header .logo a { display:block; color:rgba(0,0,0,0.85); font-size:18px; font-weight:500; line-height:32px; }
-	.vui-doc-layout-header .logo img { float:left; display:block; width:32px; height:32px; margin-right:16px; }
-	.vui-doc-layout-header .nav-list { float:left; height:64px; }
-	.vui-doc-layout-header .nav { float:left; height:64px; }
-	.vui-doc-layout-header .nav a { display:block; height:64px; border-bottom:2px solid transparent; color:rgba(0,0,0,0.85); font-size:16px; line-height:64px; transition:all 0.2s; }
-	.vui-doc-layout-header .nav a:hover { border-bottom-color:#2d8cf0; color:#2d8cf0; }
-	.vui-doc-layout-header .nav a.active { border-bottom-color:#2d8cf0; color:#2d8cf0; }
-	.vui-doc-layout-header .nav + .nav { margin-left:40px; }
-	.vui-doc-layout-header .npm { float:left; display:block; height:20px; }
-	.vui-doc-layout-header .npm img { display:block; max-height:100%; }
-	.vui-doc-layout-header .github { float:left; display:block; }
-	.vui-doc-layout-header .github .github-repository { float:left; display:block; width:20px; height:20px; margin:2px 0; }
-	.vui-doc-layout-header .github .github-repository svg { display:block; width:100%; height:100%; }
-	.vui-doc-layout-header .github .github-stargazers { float:left; position:relative; display:block; border:1px solid #e0e0e0; border-radius:2px; background-color:#fff; margin-left:12px; padding:4px 8px; color:rgba(0,0,0,0.85); font-size:14px; line-height:1; }
-	.vui-doc-layout-header .github .github-stargazers:before { content:""; position:absolute; top:50%; left:0; width:8px; height:8px; border-width:1px; border-style:solid; border-color:#e0e0e0 transparent transparent #e0e0e0; border-radius:2px; background-color:#fff; margin-top:-4px; margin-left:-4px; transform:rotate(-45deg); }
+	.layout-header { position:fixed; top:0; left:0; right:0; z-index:100; border-bottom:1px solid #f0f0f0; padding:0 20px; }
+	.layout-header .logo { float:left; display:block; padding:16px 0; }
+	.layout-header .logo a { display:block; color:rgba(0,0,0,0.85); font-size:18px; font-weight:500; line-height:32px; }
+	.layout-header .logo img { float:left; display:block; width:32px; height:32px; margin-right:16px; }
+	.layout-header .nav-list { float:left; height:64px; }
+	.layout-header .nav { float:left; height:64px; }
+	.layout-header .nav a { display:block; height:64px; border-bottom:2px solid transparent; color:rgba(0,0,0,0.85); font-size:16px; line-height:64px; transition:all 0.2s; }
+	.layout-header .nav a:hover { border-bottom-color:#2d8cf0; color:#2d8cf0; }
+	.layout-header .nav a.active { border-bottom-color:#2d8cf0; color:#2d8cf0; }
+	.layout-header .nav + .nav { margin-left:40px; }
+	.layout-header .npm { float:left; display:block; height:20px; }
+	.layout-header .npm img { display:block; max-height:100%; }
+	.layout-header .github { float:left; display:block; }
+	.layout-header .github .github-repository { float:left; display:block; width:20px; height:20px; margin:2px 0; }
+	.layout-header .github .github-repository svg { display:block; width:100%; height:100%; }
+	.layout-header .github .github-stargazers { float:left; position:relative; display:block; border:1px solid #e0e0e0; border-radius:2px; background-color:#fff; margin-left:12px; padding:4px 8px; color:rgba(0,0,0,0.85); font-size:14px; line-height:1; }
+	.layout-header .github .github-stargazers:before { content:""; position:absolute; top:50%; left:0; width:8px; height:8px; border-width:1px; border-style:solid; border-color:#e0e0e0 transparent transparent #e0e0e0; border-radius:2px; background-color:#fff; margin-top:-4px; margin-left:-4px; transform:rotate(-45deg); }
 
-	.vui-doc-layout-main { background-color:#fff; }
-	.vui-doc-layout-main-sider { position:fixed; left:0; top:0; bottom:0; border-right:1px solid #f0f0f0; background-color:#fff; padding-top:64px; }
-	.vui-doc-layout-main-sider .ad { display:block; height:84px; border-radius:2px; background-color:#fafafa; margin:16px 16px 0 16px; overflow:hidden; opacity:0.9; transition:all 0.2s; }
-	.vui-doc-layout-main-sider .ad img { display:block; width:100%; }
-	.vui-doc-layout-main-sider .ad:hover { opacity:1; }
-	.vui-doc-layout-main-sider .menu { padding:16px 0; }
-	.vui-doc-layout-main-layout { background-color:#fff; padding-left:241px; }
-	.vui-doc-layout-main-layout .vui-doc-layout-main-layout-content { padding:32px; }
-	.vui-doc-layout-main-layout .vui-doc-layout-main-layout-footer { border-top:1px solid #f0f0f0; padding:32px; text-align:center; }
-	.vui-doc-layout-main-layout .vui-doc-article { display:flex; align-items:stretch; }
-	.vui-doc-layout-main-layout .vui-doc-article-content { flex:1; overflow:hidden; }
-	.vui-doc-layout-main-layout .vui-doc-article-anchors { width:120px; margin-left:32px; }
-	.vui-doc-layout-main-layout .vui-doc-article-anchors .vui-anchor { font-size:12px; }
+	.layout-body { background-color:#fff; }
+	.layout-body-sider { position:fixed; left:0; top:0; bottom:0; border-right:1px solid #f0f0f0; background-color:#fff; padding-top:64px; }
+	.layout-body-sider .ad { display:block; height:84px; border-radius:2px; background-color:#fafafa; margin:16px 16px 0 16px; overflow:hidden; opacity:0.9; transition:all 0.2s; }
+	.layout-body-sider .ad img { display:block; width:100%; }
+	.layout-body-sider .ad:hover { opacity:1; }
+	.layout-body-sider .menu { padding:16px 0; }
+	.layout-body-content { background-color:#fff; padding-left:241px; }
+	.layout-body-content .layout-body-content-body { padding:32px; }
+	.layout-body-content .layout-body-content-footer { border-top:1px solid #f0f0f0; padding:32px; text-align:center; }
+	.layout-body-content .article { display:flex; align-items:stretch; }
+	.layout-body-content .article-content { flex:1; overflow:hidden; }
+	.layout-body-content .article-anchors { width:120px; margin-left:32px; }
+	.layout-body-content .article-anchors .vui-anchor { font-size:12px; }
 </style>

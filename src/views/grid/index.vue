@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Grid 栅格系统</h1>
 			<p>24栅格系统。</p>
 			<h2>设计理念</h2>
@@ -42,7 +42,7 @@
 			<p>Vui 的栅格化系统支持 Flex 布局，允许子元素在父节点内的水平对齐方式 - 居左、居中、居右、等宽排列、分散排列。子元素与子元素之间，支持顶部对齐、垂直居中对齐、底部对齐的方式。同时，支持使用 order 来定义元素的排列顺序。</p>
 			<p>Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但不拘泥于栅格。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<ExampleGridBasicUsage />
 		<ExampleGridGutter />
 		<ExampleGridOffset />
@@ -52,7 +52,7 @@
 		<ExampleGridFlexOrder />
 		<ExampleGridResponsive />
 		<ExampleGridResponsiveMore />
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Row 属性</h3>
 			<table class="example-api-props">
@@ -170,13 +170,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleGridBasicUsage from "./examples/basic-usage";
 	import ExampleGridGutter from "./examples/gutter";
 	import ExampleGridOffset from "./examples/offset";
@@ -192,7 +192,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleGridBasicUsage,
 			ExampleGridGutter,
 			ExampleGridOffset,

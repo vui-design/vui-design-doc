@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vui-doc-markdown>
+    <document>
       <h1>Radio 单选框</h1>
       <p>单选框。</p>
       <h2>何时使用</h2>
@@ -9,7 +9,7 @@
         <li>和 Select 的区别是，Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。</li>
       </ul>
       <h2>代码演示</h2>
-    </vui-doc-markdown>
+    </document>
     <vui-row v-bind:gutter="20">
       <vui-col v-bind:span="12">
         <ExampleRadioBasicUsage />
@@ -24,7 +24,7 @@
         <ExampleRadioSize />
       </vui-col>
     </vui-row>
-    <vui-doc-markdown>
+    <document>
       <h2 id="example-api">API</h2>
       <h3>Radio 属性</h3>
       <table class="example-api-props">
@@ -198,13 +198,13 @@
           </tr>
         </tbody>
       </table>
-    </vui-doc-markdown>
+    </document>
   </div>
 </template>
 
 <script>
   import MixinAnchors from "src/mixins/anchors";
-  import VuiDocMarkdown from "src/components/markdown";
+  import Document from "src/components/document";
   import ExampleRadioBasicUsage from "./examples/basic-usage";
   import ExampleRadioDisabled from "./examples/disabled";
   import ExampleRadioStateValue from "./examples/state-value";
@@ -220,7 +220,7 @@
       MixinAnchors
     ],
     components: {
-      VuiDocMarkdown,
+      Document,
       ExampleRadioBasicUsage,
       ExampleRadioDisabled,
       ExampleRadioStateValue,

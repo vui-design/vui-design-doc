@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Textarea 文本域</h1>
 			<p>通过鼠标或键盘输入内容，是最基础的表单域的包装。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>需要输入多行文本内容时。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row :gutter="20">
 			<vui-col :span="12">
 				<ExampleTextareaBasicUsage />
@@ -22,7 +22,7 @@
 				<ExampleTextareaDisabled />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Textarea 属性</h3>
 			<table class="example-api-props">
@@ -158,13 +158,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleTextareaBasicUsage from "./examples/basic-usage";
 	import ExampleTextareaAutosize from "./examples/autosize";
 	import ExampleTextareaResize from "./examples/resize";
@@ -177,7 +177,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleTextareaBasicUsage,
 			ExampleTextareaAutosize,
 			ExampleTextareaResize,

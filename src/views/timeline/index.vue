@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Timeline 时间轴</h1>
 			<p>垂直展示的时间流信息。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>需要有一条时间轴进行视觉上的串联时。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row :gutter="20">
 			<vui-col :span="12">
 				<ExampleTimelineBasicUsage />
@@ -22,7 +22,7 @@
 				<ExampleTimelineRight />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Timeline 属性</h3>
 			<table class="example-api-props">
@@ -87,13 +87,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleTimelineBasicUsage from "./examples/basic-usage";
 	import ExampleTimelineColor from "./examples/color";
 	import ExampleTimelinePending from "./examples/pending";
@@ -106,7 +106,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleTimelineBasicUsage,
 			ExampleTimelineColor,
 			ExampleTimelinePending,

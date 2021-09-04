@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Alert 警告提示</h1>
 			<p>警告提示，展现需要关注的信息。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>非浮层的静态展现形式，始终展现，不会自动消失，用户可以点击关闭。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleAlertBasicUsage />
@@ -23,7 +23,7 @@
 				<ExampleAlertBanner />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Alert 属性</h3>
 			<table class="example-api-props">
@@ -105,13 +105,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleAlertBasicUsage from "./examples/basic-usage";
 	import ExampleAlertType from "./examples/type";
 	import ExampleAlertDescription from "./examples/description";
@@ -125,7 +125,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleAlertBasicUsage,
 			ExampleAlertType,
 			ExampleAlertDescription,

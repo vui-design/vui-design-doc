@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Pagination 分页</h1>
 			<p>采用分页的形式分隔长列表，每次只加载一个页面。</p>
 			<h2>何时使用</h2>
@@ -9,7 +9,7 @@
 				<li>可切换页码浏览数据。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
  		<ExamplePaginationBasicUsage />
 		<ExamplePaginationMore />
 		<ExamplePaginationTotal />
@@ -20,7 +20,7 @@
 		<ExamplePaginationSmall />
 		<ExamplePaginationSimple />
 		<ExamplePaginationHideOnSinglePage /> 
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Pagination 属性</h3>
 			<table class="example-api-props">
@@ -144,13 +144,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExamplePaginationBasicUsage from "./examples/basic-usage";
 	import ExamplePaginationMore from "./examples/more";
 	import ExamplePaginationTotal from "./examples/total";
@@ -167,7 +167,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExamplePaginationBasicUsage,
 			ExamplePaginationMore,
 			ExamplePaginationTotal,

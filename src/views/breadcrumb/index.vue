@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Breadcrumb 面包屑</h1>
 			<p>显示当前页面在系统层级结构中的位置，并能向上返回。</p>
 			<h2>何时使用</h2>
@@ -10,7 +10,7 @@
 				<li>当需要向上导航的功能时。</li>
 			</ul>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleBreadcrumbBasicUsage />
@@ -21,7 +21,7 @@
 				<ExampleBreadcrumbLink />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Breadcrumb 属性</h3>
 			<table class="example-api-props">
@@ -97,13 +97,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleBreadcrumbBasicUsage from "./examples/basic-usage";
 	import ExampleBreadcrumbLink from "./examples/link";
 	import ExampleBreadcrumbIcon from "./examples/icon";
@@ -114,7 +114,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleBreadcrumbBasicUsage,
 			ExampleBreadcrumbLink,
 			ExampleBreadcrumbIcon,

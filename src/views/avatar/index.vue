@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<vui-doc-markdown>
+		<document>
 			<h1>Avatar 头像</h1>
 			<p>用来代表用户或事物，支持图片、图标或字符展示。</p>
 			<h2>代码演示</h2>
-		</vui-doc-markdown>
+		</document>
 		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleAvatarBasicUsage />
@@ -16,7 +16,7 @@
 				<ExampleAvatarGroup />
 			</vui-col>
 		</vui-row>
-		<vui-doc-markdown>
+		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Avatar 属性</h3>
 			<table class="example-api-props">
@@ -129,13 +129,13 @@
 					</tr>
 				</tbody>
 			</table>
-		</vui-doc-markdown>
+		</document>
 	</div>
 </template>
 
 <script>
 	import MixinAnchors from "src/mixins/anchors";
-	import VuiDocMarkdown from "src/components/markdown";
+	import Document from "src/components/document";
 	import ExampleAvatarBasicUsage from "./examples/basic-usage";
 	import ExampleAvatarType from "./examples/type";
 	import ExampleAvatarBadge from "./examples/badge";
@@ -147,7 +147,7 @@
 			MixinAnchors
 		],
 		components: {
-			VuiDocMarkdown,
+			Document,
 			ExampleAvatarBasicUsage,
 			ExampleAvatarType,
 			ExampleAvatarBadge,
