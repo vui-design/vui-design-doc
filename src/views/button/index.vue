@@ -30,7 +30,7 @@
           <tr>
             <th width="120">属性</th>
             <th>说明</th>
-            <th width="140">类型</th>
+            <th width="160">类型</th>
             <th width="120">默认值</th>
           </tr>
         </thead>
@@ -127,7 +127,7 @@
           <tr>
             <th width="120">事件名</th>
             <th>说明</th>
-            <th width="140">类型</th>
+            <th width="160">类型</th>
             <th width="120">回调参数</th>
           </tr>
         </thead>
@@ -146,7 +146,7 @@
           <tr>
             <th width="120">属性</th>
             <th>说明</th>
-            <th width="140">类型</th>
+            <th width="160">类型</th>
             <th width="120">默认值</th>
           </tr>
         </thead>
