@@ -38,8 +38,8 @@ const code =
   .example-tag-hot-tags:before,
   .example-tag-hot-tags:after { content:""; display:block; width:100%; height:0; visibility:hidden; clear:both; }
   .example-tag-hot-tags > h4,
-  .example-tag-hot-tags > .vui-tag { float:left; margin-right:10px; }
-  .example-tag-hot-tags > h4 { color:#333; }
+  .example-tag-hot-tags > .vui-tag { float:left; margin-right:8px; }
+  .example-tag-hot-tags > h4 { height:24px; color:#333; font-size:14px; line-height:24px; }
 </style>
 `;
 

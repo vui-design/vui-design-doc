@@ -13,6 +13,6 @@ const code =
 ├── babel.config.js
 ├── package.json
 ├── package-lock.json
-└──  README.md`;
+└── README.md`;
 
 export default code;

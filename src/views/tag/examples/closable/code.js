@@ -20,7 +20,8 @@ const code =
 </script>
 
 <style>
-  .example-tag-closable > .vui-tag { margin-right:10px; }
+  .example-tag-closable { display:flex; }
+  .example-tag-closable .vui-tag { margin-right:8px; }
 </style>
 `;
 

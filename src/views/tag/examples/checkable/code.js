@@ -16,7 +16,8 @@ const code =
 </script>
 
 <style>
-  .example-tag-checkable > .vui-tag { margin-right:10px; }
+  .example-tag-checkable { display:flex; }
+  .example-tag-checkable .vui-tag { margin-right:8px; }
 </style>
 `;
 

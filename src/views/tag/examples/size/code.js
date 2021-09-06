@@ -14,7 +14,8 @@ const code =
 </script>
 
 <style>
-  .example-tag-size > .vui-tag { margin-right:10px; }
+  .example-tag-size { display:flex; align-items:center; }
+  .example-tag-size .vui-tag { margin-right:8px; }
 </style>
 `;
 
