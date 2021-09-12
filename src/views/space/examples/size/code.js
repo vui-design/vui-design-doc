@@ -35,7 +35,7 @@ const code =
 </script>
 
 <style>
-  .example-space-size section { margin-top:20px; }
+  .example-space-size section { margin-top:24px; }
 </style>
 `;
 

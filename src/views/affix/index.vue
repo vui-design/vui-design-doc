@@ -10,11 +10,11 @@
     </document>
     <vui-row v-bind:gutter="16">
       <vui-col v-bind:span="12">
-        <ExampleAffixBasicUsage />
-        <ExampleAffixChange />
+        <example-basic-usage />
+        <example-change />
       </vui-col>
       <vui-col v-bind:span="12">
-        <ExampleAffixContainer />
+        <example-container />
       </vui-col>
     </vui-row>
     <document>
@@ -23,7 +23,7 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="160">属性</th>
+            <th width="180">属性</th>
             <th>说明</th>
             <th width="140">类型</th>
             <th width="160">默认值</th>
@@ -54,7 +54,7 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="160">事件名</th>
+            <th width="180">事件名</th>
             <th>说明</th>
             <th width="140">类型</th>
             <th width="160">回调参数</th>
@@ -76,9 +76,9 @@
 <script>
   import MixinAnchors from "src/mixins/anchors";
   import Document from "src/components/document";
-  import ExampleAffixBasicUsage from "./examples/basic-usage";
-  import ExampleAffixChange from "./examples/change";
-  import ExampleAffixContainer from "./examples/container";
+  import ExampleBasicUsage from "./examples/basic-usage";
+  import ExampleChange from "./examples/change";
+  import ExampleContainer from "./examples/container";
 
   export default {
     mixins: [
@@ -86,9 +86,9 @@
     ],
     components: {
       Document,
-      ExampleAffixBasicUsage,
-      ExampleAffixChange,
-      ExampleAffixContainer
+      ExampleBasicUsage,
+      ExampleChange,
+      ExampleContainer
     }
   };
 </script>

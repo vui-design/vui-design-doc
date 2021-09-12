@@ -31,7 +31,7 @@ const code =
       </vui-menu>
     </vui-sider>
     <vui-layout>
-      <vui-header color="light" style="padding: 0 20px;">
+      <vui-header color="light" style="padding: 0 24px;">
         <vui-button
           size="small"
           style="float: left; margin: 20px 0;"
@@ -39,15 +39,15 @@ const code =
           v-on:click="handleCollapse"
         />
       </vui-header>
-      <vui-content style="padding: 0 20px;">
-        <vui-breadcrumb style="margin: 20px 0;">
+      <vui-content style="padding: 0 24px;">
+        <vui-breadcrumb style="margin: 24px 0;">
           <vui-breadcrumb-item>Home</vui-breadcrumb-item>
           <vui-breadcrumb-item>Components</vui-breadcrumb-item>
           <vui-breadcrumb-item>Layout</vui-breadcrumb-item>
         </vui-breadcrumb>
         <div style="min-height: 320px; background-color: #fff; padding: 24px;">Content</div>
       </vui-content>
-      <vui-footer style="padding: 24px 20px; text-align: center;">2010-2020 © EXAMPLE</vui-footer>
+      <vui-footer style="padding: 24px; text-align: center;">2010-2020 © EXAMPLE</vui-footer>
     </vui-layout>
   </vui-layout>
 </template>

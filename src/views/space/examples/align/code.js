@@ -34,7 +34,7 @@ const code =
 <style>
   .example-space-align { display:inline-flex; flex-direction:column; }
   .example-space-align-block { border:1px solid #2d8cf0; padding:16px; }
-  .example-space-align-block + .example-space-align-block { margin-top:16px; }
+  .example-space-align-block + .example-space-align-block { margin-top:24px; }
 </style>
 `;
 

@@ -41,8 +41,8 @@ const code =
           </vui-submenu>
         </vui-menu>
       </vui-sider>
-      <vui-layout style="padding: 20px;">
-        <vui-breadcrumb style="margin-bottom: 20px;">
+      <vui-layout style="padding: 24px;">
+        <vui-breadcrumb style="margin-bottom: 24px;">
           <vui-breadcrumb-item>Home</vui-breadcrumb-item>
           <vui-breadcrumb-item>Components</vui-breadcrumb-item>
           <vui-breadcrumb-item>Layout</vui-breadcrumb-item>

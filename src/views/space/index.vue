@@ -13,15 +13,15 @@
     </document>
     <vui-row v-bind:gutter="16">
       <vui-col v-bind:span="12">
-        <ExampleSpaceBasicUsage />
-        <ExampleSpaceVertical />
-        <ExampleSpaceJustify />
+        <example-basic-usage />
+        <example-vertical />
+        <example-justify />
       </vui-col>
       <vui-col v-bind:span="12">
-        <ExampleSpaceAlign />
-        <ExampleSpaceDivider />
-        <ExampleSpaceSize />
-        <ExampleSpaceCustomize />
+        <example-align />
+        <example-divider />
+        <example-size />
+        <example-customize />
       </vui-col>
     </vui-row>
     <document>
@@ -30,10 +30,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="100">属性</th>
+            <th width="110">属性</th>
             <th>说明</th>
-            <th width="220">类型</th>
-            <th width="120">默认值</th>
+            <th width="240">类型</th>
+            <th width="130">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -82,13 +82,13 @@
 <script>
   import MixinAnchors from "src/mixins/anchors";
   import Document from "src/components/document";
-  import ExampleSpaceBasicUsage from "./examples/basic-usage";
-  import ExampleSpaceVertical from "./examples/vertical";
-  import ExampleSpaceJustify from "./examples/justify";
-  import ExampleSpaceAlign from "./examples/align";
-  import ExampleSpaceDivider from "./examples/divider";
-  import ExampleSpaceSize from "./examples/size";
-  import ExampleSpaceCustomize from "./examples/customize";
+  import ExampleBasicUsage from "./examples/basic-usage";
+  import ExampleVertical from "./examples/vertical";
+  import ExampleJustify from "./examples/justify";
+  import ExampleAlign from "./examples/align";
+  import ExampleDivider from "./examples/divider";
+  import ExampleSize from "./examples/size";
+  import ExampleCustomize from "./examples/customize";
 
   export default {
     mixins: [
@@ -96,13 +96,13 @@
     ],
     components: {
       Document,
-      ExampleSpaceBasicUsage,
-      ExampleSpaceVertical,
-      ExampleSpaceJustify,
-      ExampleSpaceAlign,
-      ExampleSpaceDivider,
-      ExampleSpaceSize,
-      ExampleSpaceCustomize
+      ExampleBasicUsage,
+      ExampleVertical,
+      ExampleJustify,
+      ExampleAlign,
+      ExampleDivider,
+      ExampleSize,
+      ExampleCustomize
     }
   };
 </script>

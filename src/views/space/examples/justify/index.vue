@@ -60,5 +60,5 @@
 <style>
   .example-space-justify {  }
   .example-space-justify-block { border:1px solid #2d8cf0; padding:16px; }
-  .example-space-justify-block + .example-space-justify-block { margin-top:16px; }
+  .example-space-justify-block + .example-space-justify-block { margin-top:24px; }
 </style>

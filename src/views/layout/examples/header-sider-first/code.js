@@ -15,7 +15,7 @@ const code =
       </vui-menu>
     </vui-header>
     <vui-content style="padding: 0 48px;">
-      <vui-breadcrumb style="margin: 20px 0;">
+      <vui-breadcrumb style="margin: 24px 0;">
         <vui-breadcrumb-item>Home</vui-breadcrumb-item>
         <vui-breadcrumb-item>Components</vui-breadcrumb-item>
         <vui-breadcrumb-item>Layout</vui-breadcrumb-item>

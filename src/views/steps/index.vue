@@ -7,14 +7,14 @@
 			<p>当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。</p>
 			<h2>代码演示</h2>
 		</document>
-		<ExampleStepsBasicUsage />
-		<ExampleStepsSmall />
-		<ExampleStepsIcon />
-		<ExampleStepsError />
-		<ExampleStepsVertical />
-		<ExampleStepsVerticalSmall />
-		<ExampleStepsDot />
-		<ExampleStepsControl />
+		<example-basic-usage />
+		<example-small />
+		<example-icon />
+		<example-error />
+		<example-vertical />
+		<example-vertical-small />
+		<example-dot />
+		<example-control />
 		<document>
 			<h2 id="example-api">API</h2>
 			<h3>Steps 属性</h3>
@@ -104,14 +104,14 @@
 <script>
 	import MixinAnchors from "src/mixins/anchors";
 	import Document from "src/components/document";
-	import ExampleStepsBasicUsage from "./examples/basic-usage";
-	import ExampleStepsSmall from "./examples/small";
-	import ExampleStepsIcon from "./examples/icon";
-	import ExampleStepsError from "./examples/error";
-	import ExampleStepsVertical from "./examples/vertical";
-	import ExampleStepsVerticalSmall from "./examples/vertical-small";
-	import ExampleStepsDot from "./examples/dot";
-	import ExampleStepsControl from "./examples/control";
+	import ExampleBasicUsage from "./examples/basic-usage";
+	import ExampleSmall from "./examples/small";
+	import ExampleIcon from "./examples/icon";
+	import ExampleError from "./examples/error";
+	import ExampleVertical from "./examples/vertical";
+	import ExampleVerticalSmall from "./examples/vertical-small";
+	import ExampleDot from "./examples/dot";
+	import ExampleControl from "./examples/control";
 
 	export default {
 		mixins: [
@@ -119,14 +119,14 @@
 		],
 		components: {
 			Document,
-			ExampleStepsBasicUsage,
-			ExampleStepsSmall,
-			ExampleStepsIcon,
-			ExampleStepsError,
-			ExampleStepsVertical,
-			ExampleStepsVerticalSmall,
-			ExampleStepsDot,
-			ExampleStepsControl
+			ExampleBasicUsage,
+			ExampleSmall,
+			ExampleIcon,
+			ExampleError,
+			ExampleVertical,
+			ExampleVerticalSmall,
+			ExampleDot,
+			ExampleControl
 		}
 	};
 </script>
