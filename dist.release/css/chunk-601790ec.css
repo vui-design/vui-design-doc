@@ -1,0 +1,12 @@
+
+.example-breadcrumb-link section:not(:last-child) { margin-bottom:20px;
+}
+.example-breadcrumb-link section h4 {
+}
+.example-breadcrumb-link section .vui-breadcrumb { margin-top:10px;
+}
+
+
+.example-breadcrumb-icon .vui-breadcrumb + .vui-breadcrumb { margin-top:10px;
+}
+

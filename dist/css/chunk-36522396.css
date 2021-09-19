@@ -1,0 +1,14 @@
+
+.example-menu-inline-collapsed { max-width:250px;
+}
+.example-menu-inline-collapsed .vui-menu-root { margin-top:20px;
+}
+
+
+.example-menu-switch-mode {
+}
+.example-menu-switch-mode .vui-radio-group { margin-right:20px;
+}
+.example-menu-switch-mode .vui-menu-root { margin-top:20px;
+}
+

@@ -1,0 +1,18 @@
+
+.example-dropdown-placement-top {
+}
+.example-dropdown-placement-top .vui-dropdown { margin-right:10px;
+}
+.example-dropdown-placement-top .vui-button { width:130px;
+}
+.example-dropdown-placement-bottom { margin-top:10px;
+}
+.example-dropdown-placement-bottom .vui-dropdown { margin-right:10px;
+}
+.example-dropdown-placement-bottom .vui-button { width:130px;
+}
+
+
+.example-dropdown-button .vui-dropdown-button { margin:0 12px 12px 0;
+}
+

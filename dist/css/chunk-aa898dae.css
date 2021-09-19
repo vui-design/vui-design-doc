@@ -1,0 +1,38 @@
+
+.example-image-basic-usage { display:flex;
+}
+.example-image-basic-usage li { flex:1; width:20%; text-align:center;
+}
+.example-image-basic-usage h4 { margin-bottom:20px;
+}
+.example-image-basic-usage .vui-image { width:100px; height:100px;
+}
+
+
+.example-image-placeholder { display:flex;
+}
+.example-image-placeholder li { flex:1; width:50%; text-align:center;
+}
+.example-image-placeholder h4 { margin-bottom:20px;
+}
+.example-image-placeholder .vui-image { width:300px; height:200px;
+}
+
+
+.example-image-error { display:flex;
+}
+.example-image-error li { flex:1; width:50%; text-align:center;
+}
+.example-image-error h4 { margin-bottom:20px;
+}
+.example-image-error .vui-image { width:300px; height:200px;
+}
+
+
+.example-image-lazyload { height:400px; overflow-y:auto;
+}
+.example-image-lazyload .vui-image { display:flex; min-height:600px;
+}
+.example-image-lazyload .vui-image + .vui-image { margin-top:20px;
+}
+

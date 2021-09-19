@@ -1,0 +1,12 @@
+
+.example-qrcode-tag { display:flex; justify-content:flex-start; align-items:flex-start;
+}
+.example-qrcode-tag .vui-qrcode + .vui-qrcode { margin-left:24px;
+}
+
+
+.example-qrcode-correct-level { display:flex; justify-content:flex-start; align-items:flex-start;
+}
+.example-qrcode-correct-level .vui-qrcode + .vui-qrcode { margin-left:24px;
+}
+

@@ -1,0 +1,26 @@
+
+.example-rate-text { display:flex; align-items:center; line-height:1;
+}
+.example-rate-text p { margin-left:16px;
+}
+
+
+.example-rate-clearable section { display:flex; align-items:center; line-height:1;
+}
+.example-rate-clearable section + section { margin-top:16px;
+}
+.example-rate-clearable p { margin-left:16px;
+}
+
+
+.example-rate-character-function section { display:flex; align-items:center; line-height:1;
+}
+.example-rate-character-function section + section { margin-top:16px;
+}
+
+
+.example-rate-character section { display:flex; align-items:center; line-height:1;
+}
+.example-rate-character section + section { margin-top:16px;
+}
+

@@ -1,0 +1,52 @@
+
+.example-button-type .vui-button { margin:0 16px 16px 0;
+}
+
+
+.example-button-ghost { background-color:#bec8c8; padding:8px 16px;
+}
+.example-button-ghost .vui-button { margin:8px 16px 8px 0;
+}
+
+
+.example-button-block .vui-button + .vui-button { margin-top:16px;
+}
+
+
+.example-button-icon-and-shape > section:not(:last-child) { margin-bottom:16px;
+}
+.example-button-icon-and-shape > section > .vui-button { margin-right:16px;
+}
+
+
+.example-button-size > section:not(:last-child) { margin-bottom:16px;
+}
+.example-button-size > section > .vui-button { margin-right:16px;
+}
+
+
+.example-button-loading > section:not(:last-child) { margin-bottom:16px;
+}
+.example-button-loading > section > .vui-button { margin-right:16px;
+}
+
+
+.example-button-disabled > section:not(:last-child) { margin-bottom:16px;
+}
+.example-button-disabled > section > .vui-button { margin-right:16px;
+}
+
+
+.example-button-link > section > h4 { margin-bottom:16px;
+}
+.example-button-link > section > .vui-button { margin:0 16px 16px 0;
+}
+
+
+.example-button-group > section:not(:last-child) { margin-bottom:20px;
+}
+.example-button-group > section > h4 { margin-bottom:10px;
+}
+.example-button-group > section > .vui-button-group { margin-right:10px;
+}
+

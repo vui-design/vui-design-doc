@@ -1,0 +1,24 @@
+
+.example-spin-size > .vui-spin { margin-right:20px;
+}
+
+
+.example-spin-inside { border-radius:2px; background-color:#fafafa; padding:50px; text-align:center;
+}
+
+
+.example-spin-nested .vui-spin { margin-top:20px;
+}
+
+
+.example-spin-delay .vui-spin { margin-top:20px;
+}
+
+
+.example-spin-indicator > .vui-spin { margin-right:20px;
+}
+
+
+.example-spin-fullscreen > .vui-button { margin-right:10px;
+}
+

@@ -1,5 +1,5 @@
 import "vui-design/style/index.less";
-import "highlight.js/styles/solarized-light.css";
+import "src/assets/styles/highlightjs.css";
 import Vue from "vue";
 import VuiDesign from "vui-design";
 import VueHighlightJS from "vue-highlightjs";

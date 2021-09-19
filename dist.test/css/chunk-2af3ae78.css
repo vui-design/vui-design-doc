@@ -1,0 +1,18 @@
+
+.example-cell-basic-usage { background-color:#f6f6f6; padding:20px;
+}
+.example-cell-basic-usage > .vui-card { width:300px;
+}
+
+
+.example-cell-link { background-color:#f6f6f6; padding:20px;
+}
+.example-cell-link > .vui-card { width:300px;
+}
+
+
+.example-cell-other { background-color:#f6f6f6; padding:20px;
+}
+.example-cell-other > .vui-card { width:300px;
+}
+

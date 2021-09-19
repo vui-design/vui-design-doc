@@ -1,0 +1,24 @@
+
+.example-select-searchable .vui-select + .vui-select { margin-top:16px;
+}
+
+
+.example-select-clearable .vui-select + .vui-select { margin-top:15px;
+}
+
+
+.example-select-coordinate .vui-select { margin-right:16px;
+}
+
+
+.example-select-max-tag-count .vui-select + .vui-select { margin-top:16px;
+}
+
+
+.example-select-size .vui-select { display:block; margin-top:16px;
+}
+
+
+.example-select-disabled .vui-select + .vui-select { display:block; margin-top:16px;
+}
+

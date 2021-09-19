@@ -1,0 +1,6 @@
+
+.example-cascader-size .vui-cascader { display:block;
+}
+.example-cascader-size .vui-cascader + .vui-cascader { margin-top:16px;
+}
+

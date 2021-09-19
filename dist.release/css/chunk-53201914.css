@@ -1,0 +1,48 @@
+
+.example-badge-basic-usage > .vui-badge { margin-right:20px;
+}
+.example-badge-basic-usage > .vui-badge > img { width:48px; height:48px; border-radius:5px;
+}
+
+
+.example-badge-overflow-count > .vui-badge { margin-right:20px;
+}
+.example-badge-overflow-count > .vui-badge > img { width:48px; height:48px; border-radius:5px;
+}
+
+
+.example-badge-text > .vui-badge { margin-right:20px;
+}
+.example-badge-text > .vui-badge > img { width:48px; height:48px; border-radius:5px;
+}
+
+
+.example-badge-dot > .vui-badge { margin-right:20px;
+}
+.example-badge-dot > .vui-badge > img { width:48px; height:48px; border-radius:5px;
+}
+
+
+.example-badge-alone > .vui-badge { margin-right:20px;
+}
+
+
+.example-badge-type > .vui-badge { margin-right:20px;
+}
+.example-badge-type > .vui-badge > img { width:48px; height:48px; border-radius:5px;
+}
+
+
+.example-badge-status > .vui-badge { margin-right:10px;
+}
+
+
+.example-badge-colorful + .example-badge-colorful { margin-top:20px;
+}
+.example-badge-colorful > h4 { margin-bottom:10px;
+}
+.example-badge-colorful > .vui-badge { display:block;
+}
+.example-badge-colorful > .vui-badge + .vui-badge { margin-top:10px;
+}
+

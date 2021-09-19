@@ -1,0 +1,28 @@
+
+.example-space-justify {
+}
+.example-space-justify-block { border:1px solid #2d8cf0; padding:16px;
+}
+.example-space-justify-block + .example-space-justify-block { margin-top:24px;
+}
+
+
+.example-space-align { display:inline-flex; flex-direction:column;
+}
+.example-space-align-block { border:1px solid #2d8cf0; padding:16px;
+}
+.example-space-align-block + .example-space-align-block { margin-top:24px;
+}
+
+
+.example-space-divider section + section { margin-top:20px;
+}
+
+
+.example-space-size section { margin-top:24px;
+}
+
+
+.example-space-customize section { margin-top:20px;
+}
+

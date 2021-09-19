@@ -1,0 +1,42 @@
+
+.example-slider-basic-usage section { display:flex; align-items:center;
+}
+.example-slider-basic-usage section .vui-switch { margin-left:4px;
+}
+.example-slider-basic-usage .vui-slider { margin-top:24px;
+}
+
+
+.example-slider-input-number section { display:flex; align-items:center;
+}
+.example-slider-input-number section + section { margin-top:24px;
+}
+.example-slider-input-number section .vui-slider { flex:1;
+}
+.example-slider-input-number section .vui-input-number { width:80px; margin-left:16px;
+}
+
+
+.example-slider-icon { display:flex; align-items:center;
+}
+.example-slider-icon .vui-slider { flex:1; margin:0 16px;
+}
+
+
+.example-slider-tooltip .vui-slider + .vui-slider { margin-top:24px;
+}
+
+
+.example-slider-marks section + section { margin-top:40px;
+}
+.example-slider-marks section h4 { margin-bottom:16px;
+}
+.example-slider-marks section .vui-slider + .vui-slider { margin-top:32px;
+}
+
+
+.example-slider-vertical { display:flex; justify-content:space-around; align-items:flex-end;
+}
+.example-slider-vertical .vui-slider { height:240px;
+}
+
