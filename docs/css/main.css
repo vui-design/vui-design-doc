@@ -6000,25 +6000,24 @@ a.link-disabled:active,
   margin-top: 16px;
 }
 .vui-pagination {
-  list-style: none;
+  display: block;
   box-sizing: border-box;
-  height: 34px;
   margin: 0;
   padding: 0;
   font-size: 14px;
-  line-height: 0;
+  line-height: 1;
+  list-style: none;
 }
-.vui-pagination.vui-pagination-align-left {
+.vui-pagination-align-left {
   text-align: left;
 }
-.vui-pagination.vui-pagination-align-center {
+.vui-pagination-align-center {
   text-align: center;
 }
-.vui-pagination.vui-pagination-align-right {
+.vui-pagination-align-right {
   text-align: right;
 }
 .vui-pagination-total {
-  cursor: unset;
   display: inline-block;
   box-sizing: border-box;
   height: 34px;
@@ -6047,22 +6046,12 @@ a.link-disabled:active,
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.vui-pagination-button .vui-pagination-button-arrow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: block;
-  width: 10px;
-  height: 10px;
-  fill: currentColor;
-  transform: translate(-50%, -50%);
-}
-.vui-pagination-button.vui-pagination-button-prev {
+.vui-pagination-button-prev {
   margin-right: 4px;
 }
-.vui-pagination-button.vui-pagination-button-next {
+.vui-pagination-button-next {
   margin-left: 4px;
 }
 .vui-pagination-button:hover {
@@ -6081,6 +6070,16 @@ a.link-disabled:active,
   cursor: not-allowed;
   border-color: #e0e0e0;
   color: #bfbfbf;
+}
+.vui-pagination-button-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
+  transform: translate(-50%, -50%);
 }
 .vui-pagination-item {
   position: relative;
@@ -6102,7 +6101,7 @@ a.link-disabled:active,
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .vui-pagination-item:hover {
   border-color: #4298f2;
@@ -6112,10 +6111,7 @@ a.link-disabled:active,
   border-color: #4298f2;
   color: #4298f2;
 }
-.vui-pagination-item:active {
-  border-color: #2d8cf0;
-  color: #2d8cf0;
-}
+.vui-pagination-item:active,
 .vui-pagination-item.vui-pagination-item-active {
   border-color: #2d8cf0;
   color: #2d8cf0;
@@ -6140,7 +6136,7 @@ a.link-disabled:active,
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .vui-pagination-ellipsis .vui-pagination-ellipsis-arrow {
   position: absolute;
@@ -6152,17 +6148,16 @@ a.link-disabled:active,
   fill: currentColor;
   opacity: 0;
   transform: translate(-50%, -50%);
-  transition: opacity 0.2s;
+  transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .vui-pagination-ellipsis .vui-pagination-ellipsis-icon {
   position: absolute;
   top: 50%;
   left: 50%;
   display: block;
-  color: #bfbfbf;
-  opacity: 1;
+  opacity: 0.45;
   transform: translate(-50%, -50%);
-  transition: opacity 0.2s;
+  transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .vui-pagination-ellipsis:hover {
   color: #4298f2;
@@ -6218,7 +6213,7 @@ a.link-disabled:active,
   width: 50px;
   margin: 0 8px;
 }
-.vui-pagination-elevator .vui-input .vui-input-main input {
+.vui-pagination-elevator .vui-input .vui-input-input input {
   text-align: center;
 }
 .vui-pagination-small {
@@ -6262,7 +6257,6 @@ a.link-disabled:active,
   line-height: 24px;
 }
 .vui-pagination-small .vui-pagination-sizer {
-  width: 80px;
   height: 24px;
   margin-left: 8px;
 }
