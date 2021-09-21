@@ -2,9 +2,9 @@ const code =
 `<template>
   <vui-pagination
     v-model="page"
-    :total="500"
+    v-bind:total="500"
     showPageElevator
-    @change="handleChangePage"
+    v-on:change="handleChangePage"
   />
 </template>
 

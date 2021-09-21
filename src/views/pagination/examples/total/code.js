@@ -1,8 +1,8 @@
 const code =
 `<template>
   <div class="example-pagination-total">
-    <vui-pagination :total="95" showTotal />
-    <vui-pagination :total="95" :showTotal />
+    <vui-pagination v-bind:total="95" showTotal />
+    <vui-pagination v-bind:total="95" v-bind:showTotal="showTotal" />
   </div>
 </template>
 
@@ -17,7 +17,7 @@ const code =
 </script>
 
 <style>
-  .example-pagination-total .vui-pagination + .vui-pagination { margin-top:15px; }
+  .example-pagination-total .vui-pagination + .vui-pagination { margin-top:16px; }
 </style>
 `;
 

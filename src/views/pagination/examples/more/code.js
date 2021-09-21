@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-pagination v-model="page" :total="500" />
+  <vui-pagination v-model="page" v-bind:total="500" />
 </template>
 
 <script>

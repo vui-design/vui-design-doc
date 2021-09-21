@@ -28,8 +28,8 @@
           <tr>
             <th width="160">属性</th>
             <th>说明</th>
-            <th width="170">类型</th>
-            <th width="170">默认值</th>
+            <th width="180">类型</th>
+            <th width="180">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -119,8 +119,8 @@
           <tr>
             <th width="160">事件名</th>
             <th>说明</th>
-            <th width="170">类型</th>
-            <th width="170">回调参数</th>
+            <th width="180">类型</th>
+            <th width="180">回调参数</th>
           </tr>
         </thead>
         <tbody>

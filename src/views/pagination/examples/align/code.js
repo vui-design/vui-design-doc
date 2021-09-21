@@ -1,9 +1,9 @@
 const code =
 `<template>
   <div class="example-pagination-simple">
-    <vui-pagination :total="500" />
-    <vui-pagination :total="500" align="center" />
-    <vui-pagination :total="500" align="right" />
+    <vui-pagination v-bind:total="500" />
+    <vui-pagination v-bind:total="500" align="center" />
+    <vui-pagination v-bind:total="500" align="right" />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ const code =
 </script>
 
 <style>
-  .example-pagination-align .vui-pagination + .vui-pagination { margin-top:15px; }
+  .example-pagination-align .vui-pagination + .vui-pagination { margin-top:16px; }
 </style>
 `;
 

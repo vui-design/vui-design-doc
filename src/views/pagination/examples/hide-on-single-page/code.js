@@ -2,7 +2,7 @@ const code =
 `<template>
   <div class="example-pagination-hide-on-single-page">
     <vui-switch v-model="hideOnSinglePage" />
-    <vui-pagination :total="8" :hideOnSinglePage="hideOnSinglePage" />
+    <vui-pagination v-bind:total="8" v-bind:hideOnSinglePage="hideOnSinglePage" />
   </div>
 </template>
 
@@ -17,7 +17,7 @@ const code =
 </script>
 
 <style>
-  .example-pagination-hide-on-single-page .vui-pagination { margin-top:15px; }
+  .example-pagination-hide-on-single-page .vui-pagination { margin-top:16px; }
 </style>
 `;
 
