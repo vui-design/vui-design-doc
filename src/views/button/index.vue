@@ -72,6 +72,12 @@
             <td><code>medium</code></td>
           </tr>
           <tr>
+            <td>autofocus</td>
+            <td>是否自动获得焦点</td>
+            <td>Boolean</td>
+            <td><code>false</code></td>
+          </tr>
+          <tr>
             <td>loading</td>
             <td>设置按钮为加载状态</td>
             <td>Boolean</td>

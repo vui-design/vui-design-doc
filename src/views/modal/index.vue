@@ -113,6 +113,12 @@
 						<td><code>false</code></td>
 					</tr>
 					<tr>
+						<td>autofocusButton</td>
+						<td>指定自动获得焦点的按钮，可选值为 <code>cancel</code>、<code>ok</code> 或者不设</td>
+						<td>String</td>
+						<td>--</td>
+					</tr>
+					<tr>
 						<td>closable</td>
 						<td>是否显示右上角的关闭按钮</td>
 						<td>Boolean</td>
@@ -326,6 +332,12 @@
 						<td>标记确定按钮的点击事件回调函数是否执行异步任务</td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
+					</tr>
+					<tr>
+						<td>autofocusButton</td>
+						<td>指定自动获得焦点的按钮，可选值为 <code>cancel</code>、<code>ok</code> 或者不设</td>
+						<td>String</td>
+						<td><code>ok</code></td>
 					</tr>
 					<tr>
 						<td>top</td>

@@ -92,6 +92,12 @@
 						<td>--</td>
 					</tr>
 					<tr>
+						<td>autofocus</td>
+						<td>是否自动获得焦点</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
 						<td>clearable</td>
 						<td>是否允许清空</td>
 						<td>Boolean</td>
