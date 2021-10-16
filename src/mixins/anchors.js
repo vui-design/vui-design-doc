@@ -1,4 +1,6 @@
-import { mapMutations } from "vuex";
+import { createNamespacedHelpers } from "vuex";
+
+const { mapMutations } = createNamespacedHelpers("app");
 
 export default {
   methods: {

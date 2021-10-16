@@ -77,9 +77,11 @@
 </template>
 
 <script>
-	import { mapState, mapMutations } from "vuex";
+	import { createNamespacedHelpers } from "vuex";
 	import MixinLocale from "src/mixins/locale";
 	import getMenuByRoutes from "src/utils/getMenuByRoutes";
+
+	const { mapState, mapMutations } = createNamespacedHelpers("app");
 
 	export default {
 		mixins: [
@@ -92,10 +94,10 @@
 		},
 		computed: {
 			...mapState({
-				year: state => state.app.year,
-				language: state => state.app.language,
-				menu: state => state.app.menu,
-				anchors: state => state.app.anchors
+				year: state => state.year,
+				language: state => state.language,
+				menu: state => state.menu,
+				anchors: state => state.anchors
 			})
 		},
 		methods: {

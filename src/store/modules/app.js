@@ -3,14 +3,13 @@ import getMenuByRoutes from "src/utils/getMenuByRoutes";
 import getAnchors from "src/utils/getAnchors";
 
 export default {
+  namespaced: true,
   state: {
     year: new Date().getFullYear(),
     language: getLanguage(),
     menu: [],
-    anchors: []
-  },
-  getters: {
-
+    anchors: [],
+    permissions: ["superadmin", "admin", "user"]
   },
   mutations: {
     setLanguage(state, language) {

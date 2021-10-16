@@ -10,7 +10,10 @@ import store from "src/store";
 
 Vue.config.productionTip = false;
 Vue.use(VuiDesign, {
-  i18n: (key, value) => i18n.t(key, value)
+  i18n: (key, value) => i18n.t(key, value),
+  authorize: value => {
+    return store.state.app.permissions.some(permission => typeof value === "string" ? value === permission : value.includes(permission));
+  }
 });
 Vue.use(VueHighlightJS);
 
