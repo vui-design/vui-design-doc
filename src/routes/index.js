@@ -620,6 +620,15 @@ export default [
 				component: () => import("src/views/anchor/index")
 			},
 			{
+				path: "/components/authorizer",
+				name: "authorizer",
+				meta: {
+					title: "Authorizer",
+					group: "other"
+				},
+				component: () => import("src/views/authorizer/index")
+			},
+			{
 				path: "/components/backtop",
 				name: "backtop",
 				meta: {

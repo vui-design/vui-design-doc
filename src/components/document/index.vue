@@ -30,7 +30,7 @@
   .document table.example-api-props td:nth-child(1) { font-family:Lucida Console, Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace; white-space:nowrap; }
   .document table.example-api-props td:nth-child(2) {  }
   .document table.example-api-props td:nth-child(3) { color:#ff4d4f; font-family:Lucida Console, Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace; }
-  .document table.example-api-props td:nth-child(4) { white-space:nowrap; }
+  .document table.example-api-props td:nth-child(4) { font-family:Lucida Console, Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace; white-space:nowrap; }
   .document table.example-api-events th:nth-child(1) { white-space:nowrap; }
   .document table.example-api-events th:nth-child(2) {  }
   .document table.example-api-events th:nth-child(3) {  }
@@ -38,7 +38,7 @@
   .document table.example-api-events td:nth-child(1) { font-family:Lucida Console, Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace; white-space:nowrap; }
   .document table.example-api-events td:nth-child(2) {  }
   .document table.example-api-events td:nth-child(3) { color:#ff4d4f; font-family:Lucida Console, Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace; }
-  .document table.example-api-events td:nth-child(4) { white-space:nowrap; }
+  .document table.example-api-events td:nth-child(4) { font-family:Lucida Console, Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace; white-space:nowrap; }
   .document ul { list-style:circle; margin-bottom:16px; padding-left:18px; }
   .document ul li p { margin-bottom:0; }
   .document ol { list-style:circle; margin-bottom:16px; padding-left:18px; }

@@ -9,7 +9,7 @@ export default {
     language: getLanguage(),
     menu: [],
     anchors: [],
-    permissions: ["superadmin", "admin", "user"]
+    permissions: ["admin", "user"]
   },
   mutations: {
     setLanguage(state, language) {
