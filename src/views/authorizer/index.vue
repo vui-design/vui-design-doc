@@ -11,7 +11,7 @@
       <example-use />
       <p>如上例，若用户为 <code>admin</code> 管理员角色，将展示默认插槽中的编辑按钮，反之显示 <code>replacement</code> 插槽中的查看按钮。</p>
       <h2>代码演示</h2>
-      <p>注意，本文档默认设定用户角色为 <code>["admin", "user"]</code>，即管理员和普通用户！</p>
+      <p>本文档默认已全局设定用户角色为 <code>["admin", "user"]</code>，即管理员和普通用户！</p>
     </document>
     <example-basic-usage />
     <example-toggle />
