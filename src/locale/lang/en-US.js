@@ -564,6 +564,9 @@ export default {
     "example-anchor-click": "自定义 onClick 事件",
     "example-anchor-change": "监听锚点链接变化",
 
+    "example-authorizer-basic-usage": "基本用法",
+    "example-authorizer-toggle": "切换访问权限",
+
     "example-backtop-basic-usage": "基本用法",
     "example-backtop-custom": "自定义样式"
   }

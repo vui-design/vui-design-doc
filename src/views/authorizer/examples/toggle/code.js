@@ -2,8 +2,8 @@ const code =
 `<template>
   <div class="example-authorizer-toggle">
     <vui-radio-group v-model="value">
-      <vui-radio value="admin">管理员可访问</vui-radio>
-      <vui-radio value="super admin">超级管理员可访问</vui-radio>
+      <vui-radio value="admin">以下内容管理员可访问</vui-radio>
+      <vui-radio value="superadmin">以下内容超级管理员可访问</vui-radio>
     </vui-radio-group>
     <vui-authorizer v-bind:value="value">
       <vui-descriptions bordered>

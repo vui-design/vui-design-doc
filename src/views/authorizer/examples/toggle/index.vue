@@ -3,8 +3,8 @@
     <template slot="demo">
       <div class="example-authorizer-toggle">
         <vui-radio-group v-model="value">
-          <vui-radio value="admin">管理员可访问</vui-radio>
-          <vui-radio value="super admin">超级管理员可访问</vui-radio>
+          <vui-radio value="admin">以下内容管理员可访问</vui-radio>
+          <vui-radio value="superadmin">以下内容超级管理员可访问</vui-radio>
         </vui-radio-group>
         <vui-authorizer v-bind:value="value">
           <vui-descriptions bordered>
@@ -41,9 +41,9 @@
         </vui-authorizer>
       </div>
     </template>
-    <template slot="title">切换按钮权限</template>
+    <template slot="title">切换访问权限</template>
     <template slot="description">
-      <p>切换按钮权限。</p>
+      <p>切换访问权限。</p>
     </template>
   </example>
 </template>
