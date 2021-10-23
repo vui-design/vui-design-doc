@@ -636,6 +636,15 @@ export default [
 					group: "other"
 				},
 				component: () => import("src/views/backtop/index")
+			},
+			{
+				path: "/components/fullscreen",
+				name: "fullscreen",
+				meta: {
+					title: "Fullscreen",
+					group: "other"
+				},
+				component: () => import("src/views/fullscreen/index")
 			}
 		]
 	}

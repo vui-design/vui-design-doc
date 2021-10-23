@@ -51,10 +51,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="150">属性</th>
+            <th width="160">属性</th>
             <th>说明</th>
             <th width="160">类型</th>
-            <th width="120">默认值</th>
+            <th width="140">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -62,7 +62,7 @@
             <td>withSider</td>
             <td>表示子元素里含有 <code>Sider</code> 组件，一般不用指定。可用于服务端渲染时避免样式闪动</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
         </tbody>
       </table>
@@ -70,10 +70,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="150">属性</th>
+            <th width="160">属性</th>
             <th>说明</th>
             <th width="160">类型</th>
-            <th width="120">默认值</th>
+            <th width="140">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -81,13 +81,13 @@
             <td>color</td>
             <td>主题颜色，可选值为 <code>light</code>、<code>dark</code>，支持自定义颜色值</td>
             <td>String</td>
-            <td><code>light</code></td>
+            <td>light</td>
           </tr>
           <tr>
             <td>theme</td>
             <td>主题颜色，同 <code>color</code> 属性，将在后续版本移除</td>
             <td>String</td>
-            <td><code>light</code></td>
+            <td>light</td>
           </tr>
         </tbody>
       </table>
@@ -95,10 +95,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="150">属性</th>
+            <th width="160">属性</th>
             <th>说明</th>
             <th width="160">类型</th>
-            <th width="120">默认值</th>
+            <th width="140">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -106,13 +106,13 @@
             <td>color</td>
             <td>主题颜色，可选值为 <code>light</code>、<code>dark</code>，支持自定义颜色值</td>
             <td>String</td>
-            <td><code>light</code></td>
+            <td>light</td>
           </tr>
           <tr>
             <td>theme</td>
             <td>主题颜色，同 <code>color</code> 属性，将在后续版本移除</td>
             <td>String</td>
-            <td><code>light</code></td>
+            <td>light</td>
           </tr>
           <tr>
             <td>breakpoint</td>
@@ -124,31 +124,31 @@
             <td>collapsible</td>
             <td>是否可折叠</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>collapsed</td>
             <td>当前折叠状态，可以使用 <code>v-model</code> 双向绑定数据</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>width</td>
             <td>宽度，单位 <code>px</code></td>
             <td>String | Number</td>
-            <td><code>200</code></td>
+            <td>200</td>
           </tr>
           <tr>
             <td>collapsedWidth</td>
             <td>折叠宽度，单位 <code>px</code></td>
             <td>String | Number</td>
-            <td><code>80</code></td>
+            <td>80</td>
           </tr>
           <tr>
             <td>showTrigger</td>
             <td>可折叠状态下是否显示折叠触发器</td>
             <td>Boolean</td>
-            <td><code>true</code></td>
+            <td>true</td>
           </tr>
         </tbody>
       </table>
@@ -156,10 +156,10 @@
       <table class="example-api-events">
         <thead>
           <tr>
-            <th width="150">事件名</th>
+            <th width="160">事件名</th>
             <th>说明</th>
             <th width="160">类型</th>
-            <th width="120">回调参数</th>
+            <th width="140">回调参数</th>
           </tr>
         </thead>
         <tbody>
@@ -167,7 +167,7 @@
             <td>collapse</td>
             <td>展开或收起时的事件回调函数，由点击 <code>trigger</code> 以及响应式反馈两种方式触发，可以使用 <code>v-model</code> 双向绑定数据</td>
             <td>Function</td>
-            <td><code>collapsed</code></td>
+            <td>collapsed</td>
           </tr>
         </tbody>
       </table>

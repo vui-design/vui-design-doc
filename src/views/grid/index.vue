@@ -58,10 +58,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="100">属性</th>
+            <th width="140">属性</th>
             <th>说明</th>
             <th width="160">类型</th>
-            <th width="100">默认值</th>
+            <th width="140">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -75,19 +75,19 @@
             <td>justify</td>
             <td>Flex 布局下的水平排列方式，可选值为 <code>start</code>、<code>end</code>、<code>center</code>、<code>space-around</code>、<code>space-between</code> 或者不设</td>
             <td>String</td>
-            <td><code>start</code></td>
+            <td>start</td>
           </tr>
           <tr>
             <td>align</td>
             <td>Flex 布局下的垂直排列方式，可选值为 <code>top</code>、<code>middle</code>、<code>bottom</code> 或者不设</td>
             <td>String</td>
-            <td><code>top</code></td>
+            <td>top</td>
           </tr>
           <tr>
             <td>gutter</td>
             <td>栅格间隔，单位 <code>px</code></td>
             <td>Number</td>
-            <td><code>0</code></td>
+            <td>0</td>
           </tr>
         </tbody>
       </table>
@@ -95,10 +95,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="100">属性</th>
+            <th width="140">属性</th>
             <th>说明</th>
             <th width="160">类型</th>
-            <th width="100">默认值</th>
+            <th width="140">默认值</th>
           </tr>
         </thead>
         <tbody>

@@ -30,10 +30,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="110">属性</th>
+            <th width="140">属性</th>
             <th>说明</th>
             <th width="240">类型</th>
-            <th width="130">默认值</th>
+            <th width="140">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -41,37 +41,37 @@
             <td>block</td>
             <td><code>Space</code> 组件是否以块级元素（宽度撑满父级元素）的方式渲染</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>direction</td>
             <td>项目排列方向，可选值为 <code>horizontal</code>、<code>vertical</code> 或者不设</td>
             <td>String</td>
-            <td><code>horizontal</code></td>
+            <td>horizontal</td>
           </tr>
           <tr>
             <td>justify</td>
             <td>项目在主轴上的对齐方式，可选值为 <code>start</code>、<code>center</code>、<code>end</code>、<code>around</code>、<code>between</code> 或者不设。该属性仅在 <code>direction</code> 为 <code>horizontal</code> 时有效</td>
             <td>String</td>
-            <td><code>start</code></td>
+            <td>start</td>
           </tr>
           <tr>
             <td>align</td>
             <td>项目在交叉轴上的对齐方式，可选值为 <code>start</code>、<code>center</code>、<code>end</code>、<code>baseline</code>、<code>stretch</code> 或者不设。该属性仅在 <code>direction</code> 为 <code>horizontal</code> 时有效</td>
             <td>String</td>
-            <td><code>center</code></td>
+            <td>center</td>
           </tr>
           <tr>
             <td>divider</td>
             <td>是否在项目间插入分割线，可设置为具体的数值，用于指定分割线高度。该属性仅在 <code>direction</code> 为 <code>horizontal</code> 时有效</td>
             <td>Boolean | String | Number</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>size</td>
             <td>间距大小，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设，支持自定义间距大小</td>
             <td>String | Number</td>
-            <td><code>medium</code></td>
+            <td>medium</td>
           </tr>
         </tbody>
       </table>

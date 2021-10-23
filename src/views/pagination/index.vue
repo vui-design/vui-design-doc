@@ -26,9 +26,9 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="160">属性</th>
+            <th width="180">属性</th>
             <th>说明</th>
-            <th width="180">类型</th>
+            <th width="200">类型</th>
             <th width="180">默认值</th>
           </tr>
         </thead>
@@ -37,61 +37,61 @@
             <td>small</td>
             <td>使用小型尺寸</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>simple</td>
             <td>使用简洁版本</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>align</td>
             <td>对齐方式，可选值为 <code>left</code>、<code>center</code>、<code>right</code> 或者不设</td>
             <td>String</td>
-            <td><code>left</code></td>
+            <td>left</td>
           </tr>
           <tr>
             <td>total</td>
             <td>数据总数</td>
             <td>Number</td>
-            <td><code>0</code></td>
+            <td>0</td>
           </tr>
           <tr>
             <td>showTotal</td>
             <td>用于显示数据总数和当前数据范围</td>
             <td>Boolean | Function</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>page</td>
             <td>当前页码，可以使用 <code>v-model</code> 双向绑定数据</td>
             <td>Number</td>
-            <td><code>1</code></td>
+            <td>1</td>
           </tr>
           <tr>
             <td>pageSize</td>
             <td>每页条数</td>
             <td>Number</td>
-            <td><code>10</code></td>
+            <td>10</td>
           </tr>
           <tr>
             <td>pageSizeOptions</td>
             <td>用于指定 <code>pageSize</code> 的可选列表</td>
             <td>Array</td>
-            <td><code>[10, 20, 30, 40]</code></td>
+            <td>[10, 20, 30, 40]</td>
           </tr>
           <tr>
             <td>showPageSizer</td>
             <td>是否可以切换 <code>pageSize</code></td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>showPageElevator</td>
             <td>是否可以快速跳转至某一页</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>prevPageText</td>
@@ -109,7 +109,7 @@
             <td>hideOnSinglePage</td>
             <td>当只有一页时是否隐藏分页</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
         </tbody>
       </table>
@@ -117,9 +117,9 @@
       <table class="example-api-events">
         <thead>
           <tr>
-            <th width="160">事件名</th>
+            <th width="180">事件名</th>
             <th>说明</th>
-            <th width="180">类型</th>
+            <th width="200">类型</th>
             <th width="180">回调参数</th>
           </tr>
         </thead>
@@ -128,19 +128,19 @@
             <td>input</td>
             <td>页码改变时触发的事件回调，可以使用 <code>v-model</code> 双向绑定数据</td>
             <td>Function</td>
-            <td><code>page</code></td>
+            <td>page</td>
           </tr>
           <tr>
             <td>change</td>
             <td>页码改变时触发的事件回调</td>
             <td>Function</td>
-            <td><code>page</code></td>
+            <td>page</td>
           </tr>
           <tr>
             <td>changePageSize</td>
             <td>切换 <code>pageSize</code> 时触发的事件回调</td>
             <td>Function</td>
-            <td><code>pageSize</code></td>
+            <td>pageSize</td>
           </tr>
         </tbody>
       </table>

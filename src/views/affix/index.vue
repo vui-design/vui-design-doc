@@ -34,7 +34,7 @@
             <td>getScrollContainer</td>
             <td>设置 <code>Affix</code> 需要监听其滚动事件的元素，值为一个返回对应 <code>DOM</code> 元素的函数</td>
             <td>Function</td>
-            <td><code>() => window</code></td>
+            <td>() => window</td>
           </tr>
           <tr>
             <td>offsetTop</td>
@@ -65,7 +65,7 @@
             <td>change</td>
             <td>固定状态改变时触发的事件回调函数</td>
             <td>Function</td>
-            <td><code>affixed</code></td>
+            <td>affixed</td>
           </tr>
         </tbody>
       </table>

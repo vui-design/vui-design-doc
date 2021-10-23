@@ -18,10 +18,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="140">属性</th>
+            <th width="160">属性</th>
             <th>说明</th>
-            <th width="140">类型</th>
-            <th width="100">默认值</th>
+            <th width="160">类型</th>
+            <th width="160">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -77,7 +77,7 @@
             <td>ghost</td>
             <td><code>PageHeader</code> 的背景类型，将会改变背景颜色</td>
             <td>Boolean</td>
-            <td><code>true</code></td>
+            <td>true</td>
           </tr>
         </tbody>
       </table>
@@ -85,10 +85,10 @@
       <table class="example-api-events">
         <thead>
           <tr>
-            <th width="140">事件名</th>
+            <th width="160">事件名</th>
             <th>说明</th>
-            <th width="140">类型</th>
-            <th width="100">回调参数</th>
+            <th width="160">类型</th>
+            <th width="160">回调参数</th>
           </tr>
         </thead>
         <tbody>
@@ -96,7 +96,7 @@
             <td>back</td>
             <td>返回按钮的点击事件回调函数</td>
             <td>Function</td>
-            <td><code>event</code></td>
+            <td>event</td>
           </tr>
         </tbody>
       </table>

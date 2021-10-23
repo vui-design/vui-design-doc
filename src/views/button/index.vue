@@ -28,10 +28,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="120">属性</th>
+            <th width="140">属性</th>
             <th>说明</th>
             <th width="160">类型</th>
-            <th width="120">默认值</th>
+            <th width="140">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -39,25 +39,25 @@
             <td>htmlType</td>
             <td>设置按钮的原生 <code>type</code> 属性，可选值请参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#attr-type" target="_blank">HTML 标准</a></td>
             <td>String</td>
-            <td><code>button</code></td>
+            <td>button</td>
           </tr>
           <tr>
             <td>type</td>
             <td>设置按钮类型，可选值为 <code>default</code>、<code>primary</code>、<code>info</code>、<code>warning</code>、<code>success</code>、<code>error</code>、<code>dashed</code>、<code>text</code> 或者不设</td>
             <td>String</td>
-            <td><code>default</code></td>
+            <td>default</td>
           </tr>
           <tr>
             <td>block</td>
             <td>设置按钮为块级元素，宽度撑满父元素</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>ghost</td>
             <td>幽灵属性，使按钮背景透明</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>shape</td>
@@ -69,25 +69,25 @@
             <td>size</td>
             <td>设置按钮尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
             <td>String</td>
-            <td><code>medium</code></td>
+            <td>medium</td>
           </tr>
           <tr>
             <td>autofocus</td>
             <td>是否自动获得焦点</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>loading</td>
             <td>设置按钮为加载状态</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>disabled</td>
             <td>设置按钮为禁用状态</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>icon</td>
@@ -111,13 +111,13 @@
             <td>replace</td>
             <td>同 <code>&lt;router-link /&gt;</code> 组件的 <code>replace</code> 属性，详细说明请参考 <a href="https://router.vuejs.org/zh/api/#replace" target="_blank">Vue Router API</a></td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>append</td>
             <td>同 <code>&lt;router-link /&gt;</code> 组件的 <code>append</code> 属性，详细说明请参考 <a href="https://router.vuejs.org/zh/api/#append" target="_blank">Vue Router API</a></td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>target</td>
@@ -131,10 +131,10 @@
       <table class="example-api-events">
         <thead>
           <tr>
-            <th width="120">事件名</th>
+            <th width="140">事件名</th>
             <th>说明</th>
             <th width="160">类型</th>
-            <th width="120">回调参数</th>
+            <th width="140">回调参数</th>
           </tr>
         </thead>
         <tbody>
@@ -142,7 +142,7 @@
             <td>click</td>
             <td>点击按钮时触发的事件回调函数</td>
             <td>Function</td>
-            <td><code>event</code></td>
+            <td>event</td>
           </tr>
         </tbody>
       </table>
@@ -150,10 +150,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="120">属性</th>
+            <th width="140">属性</th>
             <th>说明</th>
             <th width="160">类型</th>
-            <th width="120">默认值</th>
+            <th width="140">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -161,7 +161,7 @@
             <td>type</td>
             <td>设置按钮组合类型，可选值为 <code>default</code>、<code>primary</code>、<code>info</code>、<code>warning</code>、<code>success</code>、<code>error</code>、<code>dashed</code> 或者不设</td>
             <td>String</td>
-            <td><code>default</code></td>
+            <td>default</td>
           </tr>
           <tr>
             <td>shape</td>
@@ -179,7 +179,7 @@
             <td>disabled</td>
             <td>设置按钮组合为禁用状态</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
         </tbody>
       </table>

@@ -90,7 +90,8 @@ export default {
     "other": "其它",
     "other-anchor": "Anchor 锚点",
     "other-authorizer": "Authorizer 权限校验",
-    "other-backtop": "Backtop 回到顶部"
+    "other-backtop": "Backtop 回到顶部",
+    "other-fullscreen": "Fullscreen 全屏"
   },
 
   "anchors": {
@@ -568,6 +569,8 @@ export default {
     "example-authorizer-toggle": "切换访问权限",
 
     "example-backtop-basic-usage": "基本用法",
-    "example-backtop-custom": "自定义样式"
+    "example-backtop-custom": "自定义样式",
+
+    "example-fullscreen-basic-usage": "基本用法"
   }
 };

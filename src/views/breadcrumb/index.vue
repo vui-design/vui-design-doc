@@ -27,10 +27,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="110">属性</th>
+            <th width="140">属性</th>
             <th>说明</th>
             <th width="160">类型</th>
-            <th width="100">默认值</th>
+            <th width="140">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -38,7 +38,7 @@
             <td>separator</td>
             <td>自定义分隔符</td>
             <td>String</td>
-            <td><code>/</code></td>
+            <td>/</td>
           </tr>
         </tbody>
       </table>
@@ -46,10 +46,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="110">属性</th>
+            <th width="140">属性</th>
             <th>说明</th>
             <th width="160">类型</th>
-            <th width="100">默认值</th>
+            <th width="140">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -81,13 +81,13 @@
             <td>replace</td>
             <td>同 <code>&lt;router-link /&gt;</code> 组件的 <code>replace</code> 属性，详细说明请参考 <a href="https://router.vuejs.org/zh/api/#replace" target="_blank">Vue Router API</a></td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>append</td>
             <td>同 <code>&lt;router-link /&gt;</code> 组件的 <code>append</code> 属性，详细说明请参考 <a href="https://router.vuejs.org/zh/api/#append" target="_blank">Vue Router API</a></td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>target</td>

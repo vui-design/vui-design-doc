@@ -25,10 +25,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="80">属性</th>
+            <th width="160">属性</th>
             <th>说明</th>
-            <th width="160">类型</th>
-            <th width="80">默认值</th>
+            <th width="180">类型</th>
+            <th width="160">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -36,19 +36,19 @@
             <td>type</td>
             <td>分割线类型，可选值为 <code>horizontal</code>、<code>vertical</code> 或者不设</td>
             <td>String</td>
-            <td><code>horizontal</code></td>
+            <td>horizontal</td>
           </tr>
           <tr>
             <td>dashed</td>
             <td>是否使用虚线样式的分割线</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>orientation</td>
             <td>分割线文本的位置，可选值为 <code>left</code>、<code>center</code>、<code>right</code> 或者不设</td>
             <td>String</td>
-            <td><code>center</code></td>
+            <td>center</td>
           </tr>
           <tr>
             <td>gutter</td>
