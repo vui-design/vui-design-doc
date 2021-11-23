@@ -29,7 +29,7 @@
 						<th width="160">属性</th>
 						<th>说明</th>
 						<th width="220">类型</th>
-						<th width="224">默认值</th>
+						<th width="342">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -106,6 +106,12 @@
 						<td><code>false</code></td>
 					</tr>
 					<tr>
+						<td>keywords</td>
+						<td>支持搜索时，搜索框搜索关键词集合，顺序从左至右</td>
+						<td>Array</td>
+						<td><code>["", ""]</code></td>
+					</tr>
+					<tr>
 						<td>filter</td>
 						<td>是否根据输入关键词进行筛选。当其为一个函数时，会接收 <code>keyword</code>、<code>option</code> 两个参数，若 <code>option</code> 符合筛选条件，应返回 <code>true</code>，反之返回 <code>false</code></td>
 						<td>Boolean | Function</td>
@@ -122,11 +128,8 @@
 						<td>默认文案设置，目前包括搜索输入框占位文本、暂无数据等相关文案</td>
 						<td>Object</td>
 						<td>
-<code style="white-space: pre;">{
-  search: "请输入搜索内容",
-  notFound: "暂无数据"
-}
-</code>
+							<div><code>search: "请输入搜索内容"</code></div>
+							<div><code>notFound: "暂无数据"</code></div>
 						</td>
 					</tr>
 					<tr>
@@ -144,7 +147,7 @@
 					<tr>
 						<th width="160">属性</th>
 						<th>说明</th>
-						<th width="224">类型</th>
+						<th width="342">类型</th>
 					</tr>
 				</thead>
 				<tbody>

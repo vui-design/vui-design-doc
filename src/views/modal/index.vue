@@ -33,10 +33,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="150">属性</th>
+						<th width="200">属性</th>
 						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="160">默认值</th>
+						<th width="170">类型</th>
+						<th width="190">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -185,6 +185,12 @@
 						<td><code>true</code></td>
 					</tr>
 					<tr>
+						<td>destroyOnClose</td>
+						<td>关闭时销毁对话框内容（对话框里的子元素）</td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+					</tr>
+					<tr>
 						<td>getPopupContainer</td>
 						<td>指定对话框挂载的 HTML 节点</td>
 						<td>Function</td>
@@ -196,10 +202,10 @@
 			<table class="example-api-events">
 				<thead>
 					<tr>
-						<th width="150">事件名</th>
+						<th width="200">事件名</th>
 						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="160">回调参数</th>
+						<th width="170">类型</th>
+						<th width="190">回调参数</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -272,10 +278,10 @@
 			<table class="example-api-props">
 				<thead>
 					<tr>
-						<th width="150">选项</th>
+						<th width="200">选项</th>
 						<th>说明</th>
-						<th width="150">类型</th>
-						<th width="160">默认值</th>
+						<th width="170">类型</th>
+						<th width="190">默认值</th>
 					</tr>
 				</thead>
 				<tbody>
