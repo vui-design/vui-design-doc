@@ -12995,10 +12995,10 @@ a.link-disabled:active,
   display: flex;
   align-items: center;
 }
-.vui-ratio-desc {
+.vui-ratio-down {
   color: #52c41a;
 }
-.vui-ratio-asc {
+.vui-ratio-up {
   color: #ff4d4f;
 }
 .vui-statistic {
