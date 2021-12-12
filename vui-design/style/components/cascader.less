@@ -120,14 +120,14 @@
     &-placeholder,
     &-input {
       height:@cascader-selection-size-sm;
-      padding:0 @cascader-selection-padding-sm * 2 + @cascader-selection-arrow-size-sm 0 @cascader-selection-padding-sm;
+      padding:0 @cascader-selection-padding-sm * 2 + @cascader-selection-btn-clear-size-sm 0 @cascader-selection-padding-sm;
       font-size:@cascader-selection-font-size-sm;
       line-height:@cascader-selection-size-sm;
     }
 
     &-arrow {
       top:(@cascader-selection-size-sm - 2px) / 2;
-      right:@cascader-selection-padding-sm + (@cascader-selection-arrow-size-sm - 10px) / 2;
+      right:@cascader-selection-padding-sm + (@cascader-selection-btn-clear-size-sm - 10px) / 2;
       width:10px;
 
       &:before,
@@ -137,9 +137,9 @@
     }
 
     &-btn-clear {
-      top:(@cascader-selection-size-sm - @cascader-selection-arrow-size-sm) / 2;
+      top:(@cascader-selection-size-sm - @cascader-selection-btn-clear-size-sm) / 2;
       right:@cascader-selection-padding-sm;
-      font-size:@cascader-selection-arrow-size-sm;
+      font-size:@cascader-selection-btn-clear-size-sm;
     }
   }
   &-small&-bordered &-selection {
@@ -157,7 +157,7 @@
     }
 
     &-btn-clear {
-      top:(@cascader-selection-size-sm - 2px - @cascader-selection-arrow-size-sm) / 2;
+      top:(@cascader-selection-size-sm - 2px - @cascader-selection-btn-clear-size-sm) / 2;
     }
   }
 
@@ -169,14 +169,14 @@
     &-placeholder,
     &-input {
       height:@cascader-selection-size-md;
-      padding:0 @cascader-selection-padding-md * 2 + @cascader-selection-arrow-size-md 0 @cascader-selection-padding-md;
+      padding:0 @cascader-selection-padding-md * 2 + @cascader-selection-btn-clear-size-md 0 @cascader-selection-padding-md;
       font-size:@cascader-selection-font-size-md;
       line-height:@cascader-selection-size-md;
     }
 
     &-arrow {
       top:(@cascader-selection-size-md - 2px) / 2;
-      right:@cascader-selection-padding-md + (@cascader-selection-arrow-size-md - 12px) / 2;
+      right:@cascader-selection-padding-md + (@cascader-selection-btn-clear-size-md - 12px) / 2;
       width:12px;
 
       &:before,
@@ -186,9 +186,9 @@
     }
 
     &-btn-clear {
-      top:(@cascader-selection-size-md - @cascader-selection-arrow-size-md) / 2;
+      top:(@cascader-selection-size-md - @cascader-selection-btn-clear-size-md) / 2;
       right:@cascader-selection-padding-md;
-      font-size:@cascader-selection-arrow-size-md;
+      font-size:@cascader-selection-btn-clear-size-md;
     }
   }
   &-medium&-bordered &-selection {
@@ -206,7 +206,7 @@
     }
 
     &-btn-clear {
-      top:(@cascader-selection-size-md - 2px - @cascader-selection-arrow-size-md) / 2;
+      top:(@cascader-selection-size-md - 2px - @cascader-selection-btn-clear-size-md) / 2;
     }
   }
 
@@ -218,14 +218,14 @@
     &-placeholder,
     &-input {
       height:@cascader-selection-size-lg;
-      padding:0 @cascader-selection-padding-lg * 2 + @cascader-selection-arrow-size-lg 0 @cascader-selection-padding-lg;
+      padding:0 @cascader-selection-padding-lg * 2 + @cascader-selection-btn-clear-size-lg 0 @cascader-selection-padding-lg;
       font-size:@cascader-selection-font-size-lg;
       line-height:@cascader-selection-size-lg;
     }
 
     &-arrow {
       top:(@cascader-selection-size-lg - 2px) / 2;
-      right:@cascader-selection-padding-lg + (@cascader-selection-arrow-size-lg - 14px) / 2;
+      right:@cascader-selection-padding-lg + (@cascader-selection-btn-clear-size-lg - 14px) / 2;
       width:14px;
 
       &:before,
@@ -235,9 +235,9 @@
     }
 
     &-btn-clear {
-      top:(@cascader-selection-size-lg - @cascader-selection-arrow-size-lg) / 2;
+      top:(@cascader-selection-size-lg - @cascader-selection-btn-clear-size-lg) / 2;
       right:@cascader-selection-padding-lg;
-      font-size:@cascader-selection-arrow-size-lg;
+      font-size:@cascader-selection-btn-clear-size-lg;
     }
   }
   &-bordered&-large &-selection {
@@ -255,7 +255,7 @@
     }
 
     &-btn-clear {
-      top:(@cascader-selection-size-lg - 2px - @cascader-selection-arrow-size-lg) / 2;
+      top:(@cascader-selection-size-lg - 2px - @cascader-selection-btn-clear-size-lg) / 2;
     }
   }
 
@@ -305,10 +305,10 @@
   &-dropdown {
     position:absolute;
     box-sizing:border-box;
-    max-height:@cascader-drodown-max-height;
-    border-radius:@cascader-drodown-border-radius;
-    background-color:@cascader-drodown-background-color;
-    box-shadow:@cascader-drodown-box-shadow;
+    max-height:@cascader-dropdown-max-height;
+    border-radius:@cascader-dropdown-border-radius;
+    background-color:@cascader-dropdown-background-color;
+    box-shadow:@cascader-dropdown-box-shadow;
     margin:4px 0;
     overflow:auto;
 
