@@ -1,8 +1,8 @@
 const code =
 `<template>
   <div class="example-message-more-content">
-    <vui-button type="primary" @click="showVNodeMessage">VNode</vui-button>
-    <vui-button type="primary" @click="showFunctionMessage">Function</vui-button>
+    <vui-button type="primary" v-on:click="showVNodeMessage">VNode</vui-button>
+    <vui-button type="primary" v-on:click="showFunctionMessage">Function</vui-button>
   </div>
 </template>
 

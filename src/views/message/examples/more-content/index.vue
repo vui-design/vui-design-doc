@@ -2,8 +2,8 @@
 	<example v-bind:code="code" id="example-message-more-content">
 		<template slot="demo">
 			<div class="example-message-more-content">
-				<vui-button type="primary" @click="showVNodeMessage">VNode</vui-button>
-				<vui-button type="primary" @click="showFunctionMessage">Function</vui-button>
+				<vui-button type="primary" v-on:click="showVNodeMessage">VNode</vui-button>
+				<vui-button type="primary" v-on:click="showFunctionMessage">Function</vui-button>
 			</div>
 		</template>
 		<template slot="title">更多内容</template>

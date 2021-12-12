@@ -1,7 +1,7 @@
 <template>
   <example v-bind:code="code" id="example-select-backfill-option-prop">
     <template slot="demo">
-      <vui-select v-model="value" backfillOptionProp="label" style="width: 200px;">
+      <vui-select v-model="value" backfillOptionProp="label" style="width: 200px;" placeholder="Please select">
         <vui-option value="new york" label="New York">
           New York<span style="float: right; opacity: 0.5;">America</span>
         </vui-option>

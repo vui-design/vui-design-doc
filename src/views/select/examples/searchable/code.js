@@ -1,7 +1,7 @@
 const code =
 `<template>
   <div class="example-select-searchable">
-    <vui-select v-model="value1" searchable style="width: 200px;">
+    <vui-select v-model="value1" searchable style="width: 200px;" placeholder="Please select">
       <vui-option value="new york">New York</vui-option>
       <vui-option value="london">London</vui-option>
       <vui-option value="sydney">Sydney</vui-option>
@@ -9,7 +9,7 @@ const code =
       <vui-option value="paris">Paris</vui-option>
       <vui-option value="canberra">Canberra</vui-option>
     </vui-select>
-    <vui-select v-model="value2" multiple searchable>
+    <vui-select v-model="value2" multiple searchable placeholder="Please select">
       <vui-option value="new york">New York</vui-option>
       <vui-option value="london">London</vui-option>
       <vui-option value="sydney">Sydney</vui-option>

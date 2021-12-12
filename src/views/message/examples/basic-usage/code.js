@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-button type="primary" @click="showNormalMessage">Normal</vui-button>
+  <vui-button type="primary" v-on:click="showNormalMessage">Normal</vui-button>
 </template>
 
 <script>

@@ -8,7 +8,7 @@
         v-on:search="handleSearch"
         multiple
         searchable
-        placeholder="请选择用户"
+        placeholder="Please select"
       >
         <vui-option
           v-for="option in options"
@@ -66,7 +66,7 @@
           const options = dataSource.filter(option => option.toLowerCase().indexOf(keyword.toLowerCase()) > -1);
 
           callback(options);
-        }, 1000);
+        }, 10000000);
       },
       handleSearch(keyword) {
         if (keyword) {

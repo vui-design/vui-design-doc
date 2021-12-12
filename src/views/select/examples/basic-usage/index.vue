@@ -1,7 +1,7 @@
 <template>
   <example v-bind:code="code" id="example-select-basic-usage">
     <template slot="demo">
-      <vui-select v-model="value" style="width: 200px;">
+      <vui-select v-model="value" style="width: 200px;" placeholder="Please select">
         <vui-option value="new york">New York</vui-option>
         <vui-option value="london">London</vui-option>
         <vui-option value="sydney">Sydney</vui-option>

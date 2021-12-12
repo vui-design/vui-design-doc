@@ -1,7 +1,7 @@
 <template>
 	<example v-bind:code="code" id="example-message-closable">
 		<template slot="demo">
-			<vui-button type="primary" @click="showClosableMessage">Closable</vui-button>
+			<vui-button type="primary" v-on:click="showClosableMessage">Closable</vui-button>
 		</template>
 		<template slot="title">可关闭</template>
 		<template slot="description">

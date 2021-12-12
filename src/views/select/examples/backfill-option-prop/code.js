@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-select v-model="value" backfillOptionProp="label" style="width: 200px;">
+  <vui-select v-model="value" backfillOptionProp="label" style="width: 200px;" placeholder="Please select">
     <vui-option value="new york" label="New York">
       New York<span style="float: right; opacity: 0.5;">America</span>
     </vui-option>

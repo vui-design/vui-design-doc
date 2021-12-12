@@ -1,7 +1,7 @@
 <template>
 	<example v-bind:code="code" id="example-message-loading">
 		<template slot="demo">
-			<vui-button type="primary" @click="showLoadingMessage">Loading</vui-button>
+			<vui-button type="primary" v-on:click="showLoadingMessage">Loading</vui-button>
 		</template>
 		<template slot="title">加载中</template>
 		<template slot="description">

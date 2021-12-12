@@ -21,7 +21,7 @@ const code =
         value1: "",
         value2: "",
         autosize: {
-          minRows: 4,
+          minRows: 2,
           maxRows: 8
         }
       };

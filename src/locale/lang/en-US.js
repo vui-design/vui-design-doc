@@ -255,8 +255,10 @@ export default {
     "example-cascader-expand-trigger": "移入展开",
     "example-cascader-change-on-select": "选择即改变",
     "example-cascader-disabled-option": "禁用选项",
+    "example-cascader-bordered": "无边框",
     "example-cascader-searchable": "搜索",
     "example-cascader-clearable": "可清空",
+    "example-cascader-auto-width": "自动宽度",
     "example-cascader-formatter": "自定义已选项",
     "example-cascader-option-keys": "自定义字段名",
 
@@ -282,11 +284,12 @@ export default {
     "example-form-dynamic": "动态增减表单项",
 
     "example-input-basic-usage": "基本用法",
+    "example-input-password": "密码框",
     "example-input-prepend-append": "前置/后置标签",
     "example-input-prefix-suffix": "前缀/后缀图标",
-    "example-input-password": "密码框",
-    "example-input-clearable": "可清空",
     "example-input-size": "尺寸",
+    "example-input-bordered": "无边框",
+    "example-input-clearable": "可清空",
     "example-input-disabled": "禁用状态",
     "example-input-group": "复合型输入框",
 
@@ -317,17 +320,18 @@ export default {
 
     "example-select-basic-usage": "基本用法",
     "example-select-multiple": "多选",
+    "example-select-size": "尺寸",
     "example-select-searchable": "带搜索框",
-    "example-select-clearable": "可清空",
-    "example-select-option-group": "分组",
     "example-select-remote-search": "远程搜索",
     "example-select-users": "搜索用户",
+    "example-select-bordered": "无边框",
+    "example-select-clearable": "可清空",
+    "example-select-disabled": "禁用",
+    "example-select-option-group": "分组",
     "example-select-coordinate": "联动",
     "example-select-backfill-option-prop": "定制回填内容",
     "example-select-max-tag-count": "最大显示数量",
     "example-select-hide-selected-options": "隐藏已选选项",
-    "example-select-size": "尺寸",
-    "example-select-disabled": "禁用",
 
     "example-slider-basic-usage": "基本用法",
     "example-slider-input-number": "带输入框的滑块",
@@ -348,8 +352,9 @@ export default {
 
     "example-textarea-basic-usage": "基本用法",
     "example-textarea-autosize": "适应内容高度的文本域/后置标签",
-    "example-textarea-resize": "手动改变高度",
+    "example-textarea-resizable": "手动改变高度",
     "example-textarea-maxLength": "输入长度限制",
+    "example-textarea-bordered": "无边框",
     "example-textarea-clearable": "可清空",
     "example-textarea-disabled": "禁用状态",
 
@@ -494,6 +499,7 @@ export default {
 
     "example-message-basic-usage": "基本用法",
     "example-message-type": "提示类型",
+    "example-message-background": "带背景色",
     "example-message-loading": "加载中",
     "example-message-duration": "修改延时",
     "example-message-closable": "可关闭",

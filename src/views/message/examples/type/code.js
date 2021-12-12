@@ -1,10 +1,10 @@
 const code =
 `<template>
   <div class="example-message-type">
-    <vui-button type="info" @click="showInfoMessage">Info</vui-button>
-    <vui-button type="warning" @click="showWarningMessage">Warning</vui-button>
-    <vui-button type="success" @click="showSuccessMessage">Success</vui-button>
-    <vui-button type="error" @click="showErrorMessage">Error</vui-button>
+    <vui-button type="info" ghost v-on:click="showInfoMessage">Info</vui-button>
+    <vui-button type="warning" ghost v-on:click="showWarningMessage">Warning</vui-button>
+    <vui-button type="success" ghost v-on:click="showSuccessMessage">Success</vui-button>
+    <vui-button type="error" ghost v-on:click="showErrorMessage">Error</vui-button>
   </div>
 </template>
 

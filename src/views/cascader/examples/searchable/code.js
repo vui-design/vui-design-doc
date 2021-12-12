@@ -6,6 +6,7 @@ const code =
     changeOnSelect
     searchable
     style="width: 200px;"
+    placeholder="Please select"
   />
 </template>
 

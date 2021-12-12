@@ -1,7 +1,7 @@
 <template>
 	<example v-bind:code="code" id="example-message-duration">
 		<template slot="demo">
-			<vui-button type="primary" @click="showDurationMessage">Customized duration</vui-button>
+			<vui-button type="primary" v-on:click="showDurationMessage">Customized duration</vui-button>
 		</template>
 		<template slot="title">修改延时</template>
 		<template slot="description">

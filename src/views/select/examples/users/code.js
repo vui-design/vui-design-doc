@@ -7,7 +7,7 @@ const code =
     v-on:search="handleSearch"
     multiple
     searchable
-    placeholder="请选择用户"
+    placeholder="Please select"
   >
     <vui-option
       v-for="option in options"

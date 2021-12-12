@@ -1,9 +1,9 @@
 const code =
 `<template>
   <div class="example-cascader-size">
-    <vui-cascader v-bind:options="options" size="small" style="width: 200px;" />
-    <vui-cascader v-bind:options="options" style="width: 200px;" />
-    <vui-cascader v-bind:options="options" size="large" style="width: 200px;" />
+    <vui-cascader v-bind:options="options" size="small" style="width: 200px;" placeholder="Please select" />
+    <vui-cascader v-bind:options="options" style="width: 200px;" placeholder="Please select" />
+    <vui-cascader v-bind:options="options" size="large" style="width: 200px;" placeholder="Please select" />
   </div>
 </template>
 

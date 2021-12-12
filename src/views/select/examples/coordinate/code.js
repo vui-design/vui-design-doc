@@ -1,7 +1,7 @@
 const code =
 `<template>
   <div class="example-select-coordinate">
-    <vui-select v-model="province">
+    <vui-select v-model="province" placeholder="Please select">
       <vui-option
         v-for="province in provinces"
         v-bind:key="province"
@@ -10,7 +10,7 @@ const code =
         {{province}}
       </vui-option>
     </vui-select>
-    <vui-select v-model="city">
+    <vui-select v-model="city" placeholder="Please select">
       <vui-option
         v-for="city in cities"
         v-bind:key="city"

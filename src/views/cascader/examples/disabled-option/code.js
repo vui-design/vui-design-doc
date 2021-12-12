@@ -4,6 +4,7 @@ const code =
     v-model="value"
     v-bind:options="options"
     style="width: 200px;"
+    placeholder="Please select"
   />
 </template>
 

@@ -5,6 +5,7 @@ const code =
     v-bind:options="options"
     expandTrigger="hover"
     style="width: 200px;"
+    placeholder="Please select"
   />
 </template>
 

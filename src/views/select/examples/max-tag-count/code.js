@@ -5,6 +5,7 @@ const code =
       v-model="value1"
       v-bind:maxTagCount="2"
       multiple
+      placeholder="Please select"
       v-on:change="handleChange1"
     >
       <vui-option value="new york">New York</vui-option>
@@ -19,6 +20,7 @@ const code =
       v-bind:maxTagCount="2"
       v-bind:maxTagPlaceholder="maxTagPlaceholder"
       multiple
+      placeholder="Please select"
       v-on:change="handleChange2"
     >
       <vui-option value="new york">New York</vui-option>

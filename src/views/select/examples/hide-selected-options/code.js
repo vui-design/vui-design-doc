@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-select v-model="value" multiple>
+  <vui-select v-model="value" multiple placeholder="Please select">
     <vui-option
       v-for="option in options"
       v-if="value.indexOf(option) === -1"

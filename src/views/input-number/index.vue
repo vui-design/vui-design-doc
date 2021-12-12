@@ -10,15 +10,15 @@
 			</ul>
 			<h2>代码演示</h2>
 		</document>
-		<vui-row :gutter="20">
-			<vui-col :span="12">
-				<ExampleInputNumberBasicUsage />
-				<ExampleInputNumberDigit />
-				<ExampleInputNumberFormatter />
+		<vui-row v-bind:gutter="20">
+			<vui-col v-bind:span="12">
+				<example-basic-usage />
+				<example-digit />
+				<example-formatter />
 			</vui-col>
-			<vui-col :span="12">
-				<ExampleInputNumberSize />
-				<ExampleInputNumberDisabled />
+			<vui-col v-bind:span="12">
+				<example-size />
+				<example-disabled />
 			</vui-col>
 		</vui-row>
 		<document>
@@ -158,11 +158,11 @@
 <script>
 	import MixinAnchors from "src/mixins/anchors";
 	import Document from "src/components/document";
-	import ExampleInputNumberBasicUsage from "./examples/basic-usage";
-	import ExampleInputNumberDigit from "./examples/digit";
-	import ExampleInputNumberFormatter from "./examples/formatter";
-	import ExampleInputNumberSize from "./examples/size";
-	import ExampleInputNumberDisabled from "./examples/disabled";
+	import ExampleBasicUsage from "./examples/basic-usage";
+	import ExampleDigit from "./examples/digit";
+	import ExampleFormatter from "./examples/formatter";
+	import ExampleSize from "./examples/size";
+	import ExampleDisabled from "./examples/disabled";
 
 	export default {
 		mixins: [
@@ -170,11 +170,11 @@
 		],
 		components: {
 			Document,
-			ExampleInputNumberBasicUsage,
-			ExampleInputNumberDigit,
-			ExampleInputNumberFormatter,
-			ExampleInputNumberSize,
-			ExampleInputNumberDisabled
+			ExampleBasicUsage,
+			ExampleDigit,
+			ExampleFormatter,
+			ExampleSize,
+			ExampleDisabled
 		}
 	};
 </script>

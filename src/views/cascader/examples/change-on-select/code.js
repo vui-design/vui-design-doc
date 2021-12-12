@@ -5,6 +5,7 @@ const code =
     v-bind:options="options"
     changeOnSelect
     style="width: 200px;"
+    placeholder="Please select"
   />
 </template>
 

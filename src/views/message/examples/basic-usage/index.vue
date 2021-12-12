@@ -1,7 +1,7 @@
 <template>
 	<example v-bind:code="code" id="example-message-basic-usage">
 		<template slot="demo">
-			<vui-button type="primary" @click="showNormalMessage">Normal</vui-button>
+			<vui-button type="primary" v-on:click="showNormalMessage">Normal</vui-button>
 		</template>
 		<template slot="title">基本用法</template>
 		<template slot="description">

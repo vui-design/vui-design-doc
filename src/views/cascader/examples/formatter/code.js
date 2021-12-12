@@ -5,6 +5,7 @@ const code =
     v-bind:options="options"
     v-bind:formatter="formatter"
     style="width: 200px;"
+    placeholder="Please select"
   />
 </template>
 
