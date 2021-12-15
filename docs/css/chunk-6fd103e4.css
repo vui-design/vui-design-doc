@@ -3,6 +3,10 @@
 }
 
 
+.example-message-background .vui-button + .vui-button { margin-left:10px;
+}
+
+
 .example-message-more-content .vui-button + .vui-button { margin-left:10px;
 }
 
