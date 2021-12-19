@@ -5,13 +5,13 @@ const code =
       <vui-button
         type="primary"
         icon="dustbin"
-        v-bind:loading="loading2"
-        v-on:click="handleClick2"
+        v-bind:loading="loading1"
+        v-on:click="handleClick1"
       >Click me</vui-button>
       <vui-button
         type="primary"
-        v-bind:loading="loading1"
-        v-on:click="handleClick1"
+        v-bind:loading="loading2"
+        v-on:click="handleClick2"
       >Click me</vui-button>
       <vui-button type="primary" loading>Loading...</vui-button>
     </section>

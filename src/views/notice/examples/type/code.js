@@ -6,7 +6,7 @@ const code =
       <vui-button type="info" @click="showInfoNotice(true)">Info</vui-button>
       <vui-button type="warning" @click="showWarningNotice(true)">Warning</vui-button>
       <vui-button type="success" @click="showSuccessNotice(true)">Success</vui-button>
-      <vui-button type="error" @click="showErrorNotice(true)">Error</vui-button>
+      <vui-button type="danger" @click="showErrorNotice(true)">Error</vui-button>
     </section>
     <section>
       <h4>No description</h4>

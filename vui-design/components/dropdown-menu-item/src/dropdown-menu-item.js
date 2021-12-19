@@ -30,6 +30,7 @@ const VuiDropdownMenuItem = {
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		icon: PropTypes.string,
 		title: PropTypes.string,
+		danger: PropTypes.bool.def(false),
 		disabled: PropTypes.bool.def(false)
 	},
 	methods: {
@@ -96,6 +97,7 @@ const VuiDropdownMenuItem = {
 
 		classes.el = {
 			[`${classNamePrefix}`]: true,
+			[`${classNamePrefix}-danger`]: props.danger,
 			[`${classNamePrefix}-disabled`]: props.disabled
 		};
 		classes.elIcon = `${classNamePrefix}-icon`;

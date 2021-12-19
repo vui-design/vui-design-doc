@@ -5,7 +5,7 @@
 				<vui-button type="info" v-on:click="showInfoMessage">Info</vui-button>
 				<vui-button type="warning" v-on:click="showWarningMessage">Warning</vui-button>
 				<vui-button type="success" v-on:click="showSuccessMessage">Success</vui-button>
-				<vui-button type="error" v-on:click="showErrorMessage">Error</vui-button>
+				<vui-button type="danger" v-on:click="showErrorMessage">Error</vui-button>
 			</div>
 		</template>
 		<template slot="title">带背景色</template>

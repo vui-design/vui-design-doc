@@ -17,7 +17,7 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="120">属性</th>
+            <th width="140">属性</th>
             <th>说明</th>
             <th width="160">类型</th>
             <th width="160">默认值</th>
@@ -36,7 +36,7 @@
       <table class="example-api-events">
         <thead>
           <tr>
-            <th width="120">事件名</th>
+            <th width="140">事件名</th>
             <th>说明</th>
             <th width="160">类型</th>
             <th width="160">回调参数</th>

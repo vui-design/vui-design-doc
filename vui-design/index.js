@@ -7,6 +7,7 @@ if (typeof console !== "undefined" && console.warn && typeof window !== "undefin
 import Icon from "./components/icon";
 import ButtonGroup from "./components/button-group";
 import Button from "./components/button";
+import Link from "./components/link";
 // Layout
 import Divider from "./components/divider";
 import Row from "./components/row";
@@ -122,6 +123,7 @@ const components = [
   Icon,
   ButtonGroup,
   Button,
+  Link,
   // Layout
   Divider,
   Row,
@@ -264,6 +266,7 @@ export {
   Icon,
   ButtonGroup,
   Button,
+  Link,
   // Layout
   Divider,
   Row,
@@ -383,6 +386,7 @@ export default {
   Icon,
   ButtonGroup,
   Button,
+  Link,
   // Layout
   Divider,
   Row,

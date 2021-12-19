@@ -107,6 +107,15 @@ export default [
 				},
 				component: () => import("src/views/button/index")
 			},
+			{
+				path: "/components/link",
+				name: "link",
+				meta: {
+					title: "Link",
+					group: "general"
+				},
+				component: () => import("src/views/link/index")
+			},
 			// 布局组件
 			{
 				path: "/components/divider",

@@ -4,7 +4,7 @@ const code =
         <vui-button type="primary" v-on:click="showInfoNotice">消息</vui-button>
         <vui-button type="warning" v-on:click="showWarningNotice">警告</vui-button>
         <vui-button type="success" v-on:click="showSuccessNotice">成功</vui-button>
-        <vui-button type="error" v-on:click="showErrorNotice">失败</vui-button>
+        <vui-button type="danger" v-on:click="showErrorNotice">失败</vui-button>
       </vui-space>
 </template>
 

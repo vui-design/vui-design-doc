@@ -136,6 +136,12 @@
 							<div><code>empty: "暂无数据"</code></div>
 						</td>
 					</tr>
+					<tr>
+						<td>empty</td>
+						<td>数据为空时的展示内容</td>
+						<td>Slot</td>
+						<td>--</td>
+					</tr>
 				</tbody>
 			</table>
 			<p>注意：在 <code>Table</code> 中，<code>columns</code> 和 <code>data</code> 里的数据项都需要指定 <code>key</code> 值。对于 <code>data</code>，其数据项的 <code>key</code> 值会与树形结构、行展开、行选择，以及行的渲染有着密切的关系。组件内部默认会将每项数据的 <code>key</code> 属性作为唯一的标识。如果你的数据没有这个属性，请务必使用 <code>rowKey</code> 来指定数据项的主键，不同数据项的主键不允许重复。若没有指定，或出现重复，表格组件可能会出现意想不到的错误。</p>

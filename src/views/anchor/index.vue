@@ -81,6 +81,12 @@
             <td>Number</td>
             <td>--</td>
           </tr>
+          <tr>
+            <td>preventDefault</td>
+            <td>阻止锚点链接的默认行为，即点击锚点链接时，不将锚点名添加到地址栏</td>
+            <td>Boolean</td>
+            <td>false</td>
+          </tr>
         </tbody>
       </table>
       <h3>Anchor 事件</h3>

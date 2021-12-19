@@ -5,7 +5,7 @@ const code =
     <vui-button type="info" ghost>Info</vui-button>
     <vui-button type="warning" ghost>Warning</vui-button>
     <vui-button type="success" ghost>Success</vui-button>
-    <vui-button type="error" ghost>Error</vui-button>
+    <vui-button type="danger" ghost>Danger</vui-button>
     <vui-button ghost>Default</vui-button>
     <vui-button type="dashed" ghost>Dashed</vui-button>
     <vui-button type="text" ghost>Text</vui-button>

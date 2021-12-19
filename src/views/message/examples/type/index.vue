@@ -5,7 +5,7 @@
 				<vui-button type="info" ghost v-on:click="showInfoMessage">Info</vui-button>
 				<vui-button type="warning" ghost v-on:click="showWarningMessage">Warning</vui-button>
 				<vui-button type="success" ghost v-on:click="showSuccessMessage">Success</vui-button>
-				<vui-button type="error" ghost v-on:click="showErrorMessage">Error</vui-button>
+				<vui-button type="danger" ghost v-on:click="showErrorMessage">Error</vui-button>
 			</div>
 		</template>
 		<template slot="title">提示类型</template>

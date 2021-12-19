@@ -43,7 +43,7 @@
           </tr>
           <tr>
             <td>type</td>
-            <td>设置按钮类型，可选值为 <code>default</code>、<code>primary</code>、<code>info</code>、<code>warning</code>、<code>success</code>、<code>error</code>、<code>dashed</code>、<code>text</code> 或者不设</td>
+            <td>设置按钮类型，可选值为 <code>default</code>、<code>primary</code>、<code>info</code>、<code>warning</code>、<code>success</code>、<code>danger</code>、<code>dashed</code>、<code>text</code> 或者不设</td>
             <td>String</td>
             <td>default</td>
           </tr>
@@ -159,7 +159,7 @@
         <tbody>
           <tr>
             <td>type</td>
-            <td>设置按钮组合类型，可选值为 <code>default</code>、<code>primary</code>、<code>info</code>、<code>warning</code>、<code>success</code>、<code>error</code>、<code>dashed</code> 或者不设</td>
+            <td>设置按钮组合类型，可选值为 <code>default</code>、<code>primary</code>、<code>info</code>、<code>warning</code>、<code>success</code>、<code>danger</code>、<code>dashed</code> 或者不设</td>
             <td>String</td>
             <td>default</td>
           </tr>

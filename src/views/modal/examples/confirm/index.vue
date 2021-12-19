@@ -3,7 +3,7 @@
     <template slot="demo">
       <vui-space>
         <vui-button type="primary" v-on:click="showConfirm">Confirm</vui-button>
-        <vui-button v-on:click="showDeleteConfirm">Delete</vui-button>
+        <vui-button type="danger" ghost v-on:click="showDeleteConfirm">Delete</vui-button>
         <vui-button v-on:click="showAsynchronouslyCloseConfirm">Asynchronously close</vui-button>
       </vui-space>
     </template>
@@ -44,7 +44,7 @@
           okText: "Yes",
           okButtonProps: {
             props: {
-              type: "error"
+              type: "danger"
             }
           },
           cancel: () => console.log("No"),

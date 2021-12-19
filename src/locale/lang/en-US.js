@@ -19,6 +19,7 @@ export default {
     "general-font": "Font 字体",
     "general-icon": "Icon 图标",
     "general-button": "Button 按钮",
+    "general-link": "Link 链接",
 
     "layout": "布局",
     "layout-divider": "Divider 分割线",
@@ -136,6 +137,14 @@ export default {
     "example-button-disabled": "禁用状态",
     "example-button-link": "链接按钮",
     "example-button-group": "按钮组合",
+
+    "example-link-type": "链接类型",
+    "example-link-icon": "图标",
+    "example-link-size": "链接尺寸",
+    "example-link-underline": "下划线",
+    "example-link-loading": "加载状态",
+    "example-link-disabled": "禁用状态",
+    "example-link-link": "链接导航",
 
     "example-layout-basic-usage": "基本用法",
     "example-layout-vertical": "垂直布局",
