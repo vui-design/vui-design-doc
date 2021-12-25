@@ -12,6 +12,7 @@ import styleToObject from "../../../utils/styleToObject";
 import addScrollbarEffect from "../../../utils/addScrollbarEffect";
 import getStyle from "../../../utils/getStyle";
 import getElementByEvent from "../../../utils/getElementByEvent";
+import getContainer from "../../../utils/getContainer";
 import getClassNamePrefix from "../../../utils/getClassNamePrefix";
 
 const VuiDrawer = {
@@ -67,7 +68,7 @@ const VuiDrawer = {
     backdropStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     clickBackdropToClose: PropTypes.bool.def(true),
     animations: PropTypes.array.def(["vui-drawer-backdrop-fade", "vui-drawer-slide"]),
-    getPopupContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]).def(() => document.body)
+    getPopupContainer: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.element, PropTypes.func]).def(() => document.body)
   },
   data() {
     const { $props: props } = this;
@@ -199,7 +200,16 @@ const VuiDrawer = {
         this.vuiDrawer.push();
       }
       else {
-        this.scrollbarEffect = addScrollbarEffect();
+        this.$nextTick(() => {
+          const { $el: element, $props: props } = this;
+          let container = getContainer(props.getPopupContainer);
+
+          if (!container) {
+            container = element.parentNode;
+          }
+
+          this.scrollbarEffect = addScrollbarEffect(container);
+        });
       }
     },
     handleAfterEnter() {
@@ -229,6 +239,7 @@ const VuiDrawer = {
     const { $slots: slots, $props: props, state, t: translate } = this;
     const { handleBackdropClick, handleWrapperClick, handleCancel, handleOk, handleEnter, handleAfterEnter, handleLeave, handleAfterLeave } = this;
     const showHeader = slots.title || props.title;
+    const container = getContainer(props.getPopupContainer);
 
     // class
     const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "drawer");
@@ -256,21 +267,22 @@ const VuiDrawer = {
     let styles = {};
 
     styles.elBackdrop = {
+      position: container === document.body ? "fixed" : "absolute",
       zIndex: state.zIndex
     };
     styles.elWrapper = {
+      position: container === document.body ? "fixed" : "absolute",
       zIndex: state.zIndex
+    };
+    styles.el = {
+      position: container === document.body ? "fixed" : "absolute"
     };
 
     if (["left", "right"].indexOf(props.placement) > -1) {
-      styles.el = {
-        width: is.string(props.width) ? props.width : `${props.width}px`
-      };
+      styles.el.width = is.string(props.width) ? props.width : `${props.width}px`;
     }
     else {
-      styles.el = {
-        height: is.string(props.height) ? props.height : `${props.height}px`
-      };
+      styles.el.height = is.string(props.height) ? props.height : `${props.height}px`;
     }
 
     // render

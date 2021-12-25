@@ -1,14 +1,14 @@
 const code =
 `<template>
   <div class="example-drawer-headless-and-footless">
-    <vui-button type="primary" v-bind:click="showDrawer1">No header</vui-button>
+    <vui-button type="primary" v-on:click="showDrawer1">No header</vui-button>
     <vui-drawer v-model="visible1">
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
     </vui-drawer>
-    <vui-button type="primary" v-bind:click="showDrawer2">No footer</vui-button>
+    <vui-button type="primary" v-on:click="showDrawer2">No footer</vui-button>
     <vui-drawer v-model="visible2" v-bind:showFooter="false" title="Drawer Title">
       <p>Some contents...</p>
       <p>Some contents...</p>

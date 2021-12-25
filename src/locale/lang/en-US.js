@@ -19,7 +19,7 @@ export default {
     "general-font": "Font 字体",
     "general-icon": "Icon 图标",
     "general-button": "Button 按钮",
-    "general-link": "Link 链接",
+    "general-link": "Link 文字链接",
 
     "layout": "布局",
     "layout-divider": "Divider 分割线",

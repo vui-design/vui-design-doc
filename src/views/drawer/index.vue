@@ -23,6 +23,7 @@
 				<ExampleDrawerCustomizedFooter />
 				<ExampleDrawerAsynchronouslyClose />
 				<ExampleDrawerMultiLevel />
+				<ExampleDrawerGetPopupContainer />
 			</vui-col>
 		</vui-row>
 		<document>
@@ -266,6 +267,7 @@
 	import ExampleDrawerCustomizedFooter from "./examples/customized-footer";
 	import ExampleDrawerAsynchronouslyClose from "./examples/asynchronously-close";
 	import ExampleDrawerMultiLevel from "./examples/multi-level";
+	import ExampleDrawerGetPopupContainer from "./examples/get-popup-container";
 
 	export default {
 		mixins: [
@@ -280,7 +282,8 @@
 			ExampleDrawerButtonProps,
 			ExampleDrawerCustomizedFooter,
 			ExampleDrawerAsynchronouslyClose,
-			ExampleDrawerMultiLevel
+			ExampleDrawerMultiLevel,
+			ExampleDrawerGetPopupContainer
 		}
 	};
 </script>
