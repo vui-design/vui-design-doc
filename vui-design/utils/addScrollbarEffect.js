@@ -15,17 +15,18 @@ export default function addScrollbarEffect(container) {
     }
 
     const isOverflowed = document.body.clientWidth < fullWindowWidth;
-    let size;
 
-    if (isOverflowed) {
-      size = getScrollbarSize();
-    }
-
-    if (!isOverflowed || !size) {
+    if (!isOverflowed) {
       return;
     }
 
-    document.body.style.paddingRight = `${size}px`;
+    const size = getScrollbarSize();
+
+    if (!size) {
+      return;
+    }
+
+    document.body.style.paddingRight = size + "px";
     document.body.style.overflow = "hidden";
 
     return {
@@ -37,17 +38,19 @@ export default function addScrollbarEffect(container) {
   }
   else {
     const isOverflowed = container.clientWidth < container.offsetWidth;
-    let size;
 
-    if (isOverflowed) {
-      size = getScrollbarSize();
+    if (!isOverflowed) {
+      return;
     }
 
-    if (!isOverflowed || !size) {
+    const size = getScrollbarSize();
+
+    if (!size) {
       return;
     }
 
     container.scrollTop = 0;
+    container.scrollLeft = 0;
     container.style.paddingRight = `${size}px`;
     container.style.overflow = "hidden";
 

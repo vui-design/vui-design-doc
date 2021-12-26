@@ -1,7 +1,7 @@
 const code =
 `<template>
   <div class="example-drawer-hide-close-button">
-    <vui-button type="primary" v-on:click="showDrawer">Hide close button</vui-button>
+    <vui-button type="primary" v-on:click="handleShowDrawer">Hide close button</vui-button>
     <vui-drawer v-model="visible" v-bind:closable="false" title="Drawer Title">
       <p>Some contents...</p>
       <p>Some contents...</p>
@@ -19,7 +19,7 @@ const code =
       };
     },
     methods: {
-      showDrawer() {
+      handleShowDrawer() {
         this.visible = true;
       }
     }

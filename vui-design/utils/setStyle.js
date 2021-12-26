@@ -35,23 +35,23 @@ export function getStyleProperty(key) {
   return cssProperties[key] || (cssProperties[key] = getVendorProperty(key));
 };
 
-export function addStyle(element, key, value) {
+export function setStyle(element, key, value) {
   const property = getStyleProperty(key);
 
   element.style[property] = value;
 };
 
-export default function css(element, properties) {
-  if (arguments.length == 2) {
-    for (let key in properties) {
-      const value = properties[key];
+export default function setStyles(element, styles) {
+  if (arguments.length === 2) {
+    for (let key in styles) {
+      const value = styles[key];
 
-      if (value !== undefined && properties.hasOwnProperty(key)) {
-        addStyle(element, key, value);
+      if (value !== undefined && styles.hasOwnProperty(key)) {
+        setStyle(element, key, value);
       }
     }
   }
   else {
-    addStyle(element, arguments[1], arguments[2]);
+    setStyle(element, arguments[1], arguments[2]);
   }
 };

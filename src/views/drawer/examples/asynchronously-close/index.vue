@@ -2,7 +2,7 @@
 	<example v-bind:code="code" id="example-drawer-asynchronously-close">
 		<template slot="demo">
 			<div class="example-drawer-asynchronously-close">
-				<vui-button type="primary" v-on:click="showDrawer">Open drawer with async logic</vui-button>
+				<vui-button type="primary" v-on:click="handleShowDrawer">Open drawer with async logic</vui-button>
 				<vui-drawer v-model="visible" v-on:cancel="handleCancel" okAsync v-on:ok="handleOk" title="Drawer Title">
 					<p>Some contents...</p>
 					<p>Some contents...</p>
@@ -13,7 +13,7 @@
 		</template>
 		<template slot="title">异步关闭</template>
 		<template slot="description">
-			<p>通过设置 <code>cancelAsync</code>、<code>okAsync</code> 标记取消按钮或确定按钮的点击事件回调函数是否执行异步任务。</p>
+			<p>通过设置 <code>cancelAsync</code>、<code>okAsync</code> 标记取消或确定按钮的点击事件回调函数是否执行异步任务。</p>
 			<p>当该属性为 <code>true</code> 时，点击按钮后，按钮会进入 <code>loading</code> 状态，同时事件回调函数会接收一个 <code>done</code> 函数作为参数，需要在异步任务完成后调用这个 <code>done</code> 函数，告知抽屉异步任务执行完成，此时按钮会移除 <code>loading</code> 状态。</p>
 			<p>1、<code>done()</code> 或 <code>done(true)</code> 表示 <code>loading</code> 状态结束后自动关闭抽屉；</p>
 			<p>2、<code>done(false)</code> 表示 <code>loading</code> 状态结束后禁止关闭抽屉。</p>
@@ -36,7 +36,7 @@
 			};
 		},
 		methods: {
-			showDrawer() {
+			handleShowDrawer() {
 				this.visible = true;
 			},
 			handleCancel() {

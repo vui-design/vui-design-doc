@@ -502,9 +502,10 @@ export default {
     "example-drawer-headless-and-footless": "隐藏页头页脚",
     "example-drawer-hide-close-button": "隐藏关闭按钮",
     "example-drawer-button-props": "按钮属性",
-    "example-drawer-customized-footer": "自定义页脚",
     "example-drawer-asynchronously-close": "异步关闭",
+    "example-drawer-customized-footer": "自定义页脚",
     "example-drawer-multi-level": "多层抽屉",
+    "example-drawer-get-popup-container": "渲染在当前容器",
 
     "example-message-basic-usage": "基本用法",
     "example-message-type": "提示类型",

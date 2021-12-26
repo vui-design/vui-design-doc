@@ -112,9 +112,10 @@ import Anchor from "./components/anchor";
 import AnchorLink from "./components/anchor-link";
 import Authorizer from "./components/authorizer";
 import Backtop from "./components/backtop";
+import Collapser from "./components/collapser";
 import Fullscreen from "./components/fullscreen";
 import Loading from "./components/loading";
-import TransitionCollapse from "./components/transition-collapse";
+import ResizeObserver from "./components/resize-observer";
 // Language
 import locale from "./locale";
 
@@ -228,8 +229,9 @@ const components = [
   AnchorLink,
   Authorizer,
   Backtop,
+  Collapser,
   Fullscreen,
-  TransitionCollapse
+  ResizeObserver
 ];
 
 const install = function(Vue, options = {}) {
@@ -372,8 +374,9 @@ export {
   Authorizer,
   Backtop,
   Loading,
+  Collapser,
   Fullscreen,
-  TransitionCollapse
+  ResizeObserver
 };
 
 export default {
@@ -491,7 +494,8 @@ export default {
   AnchorLink,
   Authorizer,
   Backtop,
+  Collapser,
   Loading,
   Fullscreen,
-  TransitionCollapse
+  ResizeObserver
 };

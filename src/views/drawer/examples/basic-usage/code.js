@@ -1,7 +1,7 @@
 const code =
 `<template>
   <div class="example-drawer-basic-usage">
-    <vui-button type="primary" v-on:click="handleOpen">Open basic drawer</vui-button>
+    <vui-button type="primary" v-on:click="handleShowDrawer">Open basic drawer</vui-button>
     <vui-drawer v-model="visible" title="Drawer Title">
       <p>Some contents...</p>
       <p>Some contents...</p>
@@ -19,7 +19,7 @@ const code =
       };
     },
     methods: {
-      handleOpen() {
+      handleShowDrawer() {
         this.visible = true;
       }
     }

@@ -3,7 +3,7 @@ import Emitter from "../../../mixins/emitter";
 import PropTypes from "../../../utils/prop-types";
 import is from "../../../utils/is";
 import merge from "../../../utils/merge";
-import css from "../../../utils/css";
+import setStyle from "../../../utils/setStyle";
 import getTextareaSize from "../../../utils/getTextareaSize";
 import getClassNamePrefix from "../../../utils/getClassNamePrefix";
 
@@ -105,7 +105,7 @@ const VuiTextarea = {
           styles = getTextareaSize(references.textarea, minRows, maxRows);
         }
 
-        css(references.textarea, merge(styles, {
+        setStyle(references.textarea, merge(styles, {
           resize: props.resizable ? "vertical" : "none"
         }));
       }
