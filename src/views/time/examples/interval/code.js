@@ -1,7 +1,7 @@
 const code =
 `<template>
   <div class="example-time-interval">
-    <vui-time :time="time" :interval="interval" />
+    <vui-time v-bind:value="value" v-bind:interval="interval" />
   </div>
 </template>
 
@@ -9,7 +9,7 @@ const code =
   export default {
     data() {
       return {
-        time: new Date().getTime(),
+        value: new Date().getTime(),
         interval: 5 * 60
       };
     }

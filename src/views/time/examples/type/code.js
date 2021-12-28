@@ -1,11 +1,11 @@
 const code =
 `<template>
   <div class="example-time-type">
-    <vui-time :time="time" />
+    <vui-time v-bind:value="value" />
     <br />
-    <vui-time type="date" :time="time" />
+    <vui-time type="date" v-bind:value="value" />
     <br />
-    <vui-time type="datetime" :time="time" />
+    <vui-time type="datetime" v-bind:value="value" />
   </div>
 </template>
 
@@ -13,7 +13,7 @@ const code =
   export default {
     data() {
       return {
-        time: new Date().getTime() - 5 * 24 * 60 * 60 * 1000
+        value: new Date().getTime() - 5 * 24 * 60 * 60 * 1000
       };
     }
   };

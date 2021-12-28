@@ -12,10 +12,13 @@
   transition:all @transition-duration @transition-timing-function;
 
   span {
-    display:inline-block;
+    display:block;
+    box-sizing:border-box;
   }
 
   .@{vui}-icon {
+    display:block;
+    box-sizing:border-box;
     transition:all @transition-duration @transition-timing-function;
 
     &:first-child {
