@@ -188,9 +188,9 @@ const VuiDropdownSubmenu = {
       [`${classNamePrefix}-disabled`]: props.disabled
     };
     classes.elHeader = `${classNamePrefix}-header`;
-    classes.elIcon = `${classNamePrefix}-icon`;
-    classes.elTitle = `${classNamePrefix}-title`;
-    classes.elArrow = `${classNamePrefix}-arrow`;
+    classes.elHeaderIcon = `${classNamePrefix}-header-icon`;
+    classes.elHeaderTitle = `${classNamePrefix}-header-title`;
+    classes.elHeaderArrow = `${classNamePrefix}-header-arrow`;
     classes.elBody = `${classNamePrefix}-body`;
 
     const menuClassNamePrefix = getClassNamePrefix(vuiDropdownMenuProps.classNamePrefix, "dropdown-menu");
@@ -207,15 +207,15 @@ const VuiDropdownSubmenu = {
         <div ref="header" class={classes.elHeader} onMouseenter={handleHeaderMouseenter} onMouseleave={handleHeaderMouseleave}>
           {
             icon ? (
-              <div class={classes.elIcon}>{icon}</div>
+              <div class={classes.elHeaderIcon}>{icon}</div>
             ) : null
           }
           {
             title ? (
-              <div class={classes.elTitle}>{title}</div>
+              <div class={classes.elHeaderTitle}>{title}</div>
             ) : null
           }
-          <i class={classes.elArrow}></i>
+          <div class={classes.elHeaderArrow}></div>
         </div>
         <VuiLazyRender render={state.visible}>
           <transition appear name={props.animation} onBeforeEnter={handleBodyBeforeEnter} onAfterLeave={handleBodyAfterLeave}>
