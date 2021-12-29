@@ -249,23 +249,42 @@
 				color:@dropdown-submenu-header-light-hover-font-color;
 			}
 		}
-
-		&-open &-header {
-			background-color:@dropdown-submenu-header-light-open-background-color;
-			color:@dropdown-submenu-header-light-open-font-color;
-		}
-
-		&-disabled &-header {
-			cursor:not-allowed;
-			pointer-events:none;
-			background-color:@dropdown-submenu-header-light-disabled-background-color;
-			color:@dropdown-submenu-header-light-disabled-font-color;
-		}
+	}
+	&-menu-light &-submenu-open &-submenu-header {
+		background-color:@dropdown-submenu-header-light-open-background-color;
+		color:@dropdown-submenu-header-light-open-font-color;
+	}
+	&-menu-light &-submenu-disabled &-submenu-header {
+		cursor:not-allowed;
+		pointer-events:none;
+		background-color:@dropdown-submenu-header-light-disabled-background-color;
+		color:@dropdown-submenu-header-light-disabled-font-color;
 	}
 
 	// dark
 	&-menu-dark {
 		background-color:@dropdown-menu-dark-background-color;
+	}
+
+	&-menu-dark &-submenu {
+		&-header {
+			color:@dropdown-submenu-header-dark-font-color;
+
+			&:hover {
+				background-color:@dropdown-submenu-header-dark-hover-background-color;
+				color:@dropdown-submenu-header-dark-hover-font-color;
+			}
+		}
+	}
+	&-menu-dark &-submenu-open &-submenu-header {
+		background-color:@dropdown-submenu-header-dark-open-background-color;
+		color:@dropdown-submenu-header-dark-open-font-color;
+	}
+	&-menu-dark &-submenu-disabled &-submenu-header {
+		cursor:not-allowed;
+		pointer-events:none;
+		background-color:@dropdown-submenu-header-dark-disabled-background-color;
+		color:@dropdown-submenu-header-dark-disabled-font-color;
 	}
 }
 
@@ -276,24 +295,6 @@
 
 
 
-.vui-dropdown-menu-dark .vui-dropdown-submenu .vui-dropdown-submenu-header { color:rgba(255,255,255,0.7); }
-.vui-dropdown-menu-dark .vui-dropdown-submenu .vui-dropdown-submenu-header .vui-dropdown-submenu-arrow:before { background-color:rgba(255,255,255,0.7); }
-.vui-dropdown-menu-dark .vui-dropdown-submenu .vui-dropdown-submenu-header .vui-dropdown-submenu-arrow:after { background-color:rgba(255,255,255,0.7); }
-.vui-dropdown-menu-dark .vui-dropdown-submenu .vui-dropdown-submenu-header:hover { background-color:rgba(0,0,0,0.25); }
-.vui-dropdown-menu-dark .vui-dropdown-submenu .vui-dropdown-submenu-header:hover .vui-dropdown-submenu-arrow:before {  }
-.vui-dropdown-menu-dark .vui-dropdown-submenu .vui-dropdown-submenu-header:hover .vui-dropdown-submenu-arrow:after {  }
-.vui-dropdown-menu-dark .vui-dropdown-submenu .vui-dropdown-submenu-header:active { background-color:rgba(0,0,0,0.25); }
-.vui-dropdown-menu-dark .vui-dropdown-submenu .vui-dropdown-submenu-header:active .vui-dropdown-submenu-arrow:before {  }
-.vui-dropdown-menu-dark .vui-dropdown-submenu .vui-dropdown-submenu-header:active .vui-dropdown-submenu-arrow:after {  }
-.vui-dropdown-menu-dark .vui-dropdown-submenu.vui-dropdown-submenu-open .vui-dropdown-submenu-header {  }
-.vui-dropdown-menu-dark .vui-dropdown-submenu.vui-dropdown-submenu-open .vui-dropdown-submenu-header .vui-dropdown-submenu-arrow:before {  }
-.vui-dropdown-menu-dark .vui-dropdown-submenu.vui-dropdown-submenu-open .vui-dropdown-submenu-header .vui-dropdown-submenu-arrow:after {  }
-.vui-dropdown-menu-dark .vui-dropdown-submenu.vui-dropdown-submenu-selected .vui-dropdown-submenu-header { background-color:rgba(0,0,0,0.25); color:#2d8cf0; }
-.vui-dropdown-menu-dark .vui-dropdown-submenu.vui-dropdown-submenu-selected .vui-dropdown-submenu-header .vui-dropdown-submenu-arrow:before { background-color:#2d8cf0; }
-.vui-dropdown-menu-dark .vui-dropdown-submenu.vui-dropdown-submenu-selected .vui-dropdown-submenu-header .vui-dropdown-submenu-arrow:after { background-color:#2d8cf0; }
-.vui-dropdown-menu-dark .vui-dropdown-submenu.vui-dropdown-submenu-disabled .vui-dropdown-submenu-header { cursor:not-allowed; pointer-events:none; background-color:transparent; color:rgba(255,255,255,0.3); }
-.vui-dropdown-menu-dark .vui-dropdown-submenu.vui-dropdown-submenu-disabled .vui-dropdown-submenu-header .vui-dropdown-submenu-arrow:before { background-color:rgba(255,255,255,0.3); }
-.vui-dropdown-menu-dark .vui-dropdown-submenu.vui-dropdown-submenu-disabled .vui-dropdown-submenu-header .vui-dropdown-submenu-arrow:after { background-color:rgba(255,255,255,0.3); }
 
 
 // dropdown-menu-item-group theme
