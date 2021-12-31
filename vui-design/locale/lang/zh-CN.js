@@ -7,7 +7,7 @@ export default {
       error: "加载失败"
     },
     form: {
-      optional: "（可选）"
+      optional: "(可选)"
     },
     cascader: {
       placeholder: "请选择",

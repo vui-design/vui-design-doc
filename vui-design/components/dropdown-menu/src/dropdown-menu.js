@@ -1,4 +1,5 @@
 import PropTypes from "../../../utils/prop-types";
+import is from "../../../utils/is";
 import getClassNamePrefix from "../../../utils/getClassNamePrefix";
 
 const VuiDropdownMenu = {
@@ -15,7 +16,8 @@ const VuiDropdownMenu = {
   },
   props: {
     classNamePrefix: PropTypes.string,
-    color: PropTypes.oneOf(["light", "dark"]).def("light")
+    color: PropTypes.oneOf(["light", "dark"]).def("light"),
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   },
   render(h) {
     const { $slots: slots, $props: props } = this;
@@ -29,9 +31,23 @@ const VuiDropdownMenu = {
       [`${classNamePrefix}-${props.color}`]: props.color
     };
 
+    // styles
+    let styles = {};
+
+    if (is.string(props.width)) {
+      styles.el = {
+        width: props.width
+      };
+    }
+    else if (is.number(props.width)) {
+      styles.el = {
+        width: props.width + "px"
+      };
+    }
+
     // render
     return (
-      <div class={classes.el}>{slots.default}</div>
+      <div class={classes.el} style={styles.el}>{slots.default}</div>
     );
   }
 };

@@ -2,41 +2,39 @@
 
 .@{vui-form} {
 	display:block;
-	color:#595959;
-	font-size:14px;
-	line-height:@line-height;
+	box-sizing:border-box;
+	color:@form-font-color;
+	font-size:@form-font-size;
+	line-height:@form-line-height;
 
 	&-group {
 		position:relative;
-		border:1px solid #e0e0e0;
-		border-radius:2px;
-		padding:30px;
+		border:1px solid @form-group-border-color;
+		border-radius:@form-group-border-radius;
+		padding:@form-group-padding;
 
 		&-title {
 			position:absolute;
 			top:0;
-			left:20px;
-			background-color:#fff;
-			padding:0 12px;
-			color:#595959;
-			font-size:14px;
-			line-height:@line-height;
+			left:24px;
+			padding:0 @form-group-title-padding-horizontal;
+			color:@form-group-title-font-color;
+			font-size:@form-group-title-font-size;
 			transform:translateY(-50%);
 		}
 
 		& + & {
-			margin-top:30px;
+			margin-top:@form-group-margin-top;
 		}
 	}
 
 	&-item {
-		.clearfix;
-
 		&-label {
 			display:flex;
 			align-items:center;
+			box-sizing:border-box;
 			overflow:hidden;
-			color:#262626;
+			color:@form-item-label-font-color;
 
 			&-left {
 				justify-content:flex-start;
@@ -47,67 +45,63 @@
 			}
 
 			&-required {
-				flex-shrink:0;
+				flex:0 0 auto;
 				display:block;
-				margin-right:4px;
-				color:#ff4d4f;
+				box-sizing:border-box;
+				margin-right:@form-item-label-required-mark-margin-right;
+				color:@form-item-label-required-mark-font-color;
 				font-family:SimSun, sans-serif;
 			}
 
 			&-optional {
-				flex-shrink:0;
+				flex:0 0 auto;
 				display:block;
-				margin-left:4px;
-				color:#8c8c8c;
+				box-sizing:border-box;
+				margin-left:@form-item-label-optional-mark-margin-left;
+				color:@form-item-label-optional-mark-font-color;
 			}
 
 			&-content {
-				flex-shrink:1;
+				flex:0 1 auto;
 				display:block;
-				overflow:hidden;
-				white-space:nowrap;
-				text-overflow:ellipsis;
+
+				.writeEllipsis;
 			}
 
 			&-description {
-				color:#8c8c8c;
+				color:@form-item-label-description-font-color;
 			}
 
 			&-tooltip {
-				flex-shrink:0;
-				display:block;
-				margin-left:4px;
-				color:#8c8c8c;
+				flex:0 0 auto;
+				display:flex;
+				justify-content:center;
+				align-items:center;
+				box-sizing:border-box;
+				margin-left:@form-item-label-tooltip-margin-left;
+				color:@form-item-label-tooltip-font-color;
 
-				i {
+				.@{vui}-icon {
 					display:block;
 				}
 			}
 
 			&-colon {
-				flex-shrink:0;
+				flex:0 0 auto;
 				display:block;
-				margin-left:2px;
+				box-sizing:border-box;
+				margin-left:@form-item-label-colon-margin-left;
 			}
 		}
 
 		&-control {
 			position:relative;
-
-			&-layout {
-				display:flex;
-				align-items:center;
-				min-height:34px;
-
-				&-content {
-					flex:1;
-					max-width:100%;
-				}
-			}
+			display:block;
+			box-sizing:border-box;
 
 			&-extra {
-				margin-top:12px;
-				color:#8c8c8c;
+				margin-top:@form-item-control-extra-margin-top;
+				color:@form-item-control-extra-font-color;
 			}
 
 			&-message {
@@ -116,23 +110,22 @@
 				left:0;
 				width:100%;
 				padding:2px 0;
-				color:#ff4d4f;
-				line-height:20px;
+				color:@form-item-control-message-font-color;
 
-				&-fade-enter-active { animation:vuiFormItemControlMessageFadeIn @animation-in-duration @animation-in-timing-function both; }
-				&-fade-leave-active { animation:vuiFormItemControlMessageFadeOut @animation-out-duration @animation-out-timing-function both; }
-			}
-		}
-
-		&-without-label &-control {
-			&-layout {
-				min-height:unset;
+				&-fade-enter-active {
+					animation:vuiFormItemControlMessageFadeIn @animation-in-duration @animation-in-timing-function both;
+				}
+				&-fade-leave-active {
+					animation:vuiFormItemControlMessageFadeOut @animation-out-duration @animation-out-timing-function both;
+				}
 			}
 		}
 	}
 
 	&-horizontal &-item {
-		display:block;
+		display:flex;
+		justify-content:flex-start;
+		align-items:stretch;
 		margin-bottom:24px;
 
 		&:last-child {
@@ -140,9 +133,12 @@
 		}
 
 		&-label {
-			float:left;
-			height:34px;
+			max-height:34px;
 			padding-right:12px;
+		}
+
+		&-control {
+			flex:1;
 		}
 	}
 

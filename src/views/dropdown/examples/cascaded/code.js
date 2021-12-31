@@ -5,11 +5,17 @@ const code =
     <vui-dropdown-menu slot="menu" v-on:click="handleClick">
       <vui-dropdown-menu-item value="1" title="Menu Item 1" />
       <vui-dropdown-menu-item value="2" title="Menu Item 2" />
-      <vui-dropdown-menu-item disabled value="3" title="Menu Item 3" />
-      <vui-dropdown-submenu value="4" title="Menu Item 4">
-        <vui-dropdown-menu-item value="4-1" title="Menu Item 4-1" />
-        <vui-dropdown-menu-item value="4-2" title="Menu Item 4-2" />
-        <vui-dropdown-menu-item value="4-3" title="Menu Item 4-3" />
+      <vui-dropdown-menu-item-group title="Group Title">
+        <vui-dropdown-menu-item value="3" title="Menu Item 3" />
+        <vui-dropdown-menu-item value="4" title="Menu Item 4" />
+      </vui-dropdown-menu-item-group>
+      <vui-dropdown-submenu disabled title="Submenu 1">
+        <vui-dropdown-menu-item value="1-1" title="Menu Item 1-1" />
+        <vui-dropdown-menu-item value="1-2" title="Menu Item 1-2" />
+      </vui-dropdown-submenu>
+      <vui-dropdown-submenu title="Submenu 2">
+        <vui-dropdown-menu-item value="2-1" title="Menu Item 2-1" />
+        <vui-dropdown-menu-item value="2-2" title="Menu Item 2-2" />
       </vui-dropdown-submenu>
     </vui-dropdown-menu>
   </vui-dropdown>

@@ -1,5 +1,6 @@
 import VuiLazyRender from "../../lazy-render";
 import VuiIcon from "../../icon";
+import VuiDropdownMenu from "../../dropdown-menu";
 import Portal from "../../../directives/portal";
 import Popup from "../../../libs/popup";
 import PropTypes from "../../../utils/prop-types";
@@ -27,7 +28,8 @@ const VuiDropdownSubmenu = {
   },
   components: {
     VuiLazyRender,
-    VuiIcon
+    VuiIcon,
+    VuiDropdownMenu
   },
   directives: {
     Portal
@@ -38,6 +40,7 @@ const VuiDropdownSubmenu = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).def(() => guid()),
     icon: PropTypes.string,
     title: PropTypes.string,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     disabled: PropTypes.bool.def(false),
     animation: PropTypes.string.def("vui-dropdown-submenu-body-scale"),
     getPopupContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]).def(() => document.body)
@@ -193,14 +196,6 @@ const VuiDropdownSubmenu = {
     classes.elHeaderArrow = `${classNamePrefix}-header-arrow`;
     classes.elBody = `${classNamePrefix}-body`;
 
-    const menuClassNamePrefix = getClassNamePrefix(vuiDropdownMenuProps.classNamePrefix, "dropdown-menu");
-    const menuColor = vuiDropdownMenuProps.color;
-
-    classes.elMenu = {
-      [`${menuClassNamePrefix}`]: true,
-      [`${menuClassNamePrefix}-${menuColor}`]: menuColor
-    };
-
     // render
     return (
       <div class={classes.el}>
@@ -220,7 +215,9 @@ const VuiDropdownSubmenu = {
         <VuiLazyRender render={state.visible}>
           <transition appear name={props.animation} onBeforeEnter={handleBodyBeforeEnter} onAfterLeave={handleBodyAfterLeave}>
             <div ref="body" v-portal={props.getPopupContainer} v-show={state.visible} class={classes.elBody} onMouseenter={handleBodyMouseenter} onMouseleave={handleBodyMouseleave}>
-              <div class={classes.elMenu}>{slots.default}</div>
+              <VuiDropdownMenu classNamePrefix={props.classNamePrefix} color={vuiDropdownMenuProps.color} width={props.width}>
+                {slots.default}
+              </VuiDropdownMenu>
             </div>
           </transition>
         </VuiLazyRender>
