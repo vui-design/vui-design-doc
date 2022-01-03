@@ -2,10 +2,10 @@ const code =
 `<template>
   <vui-form layout="inline">
     <vui-form-item>
-      <vui-input v-model="form.username" prefix="user" placeholder="Username" style="width: 200px;" />
+      <vui-input v-model="form.username" prefix="user" style="width: 200px;" placeholder="Username" />
     </vui-form-item>
     <vui-form-item>
-      <vui-input v-model="form.password" prefix="lock" placeholder="Password" style="width: 200px;" />
+      <vui-input v-model="form.password" type="password" prefix="lock" style="width: 200px;" placeholder="Password" />
     </vui-form-item>
     <vui-form-item>
       <vui-button type="primary">Sign in</vui-button>
@@ -26,8 +26,8 @@ const code =
     watch: {
       form: {
         deep: true,
-        handler: function(newValue, oldValue) {
-          console.log(JSON.stringify(newValue));
+        handler: function(value) {
+          console.log(JSON.stringify(value));
         }
       }
     }

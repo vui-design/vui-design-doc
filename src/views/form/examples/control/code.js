@@ -1,11 +1,11 @@
 const code =
 `<template>
-  <vui-form v-bind:model="form" v-bind:labelWidth="100">
+  <vui-form v-bind:model="form" v-bind:labelWidth="120">
     <vui-form-item label="Input">
       <vui-input v-model="form.input" placeholder="Enter something..." />
     </vui-form-item>
     <vui-form-item label="Select">
-      <vui-select v-model="form.select" placeholder="Select..." style="width: 200px;">
+      <vui-select v-model="form.select" searchable style="width: 200px;" placeholder="Select...">
         <vui-option value="new york">New York</vui-option>
         <vui-option value="london">London</vui-option>
         <vui-option value="sydney">Sydney</vui-option>
@@ -15,7 +15,7 @@ const code =
       </vui-select>
     </vui-form-item>
     <vui-form-item label="Multiple Select">
-      <vui-select v-model="form.multipleSelect" multiple placeholder="Select...">
+      <vui-select v-model="form.multipleSelect" multiple searchable placeholder="Select...">
         <vui-option value="new york">New York</vui-option>
         <vui-option value="london">London</vui-option>
         <vui-option value="sydney">Sydney</vui-option>
@@ -45,11 +45,11 @@ const code =
       </vui-switch>
     </vui-form-item>
     <vui-form-item label="Textarea">
-      <vui-textarea v-model="form.textarea" v-bind:autosize="{minRows: 4, maxRows: 8}" placeholder="Enter something..." />
+      <vui-textarea v-model="form.textarea" autosize placeholder="Enter something..." />
     </vui-form-item>
     <vui-form-item>
       <vui-button type="primary">Submit</vui-button>
-      <vui-button style="margin-left: 20px;">Cancel</vui-button>
+      <vui-button style="margin-left: 16px;">Cancel</vui-button>
     </vui-form-item>
   </vui-form>
 </template>
@@ -72,8 +72,8 @@ const code =
     watch: {
       form: {
         deep: true,
-        handler: function(newValue, oldValue) {
-          console.log(JSON.stringify(newValue));
+        handler: function(value) {
+          console.log(JSON.stringify(value));
         }
       }
     }

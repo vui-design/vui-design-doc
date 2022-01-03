@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-form layout="vertical" v-bind:model="form" v-bind:rules="rules" v-bind:requiredMark="form.requiredMark">
+  <vui-form layout="horizontal" v-bind:model="form" v-bind:rules="rules" v-bind:requiredMark="form.requiredMark" v-bind:labelWidth="120">
     <vui-form-item label="Required Mark">
       <vui-radio-group type="button" v-model="form.requiredMark">
         <vui-radio v-bind:value="true">Required</vui-radio>
@@ -11,8 +11,8 @@ const code =
     <vui-form-item prop="input" label="Input" tooltip="This is a required field">
       <vui-input v-model="form.input" placeholder="Enter something..." />
     </vui-form-item>
-    <vui-form-item label="Select" tooltip="This is an optional field">
-      <vui-select v-model="form.select" placeholder="Select..." style="width: 200px;">
+    <vui-form-item prop="select" label="Select" tooltip="This is an optional field">
+      <vui-select v-model="form.select" searchable style="width: 200px;" placeholder="Select...">
         <vui-option value="new york">New York</vui-option>
         <vui-option value="london">London</vui-option>
         <vui-option value="sydney">Sydney</vui-option>
@@ -38,7 +38,7 @@ const code =
         },
         rules: {
           input: [
-            { trigger: "blur" , required: true, message: "The name cannot be empty" }
+            { trigger: "blur" , required: true, message: "This is a required field" }
           ]
         }
       };

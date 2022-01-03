@@ -12,7 +12,7 @@ const code =
       <vui-input v-model="form.input" placeholder="Enter something..." />
     </vui-form-item>
     <vui-form-item label="Select">
-      <vui-select v-model="form.select" placeholder="Select..." style="width: 200px;">
+      <vui-select v-model="form.select" searchable style="width: 200px;" placeholder="Select...">
         <vui-option value="new york">New York</vui-option>
         <vui-option value="london">London</vui-option>
         <vui-option value="sydney">Sydney</vui-option>
@@ -41,10 +41,10 @@ const code =
     computed: {
       labelWidth() {
         if (this.form.layout === "horizontal") {
-          return "100px";
+          return 120;
         }
         else {
-          return "auto";
+          return;
         }
       }
     }

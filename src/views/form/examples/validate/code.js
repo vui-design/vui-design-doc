@@ -1,14 +1,14 @@
 const code =
 `<template>
-  <vui-form ref="form" v-bind:model="form" v-bind:rules="rules" v-bind:labelWidth="100">
+  <vui-form ref="form" v-bind:model="form" v-bind:rules="rules" v-bind:labelWidth="120">
     <vui-form-item prop="name" label="Name">
-      <vui-input v-model="form.name" placeholder="Enter your name..." style="width: 200px;" />
+      <vui-input v-model="form.name" style="width: 200px;" placeholder="Enter your name..." />
     </vui-form-item>
     <vui-form-item prop="email" label="E-mail">
-      <vui-input v-model="form.email" placeholder="Enter your e-mail..." style="width: 50%;" />
+      <vui-input v-model="form.email" style="width: 50%;" placeholder="Enter your e-mail..." />
     </vui-form-item>
     <vui-form-item prop="city" label="City">
-      <vui-select v-model="form.city" clearable placeholder="Select your city..." style="width: 200px;">
+      <vui-select v-model="form.city" searchable style="width: 200px;" placeholder="Select your city...">
         <vui-option value="new york">New York</vui-option>
         <vui-option value="london">London</vui-option>
         <vui-option value="sydney">Sydney</vui-option>
@@ -21,7 +21,7 @@ const code =
       <vui-input-number v-model="form.age" v-bind:min="15" v-bind:max="100" placeholder="Enter your age..." />
     </vui-form-item>
     <vui-form-item prop="birthday" label="Birthday">
-      <vui-input v-model="form.birthday" placeholder="Select your birthday..." style="width: 200px;" />
+      <vui-input v-model="form.birthday" style="width: 200px;" placeholder="Select your birthday..." />
     </vui-form-item>
     <vui-form-item prop="gender" label="Gender">
       <vui-radio-group v-model="form.gender">
@@ -44,11 +44,11 @@ const code =
       </vui-switch>
     </vui-form-item>
     <vui-form-item prop="introduction" label="Introduction">
-      <vui-textarea v-model="form.introduction" v-bind:autosize="{minRows: 4, maxRows: 8}" placeholder="Please introduce yourself briefly..." />
+      <vui-textarea v-model="form.introduction" autosize placeholder="Please introduce yourself briefly..." />
     </vui-form-item>
     <vui-form-item>
       <vui-button type="primary" v-on:click="handleSubmit">Submit</vui-button>
-      <vui-button style="margin-left: 20px;" v-on:click="handleReset">Reset</vui-button>
+      <vui-button style="margin-left: 16px;" v-on:click="handleReset">Reset</vui-button>
     </vui-form-item>
   </vui-form>
 </template>
@@ -95,14 +95,6 @@ const code =
           ]
         }
       };
-    },
-    watch: {
-      form: {
-        deep: true,
-        handler: function(newValue, oldValue) {
-          console.log(JSON.stringify(newValue));
-        }
-      }
     },
     methods: {
       handleSubmit() {

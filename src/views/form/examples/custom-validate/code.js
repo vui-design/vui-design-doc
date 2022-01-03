@@ -1,18 +1,18 @@
 const code =
 `<template>
-  <vui-form ref="form" v-bind:model="form" v-bind:rules="rules" v-bind:labelWidth="100">
+  <vui-form ref="form" v-bind:model="form" v-bind:rules="rules" v-bind:labelWidth="120">
     <vui-form-item label="Account" prop="account">
-      <vui-input v-model="form.account" placeholder="Enter your account..." style="width: 200px;" />
+      <vui-input v-model="form.account" style="width: 200px;" placeholder="Enter your account..." />
     </vui-form-item>
     <vui-form-item label="Password" prop="password">
-      <vui-input type="password" v-model="form.password" showPasswordToggler placeholder="Enter your password..." style="width: 50%;" />
+      <vui-input type="password" v-model="form.password" showPasswordToggler style="width: 50%;" placeholder="Enter your password..." />
     </vui-form-item>
     <vui-form-item label="Confirm" prop="confirm">
-      <vui-input type="password" v-model="form.confirm" showPasswordToggler placeholder="Enter your password again..." style="width: 50%;" />
+      <vui-input type="password" v-model="form.confirm" showPasswordToggler style="width: 50%;" placeholder="Enter your password again..." />
     </vui-form-item>
     <vui-form-item>
       <vui-button type="primary" v-on:click="handleSignup">Sign up</vui-button>
-      <vui-button style="margin-left: 20px;" v-on:click="handleReset">Reset</vui-button>
+      <vui-button style="margin-left: 16px;" v-on:click="handleReset">Reset</vui-button>
     </vui-form-item>
   </vui-form>
 </template>
@@ -38,14 +38,6 @@ const code =
           ]
         }
       };
-    },
-    watch: {
-      form: {
-        deep: true,
-        handler: function(newValue, oldValue) {
-          console.log(JSON.stringify(newValue));
-        }
-      }
     },
     methods: {
       validateAccount(rule, value, callback) {
@@ -92,7 +84,7 @@ const code =
       handleSignup() {
         this.$refs.form.validate(valid => {
           if (valid) {
-            this.$message.success("Validation passed");
+            this.$message.success("Validation successed");
           }
           else {
             this.$message.error("Validation failed");

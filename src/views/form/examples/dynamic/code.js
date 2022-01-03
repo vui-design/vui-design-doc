@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-form ref="form" v-bind:model="form" v-bind:labelWidth="100">
+  <vui-form ref="form" v-bind:model="form" v-bind:labelWidth="120">
     <vui-form-item
       v-for="(item, index) in form.items"
       v-bind:key="index"
@@ -8,15 +8,15 @@ const code =
       v-bind:rules="getRules(index)"
       v-bind:label="'Item ' + (index + 1)"
     >
-      <vui-input v-model="item.value" style="width: 200px;" placeholder="服务地址" />
-      <vui-button-group style="margin-left: 10px;">
+      <vui-input v-model="item.value" style="width: 200px;" placeholder="Enter something..." />
+      <vui-button-group style="margin-left: 16px;">
         <vui-button icon="minus" v-if="form.items.length > 1" v-on:click="handleRemove(index)" />
         <vui-button icon="plus" v-if="index === form.items.length - 1" v-on:click="handleAdd" />
       </vui-button-group>
     </vui-form-item>
     <vui-form-item>
       <vui-button type="primary" v-on:click="handleSubmit">Submit</vui-button>
-      <vui-button style="margin-left: 20px;" v-on:click="handleReset">Reset</vui-button>
+      <vui-button style="margin-left: 16px;" v-on:click="handleReset">Reset</vui-button>
     </vui-form-item>
   </vui-form>
 </template>

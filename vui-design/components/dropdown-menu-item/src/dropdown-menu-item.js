@@ -1,6 +1,7 @@
 import VuiIcon from "../../icon";
 import MixinLink from "../../../mixins/link";
 import PropTypes from "../../../utils/prop-types";
+import guid from "../../../utils/guid";
 import is from "../../../utils/is";
 import guardLinkEvent from "../../../utils/guardLinkEvent";
 import getClassNamePrefix from "../../../utils/getClassNamePrefix";
@@ -27,7 +28,7 @@ const VuiDropdownMenuItem = {
   props: {
     classNamePrefix: PropTypes.string,
     name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).def(() => guid()),
     icon: PropTypes.string,
     title: PropTypes.string,
     danger: PropTypes.bool.def(false),
@@ -35,7 +36,7 @@ const VuiDropdownMenuItem = {
   },
   methods: {
     handleClick(e) {
-      const { vuiDropdown, vuiDropdownMenu, vuiDropdownSubmenu, $router: router, $props: props, href, to, replace, getNextRoute } = this;
+      const { vuiDropdown, vuiDropdownMenu, vuiDropdownSubmenu, $router: router, $props: props, getNextRoute } = this;
 
       if (props.disabled) {
         return e.preventDefault();
@@ -56,13 +57,13 @@ const VuiDropdownMenuItem = {
         vuiDropdown.close("select");
       }
 
-      if (href) {
+      if (props.href) {
 
       }
-      else if (to && guardLinkEvent(e)) {
+      else if (props.to && guardLinkEvent(e)) {
         try {
           const route = getNextRoute();
-          const method = replace ? router.replace : router.push;
+          const method = props.replace ? router.replace : router.push;
 
           method.call(router, route.location).catch(error => undefined);
         }
@@ -73,7 +74,7 @@ const VuiDropdownMenuItem = {
     }
   },
   render(h) {
-    const { $slots: slots, $props: props, href, to, target, getNextRoute } = this;
+    const { $slots: slots, $props: props, getNextRoute } = this;
     const { handleClick } = this;
 
     // icon
@@ -118,11 +119,11 @@ const VuiDropdownMenuItem = {
       );
     }
 
-    if (href || to) {
+    if (props.href || props.to) {
       const linkProps = {
         attrs: {
-          href: href || getNextRoute().href,
-          target
+          href: props.href || getNextRoute().href,
+          target: props.target
         },
         class: classes.el,
         on: {

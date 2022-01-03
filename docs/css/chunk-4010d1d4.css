@@ -1,0 +1,34 @@
+
+.example-link-type .vui-link + .vui-link { margin-left:16px;
+}
+
+
+.example-link-icon .vui-link + .vui-link { margin-left:16px;
+}
+
+
+.example-link-size > section + section { margin-top:8px;
+}
+.example-link-size > section > .vui-link + .vui-link { margin-left:16px;
+}
+
+
+.example-link-underline .vui-link + .vui-link { margin-left:16px;
+}
+
+
+.example-link-loading .vui-link + .vui-link { margin-left:16px;
+}
+
+
+.example-link-disabled .vui-link + .vui-link { margin-left:16px;
+}
+
+
+.example-link-link > section + section { margin-top:16px;
+}
+.example-link-link > section > h4 { color:#262626;
+}
+.example-link-link > section > .vui-link + .vui-link { margin-left:16px;
+}
+
