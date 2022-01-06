@@ -1418,6 +1418,7 @@ a.link-disabled:active,
 .vui-link .vui-icon {
   display: block;
   box-sizing: border-box;
+  margin: 0 4px;
   transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .vui-link .vui-icon:first-child {
@@ -1541,23 +1542,11 @@ a.link-disabled:active,
 .vui-link-small {
   font-size: 12px;
 }
-.vui-link-small .vui-icon {
-  font-size: 10px;
-  margin: 0 2px;
-}
 .vui-link-medium {
   font-size: 14px;
 }
-.vui-link-medium .vui-icon {
-  font-size: 12px;
-  margin: 0 4px;
-}
 .vui-link-large {
   font-size: 16px;
-}
-.vui-link-large .vui-icon {
-  font-size: 14px;
-  margin: 0 6px;
 }
 .vui-divider {
   display: block;
