@@ -1,8 +1,8 @@
 const code =
 `<template>
   <div class="example-input-number-formatter">
-    <vui-input-number :min="0" :formatter="formatter1" :parser="parser1" v-model="value1" />
-    <vui-input-number :min="0" :max="100" :formatter="formatter2" :parser="parser2" v-model="value2" />
+    <vui-input-number v-model="value1" v-bind:min="0" v-bind:formatter="formatter1" />
+    <vui-input-number v-model="value2" v-bind:min="50" v-bind:max="100" v-bind:formatter="formatter2" />
   </div>
 </template>
 
@@ -26,14 +26,8 @@ const code =
       formatter1(value) {
         return ("$ " + value).replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");
       },
-      parser1(value) {
-        return value.replace(/\\$\\s?|(,*)/g, "");
-      },
       formatter2(value) {
         return return value + "%";
-      },
-      parser2(value) {
-        return value.replace("%", "");
       }
     }
   };

@@ -3,13 +3,13 @@ const code =
   <div class="example-input-number-size">
     <section>
       <vui-radio-group type="button" v-model="size">
-        <vui-radio label="Small" value="small" />
-        <vui-radio label="Medium" value="medium" />
-        <vui-radio label="Large" value="large" />
+        <vui-radio value="small" label="Small" />
+        <vui-radio value="medium" label="Medium" />
+        <vui-radio value="large" label="Large" />
       </vui-radio-group>
     </section>
-    <section style="margin-top: 15px;">
-      <vui-input-number :size="size" v-model="value" />
+    <section style="margin-top: 16px;">
+      <vui-input-number v-model="value" v-bind:size="size" />
     </section>
   </div>
 </template>
@@ -23,9 +23,6 @@ const code =
       };
     },
     watch: {
-      size(value) {
-        console.log(value);
-      },
       value(value) {
         console.log(value);
       }

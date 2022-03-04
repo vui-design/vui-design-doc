@@ -8807,10 +8807,10 @@ a.link-disabled:active,
   font-size: 12px;
   line-height: 24px;
 }
-.vui-input-small .vui-input-input input:not(:first-child) {
+.vui-input-with-prefix.vui-input-small .vui-input-input input {
   padding-left: 24px;
 }
-.vui-input-small .vui-input-input input:not(:last-child) {
+.vui-input-with-suffix.vui-input-small .vui-input-input input {
   padding-right: 24px;
 }
 .vui-input-bordered.vui-input-small .vui-input-prefix {
@@ -8845,10 +8845,10 @@ a.link-disabled:active,
   font-size: 14px;
   line-height: 34px;
 }
-.vui-input-medium .vui-input-input input:not(:first-child) {
+.vui-input-with-prefix.vui-input-medium .vui-input-input input {
   padding-left: 30px;
 }
-.vui-input-medium .vui-input-input input:not(:last-child) {
+.vui-input-with-suffix.vui-input-medium .vui-input-input input {
   padding-right: 30px;
 }
 .vui-input-bordered.vui-input-medium .vui-input-prefix {
@@ -8883,10 +8883,10 @@ a.link-disabled:active,
   font-size: 16px;
   line-height: 44px;
 }
-.vui-input-large .vui-input-input input:not(:first-child) {
+.vui-input-with-prefix.vui-input-large .vui-input-input input {
   padding-left: 36px;
 }
-.vui-input-large .vui-input-input input:not(:last-child) {
+.vui-input-with-suffix.vui-input-large .vui-input-input input {
   padding-right: 36px;
 }
 .vui-input-bordered.vui-input-large .vui-input-prefix {
@@ -9019,10 +9019,13 @@ a.link-disabled:active,
   overflow: hidden;
   vertical-align: middle;
   color: #595959;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .vui-input-number-input {
   cursor: inherit;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   outline: none;
   box-sizing: border-box;
   display: block;
@@ -9047,8 +9050,7 @@ a.link-disabled:active,
   border-left: 1px solid #e0e0e0;
   background: #fff linear-gradient(0deg, #e0e0e0 50%, #e0e0e0 50%) no-repeat 50% 50%;
   background-size: 100% 1px;
-  opacity: 0;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .vui-input-number-btn {
   position: relative;
@@ -9058,76 +9060,13 @@ a.link-disabled:active,
   overflow: hidden;
   color: #8c8c8c;
   line-height: 1;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .vui-input-number-btn .vui-icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.6);
-}
-.vui-input-number-hovered {
-  border-color: #4298f2;
-}
-.vui-input-number-hovered .vui-input-number-trigger {
-  opacity: 1;
-}
-.vui-input-number-focused {
-  border-color: #297ed8;
-}
-.vui-input-number-focused .vui-input-number-trigger {
-  opacity: 1;
-}
-.vui-input-number-disabled {
-  cursor: not-allowed;
-  border-color: #e0e0e0;
-  background-color: #fafafa;
-  color: #bfbfbf;
-}
-.vui-input-number-disabled .vui-input-number-trigger {
-  opacity: 0;
-}
-.vui-input-number-small {
-  width: 80px;
-  height: 24px;
-  font-size: 12px;
-}
-.vui-input-number-small .vui-input-number-input {
-  padding: 0 24px 0 6px;
-}
-.vui-input-number-small .vui-input-number-trigger {
-  width: 20px;
-}
-.vui-input-number-small .vui-input-number-btn {
-  font-size: 12px;
-}
-.vui-input-number-medium {
-  width: 100px;
-  height: 34px;
-  font-size: 14px;
-}
-.vui-input-number-medium .vui-input-number-input {
-  padding: 0 30px 0 8px;
-}
-.vui-input-number-medium .vui-input-number-trigger {
-  width: 24px;
-}
-.vui-input-number-medium .vui-input-number-btn {
-  font-size: 14px;
-}
-.vui-input-number-large {
-  width: 120px;
-  height: 44px;
-  font-size: 16px;
-}
-.vui-input-number-large .vui-input-number-input {
-  padding: 0 36px 0 10px;
-}
-.vui-input-number-large .vui-input-number-trigger {
-  width: 28px;
-}
-.vui-input-number-large .vui-input-number-btn {
-  font-size: 16px;
+  transform: translate(-50%, -50%) scale(0.5);
 }
 .vui-input-number-btn:hover {
   color: #4298f2;
@@ -9137,6 +9076,51 @@ a.link-disabled:active,
 }
 .vui-input-number-btn.vui-input-number-btn-disabled {
   cursor: not-allowed;
+  color: #bfbfbf;
+}
+.vui-input-number-small {
+  width: 80px;
+  height: 24px;
+  font-size: 12px;
+}
+.vui-input-number-small .vui-input-number-input {
+  padding: 0 26px 0 6px;
+}
+.vui-input-number-small .vui-input-number-trigger {
+  width: 20px;
+}
+.vui-input-number-medium {
+  width: 100px;
+  height: 34px;
+  font-size: 14px;
+}
+.vui-input-number-medium .vui-input-number-input {
+  padding: 0 32px 0 8px;
+}
+.vui-input-number-medium .vui-input-number-trigger {
+  width: 24px;
+}
+.vui-input-number-large {
+  width: 120px;
+  height: 44px;
+  font-size: 16px;
+}
+.vui-input-number-large .vui-input-number-input {
+  padding: 0 38px 0 10px;
+}
+.vui-input-number-large .vui-input-number-trigger {
+  width: 28px;
+}
+.vui-input-number-hovered {
+  border-color: #4298f2;
+}
+.vui-input-number-focused {
+  border-color: #4298f2;
+}
+.vui-input-number-disabled {
+  cursor: not-allowed;
+  border-color: #e0e0e0;
+  background-color: #fafafa;
   color: #bfbfbf;
 }
 .vui-mutex-group {
