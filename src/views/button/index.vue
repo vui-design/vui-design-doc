@@ -164,6 +164,12 @@
             <td>default</td>
           </tr>
           <tr>
+            <td>ghost</td>
+            <td>设置按钮组合为幽灵状态，使按钮背景透明</td>
+            <td>Boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
             <td>shape</td>
             <td>设置按钮组合形状，可选值为 <code>round</code> 或者不设</td>
             <td>String</td>

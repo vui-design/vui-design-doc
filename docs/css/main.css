@@ -1377,6 +1377,9 @@ a.link-disabled:active,
   vertical-align: middle;
   font-size: 0;
 }
+.vui-button-group .vui-button + .vui-button {
+  margin-left: -1px;
+}
 .vui-button-group .vui-button {
   border-radius: 0;
 }
@@ -1388,17 +1391,79 @@ a.link-disabled:active,
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
 }
-.vui-button-group .vui-button-default + .vui-button-default,
-.vui-button-group .vui-button-dashed + .vui-button-dashed,
-.vui-button-group .vui-button-text + .vui-button-text {
-  margin-left: -1px;
+.vui-button-group .vui-button-round.vui-button-small:first-child {
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
 }
-.vui-button-group .vui-button-primary + .vui-button-primary,
-.vui-button-group .vui-button-info + .vui-button-info,
-.vui-button-group .vui-button-warning + .vui-button-warning,
-.vui-button-group .vui-button-success + .vui-button-success,
-.vui-button-group .vui-button-danger + .vui-button-danger {
-  margin-left: 1px;
+.vui-button-group .vui-button-round.vui-button-small:last-child {
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+.vui-button-group .vui-button-round.vui-button-medium:first-child {
+  border-top-left-radius: 34px;
+  border-bottom-left-radius: 34px;
+}
+.vui-button-group .vui-button-round.vui-button-medium:last-child {
+  border-top-right-radius: 34px;
+  border-bottom-right-radius: 34px;
+}
+.vui-button-group .vui-button-round.vui-button-large:first-child {
+  border-top-left-radius: 44px;
+  border-bottom-left-radius: 44px;
+}
+.vui-button-group .vui-button-round.vui-button-large:last-child {
+  border-top-right-radius: 44px;
+  border-bottom-right-radius: 44px;
+}
+.vui-button-group .vui-button-primary:not(.vui-button-ghost):not(.vui-button-disabled):not(:first-child):not(:last-child) {
+  border-left-color: #297ed8;
+  border-right-color: #297ed8;
+}
+.vui-button-group .vui-button-primary:not(.vui-button-ghost):not(.vui-button-disabled):first-child:not(:last-child) {
+  border-right-color: #297ed8;
+}
+.vui-button-group .vui-button-primary:not(.vui-button-ghost):not(.vui-button-disabled):last-child:not(:first-child) {
+  border-left-color: #297ed8;
+}
+.vui-button-group .vui-button-info:not(.vui-button-ghost):not(.vui-button-disabled):not(:first-child):not(:last-child) {
+  border-left-color: #52adc8;
+  border-right-color: #52adc8;
+}
+.vui-button-group .vui-button-info:not(.vui-button-ghost):not(.vui-button-disabled):first-child:not(:last-child) {
+  border-right-color: #52adc8;
+}
+.vui-button-group .vui-button-info:not(.vui-button-ghost):not(.vui-button-disabled):last-child:not(:first-child) {
+  border-left-color: #52adc8;
+}
+.vui-button-group .vui-button-warning:not(.vui-button-ghost):not(.vui-button-disabled):not(:first-child):not(:last-child) {
+  border-left-color: #e19c12;
+  border-right-color: #e19c12;
+}
+.vui-button-group .vui-button-warning:not(.vui-button-ghost):not(.vui-button-disabled):first-child:not(:last-child) {
+  border-right-color: #e19c12;
+}
+.vui-button-group .vui-button-warning:not(.vui-button-ghost):not(.vui-button-disabled):last-child:not(:first-child) {
+  border-left-color: #e19c12;
+}
+.vui-button-group .vui-button-success:not(.vui-button-ghost):not(.vui-button-disabled):not(:first-child):not(:last-child) {
+  border-left-color: #4ab017;
+  border-right-color: #4ab017;
+}
+.vui-button-group .vui-button-success:not(.vui-button-ghost):not(.vui-button-disabled):first-child:not(:last-child) {
+  border-right-color: #4ab017;
+}
+.vui-button-group .vui-button-success:not(.vui-button-ghost):not(.vui-button-disabled):last-child:not(:first-child) {
+  border-left-color: #4ab017;
+}
+.vui-button-group .vui-button-danger:not(.vui-button-ghost):not(.vui-button-disabled):not(:first-child):not(:last-child) {
+  border-left-color: #e64547;
+  border-right-color: #e64547;
+}
+.vui-button-group .vui-button-danger:not(.vui-button-ghost):not(.vui-button-disabled):first-child:not(:last-child) {
+  border-right-color: #e64547;
+}
+.vui-button-group .vui-button-danger:not(.vui-button-ghost):not(.vui-button-disabled):last-child:not(:first-child) {
+  border-left-color: #e64547;
 }
 .vui-link {
   cursor: pointer;
