@@ -6,8 +6,11 @@ const code =
     </vui-steps>
     <div class="example-steps-control-content">{{steps[step].content}}</div>
     <div class="example-steps-control-action">
-      <vui-button v-bind:disabled="btnPrevDisabled" v-on:click="handlePrevStep">Previous</vui-button>
-      <vui-button v-bind:disabled="btnNextDisabled" v-on:click="handleNextStep">Next</vui-button>
+      <vui-button type="primary" v-on:click="handleNext">
+        <template v-if="step < 3">Next</template>
+        <template v-else>Done</template>
+      </vui-button>
+      <vui-button v-if="step > 0" v-on:click="handlePrev">Previous</vui-button>
     </div>
   </div>
 </template>
@@ -16,35 +19,26 @@ const code =
   export default {
     data() {
       return {
-        code,
         steps: [
           { title: "First", content: "First Content" },
           { title: "Second", content: "Second Content" },
           { title: "Third", content: "Third Content" },
           { title: "Last", content: "Last Content" }
         ],
-            step: 0
+        step: 0
       };
     },
-    computed: {
-      btnNextDisabled() {
-        return this.step >= this.steps.length - 1;
-      },
-      btnPrevDisabled() {
-        return this.step <= 0;
-      }
-    },
     methods: {
-      handlePrevStep() {
+      handlePrev() {
         if (this.step <= 0) {
           return;
         }
 
         this.step--;
       },
-      handleNextStep() {
+      handleNext() {
         if (this.step >= this.steps.length - 1) {
-          return;
+          return this.$message.success("Processing complete!");
         }
 
         this.step++;
@@ -55,9 +49,9 @@ const code =
 
 <style>
   .example-steps-control {  }
-  .example-steps-control-content { border:1px dashed #e0e0e0; border-radius:2px; background-color:#f9f9f9; margin-top:20px; text-align:center; line-height:200px; }
-  .example-steps-control-action { margin-top:20px; }
-  .example-steps-control-action .vui-button { margin-right:10px; }
+  .example-steps-control-content { border:1px dashed #e0e0e0; border-radius:2px; background-color:#f9f9f9; margin-top:24px; text-align:center; line-height:240px; }
+  .example-steps-control-action { margin-top:24px; }
+  .example-steps-control-action .vui-button { margin-right:16px; }
 </style>
 `;
 

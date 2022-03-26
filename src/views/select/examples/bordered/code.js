@@ -40,7 +40,7 @@ const code =
 </script>
 
 <style>
-  .example-select-bordered .vui-select + .vui-select { margin-top:15px; }
+  .example-select-bordered .vui-select + .vui-select { margin-top:16px; }
 </style>
 `;
 

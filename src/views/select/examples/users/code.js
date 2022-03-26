@@ -62,9 +62,6 @@ const code =
             this.options = options;
           });
         }
-        else {
-          // this.options = [];
-        }
       }
     }
   };

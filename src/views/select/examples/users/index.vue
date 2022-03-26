@@ -66,7 +66,7 @@
           const options = dataSource.filter(option => option.toLowerCase().indexOf(keyword.toLowerCase()) > -1);
 
           callback(options);
-        }, 10000000);
+        }, 1000);
       },
       handleSearch(keyword) {
         if (keyword) {
@@ -75,9 +75,6 @@
             this.loading = false;
             this.options = options;
           });
-        }
-        else {
-          // this.options = [];
         }
       }
     }

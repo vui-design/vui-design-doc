@@ -6507,12 +6507,18 @@ a.link-disabled:active,
 .vui-steps-item {
   position: relative;
 }
+.vui-steps-item-content.vui-steps-item-content-clickable {
+  cursor: pointer;
+}
 .vui-steps-item-title {
   overflow: hidden;
   font-size: 16px;
   white-space: nowrap;
   text-overflow: ellipsis;
   transition: all 0.2s;
+}
+.vui-steps-item-title.vui-steps-item-title-clickable {
+  cursor: pointer;
 }
 .vui-steps-item-icon {
   box-sizing: border-box;
@@ -6567,9 +6573,6 @@ a.link-disabled:active,
 .vui-steps-small .vui-steps-item-dot {
   width: 8px;
   height: 8px;
-}
-.vui-steps-clickable .vui-steps-item-content {
-  cursor: pointer;
 }
 .vui-steps-horizontal {
   display: flex;
@@ -7340,6 +7343,9 @@ a.link-disabled:active,
 }
 .vui-cascader-dropdown {
   position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
   box-sizing: border-box;
   max-height: 282px;
   border-radius: 2px;
@@ -13873,7 +13879,7 @@ a.link-disabled:active,
   align-items: center;
   box-sizing: border-box;
   border-top: 1px solid #f0f0f0;
-  padding: 12px 10px;
+  padding: 12px 12px;
 }
 .vui-table-column-filter-dropdown-footer a {
   cursor: pointer;
@@ -13891,44 +13897,44 @@ a.link-disabled:active,
 .vui-table-column-filter-dropdown .vui-checkbox-group {
   display: block;
 }
-.vui-table-column-filter-dropdown .vui-checkbox {
+.vui-table-column-filter-dropdown .vui-checkbox-group .vui-checkbox {
   display: flex;
   height: 34px;
   margin: 0;
-  padding: 0 10px;
+  padding: 0 12px;
   line-height: 34px;
   transition: background-color 0.2s cubic-bezier(0.23, 1, 0.32, 1), color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.vui-table-column-filter-dropdown .vui-checkbox:hover {
+.vui-table-column-filter-dropdown .vui-checkbox-group .vui-checkbox:hover {
   background-color: #fafafa;
 }
-.vui-table-column-filter-dropdown .vui-checkbox.vui-checkbox-checked {
+.vui-table-column-filter-dropdown .vui-checkbox-group .vui-checkbox.vui-checkbox-checked {
   background-color: #e6f7ff;
   color: #2d8cf0;
 }
-.vui-table-column-filter-dropdown .vui-checkbox + .vui-checkbox {
-  margin-left: 0;
+.vui-table-column-filter-dropdown .vui-checkbox-group .vui-checkbox + .vui-checkbox {
+  margin: 0;
 }
 .vui-table-column-filter-dropdown .vui-radio-group {
   display: block;
 }
-.vui-table-column-filter-dropdown .vui-radio {
+.vui-table-column-filter-dropdown .vui-radio-group .vui-radio {
   display: flex;
   height: 34px;
   margin: 0;
-  padding: 0 10px;
+  padding: 0 12px;
   line-height: 34px;
   transition: background-color 0.2s cubic-bezier(0.23, 1, 0.32, 1), color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.vui-table-column-filter-dropdown .vui-radio:hover {
+.vui-table-column-filter-dropdown .vui-radio-group .vui-radio:hover {
   background-color: #fafafa;
 }
-.vui-table-column-filter-dropdown .vui-radio.vui-radio-checked {
+.vui-table-column-filter-dropdown .vui-radio-group .vui-radio.vui-radio-checked {
   background-color: #e6f7ff;
   color: #2d8cf0;
 }
-.vui-table-column-filter-dropdown .vui-radio + .vui-radio {
-  margin-left: 0;
+.vui-table-column-filter-dropdown .vui-radio-group .vui-radio + .vui-radio {
+  margin: 0;
 }
 .vui-table-column-filter-dropdown-slide-enter-active {
   -webkit-animation: vuiTableColumnFilterDropdownSlideIn 0.2s cubic-bezier(0.23, 1, 0.32, 1) both;

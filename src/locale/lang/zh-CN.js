@@ -244,6 +244,7 @@ export default {
     "example-steps-vertical": "纵向步骤条",
     "example-steps-vertical-small": "纵向的小型步骤条",
     "example-steps-dot": "点状步骤条",
+    "example-steps-clickable": "可点击",
     "example-steps-control": "切换步骤",
 
     "example-tabs-basic-usage": "基本用法",
@@ -341,6 +342,7 @@ export default {
     "example-select-backfill-option-prop": "定制回填内容",
     "example-select-max-tag-count": "最大显示数量",
     "example-select-hide-selected-options": "隐藏已选选项",
+    "example-select-big-data": "大数据",
 
     "example-slider-basic-usage": "基本用法",
     "example-slider-input-number": "带输入框的滑块",
