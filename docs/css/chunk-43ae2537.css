@@ -26,3 +26,7 @@
 .example-select-max-tag-count .vui-select + .vui-select { margin-top:16px;
 }
 
+
+.example-select-big-data .vui-select + .vui-select { margin-top:16px;
+}
+

@@ -19,15 +19,16 @@
         <example-remote-search />
         <example-users />
         <example-bordered />
+        <example-clearable />
       </vui-col>
       <vui-col v-bind:span="12">
-        <example-clearable />
         <example-disabled />
         <example-group />
         <example-coordinate />
         <example-backfill-option-prop />
         <example-max-tag-count />
         <example-hide-selected-options />
+        <example-big-data />
       </vui-col>
     </vui-row>
     <document>
@@ -309,6 +310,7 @@
   import ExampleBackfillOptionProp from "./examples/backfill-option-prop";
   import ExampleMaxTagCount from "./examples/max-tag-count";
   import ExampleHideSelectedOptions from "./examples/hide-selected-options";
+  import ExampleBigData from "./examples/big-data";
 
   export default {
     mixins: [
@@ -329,7 +331,8 @@
       ExampleCoordinate,
       ExampleBackfillOptionProp,
       ExampleMaxTagCount,
-      ExampleHideSelectedOptions
+      ExampleHideSelectedOptions,
+      ExampleBigData
     }
   };
 </script>

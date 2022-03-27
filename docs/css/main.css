@@ -10148,13 +10148,11 @@ a.link-disabled:active,
   left: 0;
   display: block;
   box-sizing: border-box;
-  max-height: 282px;
   border-radius: 2px;
   background-color: #fff;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
   margin: 4px 0;
-  padding: 4px 0;
-  overflow: auto;
+  overflow: hidden;
 }
 .vui-select-dropdown[data-placement="top"] {
   transform-origin: bottom center;
@@ -10185,26 +10183,37 @@ a.link-disabled:active,
   opacity: 0;
   transform: scaleY(0.8);
 }
-.vui-select-menu-item-group-header {
+.vui-select-menu-wrapper {
   display: block;
+  max-height: 280px;
+  padding: 4px 0;
+  overflow: auto;
+}
+.vui-select-menu-item-group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   box-sizing: border-box;
-  margin: 0;
   height: 34px;
+  margin: 0;
   padding: 0 10px;
-  overflow: hidden;
   color: #bfbfbf;
   font-size: 12px;
-  text-align: left;
   line-height: 34px;
 }
-.vui-select-menu-item-group-body {
+.vui-select-menu-item-group.vui-select-menu-item-group-level-1 {
+  padding-left: 10px;
+}
+.vui-select-menu-item-group.vui-select-menu-item-group-level-2 {
+  padding-left: 20px;
+}
+.vui-select-menu-item-group-content {
+  flex: 1;
   display: block;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-.vui-select-menu-item-group .vui-select-menu-item {
-  padding-left: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .vui-select-menu-item {
   position: relative;
@@ -10219,7 +10228,13 @@ a.link-disabled:active,
   color: #595959;
   font-size: 14px;
   line-height: 34px;
-  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: background-color 0.2s cubic-bezier(0.23, 1, 0.32, 1), color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.vui-select-menu-item.vui-select-menu-item-level-1 {
+  padding-left: 10px;
+}
+.vui-select-menu-item.vui-select-menu-item-level-2 {
+  padding-left: 20px;
 }
 .vui-select-menu-item-content {
   flex: 1;
@@ -10261,7 +10276,7 @@ a.link-disabled:active,
   align-items: center;
   box-sizing: border-box;
   height: 34px;
-  margin: 0;
+  margin: 4px 0;
   padding: 0 10px;
   color: #bfbfbf;
   font-size: 14px;
@@ -10278,6 +10293,7 @@ a.link-disabled:active,
 .vui-select-empty {
   position: relative;
   cursor: default;
+  margin: 4px 0;
   padding: 16px 0;
 }
 .vui-slider {
