@@ -7,7 +7,7 @@ const code =
       <vui-radio value="left">Left</vui-radio>
       <vui-radio value="right">Right</vui-radio>
     </vui-radio-group>
-    <vui-button type="primary" v-on:click="handleShowDrawer">Open</vui-button>
+    <vui-button type="primary" v-on:click="showDrawer">Open</vui-button>
     <vui-drawer v-model="visible" v-bind:placement="placement" title="Basic Usage">
       <p>Some contents...</p>
       <p>Some contents...</p>
@@ -26,7 +26,7 @@ const code =
       };
     },
     methods: {
-      handleShowDrawer() {
+      showDrawer() {
         this.visible = true;
       }
     }

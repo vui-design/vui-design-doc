@@ -58,21 +58,21 @@ const code =
 
 <style>
   .example-popover-placement .top { text-align:center; }
-  .example-popover-placement .top .vui-popover { margin:0 5px; }
+  .example-popover-placement .top .vui-popover { margin:0 8px; }
   .example-popover-placement .top .vui-button { width:60px; }
 
-  .example-popover-placement .middle { width:340px; height:132px; margin:5px auto; }
+  .example-popover-placement .middle { width:348px; height:150px; margin:8px auto; }
 
   .example-popover-placement .middle-left { float:left; width:60px; }
-  .example-popover-placement .middle-left .vui-popover { margin:5px 0; }
+  .example-popover-placement .middle-left .vui-popover { margin:8px 0; }
   .example-popover-placement .middle-left .vui-button { width:60px; }
 
   .example-popover-placement .middle-right { float:right; width:60px; }
-  .example-popover-placement .middle-right .vui-popover { margin:5px 0; }
+  .example-popover-placement .middle-right .vui-popover { margin:8px 0; }
   .example-popover-placement .middle-right .vui-button { width:60px; }
 
   .example-popover-placement .bottom { text-align:center; }
-  .example-popover-placement .bottom .vui-popover { margin:0 5px; }
+  .example-popover-placement .bottom .vui-popover { margin:0 8px; }
   .example-popover-placement .bottom .vui-button { width:60px; }
 </style>
 `;

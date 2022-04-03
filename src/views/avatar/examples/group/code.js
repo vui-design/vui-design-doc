@@ -27,7 +27,7 @@ const code = `
 </script>
 
 <style>
-  .example-avatar-group .vui-avatar-group + .vui-avatar-group { margin-left:20px; }
+  .example-avatar-group .vui-avatar-group + .vui-avatar-group { margin-left:16px; }
 </style>
 `;
 

@@ -2,7 +2,7 @@
   <example v-bind:code="code" id="example-drawer-basic-usage">
     <template slot="demo">
       <div class="example-drawer-basic-usage">
-        <vui-button type="primary" v-on:click="handleShowDrawer">Open basic drawer</vui-button>
+        <vui-button type="primary" v-on:click="showDrawer">Open basic drawer</vui-button>
         <vui-drawer v-model="visible" title="Drawer Title">
           <p>Some contents...</p>
           <p>Some contents...</p>
@@ -33,7 +33,7 @@
       };
     },
     methods: {
-      handleShowDrawer() {
+      showDrawer() {
         this.visible = true;
       }
     }

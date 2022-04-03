@@ -20,7 +20,7 @@ const code =
 </script>
 
 <style>
-  .example-popover-trigger .vui-popover + .vui-popover { margin-left:10px; }
+  .example-popover-trigger .vui-popover + .vui-popover { margin-left:16px; }
 </style>
 `;
 

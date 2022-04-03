@@ -1,8 +1,8 @@
 const code =
 `<template>
   <div class="example-notice-more-content">
-    <vui-button type="primary" @click="showVNodeNotice">VNode</vui-button>
-    <vui-button type="primary" @click="showFunctionNotice">Function</vui-button>
+    <vui-button type="primary" v-on:click="showVNodeNotice">VNode</vui-button>
+    <vui-button type="primary" v-on:click="showFunctionNotice">Function</vui-button>
   </div>
 </template>
 
@@ -32,7 +32,7 @@ const code =
 </script>
 
 <style>
-  .example-notice-more-content .vui-button + .vui-button { margin-left:10px; }
+  .example-notice-more-content .vui-button + .vui-button { margin-left:16px; }
 </style>
 `;
 

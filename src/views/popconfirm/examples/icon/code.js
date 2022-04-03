@@ -2,13 +2,11 @@ const code =
 `<template>
   <vui-popconfirm
     title="Are you sure delete this task?"
-    cancelText="No"
-    okText="Yes"
     v-on:cancel="handleCancel"
     v-on:ok="handleOk"
   >
-    <a href="javascript:;">Delete</a>
     <vui-icon slot="icon" type="warning-filled" style="color: #f00;" />
+    <a href="javascript:;">Delete</a>
   </vui-popconfirm>
 </template>
 

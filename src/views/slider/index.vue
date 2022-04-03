@@ -7,7 +7,7 @@
 			<p>当用户需要在数值区间/自定义区间内进行选择时，可为连续或离散值。</p>
 			<h2>代码演示</h2>
 		</document>
-		<vui-row v-bind:gutter="20">
+		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleSliderBasicUsage />
 				<ExampleSliderInputNumber />

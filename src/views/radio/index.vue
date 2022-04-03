@@ -10,7 +10,7 @@
       </ul>
       <h2>代码演示</h2>
     </document>
-    <vui-row v-bind:gutter="20">
+    <vui-row v-bind:gutter="16">
       <vui-col v-bind:span="12">
         <ExampleRadioBasicUsage />
         <ExampleRadioDisabled />

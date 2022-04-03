@@ -12,7 +12,7 @@ const code =
 </script>
 
 <style>
-  .example-spin-inside { border-radius:2px; background-color:#fafafa; padding:50px; text-align:center; }
+  .example-spin-inside { border-radius:2px; background-color:#fafafa; padding:48px; text-align:center; }
 </style>
 `;
 

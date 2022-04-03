@@ -3,17 +3,17 @@ const code =
   <div class="example-notice-type">
     <section>
       <h4>With description</h4>
-      <vui-button type="info" @click="showInfoNotice(true)">Info</vui-button>
-      <vui-button type="warning" @click="showWarningNotice(true)">Warning</vui-button>
-      <vui-button type="success" @click="showSuccessNotice(true)">Success</vui-button>
-      <vui-button type="danger" @click="showErrorNotice(true)">Error</vui-button>
+      <vui-button type="info" v-on:click="showInfoNotice(true)">Info</vui-button>
+      <vui-button type="warning" v-on:click="showWarningNotice(true)">Warning</vui-button>
+      <vui-button type="success" v-on:click="showSuccessNotice(true)">Success</vui-button>
+      <vui-button type="danger" v-on:click="showErrorNotice(true)">Error</vui-button>
     </section>
     <section>
       <h4>No description</h4>
-      <vui-button @click="showInfoNotice(false)">Info</vui-button>
-      <vui-button @click="showWarningNotice(false)">Warning</vui-button>
-      <vui-button @click="showSuccessNotice(false)">Success</vui-button>
-      <vui-button @click="showErrorNotice(false)">Error</vui-button>
+      <vui-button v-on:click="showInfoNotice(false)">Info</vui-button>
+      <vui-button v-on:click="showWarningNotice(false)">Warning</vui-button>
+      <vui-button v-on:click="showSuccessNotice(false)">Success</vui-button>
+      <vui-button v-on:click="showErrorNotice(false)">Error</vui-button>
     </section>
   </div>
 </template>
@@ -21,28 +21,28 @@ const code =
 <script>
   export default {
     methods: {
-      showInfoNotice(flag) {
+      showInfoNotice(withDescription) {
         this.$notice.info({
           title: "This is the title",
-          description: flag ? "This is the description of the notice. This is the description of the notice. This is the description of the notice." : ""
+          description: withDescription ? "This is the description of the notice. This is the description of the notice. This is the description of the notice." : ""
         });
       },
-      showWarningNotice(flag) {
+      showWarningNotice(withDescription) {
         this.$notice.warning({
           title: "This is the title",
-          description: flag ? "This is the description of the notice. This is the description of the notice. This is the description of the notice." : ""
+          description: withDescription ? "This is the description of the notice. This is the description of the notice. This is the description of the notice." : ""
         });
       },
-      showSuccessNotice(flag) {
+      showSuccessNotice(withDescription) {
         this.$notice.success({
           title: "This is the title",
-          description: flag ? "This is the description of the notice. This is the description of the notice. This is the description of the notice." : ""
+          description: withDescription ? "This is the description of the notice. This is the description of the notice. This is the description of the notice." : ""
         });
       },
-      showErrorNotice(flag) {
+      showErrorNotice(withDescription) {
         this.$notice.error({
           title: "This is the title",
-          description: flag ? "This is the description of the notice. This is the description of the notice. This is the description of the notice." : ""
+          description: withDescription ? "This is the description of the notice. This is the description of the notice. This is the description of the notice." : ""
         });
       }
     }
@@ -50,9 +50,9 @@ const code =
 </script>
 
 <style>
-  .example-notice-type section + section { margin-top:10px; }
-  .example-notice-type section h4 { margin-bottom:10px; }
-  .example-notice-type section .vui-button + .vui-button { margin-left:10px; }
+  .example-notice-type section + section { margin-top:24px; }
+  .example-notice-type section h4 { margin-bottom:12px; }
+  .example-notice-type section .vui-button + .vui-button { margin-left:16px; }
 </style>
 `;
 

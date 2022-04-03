@@ -25,7 +25,7 @@
         <example-multi-level />
         <!--
         <example-get-popup-container />
-    	-->
+        -->
       </vui-col>
     </vui-row>
     <document>
@@ -114,6 +114,12 @@
             <td>false</td>
           </tr>
           <tr>
+            <td>autofocusButton</td>
+            <td>指定自动获得焦点的按钮，可选值为 <code>cancel</code>、<code>ok</code> 或者不设</td>
+            <td>String</td>
+            <td>--</td>
+          </tr>
+          <tr>
             <td>closable</td>
             <td>是否显示右上角的关闭按钮</td>
             <td>Boolean</td>
@@ -129,17 +135,17 @@
             <td>width</td>
             <td>抽屉宽度，在 <code>placement</code> 为 <code>left</code> 或 <code>right</code> 时使用</td>
             <td>String | Number</td>
-            <td>500</td>
+            <td>480</td>
           </tr>
           <tr>
             <td>height</td>
             <td>抽屉高度，在 <code>placement</code> 为 <code>top</code> 或 <code>bottom</code> 时使用</td>
             <td>String | Number</td>
-            <td>500</td>
+            <td>480</td>
           </tr>
           <tr>
             <td>className</td>
-            <td>抽屉样式类名</td>
+            <td>用于设置抽屉的样式类名</td>
             <td>String</td>
             <td>--</td>
           </tr>
@@ -169,7 +175,7 @@
           </tr>
           <tr>
             <td>backdropClassName</td>
-            <td>背景遮罩样式类名</td>
+            <td>用于设置背景遮罩的样式类名</td>
             <td>String</td>
             <td>--</td>
           </tr>
@@ -184,6 +190,12 @@
             <td>点击背景遮罩是否关闭抽屉</td>
             <td>Boolean</td>
             <td>true</td>
+          </tr>
+          <tr>
+            <td>destroyOnClose</td>
+            <td>关闭时销毁抽屉内容（抽屉里的子元素）</td>
+            <td>Boolean</td>
+            <td>false</td>
           </tr>
           <tr>
             <td>getPopupContainer</td>
@@ -206,49 +218,61 @@
         <tbody>
           <tr>
             <td>input</td>
-            <td>可见状态发生变化时触发的事件回调，可以使用 <code>v-model</code> 双向绑定</td>
+            <td>可见状态发生变化时触发的事件回调函数，可以使用 <code>v-model</code> 双向绑定</td>
             <td>Function</td>
             <td>visible</td>
           </tr>
           <tr>
             <td>change</td>
-            <td>可见状态发生变化时触发的事件回调</td>
+            <td>可见状态发生变化时触发的事件回调函数</td>
             <td>Function</td>
             <td>visible</td>
           </tr>
           <tr>
             <td>cancel</td>
-            <td>点击取消按钮（或右上角关闭按钮、背景遮罩）的事件回调，<code>cancelAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
+            <td>点击取消按钮（或右上角关闭按钮、背景遮罩）的事件回调函数，<code>cancelAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
             <td>Function</td>
             <td>--</td>
           </tr>
           <tr>
             <td>ok</td>
-            <td>点击确定按钮的事件回调，<code>okAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
+            <td>点击确定按钮的事件回调函数，<code>okAsync</code> 启用模式下回调参数为 <code>done</code> 函数</td>
+            <td>Function</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>beforeOpen</td>
+            <td>抽屉打开前触发的事件回调函数</td>
             <td>Function</td>
             <td>--</td>
           </tr>
           <tr>
             <td>open</td>
-            <td>抽屉打开时触发的事件回调</td>
+            <td>抽屉打开时触发的事件回调函数</td>
             <td>Function</td>
             <td>--</td>
           </tr>
           <tr>
             <td>afterOpen</td>
-            <td>抽屉完全打开时（打开动画完成后）触发的事件回调</td>
+            <td>抽屉完全打开时（打开动画完成后）触发的事件回调函数</td>
+            <td>Function</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>beforeClose</td>
+            <td>抽屉关闭前触发的事件回调函数</td>
             <td>Function</td>
             <td>--</td>
           </tr>
           <tr>
             <td>close</td>
-            <td>抽屉关闭时触发的事件回调</td>
+            <td>抽屉关闭时触发的事件回调函数</td>
             <td>Function</td>
             <td>--</td>
           </tr>
           <tr>
             <td>afterClose</td>
-            <td>抽屉完全关闭时（关闭动画完成后）触发的事件回调</td>
+            <td>抽屉完全关闭时（关闭动画完成后）触发的事件回调函数</td>
             <td>Function</td>
             <td>--</td>
           </tr>

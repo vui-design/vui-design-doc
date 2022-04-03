@@ -14,7 +14,7 @@ const code =
 </script>
 
 <style>
-  .example-spin-size > .vui-spin { margin-right:20px; }
+  .example-spin-size > .vui-spin + .vui-spin { margin-left:16px; }
 </style>
 `;
 

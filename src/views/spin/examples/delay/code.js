@@ -24,7 +24,7 @@ const code =
 </script>
 
 <style>
-  .example-spin-delay .vui-spin { margin-top:20px; }
+  .example-spin-delay .vui-spin { margin-top:16px; }
 </style>
 `;
 

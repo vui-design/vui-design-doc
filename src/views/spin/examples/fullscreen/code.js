@@ -1,20 +1,20 @@
 const code =
 `<template>
   <div class="example-spin-fullscreen">
-    <vui-button type="primary" v-on:click="showShowSpin">全屏加载，3秒后关闭</vui-button>
-    <vui-button outline v-on:click="showShowCustomSpin">自定义指示符</vui-button>
+    <vui-button type="primary" v-on:click="showSpin">全屏加载，3秒后关闭</vui-button>
+    <vui-button outline v-on:click="showCustomSpin">自定义指示符</vui-button>
   </div>
 </template>
 
 <script>
   export default {
     methods: {
-      showShowSpin() {
+      showSpin() {
         const spin = this.$spin.spinning();
 
         setTimeout(() => spin.cancel(), 3000);
       },
-      showShowCustomSpin() {
+      showCustomSpin() {
         const spin = this.$spin.spinning({
           indicator(h) {
             const props = {

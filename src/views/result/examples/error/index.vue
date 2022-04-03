@@ -50,8 +50,9 @@
 
 <style>
   .example-result-error-content {  }
-  .example-result-error-content-title { margin-bottom:20px; color:#262626; font-size:16px; font-weight:600; }
-  .example-result-error-content-reason { margin-top:10px; color:#595959; }
-  .example-result-error-content-reason span { margin-left:5px; }
-  .example-result-error-content-reason a { margin-left:5px; }
+  .example-result-error-content-title { margin-bottom:16px; color:#262626; font-size:16px; font-weight:600; }
+  .example-result-error-content-reason { color:#595959; }
+  .example-result-error-content-reason span { margin-left:4px; }
+  .example-result-error-content-reason a { margin-left:4px; }
+  .example-result-error-content-reason +  .example-result-error-content-reason { margin-top:4px; }
 </style>

@@ -7,25 +7,25 @@
       <p>当有重要操作需告知用户处理结果，且反馈内容较为复杂时使用。</p>
       <h2>代码演示</h2>
     </document>
-    <ExampleResultInfo />
-    <ExampleResultWarning />
-    <ExampleResultSuccess />
-    <ExampleResultError />
-    <ExampleResultComingsoon />
-    <ExampleResult403 />
-    <ExampleResult404 />
-    <ExampleResult500 />
-    <ExampleResultCustomIcon />
+    <example-info />
+    <example-warning />
+    <example-success />
+    <example-error />
+    <example-comingsoon />
+    <example-403 />
+    <example-404 />
+    <example-500 />
+    <example-custom-icon />
     <document>
       <h2 id="example-api">API</h2>
       <h3>Result 属性</h3>
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="100">属性</th>
+            <th width="140">属性</th>
             <th>说明</th>
-            <th width="150">类型</th>
-            <th width="100">默认值</th>
+            <th width="160">类型</th>
+            <th width="140">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -33,7 +33,7 @@
             <td>status</td>
             <td>结果状态，决定图标和颜色，可选值为 <code>info</code>、<code>warning</code>、<code>success</code>、<code>error</code>、<code>comingsoon</code>、<code>403</code>、<code>404</code>、<code>500</code> 或者不设</td>
             <td>String</td>
-            <td><code>info</code></td>
+            <td>info</td>
           </tr>
           <tr>
             <td>icon</td>
@@ -68,15 +68,15 @@
 <script>
   import MixinAnchors from "src/mixins/anchors";
   import Document from "src/components/document";
-  import ExampleResultInfo from "./examples/info";
-  import ExampleResultWarning from "./examples/warning";
-  import ExampleResultSuccess from "./examples/success";
-  import ExampleResultError from "./examples/error";
-  import ExampleResultComingsoon from "./examples/comingsoon";
-  import ExampleResult403 from "./examples/403";
-  import ExampleResult404 from "./examples/404";
-  import ExampleResult500 from "./examples/500";
-  import ExampleResultCustomIcon from "./examples/custom-icon";
+  import ExampleInfo from "./examples/info";
+  import ExampleWarning from "./examples/warning";
+  import ExampleSuccess from "./examples/success";
+  import ExampleError from "./examples/error";
+  import ExampleComingsoon from "./examples/comingsoon";
+  import Example403 from "./examples/403";
+  import Example404 from "./examples/404";
+  import Example500 from "./examples/500";
+  import ExampleCustomIcon from "./examples/custom-icon";
 
   export default {
     mixins: [
@@ -84,15 +84,15 @@
     ],
     components: {
       Document,
-      ExampleResultInfo,
-      ExampleResultWarning,
-      ExampleResultSuccess,
-      ExampleResultError,
-      ExampleResultComingsoon,
-      ExampleResult403,
-      ExampleResult404,
-      ExampleResult500,
-      ExampleResultCustomIcon
+      ExampleInfo,
+      ExampleWarning,
+      ExampleSuccess,
+      ExampleError,
+      ExampleComingsoon,
+      Example403,
+      Example404,
+      Example500,
+      ExampleCustomIcon
     }
   };
 </script>

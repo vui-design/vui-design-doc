@@ -8,7 +8,7 @@ const code =
       <p>Some contents...</p>
       <p>Some contents...</p>
       <vui-space slot="footer">
-        <vui-button v-on:click="handleReturn">Return</vui-button>
+        <vui-button v-on:click="handleCancel">Cancel</vui-button>
         <vui-button type="primary" v-bind:loading="loading" v-on:click="handleSubmit">Submit</vui-button>
       </vui-space>
     </vui-modal>
@@ -27,7 +27,7 @@ const code =
       showModal() {
         this.visible = true;
       },
-      handleReturn() {
+      handleCancel() {
         this.visible = false;
       },
       handleSubmit() {

@@ -21,10 +21,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="160">属性</th>
+            <th width="140">属性</th>
             <th>说明</th>
             <th width="160">类型</th>
-            <th width="120">默认值</th>
+            <th width="140">默认值</th>
           </tr>
         </thead>
         <tbody>

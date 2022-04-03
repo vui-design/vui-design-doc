@@ -1,9 +1,9 @@
 const code =
 `<template>
   <div class="example-progress-dashboard">
-    <vui-progress type="dashboard" :percentage="75" />
-    <vui-progress type="dashboard" :percentage="75" status="exception" />
-    <vui-progress type="dashboard" :percentage="100" />
+    <vui-progress type="dashboard" v-bind:percentage="75" />
+    <vui-progress type="dashboard" v-bind:percentage="75" status="exception" />
+    <vui-progress type="dashboard" v-bind:percentage="100" />
   </div>
 </template>
 
@@ -14,7 +14,8 @@ const code =
 </script>
 
 <style>
-  .example-progress-dashboard > .vui-progress:not(:first-child) { margin-left:15px; }
+  .example-progress-dashboard { display:flex; justify-content:flex-start; align-items:center; }
+  .example-progress-dashboard .vui-progress + .vui-progress { margin-left:16px; }
 </style>
 `;
 

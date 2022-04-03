@@ -4,10 +4,10 @@ const code =
     <vui-card v-bind:bordered="false">
       <vui-form layout="inline">
         <vui-form-item prop="name">
-          <vui-input placeholder="请输入规则名称" />
+          <vui-input placeholder="按规则名称查询" />
         </vui-form-item>
         <vui-form-item prop="description">
-          <vui-input placeholder="请输入描述" />
+          <vui-input placeholder="按描述查询" />
         </vui-form-item>
         <vui-form-item>
           <vui-space>
@@ -17,7 +17,7 @@ const code =
         </vui-form-item>
       </vui-form>
     </vui-card>
-    <vui-card v-bind:bordered="false" style="margin-top: 20px;" headerStyle="padding: 16px;" bodyStyle="padding: 0px; overflow: hidden;" title="查询表格">
+    <vui-card v-bind:bordered="false" style="margin-top: 16px;" headerStyle="padding: 16px;" bodyStyle="padding: 0px; overflow: hidden;" title="查询表格">
       <vui-space slot="extra" divider v-bind:size="16">
         <vui-tooltip v-bind:content="fullscreen ? '退出全屏' : '全屏'">
           <a href="javascript:;" class="link-default" style="font-size: 16px;" v-on:click="handleFullscreen">
@@ -40,14 +40,14 @@ const code =
         <template slot="action" slot-scope="{ row, rowIndex }">
           <vui-space divider>
             <a href="javascript:;" style="display: block;">编辑</a>
-            <vui-popconfirm placement="top-end" style="display: block;" title="确定要删除当前记录嘛？">
+            <vui-popconfirm placement="top-end" okButtonType="danger" style="display: block;" title="确定要删除当前记录嘛？">
               <a href="javascript:;" style="display: block;">删除</a>
             </vui-popconfirm>
           </vui-space>
         </template>
       </vui-table>
-      <div style="padding: 20px;">
-        <div style="float: left; line-height: 34px;">共 <em>{{pagination.total}}</em> 条</div>
+      <div style="padding: 16px;">
+        <div style="float: left; line-height: 34px;">共 {{pagination.total}} 条</div>
         <vui-pagination align="right" showPageSizer v-bind="pagination" />
       </div>
     </vui-card>
@@ -108,7 +108,7 @@ const code =
 </script>
 
 <style>
-  .example-fullscreen-basic-usage { background-color:#f6f6f6; padding:20px; }
+  .example-fullscreen-basic-usage { background-color:#f6f6f6; padding:16px; }
 </style>
 `;
 

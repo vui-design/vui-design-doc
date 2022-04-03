@@ -2,7 +2,7 @@
   <example v-bind:code="code" id="example-drawer-hide-close-button">
     <template slot="demo">
       <div class="example-drawer-hide-close-button">
-        <vui-button type="primary" v-on:click="handleShowDrawer">Hide close button</vui-button>
+        <vui-button type="primary" v-on:click="showDrawer">Hide close button</vui-button>
         <vui-drawer v-model="visible" v-bind:closable="false" title="Drawer Title">
           <p>Some contents...</p>
           <p>Some contents...</p>
@@ -33,7 +33,7 @@
       };
     },
     methods: {
-      handleShowDrawer() {
+      showDrawer() {
         this.visible = true;
       }
     }

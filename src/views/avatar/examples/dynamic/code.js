@@ -32,7 +32,7 @@ const code = `
 </script>
 
 <style>
-  .example-avatar-badge .vui-badge + .vui-badge { margin-left:20px; }
+  .example-avatar-badge .vui-badge + .vui-badge { margin-left:16px; }
 </style>
 `;
 

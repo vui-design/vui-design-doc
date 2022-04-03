@@ -1,21 +1,21 @@
 
-.example-spin-size > .vui-spin { margin-right:20px;
+.example-spin-size > .vui-spin + .vui-spin { margin-left:16px;
 }
 
 
-.example-spin-inside { border-radius:2px; background-color:#fafafa; padding:50px; text-align:center;
+.example-spin-inside { border-radius:2px; background-color:#fafafa; padding:48px; text-align:center;
 }
 
 
-.example-spin-nested .vui-spin { margin-top:20px;
+.example-spin-nested .vui-spin { margin-top:16px;
 }
 
 
-.example-spin-delay .vui-spin { margin-top:20px;
+.example-spin-delay .vui-spin { margin-top:16px;
 }
 
 
-.example-spin-indicator > .vui-spin { margin-right:20px;
+.example-spin-indicator > .vui-spin + .vui-spin { margin-left:24px;
 }
 
 

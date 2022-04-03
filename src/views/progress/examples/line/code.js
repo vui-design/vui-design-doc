@@ -1,11 +1,11 @@
 const code =
 `<template>
   <div class="example-progress-line">
-    <vui-progress :percentage="30" />
-    <vui-progress :percentage="50" status="active" />
-    <vui-progress :percentage="70" status="exception" />
-    <vui-progress :percentage="100" />
-    <vui-progress :percentage="50" :showInfo="false" />
+    <vui-progress v-bind:percentage="30" />
+    <vui-progress v-bind:percentage="50" status="active" />
+    <vui-progress v-bind:percentage="70" status="exception" />
+    <vui-progress v-bind:percentage="100" />
+    <vui-progress v-bind:percentage="50" v-bind:showInfo="false" />
   </div>
 </template>
 
@@ -16,7 +16,7 @@ const code =
 </script>
 
 <style>
-  .example-progress-line > .vui-progress:not(:first-child) { margin-top:15px; }
+  .example-progress-line .vui-progress + .vui-progress { margin-top:16px; }
 </style>
 `;
 

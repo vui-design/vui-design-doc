@@ -1,7 +1,7 @@
 const code =
 `<template>
   <div class="example-drawer-customized-footer">
-    <vui-button type="primary" v-on:click="handleShowDrawer">Open drawer with customized footer</vui-button>
+    <vui-button type="primary" v-on:click="showDrawer">Open drawer with customized footer</vui-button>
     <vui-drawer v-model="visible" title="Drawer Title">
       <p>Some contents...</p>
       <p>Some contents...</p>
@@ -24,7 +24,7 @@ const code =
       };
     },
     methods: {
-      handleShowDrawer() {
+      showDrawer() {
         this.visible = true;
       },
       handleCancel() {

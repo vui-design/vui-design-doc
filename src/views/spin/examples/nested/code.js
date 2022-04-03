@@ -23,7 +23,7 @@ const code =
 </script>
 
 <style>
-  .example-spin-nested .vui-spin { margin-top:20px; }
+  .example-spin-nested .vui-spin { margin-top:16px; }
 </style>
 `;
 

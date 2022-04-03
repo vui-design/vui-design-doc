@@ -1,9 +1,9 @@
 const code =
 `<template>
   <div class="example-progress-circle">
-    <vui-progress type="circle" :percentage="75" />
-    <vui-progress type="circle" :percentage="75" status="exception" />
-    <vui-progress type="circle" :percentage="100" />
+    <vui-progress type="circle" v-bind:percentage="75" />
+    <vui-progress type="circle" v-bind:percentage="75" status="exception" />
+    <vui-progress type="circle" v-bind:percentage="100" />
   </div>
 </template>
 
@@ -14,7 +14,8 @@ const code =
 </script>
 
 <style>
-  .example-progress-circle > .vui-progress:not(:first-child) { margin-left:15px; }
+  .example-progress-circle { display:flex; justify-content:flex-start; align-items:center; }
+  .example-progress-circle .vui-progress + .vui-progress { margin-left:16px; }
 </style>
 `;
 

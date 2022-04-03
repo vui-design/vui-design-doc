@@ -1,0 +1,46 @@
+
+.example-progress-line .vui-progress + .vui-progress { margin-top:16px;
+}
+
+
+.example-progress-line-small { width: 240px;
+}
+.example-progress-line-small .vui-progress + .vui-progress { margin-top:16px;
+}
+
+
+.example-progress-circle { display:flex; justify-content:flex-start; align-items:center;
+}
+.example-progress-circle .vui-progress + .vui-progress { margin-left:16px;
+}
+
+
+.example-progress-circle-small { display:flex; justify-content:flex-start; align-items:center;
+}
+.example-progress-circle-small .vui-progress + .vui-progress { margin-left:16px;
+}
+
+
+.example-progress-dashboard { display:flex; justify-content:flex-start; align-items:center;
+}
+.example-progress-dashboard .vui-progress + .vui-progress { margin-left:16px;
+}
+
+
+.example-progress-dynamic .vui-progress-line { margin-top:16px; margin-bottom:16px;
+}
+
+
+.example-progress-formatter { display:flex; justify-content:flex-start; align-items:center;
+}
+.example-progress-formatter .vui-progress + .vui-progress { margin-left:16px;
+}
+
+
+.example-progress-stroke-color .vui-progress-line { margin-bottom:16px;
+}
+
+
+.example-progress-stroke-linecap .vui-progress-line { margin-bottom:16px;
+}
+

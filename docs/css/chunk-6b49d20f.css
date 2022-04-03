@@ -1,4 +1,8 @@
 
+.example-skeleton-element section + section { margin-top:16px;
+}
+
+
 .example-skeleton-children h4 { margin-bottom:16px; color:#262626;
 }
 .example-skeleton-children button { margin-top:16px;

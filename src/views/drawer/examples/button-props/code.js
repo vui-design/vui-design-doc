@@ -1,7 +1,7 @@
 const code =
 `<template>
   <div class="example-drawer-button-props">
-    <vui-button type="primary" v-on:click="handleShowDrawer">Open drawer with customized button props</vui-button>
+    <vui-button type="primary" v-on:click="showDrawer">Open drawer with customized button props</vui-button>
     <vui-drawer
       v-model="visible"
       v-bind:cancelButtonProps="cancelButtonProps"
@@ -36,7 +36,7 @@ const code =
       };
     },
     methods: {
-      handleShowDrawer() {
+      showDrawer() {
         this.visible = true;
       }
     }

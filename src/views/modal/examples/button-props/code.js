@@ -1,14 +1,14 @@
 const code =
 `<template>
   <div class="example-modal-button-props">
-    <vui-button type="primary" @click="showModal">Open modal with customized button props</vui-button>
+    <vui-button type="primary" v-on:click="showModal">Open modal with customized button props</vui-button>
     <vui-modal
       v-model="visible"
       title="Modal Title"
       cancelText="Cancel"
-      okText="OK"
-      :cancelButtonProps="cancelButtonProps"
-      :okButtonProps="okButtonProps"
+      okText="Delete"
+      v-bind:cancelButtonProps="cancelButtonProps"
+      v-bind:okButtonProps="okButtonProps"
     >
       <p>Some contents...</p>
       <p>Some contents...</p>
@@ -30,7 +30,7 @@ const code =
         },
         okButtonProps: {
           props: {
-            disabled: true
+            type: "danger"
           }
         }
       };

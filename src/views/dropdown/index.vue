@@ -7,7 +7,7 @@
       <p>当页面上的操作命令过多时，用此组件可以收纳操作元素。点击或移入触点，会出现一个下拉菜单。可在列表中进行选择，并执行相应的命令。</p>
       <h2>代码演示</h2>
     </document>
-    <vui-row v-bind:gutter="20">
+    <vui-row v-bind:gutter="16">
       <vui-col v-bind:span="12">
         <example-basic-usage />
         <example-other-elements />

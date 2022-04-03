@@ -28,7 +28,7 @@ const code =
 </script>
 
 <style>
-  .example-spin-indicator > .vui-spin { margin-right:20px; }
+  .example-spin-indicator > .vui-spin + .vui-spin { margin-left:24px; }
 </style>
 `;
 

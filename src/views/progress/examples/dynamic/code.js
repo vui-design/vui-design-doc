@@ -1,11 +1,15 @@
 const code =
 `<template>
-  <div class="example-progress-line-dynamic">
+  <div class="example-progress-dynamic">
     <vui-button-group>
-      <vui-button icon="minus" @click="handleDecrease" />
-      <vui-button icon="plus" @click="handleIncrease" />
+      <vui-button icon="minus" v-on:click="handleDecrease" />
+      <vui-button icon="plus" v-on:click="handleIncrease" />
     </vui-button-group>
-    <vui-progress :percentage="percentage" />
+    <vui-progress v-bind:percentage="percentage" />
+    <vui-space block>
+      <vui-progress type="circle" v-bind:percentage="percentage" />
+      <vui-progress type="dashboard" v-bind:percentage="percentage" />
+    </vui-space>
   </div>
 </template>
 
@@ -40,7 +44,7 @@ const code =
 </script>
 
 <style>
-  .example-progress-line-dynamic > .vui-progress { margin-top:15px; }
+  .example-progress-dynamic .vui-progress-line { margin-top:16px; margin-bottom:16px; }
 </style>
 `;
 

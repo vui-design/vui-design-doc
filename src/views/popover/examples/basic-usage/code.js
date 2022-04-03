@@ -1,7 +1,7 @@
 const code =
 `<template>
   <vui-popover title="Title" content="This is a popover.">
-    <vui-button>Hover me</vui-button>
+    <vui-button type="primary">Hover me</vui-button>
   </vui-popover>
 </template>
 

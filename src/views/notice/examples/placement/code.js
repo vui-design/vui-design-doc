@@ -1,10 +1,10 @@
 const code =
 `<template>
   <div class="example-notice-placement">
-    <vui-button type="primary" @click="showTopLeftNotice">Top Left</vui-button>
-    <vui-button type="primary" @click="showTopRightNotice">Top Right</vui-button>
-    <vui-button type="primary" @click="showBottomLeftNotice">Bottom Left</vui-button>
-    <vui-button type="primary" @click="showBottomRightNotice">Bottom Right</vui-button>
+    <vui-button type="primary" v-on:click="showTopLeftNotice">Top Left</vui-button>
+    <vui-button type="primary" v-on:click="showTopRightNotice">Top Right</vui-button>
+    <vui-button type="primary" v-on:click="showBottomLeftNotice">Bottom Left</vui-button>
+    <vui-button type="primary" v-on:click="showBottomRightNotice">Bottom Right</vui-button>
   </div>
 </template>
 
@@ -43,7 +43,7 @@ const code =
 </script>
 
 <style>
-  .example-notice-placement > .vui-button + .vui-button { margin-left:10px; }
+  .example-notice-placement > .vui-button + .vui-button { margin-left:16px; }
 </style>
 `;
 

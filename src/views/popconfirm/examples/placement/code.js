@@ -58,21 +58,21 @@ const code =
 
 <style>
   .example-popconfirm-placement .top { text-align:center; }
-  .example-popconfirm-placement .top .vui-popover { margin:0 5px; }
+  .example-popconfirm-placement .top .vui-popover { margin:0 8px; }
   .example-popconfirm-placement .top .vui-button { width:60px; }
 
-  .example-popconfirm-placement .middle { width:340px; height:132px; margin:5px auto; }
+  .example-popconfirm-placement .middle { width:348px; height:150px; margin:8px auto; }
 
   .example-popconfirm-placement .middle-left { float:left; width:60px; }
-  .example-popconfirm-placement .middle-left .vui-popover { margin:5px 0; }
+  .example-popconfirm-placement .middle-left .vui-popover { margin:8px 0; }
   .example-popconfirm-placement .middle-left .vui-button { width:60px; }
 
   .example-popconfirm-placement .middle-right { float:right; width:60px; }
-  .example-popconfirm-placement .middle-right .vui-popover { margin:5px 0; }
+  .example-popconfirm-placement .middle-right .vui-popover { margin:8px 0; }
   .example-popconfirm-placement .middle-right .vui-button { width:60px; }
 
   .example-popconfirm-placement .bottom { text-align:center; }
-  .example-popconfirm-placement .bottom .vui-popover { margin:0 5px; }
+  .example-popconfirm-placement .bottom .vui-popover { margin:0 8px; }
   .example-popconfirm-placement .bottom .vui-button { width:60px; }
 </style>
 `;

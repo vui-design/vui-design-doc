@@ -10,7 +10,7 @@
       </ul>
       <h2>代码演示</h2>
     </document>
-    <vui-row v-bind:gutter="20">
+    <vui-row v-bind:gutter="16">
       <vui-col v-bind:span="12">
         <example-basic-usage />
         <example-type />
@@ -25,7 +25,7 @@
     </vui-row>
     <document>
       <h2 id="example-api">API</h2>
-      <p><code>Vui Design</code> 为 <code>Vue.prototype</code> 添加了全局方法 <code>$message</code>，可以直接通过以下方式来使用：</p>
+      <p>Vui Design 为 <code>Vue.prototype</code> 添加了全局方法 <code>$message</code>，可以直接通过以下方式来使用：</p>
       <ul>
         <li><code>this.$message.open(options)</code></li>
         <li><code>this.$message.info(options)</code></li>
@@ -38,10 +38,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="120">选项</th>
+            <th width="160">选项</th>
             <th>说明</th>
             <th width="240">类型</th>
-            <th width="120">默认值</th>
+            <th width="160">默认值</th>
           </tr>
         </thead>
         <tbody>

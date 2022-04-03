@@ -7,7 +7,7 @@
       <p>使用相对时间标记一条信息或资讯的发布时间。</p>
       <h2>代码演示</h2>
     </document>
-    <vui-row v-bind:gutter="20">
+    <vui-row v-bind:gutter="16">
       <vui-col v-bind:span="12">
         <example-basic-usage />
       </vui-col>

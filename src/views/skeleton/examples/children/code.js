@@ -2,10 +2,8 @@ const code =
 `<template>
   <div class="example-skeleton-children">
     <vui-skeleton animated v-bind:loading="loading">
-      <div>
-        <h4>What is Vue.js?</h4>
-        <p>Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects.</p>
-      </div>
+      <h4>What is Vue.js?</h4>
+      <p>Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects.</p>
     </vui-skeleton>
     <vui-button v-bind:disabled="loading" v-on:click="showSkeleton">Show Skeleton</vui-button>
   </div>

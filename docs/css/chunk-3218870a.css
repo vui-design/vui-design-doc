@@ -1,20 +1,20 @@
 
-.example-notice-basic-usage > .vui-button + .vui-button { margin-left:10px;
+.example-notice-basic-usage > .vui-button + .vui-button { margin-left:16px;
 }
 
 
-.example-notice-type section + section { margin-top:10px;
+.example-notice-type section + section { margin-top:24px;
 }
-.example-notice-type section h4 { margin-bottom:10px;
+.example-notice-type section h4 { margin-bottom:12px;
 }
-.example-notice-type section .vui-button + .vui-button { margin-left:10px;
-}
-
-
-.example-notice-placement > .vui-button + .vui-button { margin-left:10px;
+.example-notice-type section .vui-button + .vui-button { margin-left:16px;
 }
 
 
-.example-notice-more-content .vui-button + .vui-button { margin-left:10px;
+.example-notice-placement > .vui-button + .vui-button { margin-left:16px;
+}
+
+
+.example-notice-more-content .vui-button + .vui-button { margin-left:16px;
 }
 

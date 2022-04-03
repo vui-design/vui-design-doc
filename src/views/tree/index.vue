@@ -7,7 +7,7 @@
 			<p>文件夹、组织架构、生物分类、国家地区等等，世间万物的大多数结构都是树形结构。使用 <code>Tree</code> 组件可以完整展现其中的层级关系，并具有展开收起选择等交互功能。</p>
 			<h2>代码演示</h2>
 		</document>
-		<vui-row v-bind:gutter="20">
+		<vui-row v-bind:gutter="16">
 			<vui-col v-bind:span="12">
 				<ExampleTreeBasicUsage />
 			</vui-col>
