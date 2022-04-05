@@ -7,7 +7,7 @@ const code =
         <p>Create a services site</p>
       </vui-timeline-item>
       <vui-timeline-item color="red">
-        <vui-icon type="time" :size="16" slot="dot" />
+        <vui-icon slot="dot" type="time" v-bind:size="16" />
         <h4>2018-01-01</h4>
         <p>Solve initial network problems</p>
       </vui-timeline-item>
@@ -20,7 +20,7 @@ const code =
         <p>Network problems being solved</p>
       </vui-timeline-item>
       <vui-timeline-item>
-        <vui-icon type="loading" :size="16" slot="dot" />
+        <vui-icon slot="dot" type="loading" v-bind:size="16" />
         <p>Recording...</p>
       </vui-timeline-item>
     </vui-timeline>
@@ -35,7 +35,7 @@ const code =
 
 <style>
   .example-timeline-alternate {  }
-  .example-timeline-alternate h4 { margin-bottom:5px; color:#808080; }
+  .example-timeline-alternate h4 { margin-bottom:8px; color:#8c8c8c; }
   .example-timeline-alternate p { color:#595959; }
 </style>
 `;

@@ -10,10 +10,10 @@
       </ul>
       <h2>代码演示</h2>
     </document>
-    <ExampleWatermarkBasicUsage />
-    <ExampleWatermarkFont />
-    <ExampleWatermarkSize />
-    <ExampleWatermarkRotate />
+    <example-basic-usage />
+    <example-font />
+    <example-size />
+    <example-rotate />
     <document>
       <h2 id="example-api">API</h2>
       <h3>Watermark 属性</h3>
@@ -37,43 +37,43 @@
             <td>color</td>
             <td>水印文本的字体颜色</td>
             <td>String</td>
-            <td><code>rgba(0, 0, 0, 0.15)</code></td>
+            <td>rgba(0, 0, 0, 0.15)</td>
           </tr>
           <tr>
             <td>fontSize</td>
             <td>水印文本的字体大小</td>
             <td>String | Number</td>
-            <td><code>14px</code></td>
+            <td>14px</td>
           </tr>
           <tr>
             <td>fontFamily</td>
-            <td>水印文本的字体</td>
+            <td>水印文本的字体，默认使用的字体同 <code>document.body</code> 一致</td>
             <td>String</td>
-            <td><code>Microsoft Yahei</code></td>
+            <td>--</td>
           </tr>
           <tr>
             <td>width</td>
             <td>单个水印的画布宽度</td>
             <td>Number</td>
-            <td><code>320</code></td>
+            <td>320</td>
           </tr>
           <tr>
             <td>height</td>
             <td>单个水印的画布高度</td>
             <td>Number</td>
-            <td><code>120</code></td>
+            <td>120</td>
           </tr>
           <tr>
             <td>rotate</td>
             <td>单个水印的偏转角度，小于 <code>0</code> 时逆时针偏转，反之则顺时针偏转</td>
             <td>Number</td>
-            <td><code>-20</code></td>
+            <td>-20</td>
           </tr>
           <tr>
             <td>rows</td>
             <td>水印重复行数（水平循环次数）</td>
             <td>Number</td>
-            <td><code>20</code></td>
+            <td>20</td>
           </tr>
         </tbody>
       </table>
@@ -84,10 +84,10 @@
 <script>
   import MixinAnchors from "src/mixins/anchors";
   import Document from "src/components/document";
-  import ExampleWatermarkBasicUsage from "./examples/basic-usage";
-  import ExampleWatermarkFont from "./examples/font";
-  import ExampleWatermarkSize from "./examples/size";
-  import ExampleWatermarkRotate from "./examples/rotate";
+  import ExampleBasicUsage from "./examples/basic-usage";
+  import ExampleFont from "./examples/font";
+  import ExampleSize from "./examples/size";
+  import ExampleRotate from "./examples/rotate";
 
   export default {
     mixins: [
@@ -95,10 +95,10 @@
     ],
     components: {
       Document,
-      ExampleWatermarkBasicUsage,
-      ExampleWatermarkFont,
-      ExampleWatermarkSize,
-      ExampleWatermarkRotate
+      ExampleBasicUsage,
+      ExampleFont,
+      ExampleSize,
+      ExampleRotate
     }
   };
 </script>

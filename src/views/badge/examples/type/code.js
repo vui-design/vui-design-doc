@@ -29,7 +29,7 @@ const code =
 </script>
 
 <style>
-  .example-badge-type > .vui-badge { margin-right:20px; }
+  .example-badge-type > .vui-badge { margin-right:16px; }
   .example-badge-type > .vui-badge > img { width:48px; height:48px; border-radius:5px; }
 </style>
 `;

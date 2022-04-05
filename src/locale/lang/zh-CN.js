@@ -67,6 +67,7 @@ export default {
     "data-display-list": "List 列表",
     "data-display-popover": "Popover 气泡卡片",
     "data-display-qrcode": "Qrcode 二维码",
+    "data-display-ribbon": "Ribbon 缎带",
     "data-display-statistic": "Statistic 统计数值",
     "data-display-table": "Table 表格",
     "data-display-tag": "Tag 标签",
@@ -433,6 +434,11 @@ export default {
     "example-qrcode-correct-level": "纠错级别",
     "example-qrcode-color": "自定义颜色",
     "example-qrcode-image": "图片",
+
+    "example-ribbon-basic-usage": "基本用法",
+    "example-ribbon-placement": "位置",
+    "example-ribbon-type": "预设类型",
+    "example-ribbon-colorful": "多彩缎带",
 
     "example-statistic-basic-usage": "基本用法",
     "example-statistic-icon-and-unit": "图标/单位",

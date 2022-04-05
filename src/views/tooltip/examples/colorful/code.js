@@ -74,9 +74,9 @@ const code =
 </script>
 
 <style>
-  .example-tooltip-colorful:not(:last-child) { margin-bottom:20px; }
-  .example-tooltip-colorful > h4 { margin-bottom:10px; }
-  .example-tooltip-colorful > .vui-tooltip { margin-right:10px; margin-bottom:10px; }
+  .example-tooltip-colorful + .example-tooltip-colorful { margin-bottom:24px; }
+  .example-tooltip-colorful > h4 { margin-bottom:8px; }
+  .example-tooltip-colorful > .vui-tooltip { margin-right:8px; margin-bottom:8px; }
 </style>
 `;
 

@@ -34,9 +34,10 @@ const code =
 </script>
 
 <style>
-  .example-badge-colorful + .example-badge-colorful { margin-top:20px; }
-  .example-badge-colorful > h4 { margin-bottom:10px; }
-  .example-badge-colorful > .vui-badge { margin-right:10px; margin-bottom:10px; }
+  .example-badge-colorful + .example-badge-colorful { margin-top:24px; }
+  .example-badge-colorful > h4 { margin-bottom:8px; }
+  .example-badge-colorful > .vui-badge { display:block; }
+  .example-badge-colorful > .vui-badge + .vui-badge { margin-top:8px; }
 </style>
 `;
 

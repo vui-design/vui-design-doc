@@ -58,21 +58,21 @@ const code =
 
 <style>
   .example-tooltip-placement .top { text-align:center; }
-  .example-tooltip-placement .top .vui-tooltip { margin:0 5px; }
+  .example-tooltip-placement .top .vui-tooltip { margin:0 8px; }
   .example-tooltip-placement .top .vui-button { width:60px; }
 
-  .example-tooltip-placement .middle { width:340px; height:132px; margin:5px auto; }
+  .example-tooltip-placement .middle { width:348px; height:150px; margin:8px auto; }
 
   .example-tooltip-placement .middle-left { float:left; width:60px; }
-  .example-tooltip-placement .middle-left .vui-tooltip { margin:5px 0; }
+  .example-tooltip-placement .middle-left .vui-tooltip { margin:8px 0; }
   .example-tooltip-placement .middle-left .vui-button { width:60px; }
 
   .example-tooltip-placement .middle-right { float:right; width:60px; }
-  .example-tooltip-placement .middle-right .vui-tooltip { margin:5px 0; }
+  .example-tooltip-placement .middle-right .vui-tooltip { margin:8px 0; }
   .example-tooltip-placement .middle-right .vui-button { width:60px; }
 
   .example-tooltip-placement .bottom { text-align:center; }
-  .example-tooltip-placement .bottom .vui-tooltip { margin:0 5px; }
+  .example-tooltip-placement .bottom .vui-tooltip { margin:0 8px; }
   .example-tooltip-placement .bottom .vui-button { width:60px; }
 </style>
 `;

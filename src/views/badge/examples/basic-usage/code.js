@@ -17,7 +17,7 @@ const code =
 </script>
 
 <style>
-  .example-badge-basic-usage > .vui-badge { margin-right:20px; }
+  .example-badge-basic-usage > .vui-badge { margin-right:16px; }
   .example-badge-basic-usage > .vui-badge > img { width:48px; height:48px; border-radius:5px; }
 </style>
 `;

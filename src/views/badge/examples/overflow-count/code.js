@@ -1,13 +1,13 @@
 const code =
 `<template>
   <div class="example-badge-overflow-count">
-    <vui-badge :count="99">
+    <vui-badge v-bind:count="99">
       <img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
     </vui-badge>
-    <vui-badge :count="100">
+    <vui-badge v-bind:count="100">
       <img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
     </vui-badge>
-    <vui-badge :count="1000" :overflowCount="999">
+    <vui-badge v-bind:count="1000" v-bind:overflowCount="999">
       <img src="https://dummyimage.com/48x48/e6e6e6/6a6a6a" />
     </vui-badge>
   </div>
@@ -20,7 +20,7 @@ const code =
 </script>
 
 <style>
-  .example-badge-overflow-count > .vui-badge { margin-right:20px; }
+  .example-badge-overflow-count > .vui-badge { margin-right:16px; }
   .example-badge-overflow-count > .vui-badge > img { width:48px; height:48px; border-radius:5px; }
 </style>
 `;

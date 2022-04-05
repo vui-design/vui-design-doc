@@ -26,7 +26,7 @@ const code =
 </script>
 
 <style>
-  .example-badge-status > .vui-badge { margin-right:10px; }
+  .example-badge-status > .vui-badge { margin-right:16px; }
 </style>
 `;
 

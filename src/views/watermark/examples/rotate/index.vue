@@ -2,14 +2,14 @@
   <example v-bind:code="code" id="example-watermark-rotate">
     <template slot="demo">
       <vui-watermark v-bind:rotate="20" text="zhangsan 张三">
-        <vui-table bordered v-bind:columns="columns" v-bind:data="data" rowKey="id">
+        <vui-table v-bind:columns="columns" v-bind:data="data" bordered rowKey="id">
           <a href="javascript:;" slot="name" slot-scope="{ row, rowIndex }">{{row.name}}</a>
           <template slot="tags" slot-scope="{ row, rowIndex }">
             <vui-tag v-for="tag in row.tags" v-bind:key="tag.label" v-bind:color="tag.color" style="margin-right: 8px;">{{tag.label}}</vui-tag>
           </template>
           <vui-space divider slot="action" slot-scope="{ row, rowIndex }">
-            <a href="javascript:;">Edit</a>
-            <a href="javascript:;">Delete</a>
+            <a href="javascript:;" style="display: block;">Edit</a>
+            <a href="javascript:;" style="display: block;">Delete</a>
           </vui-space>
         </vui-table>
       </vui-watermark>

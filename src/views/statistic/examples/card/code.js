@@ -27,7 +27,7 @@ const code = `
 </script>
 
 <style>
-  .example-statistic-card { background-color:#fafafa; padding:16px; }
+  .example-statistic-card { background-color:#f6f6f6; padding:16px; }
 </style>
 `;
 

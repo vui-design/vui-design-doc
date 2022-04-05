@@ -4,8 +4,8 @@ const code =
     <vui-badge v-bind:count="99" />
     <vui-badge v-bind:count="100" />
     <vui-badge v-bind:count="1000" v-bind:overflowCount="999" />
-    <vui-badge text="new" />
-    <vui-badge text="hot" />
+    <vui-badge text="NEW" />
+    <vui-badge text="HOT" />
   </div>
 </template>
 
@@ -16,7 +16,7 @@ const code =
 </script>
 
 <style>
-  .example-badge-alone > .vui-badge { margin-right:20px; }
+  .example-badge-alone > .vui-badge { margin-right:16px; }
 </style>
 `;
 

@@ -456,6 +456,15 @@ export default [
 				component: () => import("src/views/qrcode/index")
 			},
 			{
+				path: "/components/ribbon",
+				name: "ribbon",
+				meta: {
+					title: "Ribbon",
+					group: "data-display"
+				},
+				component: () => import("src/views/ribbon/index")
+			},
+			{
 				path: "/components/statistic",
 				name: "statistic",
 				meta: {
