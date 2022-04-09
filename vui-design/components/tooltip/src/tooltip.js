@@ -1,4 +1,5 @@
 import VuiLazyRender from "../../lazy-render";
+import VuiResizeObserver from "../../resize-observer";
 import Portal from "../../../directives/portal";
 import Outclick from "../../../directives/outclick";
 import Popup from "../../../libs/popup";
@@ -12,7 +13,8 @@ const colors = ["dark", "light", "blue", "cyan", "geekblue", "gold", "green", "l
 const VuiTooltip = {
   name: "vui-tooltip",
   components: {
-    VuiLazyRender
+    VuiLazyRender,
+    VuiResizeObserver
   },
   directives: {
     Portal,
@@ -181,11 +183,14 @@ const VuiTooltip = {
     handleAfterLeave() {
       this.$nextTick(() => this.unregister());
       this.$emit("afterClose");
+    },
+    handleResize() {
+      this.$nextTick(() => this.reregister());
     }
   },
   render() {
     const { $slots: slots, $props: props, state } = this;
-    const { handleMouseenter, handleMouseleave, handleFocusin, handleFocusout, handleClick, handleOutClick, handleBeforeEnter, handleEnter, handleAfterEnter, handleBeforeLeave, handleLeave, handleAfterLeave } = this;
+    const { handleMouseenter, handleMouseleave, handleFocusin, handleFocusout, handleClick, handleOutClick, handleBeforeEnter, handleEnter, handleAfterEnter, handleBeforeLeave, handleLeave, handleAfterLeave, handleResize } = this;
 
     // color
     const withPresetColor = props.color && colors.indexOf(props.color) > -1;
@@ -235,12 +240,14 @@ const VuiTooltip = {
           {slots.default}
         </div>
         <VuiLazyRender render={state.visible}>
-          <transition appear name={props.animation} onBeforeEnter={handleBeforeEnter} onEnter={handleEnter} onAfterEnter={handleAfterEnter} onBeforeLeave={handleBeforeLeave} onLeave={handleLeave} onAfterLeave={handleAfterLeave}>
-            <div ref="popup" v-portal={props.getPopupContainer} v-show={state.visible} class={classes.elPopup} style={styles.elPopup} onMouseenter={handleMouseenter} onMouseleave={handleMouseleave}>
-              <div class={classes.elPopupBody} style={styles.elPopupBody}>{content}</div>
-              <div class={classes.elPopupArrow} style={styles.elPopupArrow}></div>
-            </div>
-          </transition>
+          <VuiResizeObserver onResize={handleResize}>
+            <transition appear name={props.animation} onBeforeEnter={handleBeforeEnter} onEnter={handleEnter} onAfterEnter={handleAfterEnter} onBeforeLeave={handleBeforeLeave} onLeave={handleLeave} onAfterLeave={handleAfterLeave}>
+              <div ref="popup" v-portal={props.getPopupContainer} v-show={state.visible} class={classes.elPopup} style={styles.elPopup} onMouseenter={handleMouseenter} onMouseleave={handleMouseleave}>
+                <div class={classes.elPopupBody} style={styles.elPopupBody}>{content}</div>
+                <div class={classes.elPopupArrow} style={styles.elPopupArrow}></div>
+              </div>
+            </transition>
+          </VuiResizeObserver>
         </VuiLazyRender>
       </div>
     );

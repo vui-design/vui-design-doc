@@ -1,0 +1,12 @@
+
+.example-ribbon-type .vui-ribbon-wrapper + .vui-ribbon-wrapper { margin-top:24px;
+}
+
+
+.example-ribbon-colorful + .example-ribbon-colorful { margin-top:24px;
+}
+.example-ribbon-colorful h4 { margin-bottom:16px;
+}
+.example-ribbon-colorful .vui-ribbon-wrapper + .vui-ribbon-wrapper { margin-top:24px;
+}
+

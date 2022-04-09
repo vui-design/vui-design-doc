@@ -1607,11 +1607,20 @@ a.link-disabled:active,
 .vui-link-small {
   font-size: 12px;
 }
+.vui-link-small .vui-icon {
+  font-size: 10px;
+}
 .vui-link-medium {
   font-size: 14px;
 }
+.vui-link-medium .vui-icon {
+  font-size: 12px;
+}
 .vui-link-large {
   font-size: 16px;
+}
+.vui-link-large .vui-icon {
+  font-size: 14px;
 }
 .vui-divider {
   display: block;
@@ -11918,7 +11927,7 @@ a.link-disabled:active,
   height: 20px;
   border-radius: 20px;
   box-shadow: 0 0 0 1px #fff;
-  padding: 0 6px;
+  padding: 0 8px;
   font-size: 12px;
   white-space: nowrap;
   text-align: center;
@@ -11979,10 +11988,13 @@ a.link-disabled:active,
   background-color: #ff4d4f;
   color: #fff;
 }
+.vui-badge-status {
+  font-size: 0;
+}
 .vui-badge-status .vui-badge-status-dot {
   position: relative;
-  box-sizing: border-box;
   display: inline-block;
+  box-sizing: border-box;
   width: 6px;
   height: 6px;
   border-radius: 6px;
@@ -11990,22 +12002,19 @@ a.link-disabled:active,
   vertical-align: middle;
 }
 .vui-badge-status .vui-badge-status-text {
-  box-sizing: border-box;
   display: inline-block;
+  box-sizing: border-box;
   margin-left: 8px;
   vertical-align: middle;
   color: #595959;
   font-size: 14px;
-  white-space: nowrap;
   text-align: left;
   line-height: 1;
+  white-space: nowrap;
 }
 .vui-badge-status-default .vui-badge-status-dot {
   border-color: #e0e0e0;
   background-color: #e0e0e0;
-}
-.vui-badge-status-default .vui-badge-status-text {
-  color: #595959;
 }
 .vui-badge-status-processing .vui-badge-status-dot {
   border-color: #2d8cf0;
@@ -12029,120 +12038,69 @@ a.link-disabled:active,
   -webkit-animation: vuiBadgeStatusProcessing 1.2s infinite ease-in-out;
           animation: vuiBadgeStatusProcessing 1.2s infinite ease-in-out;
 }
-.vui-badge-status-processing .vui-badge-status-text {
-  color: #595959;
-}
 .vui-badge-status-warning .vui-badge-status-dot {
   border-color: #faad14;
   background-color: #faad14;
-}
-.vui-badge-status-warning .vui-badge-status-text {
-  color: #595959;
 }
 .vui-badge-status-success .vui-badge-status-dot {
   border-color: #52c41a;
   background-color: #52c41a;
 }
-.vui-badge-status-success .vui-badge-status-text {
-  color: #595959;
-}
 .vui-badge-status-error .vui-badge-status-dot {
   border-color: #ff4d4f;
   background-color: #ff4d4f;
-}
-.vui-badge-status-error .vui-badge-status-text {
-  color: #595959;
 }
 .vui-badge-status-blue .vui-badge-status-dot {
   border-color: #1890ff;
   background-color: #1890ff;
 }
-.vui-badge-status-blue .vui-badge-status-text {
-  color: #595959;
-}
 .vui-badge-status-cyan .vui-badge-status-dot {
   border-color: #13c2c2;
   background-color: #13c2c2;
-}
-.vui-badge-status-cyan .vui-badge-status-text {
-  color: #595959;
 }
 .vui-badge-status-geekblue .vui-badge-status-dot {
   border-color: #2f54eb;
   background-color: #2f54eb;
 }
-.vui-badge-status-geekblue .vui-badge-status-text {
-  color: #595959;
-}
 .vui-badge-status-gold .vui-badge-status-dot {
   border-color: #faad14;
   background-color: #faad14;
-}
-.vui-badge-status-gold .vui-badge-status-text {
-  color: #595959;
 }
 .vui-badge-status-green .vui-badge-status-dot {
   border-color: #52c41a;
   background-color: #52c41a;
 }
-.vui-badge-status-green .vui-badge-status-text {
-  color: #595959;
-}
 .vui-badge-status-lime .vui-badge-status-dot {
   border-color: #a0d911;
   background-color: #a0d911;
-}
-.vui-badge-status-lime .vui-badge-status-text {
-  color: #595959;
 }
 .vui-badge-status-magenta .vui-badge-status-dot {
   border-color: #eb2f96;
   background-color: #eb2f96;
 }
-.vui-badge-status-magenta .vui-badge-status-text {
-  color: #595959;
-}
 .vui-badge-status-orange .vui-badge-status-dot {
   border-color: #fa8c16;
   background-color: #fa8c16;
-}
-.vui-badge-status-orange .vui-badge-status-text {
-  color: #595959;
 }
 .vui-badge-status-pink .vui-badge-status-dot {
   border-color: #eb2f96;
   background-color: #eb2f96;
 }
-.vui-badge-status-pink .vui-badge-status-text {
-  color: #595959;
-}
 .vui-badge-status-purple .vui-badge-status-dot {
   border-color: #722ed1;
   background-color: #722ed1;
-}
-.vui-badge-status-purple .vui-badge-status-text {
-  color: #595959;
 }
 .vui-badge-status-red .vui-badge-status-dot {
   border-color: #f5222d;
   background-color: #f5222d;
 }
-.vui-badge-status-red .vui-badge-status-text {
-  color: #595959;
-}
 .vui-badge-status-volcano .vui-badge-status-dot {
   border-color: #fa541c;
   background-color: #fa541c;
 }
-.vui-badge-status-volcano .vui-badge-status-text {
-  color: #595959;
-}
 .vui-badge-status-yellow .vui-badge-status-dot {
   border-color: #fadb14;
   background-color: #fadb14;
-}
-.vui-badge-status-yellow .vui-badge-status-text {
-  color: #595959;
 }
 @-webkit-keyframes vuiBadgeStatusProcessing {
   0% {
@@ -12644,7 +12602,7 @@ a.link-disabled:active,
   margin-right: 4px;
   font-size: 24px;
 }
-.vui-countdown-prefix i {
+.vui-countdown-prefix .vui-icon {
   display: block;
 }
 .vui-countdown-suffix {
@@ -12653,7 +12611,7 @@ a.link-disabled:active,
   margin-left: 4px;
   font-size: 16px;
 }
-.vui-countdown-suffix i {
+.vui-countdown-suffix .vui-icon {
   display: block;
 }
 .vui-countdown-value {
@@ -13218,13 +13176,13 @@ a.link-disabled:active,
   transform-origin: right top;
 }
 .vui-popover-popup[data-placement="left-start"] .vui-popover-popup-arrow {
-  top: 16px;
+  top: 12px;
 }
 .vui-popover-popup[data-placement="left-end"] {
   transform-origin: right bottom;
 }
 .vui-popover-popup[data-placement="left-end"] .vui-popover-popup-arrow {
-  bottom: 16px;
+  bottom: 12px;
 }
 .vui-popover-popup[data-placement^="right"] {
   margin: 0 10px;
@@ -13244,13 +13202,13 @@ a.link-disabled:active,
   transform-origin: left top;
 }
 .vui-popover-popup[data-placement="right-start"] .vui-popover-popup-arrow {
-  top: 16px;
+  top: 12px;
 }
 .vui-popover-popup[data-placement="right-end"] {
   transform-origin: left bottom;
 }
 .vui-popover-popup[data-placement="right-end"] .vui-popover-popup-arrow {
-  bottom: 16px;
+  bottom: 12px;
 }
 .vui-popover-popup[data-placement^="top"].vui-popover-popup-scale-enter-active,
 .vui-popover-popup[data-placement^="top"].vui-popover-popup-scale-leave-active {
@@ -13325,6 +13283,187 @@ a.link-disabled:active,
 .vui-ratio-up {
   color: #ff4d4f;
 }
+.vui-ribbon {
+  position: absolute;
+  top: 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  height: 24px;
+  border-radius: 2px;
+  padding: 0 8px;
+  font-size: 14px;
+  line-height: 1;
+}
+.vui-ribbon-wrapper {
+  position: relative;
+}
+.vui-ribbon-text {
+  white-space: nowrap;
+}
+.vui-ribbon-corner {
+  position: absolute;
+  top: 100%;
+  display: block;
+  box-sizing: border-box;
+  width: 0;
+  height: 0;
+  border-width: 4px;
+  border-style: solid;
+  transform-origin: top;
+  transform: scaleY(0.75);
+  filter: brightness(0.65);
+}
+.vui-ribbon-placement-start {
+  left: -8px;
+  border-bottom-left-radius: 0;
+}
+.vui-ribbon-placement-start .vui-ribbon-corner {
+  left: 0;
+  border-color: currentColor currentColor transparent transparent;
+}
+.vui-ribbon-placement-end {
+  right: -8px;
+  border-bottom-right-radius: 0;
+}
+.vui-ribbon-placement-end .vui-ribbon-corner {
+  right: 0;
+  border-color: currentColor transparent transparent currentColor;
+}
+.vui-ribbon-default {
+  background-color: #e0e0e0;
+  color: #595959;
+}
+.vui-ribbon-default .vui-ribbon-corner {
+  color: #e0e0e0;
+}
+.vui-ribbon-primary {
+  background-color: #2d8cf0;
+  color: #fff;
+}
+.vui-ribbon-primary .vui-ribbon-corner {
+  color: #2d8cf0;
+}
+.vui-ribbon-info {
+  background-color: #5bc0de;
+  color: #fff;
+}
+.vui-ribbon-info .vui-ribbon-corner {
+  color: #5bc0de;
+}
+.vui-ribbon-warning {
+  background-color: #faad14;
+  color: #fff;
+}
+.vui-ribbon-warning .vui-ribbon-corner {
+  color: #faad14;
+}
+.vui-ribbon-success {
+  background-color: #52c41a;
+  color: #fff;
+}
+.vui-ribbon-success .vui-ribbon-corner {
+  color: #52c41a;
+}
+.vui-ribbon-error {
+  background-color: #ff4d4f;
+  color: #fff;
+}
+.vui-ribbon-error .vui-ribbon-corner {
+  color: #ff4d4f;
+}
+.vui-ribbon-color-blue {
+  background-color: #1890ff;
+  color: #fff;
+}
+.vui-ribbon-color-blue .vui-ribbon-corner {
+  color: #1890ff;
+}
+.vui-ribbon-color-cyan {
+  background-color: #13c2c2;
+  color: #fff;
+}
+.vui-ribbon-color-cyan .vui-ribbon-corner {
+  color: #13c2c2;
+}
+.vui-ribbon-color-geekblue {
+  background-color: #2f54eb;
+  color: #fff;
+}
+.vui-ribbon-color-geekblue .vui-ribbon-corner {
+  color: #2f54eb;
+}
+.vui-ribbon-color-gold {
+  background-color: #faad14;
+  color: #fff;
+}
+.vui-ribbon-color-gold .vui-ribbon-corner {
+  color: #faad14;
+}
+.vui-ribbon-color-green {
+  background-color: #52c41a;
+  color: #fff;
+}
+.vui-ribbon-color-green .vui-ribbon-corner {
+  color: #52c41a;
+}
+.vui-ribbon-color-lime {
+  background-color: #a0d911;
+  color: #fff;
+}
+.vui-ribbon-color-lime .vui-ribbon-corner {
+  color: #a0d911;
+}
+.vui-ribbon-color-magenta {
+  background-color: #eb2f96;
+  color: #fff;
+}
+.vui-ribbon-color-magenta .vui-ribbon-corner {
+  color: #eb2f96;
+}
+.vui-ribbon-color-orange {
+  background-color: #fa8c16;
+  color: #fff;
+}
+.vui-ribbon-color-orange .vui-ribbon-corner {
+  color: #fa8c16;
+}
+.vui-ribbon-color-pink {
+  background-color: #eb2f96;
+  color: #fff;
+}
+.vui-ribbon-color-pink .vui-ribbon-corner {
+  color: #eb2f96;
+}
+.vui-ribbon-color-purple {
+  background-color: #722ed1;
+  color: #fff;
+}
+.vui-ribbon-color-purple .vui-ribbon-corner {
+  color: #722ed1;
+}
+.vui-ribbon-color-red {
+  background-color: #f5222d;
+  color: #fff;
+}
+.vui-ribbon-color-red .vui-ribbon-corner {
+  color: #f5222d;
+}
+.vui-ribbon-color-volcano {
+  background-color: #fa541c;
+  color: #fff;
+}
+.vui-ribbon-color-volcano .vui-ribbon-corner {
+  color: #fa541c;
+}
+.vui-ribbon-color-yellow {
+  background-color: #fadb14;
+  color: #fff;
+}
+.vui-ribbon-color-yellow .vui-ribbon-corner {
+  color: #fadb14;
+}
 .vui-statistic {
   display: block;
   box-sizing: border-box;
@@ -13385,7 +13524,7 @@ a.link-disabled:active,
   margin-right: 4px;
   font-size: 24px;
 }
-.vui-statistic-prefix i {
+.vui-statistic-prefix .vui-icon {
   display: block;
 }
 .vui-statistic-suffix {
@@ -13394,7 +13533,7 @@ a.link-disabled:active,
   margin-left: 4px;
   font-size: 16px;
 }
-.vui-statistic-suffix i {
+.vui-statistic-suffix .vui-icon {
   display: block;
 }
 .vui-statistic-value {
@@ -13439,7 +13578,7 @@ a.link-disabled:active,
   box-sizing: border-box;
   transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.vui-tag-icon i {
+.vui-tag-icon .vui-icon {
   display: block;
 }
 .vui-tag-btn-close {
@@ -13453,7 +13592,7 @@ a.link-disabled:active,
 .vui-tag-btn-close:hover {
   opacity: 1;
 }
-.vui-tag-btn-close i {
+.vui-tag-btn-close .vui-icon {
   display: block;
 }
 .vui-tag-small {
@@ -14236,30 +14375,36 @@ a.link-disabled:active,
   }
 }
 .vui-timeline {
+  display: block;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   list-style: none;
   color: #595959;
   font-size: 14px;
-  line-height: 1.42857142;
+  line-height: 1.42857143;
 }
 .vui-timeline-item {
   position: relative;
+  display: block;
+  box-sizing: border-box;
   margin: 0;
-  padding: 0 0 20px;
+  padding: 0 0 24px 0;
   list-style: none;
 }
-.vui-timeline-item .vui-timeline-item-tail {
+.vui-timeline-item-tail {
   position: absolute;
   bottom: 0;
+  display: block;
+  box-sizing: border-box;
   width: 2px;
   height: calc(100% - 20px);
   background-color: #e0e0e0;
 }
-.vui-timeline-item .vui-timeline-item-header {
+.vui-timeline-item-header {
   position: absolute;
   top: 5px;
+  display: block;
   box-sizing: border-box;
   width: 10px;
   height: 10px;
@@ -14268,7 +14413,7 @@ a.link-disabled:active,
   background-color: #fff;
   line-height: 1;
 }
-.vui-timeline-item .vui-timeline-item-header-custom {
+.vui-timeline-item-header-custom {
   top: 10px;
   width: auto;
   height: auto;
@@ -14276,62 +14421,69 @@ a.link-disabled:active,
   border-radius: 0;
   padding: 5px 0;
 }
-.vui-timeline-item .vui-timeline-item-header-gray {
+.vui-timeline-item-header-gray {
   border-color: #e0e0e0;
   color: #e0e0e0;
 }
-.vui-timeline-item .vui-timeline-item-header-blue {
+.vui-timeline-item-header-blue {
   border-color: #2d8cf0;
   color: #2d8cf0;
 }
-.vui-timeline-item .vui-timeline-item-header-yellow {
-  border-color: #f0ad4e;
-  color: #f0ad4e;
+.vui-timeline-item-header-yellow {
+  border-color: #faad14;
+  color: #faad14;
 }
-.vui-timeline-item .vui-timeline-item-header-green {
-  border-color: #5cb85c;
-  color: #5cb85c;
+.vui-timeline-item-header-green {
+  border-color: #52c41a;
+  color: #52c41a;
 }
-.vui-timeline-item .vui-timeline-item-header-red {
+.vui-timeline-item-header-red {
   border-color: #ff4d4f;
   color: #ff4d4f;
 }
-.vui-timeline-item .vui-timeline-item-body {
+.vui-timeline-item-body {
   position: relative;
+  display: block;
   box-sizing: border-box;
   white-space: normal;
   word-break: break-all;
   word-wrap: break-word;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+}
+.vui-timeline-item:last-child {
+  padding-bottom: 0;
 }
 .vui-timeline-item:last-child .vui-timeline-item-tail {
   display: none;
 }
-.vui-timeline-left .vui-timeline-item .vui-timeline-item-tail {
+.vui-timeline-left .vui-timeline-item-tail {
   left: 4px;
 }
-.vui-timeline-left .vui-timeline-item .vui-timeline-item-header {
+.vui-timeline-left .vui-timeline-item-header {
   left: 0;
 }
-.vui-timeline-left .vui-timeline-item .vui-timeline-item-header-custom {
+.vui-timeline-left .vui-timeline-item-header-custom {
   left: 5px;
   transform: translate(-50%, -50%);
 }
-.vui-timeline-left .vui-timeline-item .vui-timeline-item-body {
-  padding-left: 20px;
+.vui-timeline-left .vui-timeline-item-body {
+  padding-left: 24px;
   text-align: left;
 }
-.vui-timeline-right .vui-timeline-item .vui-timeline-item-tail {
+.vui-timeline-right .vui-timeline-item-tail {
   right: 4px;
 }
-.vui-timeline-right .vui-timeline-item .vui-timeline-item-header {
+.vui-timeline-right .vui-timeline-item-header {
   right: 0;
 }
-.vui-timeline-right .vui-timeline-item .vui-timeline-item-header-custom {
+.vui-timeline-right .vui-timeline-item-header-custom {
   right: 5px;
   transform: translate(50%, -50%);
 }
-.vui-timeline-right .vui-timeline-item .vui-timeline-item-body {
-  padding-right: 20px;
+.vui-timeline-right .vui-timeline-item-body {
+  padding-right: 24px;
   text-align: right;
 }
 .vui-timeline-alternate .vui-timeline-item:nth-of-type(odd) .vui-timeline-item-tail {
@@ -14348,7 +14500,7 @@ a.link-disabled:active,
 }
 .vui-timeline-alternate .vui-timeline-item:nth-of-type(odd) .vui-timeline-item-body {
   margin-left: 50%;
-  padding-left: 15px;
+  padding-left: 19px;
   text-align: left;
 }
 .vui-timeline-alternate .vui-timeline-item:nth-of-type(even) .vui-timeline-item-tail {
@@ -14365,14 +14517,14 @@ a.link-disabled:active,
 }
 .vui-timeline-alternate .vui-timeline-item:nth-of-type(even) .vui-timeline-item-body {
   margin-right: 50%;
-  padding-right: 15px;
+  padding-right: 19px;
   text-align: right;
 }
 .vui-timeline-pending .vui-timeline-item:nth-last-of-type(2) {
-  padding-bottom: 40px;
+  padding-bottom: 48px;
 }
 .vui-timeline-pending .vui-timeline-item:nth-last-of-type(2) .vui-timeline-item-tail {
-  background: linear-gradient(to bottom, #e6e6e6, #e6e6e6 3px, transparent 3px, transparent);
+  background: linear-gradient(to bottom, #e0e0e0, #e0e0e0 3px, transparent 3px, transparent);
   background-size: 100% 8px;
 }
 .vui-tooltip {
@@ -14392,7 +14544,7 @@ a.link-disabled:active,
   display: block;
   box-sizing: border-box;
   border-radius: 2px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
   padding: 10px 12px;
 }
 .vui-tooltip-popup-body {
@@ -14569,13 +14721,13 @@ a.link-disabled:active,
   transform-origin: left bottom;
 }
 .vui-tooltip-popup[data-placement="top-start"] .vui-tooltip-popup-arrow {
-  left: 10px;
+  left: 12px;
 }
 .vui-tooltip-popup[data-placement="top-end"] {
   transform-origin: right bottom;
 }
 .vui-tooltip-popup[data-placement="top-end"] .vui-tooltip-popup-arrow {
-  right: 10px;
+  right: 12px;
 }
 .vui-tooltip-popup[data-placement^="bottom"] {
   margin: 10px 0;
@@ -14595,13 +14747,13 @@ a.link-disabled:active,
   transform-origin: left top;
 }
 .vui-tooltip-popup[data-placement="bottom-start"] .vui-tooltip-popup-arrow {
-  left: 10px;
+  left: 12px;
 }
 .vui-tooltip-popup[data-placement="bottom-end"] {
   transform-origin: right top;
 }
 .vui-tooltip-popup[data-placement="bottom-end"] .vui-tooltip-popup-arrow {
-  right: 10px;
+  right: 12px;
 }
 .vui-tooltip-popup[data-placement^="left"] {
   margin: 0 10px;
