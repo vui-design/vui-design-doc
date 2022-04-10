@@ -2,18 +2,18 @@ const code =
 `<template>
   <div class="example-tabs-size">
     <vui-radio-group type="button" v-model="size">
-      <vui-radio label="Small" value="small" />
-      <vui-radio label="Medium" value="medium" />
-      <vui-radio label="Large" value="large" />
+      <vui-radio value="small" label="Small" />
+      <vui-radio value="medium" label="Medium" />
+      <vui-radio value="large" label="Large" />
     </vui-radio-group>
     <vui-tabs v-bind:size="size">
-      <vui-tab-panel v-for="panel in panels" v-bind:key="panel.key" v-bind:title="panel.title">
-        {{panel.content}}
+      <vui-tab-panel v-for="tab in tabs" v-bind:key="tab.key" v-bind:title="tab.title">
+        {{tab.content}}
       </vui-tab-panel>
     </vui-tabs>
     <vui-tabs type="card" v-bind:size="size">
-      <vui-tab-panel v-for="panel in panels" v-bind:key="panel.key" v-bind:title="panel.title">
-        {{panel.content}}
+      <vui-tab-panel v-for="tab in tabs" v-bind:key="tab.key" v-bind:title="tab.title">
+        {{tab.content}}
       </vui-tab-panel>
     </vui-tabs>
   </div>
@@ -22,22 +22,22 @@ const code =
 <script>
   export default {
     data() {
-      let panels = [];
+      let tabs = [];
       let index = 1;
 
       for (; index < 4; index++) {
-        let panel = {
+        let tab = {
           key: "tab" + index,
           title: "Tab " + index,
           content: "Content of Tab panel " + index
         };
 
-        panels.push(panel);
+        tabs.push(tab);
       }
 
       return {
         size: "medium",
-        panels: panels
+        tabs: tabs
       };
     }
   };
@@ -45,7 +45,7 @@ const code =
 
 <style>
   .example-tabs-size {  }
-  .example-tabs-size .vui-tabs { margin-top:20px; }
+  .example-tabs-size .vui-tabs { margin-top:24px; }
 </style>
 `;
 

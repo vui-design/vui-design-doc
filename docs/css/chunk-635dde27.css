@@ -1,0 +1,10 @@
+
+.example-tabs-size {
+}
+.example-tabs-size .vui-tabs { margin-top:24px;
+}
+
+
+.example-tabs-editable .vui-tabs + .vui-tabs { margin-top:24px;
+}
+
