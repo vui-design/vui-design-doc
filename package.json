@@ -1,14 +1,11 @@
 {
   "name": "vui-design-doc",
-  "version": "1.10.2",
+  "version": "1.10.3",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
+    "docs": "vue-cli-service build",
     "analyzer": "set analyzer=true && npm run serve",
-    "build:test": "vue-cli-service build --mode test",
-    "build:release": "vue-cli-service build --mode release",
-    "build": "vue-cli-service build",
-    "publish": "vue-cli-service build --mode test && vue-cli-service build --mode release && vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

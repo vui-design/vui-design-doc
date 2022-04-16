@@ -95,8 +95,6 @@ module.exports = {
       config.plugin("webpack-bundle-analyzer").use(require("webpack-bundle-analyzer").BundleAnalyzerPlugin).end();
     }
 
-    // 测试环境
-    // 预发布环境
     // 生产环境
     if (process.env.NODE_ENV === "production") {
       // JS 文件输出配置
