@@ -16,7 +16,7 @@ const code =
 </script>
 
 <style>
-  .example-card-borderless { background-color:#f6f6f6; padding:20px; }
+  .example-card-borderless { background-color:#f6f6f6; padding:24px; }
 </style>
 `;
 

@@ -13,39 +13,39 @@ const code =
       return {
         grid: {
           gutter: 16,
-          columns: 4
+          column: 4
         },
         data: [
           {
-            title: "List Item Title",
+            title: "Title 1",
             description: "This is the description!"
           },
           {
-            title: "List Item Title",
+            title: "Title 2",
             description: "This is the description!"
           },
           {
-            title: "List Item Title",
+            title: "Title 3",
             description: "This is the description!"
           },
           {
-            title: "List Item Title",
+            title: "Title 4",
             description: "This is the description!"
           },
           {
-            title: "List Item Title",
+            title: "Title 1",
             description: "This is the description!"
           },
           {
-            title: "List Item Title",
+            title: "Title 2",
             description: "This is the description!"
           },
           {
-            title: "List Item Title",
+            title: "Title 3",
             description: "This is the description!"
           },
           {
-            title: "List Item Title",
+            title: "Title 4",
             description: "This is the description!"
           }
         ]

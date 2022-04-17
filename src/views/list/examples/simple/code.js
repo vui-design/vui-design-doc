@@ -32,7 +32,7 @@ const code =
 </script>
 
 <style>
-  .example-list-simple .vui-list + .vui-list { margin-top:20px; }
+  .example-list-simple .vui-list + .vui-list { margin-top:24px; }
 </style>
 `;
 

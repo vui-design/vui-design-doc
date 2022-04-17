@@ -35,7 +35,7 @@ const code =
 </script>
 
 <style>
-  .example-card-loading .vui-card { margin-top:20px; }
+  .example-card-loading .vui-card { margin-top:24px; }
 </style>
 `;
 
