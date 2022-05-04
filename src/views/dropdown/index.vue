@@ -34,32 +34,32 @@
         </thead>
         <tbody>
           <tr>
-            <td>trigger</td>
-            <td>触发方式，可选值为 <code>hover</code>、<code>click</code> 或者不设</td>
-            <td>String</td>
-            <td>hover</td>
-          </tr>
-          <tr>
             <td>visible</td>
-            <td>下拉弹窗是否显示，可以使用 <code>v-model</code> 双向绑定数据</td>
+            <td>下拉菜单是否显示，可以使用 <code>v-model</code> 双向绑定数据</td>
             <td>Boolean</td>
             <td>false</td>
           </tr>
           <tr>
+            <td>trigger</td>
+            <td>下拉菜单的触发方式，可选值为 <code>hover</code>、<code>click</code> 或者不设</td>
+            <td>String</td>
+            <td>hover</td>
+          </tr>
+          <tr>
             <td>placement</td>
-            <td>下拉弹窗的弹出位置，可选值为 <code>top</code>、<code>top-start</code>、<code>top-end</code>、<code>bottom</code>、<code>bottom-start</code>、<code>bottom-end</code> 或者不设</td>
+            <td>下拉菜单的弹出位置，可选值为 <code>top</code>、<code>top-start</code>、<code>top-end</code>、<code>bottom</code>、<code>bottom-start</code>、<code>bottom-end</code> 或者不设</td>
             <td>String</td>
             <td>bottom-start</td>
           </tr>
           <tr>
             <td>dropdownAutoWidth</td>
-            <td>下拉弹窗的宽度是否根据菜单内容自动设置，设置为 <code>false</code> 时将保持与操作按钮或链接同宽</td>
+            <td>下拉菜单的宽度是否根据菜单内容自适应，设置为 <code>false</code> 时将保持与操作按钮或链接同宽</td>
             <td>Boolean</td>
             <td>true</td>
           </tr>
           <tr>
             <td>getPopupContainer</td>
-            <td>指定下拉弹窗挂载的 HTML 节点</td>
+            <td>指定下拉菜单挂载的 HTML 节点</td>
             <td>Function</td>
             <td>() => document.body</td>
           </tr>
@@ -78,7 +78,7 @@
         <tbody>
           <tr>
             <td>change</td>
-            <td>下拉弹窗显示状态发生变化时触发的事件回调函数</td>
+            <td>下拉菜单显示状态发生变化时触发的事件回调函数</td>
             <td>Function</td>
             <td>visible</td>
           </tr>
@@ -108,32 +108,32 @@
             <td>--</td>
           </tr>
           <tr>
-            <td>trigger</td>
-            <td>触发方式，可选值为 <code>hover</code>、<code>click</code> 或者不设</td>
-            <td>String</td>
-            <td>hover</td>
-          </tr>
-          <tr>
             <td>visible</td>
-            <td>下拉弹窗是否显示，可以使用 <code>v-model</code> 双向绑定数据</td>
+            <td>下拉菜单是否显示，可以使用 <code>v-model</code> 双向绑定数据</td>
             <td>Boolean</td>
             <td>false</td>
           </tr>
           <tr>
+            <td>trigger</td>
+            <td>下拉菜单的触发方式，可选值为 <code>hover</code>、<code>click</code> 或者不设</td>
+            <td>String</td>
+            <td>hover</td>
+          </tr>
+          <tr>
             <td>placement</td>
-            <td>下拉弹窗的弹出位置，可选值为 <code>top</code>、<code>top-start</code>、<code>top-end</code>、<code>bottom</code>、<code>bottom-start</code>、<code>bottom-end</code> 或者不设</td>
+            <td>下拉菜单的弹出位置，可选值为 <code>top</code>、<code>top-start</code>、<code>top-end</code>、<code>bottom</code>、<code>bottom-start</code>、<code>bottom-end</code> 或者不设</td>
             <td>String</td>
             <td>bottom-end</td>
           </tr>
           <tr>
             <td>dropdownAutoWidth</td>
-            <td>下拉弹窗的宽度是否根据菜单内容自动设置，设置为 <code>false</code> 时将保持与操作按钮或链接同宽</td>
+            <td>下拉菜单的宽度是否根据菜单内容自适应，设置为 <code>false</code> 时将保持与操作按钮或链接同宽</td>
             <td>Boolean</td>
             <td>true</td>
           </tr>
           <tr>
             <td>getPopupContainer</td>
-            <td>指定下拉弹窗挂载的 HTML 节点</td>
+            <td>指定下拉菜单挂载的 HTML 节点</td>
             <td>Function</td>
             <td>() => document.body</td>
           </tr>
@@ -158,7 +158,7 @@
           </tr>
           <tr>
             <td>change</td>
-            <td>右侧按钮的下拉弹窗显示状态发生变化时触发的事件回调函数</td>
+            <td>右侧按钮的下拉菜单显示状态发生变化时触发的事件回调函数</td>
             <td>Function</td>
             <td>visible</td>
           </tr>
@@ -221,7 +221,7 @@
         <tbody>
           <tr>
             <td>value</td>
-            <td>子菜单的唯一值</td>
+            <td>子菜单的唯一值/标识</td>
             <td>String | Number</td>
             <td>--</td>
           </tr>
@@ -283,7 +283,7 @@
         <tbody>
           <tr>
             <td>value</td>
-            <td>菜单项的唯一值</td>
+            <td>菜单项的唯一值/标识</td>
             <td>String | Number</td>
             <td>--</td>
           </tr>
