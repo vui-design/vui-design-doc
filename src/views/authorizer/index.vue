@@ -2,7 +2,7 @@
   <div>
     <document>
       <h1>Authorizer 权限校验</h1>
-      <p>用于对页面操作按钮、敏感数据或功能模块进行权限校验，判断是否允许用户点击或访问。</p>
+      <p>用于对页面菜单、链接、操作按钮，或其它敏感数据进行权限校验，判断是否允许用户访问或点击。</p>
       <h2>如何使用</h2>
       <h3>1. 注册全局校验函数</h3>
       <p>在工程入口文件（一般为 <code>src/main.js</code>）中，引入 Vui Design 时注册全局校验函数，如下所示：</p>
@@ -36,18 +36,24 @@
           </tr>
           <tr>
             <td>authorize</td>
-            <td>自定义权限校验函数，接收 <code>value</code> 属性作为参数，未定义时将使用全局校验函数</td>
+            <td>自定义权限校验函数，接收 <code>value</code> 和 <code>attrs</code> 作为参数（其中 <code>attrs</code> 为其它自定义属性），未定义时将使用全局校验函数</td>
             <td>Function</td>
             <td>--</td>
           </tr>
           <tr>
             <td>replacement</td>
-            <td>权限校验未通过时的替代元素或组件，允许为空</td>
+            <td>权限校验未通过时显示的替代元素或组件，允许为空</td>
             <td>Slot</td>
             <td>--</td>
           </tr>
         </tbody>
       </table>
+      <p>除了预定义的属性之外，<code>Authorizer</code> 组件也支持其它自定义属性，以便实现更为复杂的校验逻辑，如下所示：</p>
+      <ul>
+        <li><code>&lt;vui-authorizer value="admin" type="product" /&gt;</code></li>
+        <li><code>&lt;vui-authorizer value="superadmin" type="product" v-bind:extra="123456" /&gt;</code></li>
+      </ul>
+      <p>额外的自定义属性将以第二个参数传递给权限校验函数。</p>
     </document>
   </div>
 </template>
