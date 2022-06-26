@@ -237,6 +237,15 @@ export default [
 				component: () => import("src/views/cascader/index")
 			},
 			{
+				path: "/components/cascade-transfer",
+				name: "cascade-transfer",
+				meta: {
+					title: "CascadeTransfer",
+					group: "data-entry"
+				},
+				component: () => import("src/views/cascade-transfer/index")
+			},
+			{
 				path: "/components/checkbox",
 				name: "checkbox",
 				meta: {

@@ -11099,7 +11099,7 @@ a.link-disabled:active,
 .vui-cascade-transfer {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   box-sizing: border-box;
   color: #595959;
   font-size: 14px;
@@ -11112,8 +11112,7 @@ a.link-disabled:active,
   justify-content: flex-start;
   align-items: stretch;
   box-sizing: border-box;
-  min-width: 200px;
-  height: 251px;
+  width: 240px;
   border: 1px solid #e0e0e0;
   border-radius: 2px;
 }
@@ -11141,17 +11140,24 @@ a.link-disabled:active,
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.vui-cascade-transfer-source-search {
+  display: block;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 12px;
+}
 .vui-cascade-transfer-source-body {
   flex: auto;
   display: block;
   box-sizing: border-box;
+  height: 284px;
   overflow: auto;
 }
 .vui-cascade-transfer-source-list {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
-  min-width: 399px;
+  min-width: 479px;
 }
 .vui-cascade-transfer-source-list .vui-cascade-transfer-source {
   border-radius: 0;
@@ -11225,7 +11231,6 @@ a.link-disabled:active,
   color: #2d8cf0;
 }
 .vui-cascade-transfer-menu-item-disabled {
-  cursor: not-allowed;
   background-color: transparent;
 }
 .vui-cascade-transfer-menu-item-disabled:hover {
@@ -11237,8 +11242,7 @@ a.link-disabled:active,
   justify-content: flex-start;
   align-items: stretch;
   box-sizing: border-box;
-  width: 200px;
-  height: 251px;
+  width: 240px;
   border: 1px solid #e0e0e0;
   border-radius: 2px;
   margin-left: 16px;
@@ -11264,10 +11268,17 @@ a.link-disabled:active,
   box-sizing: border-box;
   margin-left: 8px;
 }
+.vui-cascade-transfer-target-search {
+  display: block;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 12px;
+}
 .vui-cascade-transfer-target-body {
   flex: auto;
   display: block;
   box-sizing: border-box;
+  height: 284px;
   overflow: auto;
 }
 .vui-cascade-transfer-choice {

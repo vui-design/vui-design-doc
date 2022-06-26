@@ -39,6 +39,7 @@ export default {
 
     "data-entry": "数据录入",
     "data-entry-cascader": "Cascader 级联选择框",
+    "data-entry-cascade-transfer": "CascadeTransfer 级联穿梭框",
     "data-entry-checkbox": "Checkbox 多选框",
     "data-entry-datepicker": "Datepicker 日期选择器",
     "data-entry-form": "Form 表单",
@@ -272,6 +273,8 @@ export default {
     "example-cascader-auto-width": "自动宽度",
     "example-cascader-formatter": "自定义已选项",
     "example-cascader-option-keys": "自定义字段名",
+
+    "example-cascade-transfer-basic-usage": "基本用法",
 
     "example-checkbox-basic-usage": "基本用法",
     "example-checkbox-disabled": "禁用状态",
