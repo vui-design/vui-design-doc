@@ -13833,21 +13833,12 @@ a.link-disabled:active,
   box-sizing: border-box;
   width: 100%;
   line-height: 1.42857143;
-  /* table position */
   /* table size */
   /* table bordered */
   /* table row color */
 }
-.vui-table-wrapper {
-  position: relative;
-  display: block;
-  box-sizing: border-box;
-  max-width: 100%;
-  border-radius: 2px;
-  overflow: hidden;
-}
-.vui-table-wrapper-bordered:before,
-.vui-table-wrapper-bordered:after {
+.vui-table-bordered:before,
+.vui-table-bordered:after {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -13860,11 +13851,11 @@ a.link-disabled:active,
   border-radius: 2px;
   pointer-events: none;
 }
-.vui-table-wrapper-bordered:before {
+.vui-table-bordered:before {
   border-top: 1px solid #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
 }
-.vui-table-wrapper-bordered:after {
+.vui-table-bordered:after {
   border-left: 1px solid #f0f0f0;
   border-right: 1px solid #f0f0f0;
 }
@@ -13890,6 +13881,7 @@ a.link-disabled:active,
   border-spacing: 0;
 }
 .vui-table-header-scrollbar > table > thead > tr > th {
+  position: relative;
   box-sizing: border-box;
   vertical-align: middle;
   transition: background-color 0.2s cubic-bezier(0.23, 1, 0.32, 1), padding 0.2s cubic-bezier(0.23, 1, 0.32, 1);
@@ -13899,6 +13891,40 @@ a.link-disabled:active,
   -webkit-hyphens: auto;
       -ms-hyphens: auto;
           hyphens: auto;
+}
+.vui-table-header-scrollbar > table > thead > tr > th.vui-table-column-fixed-left {
+  position: sticky;
+  z-index: 1;
+  background: #fafafa;
+}
+.vui-table-header-scrollbar > table > thead > tr > th.vui-table-column-fixed-left-last:after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 0;
+  bottom: 0;
+  display: block;
+  box-sizing: border-box;
+  width: 6px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.06) -40%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+.vui-table-header-scrollbar > table > thead > tr > th.vui-table-column-fixed-right {
+  position: sticky;
+  z-index: 1;
+  background: #fafafa;
+}
+.vui-table-header-scrollbar > table > thead > tr > th.vui-table-column-fixed-right-first:after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 0;
+  bottom: 0;
+  display: block;
+  box-sizing: border-box;
+  width: 6px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.06) -40%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
 }
 .vui-table-header-scrollbar > table > thead > tr > th.vui-table-column-align-left {
   text-align: left;
@@ -13922,7 +13948,6 @@ a.link-disabled:active,
           user-select: none;
 }
 .vui-table-header-scrollbar > table > thead > tr > th.vui-table-column-with-filter {
-  position: relative;
   padding-right: 30px !important;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -13963,6 +13988,40 @@ a.link-disabled:active,
   -webkit-hyphens: auto;
       -ms-hyphens: auto;
           hyphens: auto;
+}
+.vui-table-body-scrollbar > table > tbody > tr > td.vui-table-column-fixed-left {
+  position: sticky;
+  z-index: 1;
+  background: #fff;
+}
+.vui-table-body-scrollbar > table > tbody > tr > td.vui-table-column-fixed-left-last:after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 0;
+  bottom: 0;
+  display: block;
+  box-sizing: border-box;
+  width: 6px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.06) -40%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+.vui-table-body-scrollbar > table > tbody > tr > td.vui-table-column-fixed-right {
+  position: sticky;
+  z-index: 1;
+  background: #fff;
+}
+.vui-table-body-scrollbar > table > tbody > tr > td.vui-table-column-fixed-right-first:after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 0;
+  bottom: 0;
+  display: block;
+  box-sizing: border-box;
+  width: 6px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.06) -40%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
 }
 .vui-table-body-scrollbar > table > tbody > tr > td.vui-table-column-align-left {
   text-align: left;
@@ -14323,66 +14382,6 @@ a.link-disabled:active,
 .vui-table-column-selection {
   margin-top: -4px;
 }
-.vui-table-left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 0;
-}
-.vui-table-left:after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-  display: block;
-  box-sizing: border-box;
-  width: 6px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.06) -40%, rgba(0, 0, 0, 0) 100%);
-  pointer-events: none;
-}
-.vui-table-left > .vui-table-header > .vui-table-header-scrollbar > table {
-  float: left;
-}
-.vui-table-left > .vui-table-body > .vui-table-body-scrollbar > table {
-  float: left;
-}
-.vui-table-bordered .vui-table-left:after {
-  right: -5px;
-  border-left: 1px solid #f0f0f0;
-}
-.vui-table-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  width: 0;
-}
-.vui-table-right:before {
-  content: "";
-  position: absolute;
-  left: -6px;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-  display: block;
-  box-sizing: border-box;
-  width: 6px;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.06) -40%, rgba(0, 0, 0, 0) 100%);
-  pointer-events: none;
-}
-.vui-table-right > .vui-table-header > .vui-table-header-scrollbar > table {
-  float: right;
-}
-.vui-table-right > .vui-table-body > .vui-table-body-scrollbar > table {
-  float: right;
-}
-.vui-table-bordered .vui-table-right:after {
-  left: -6px;
-  border-right: 1px solid #f0f0f0;
-}
 .vui-table-small > .vui-table-header > .vui-table-header-scrollbar > table > thead > tr > th,
 .vui-table-small > .vui-table-body > .vui-table-body-scrollbar > table > tbody > tr > td {
   padding: 8px 8px;
@@ -14422,10 +14421,10 @@ a.link-disabled:active,
   border-color: rgba(0, 0, 0, 0.04);
   background-color: #e6f7ff;
 }
-.vui-table > .vui-table-body > .vui-table-body-scrollbar > table > tbody > tr.vui-table-row-hovered > td {
+.vui-table > .vui-table-body > .vui-table-body-scrollbar > table > tbody > tr:hover > td {
   background-color: #fafafa;
 }
-.vui-table > .vui-table-body > .vui-table-body-scrollbar > table > tbody > tr.vui-table-row-selected.vui-table-row-hovered > td {
+.vui-table > .vui-table-body > .vui-table-body-scrollbar > table > tbody > tr.vui-table-row-selected:hover > td {
   background-color: #dcf4ff;
 }
 @-webkit-keyframes vuiTableColumnFilterDropdownSlideIn {

@@ -174,7 +174,7 @@ const code =
 </script>
 
 <style>
-  .example-table-export .vui-button-group { margin-bottom:20px; }
+  .example-table-export .vui-button-group { margin-bottom:16px; }
   .example-table-export .vui-button-group .vui-button { margin-left:1px; }
 </style>
 `;

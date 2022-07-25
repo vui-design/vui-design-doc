@@ -78,7 +78,7 @@ const code =
 </script>
 
 <style>
-  .example-table-loading .vui-switch { margin-bottom:20px; }
+  .example-table-loading .vui-switch { margin-bottom:16px; }
 </style>
 `;
 

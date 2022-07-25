@@ -36,7 +36,7 @@ const code =
 </script>
 
 <style>
-  .example-table-size .vui-radio-group { margin-bottom:20px; }
+  .example-table-size .vui-radio-group { margin-bottom:16px; }
 </style>
 `;
 
