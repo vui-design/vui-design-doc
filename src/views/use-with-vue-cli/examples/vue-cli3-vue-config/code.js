@@ -4,7 +4,7 @@ const code =
     open: true
   },
 +  transpileDependencies: [
-+    /[\\/]node_modules[\\/]vui-design[\\/]/
++    /[\\\\/]node_modules[\\\\/]vui-design[\\\\/]/
 +  ]
 }`;
 
