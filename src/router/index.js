@@ -14,7 +14,7 @@ const router =  new Router({
 });
 
 router.beforeEach((to, from, next) => {
-	VuiDesign.Loading.start();
+	VuiDesign.loading.start();
 	next();
 });
 
@@ -26,7 +26,7 @@ router.afterEach((to, from) => {
 		window.document.title = title;
 	}
 
-	VuiDesign.Loading.finish();
+	VuiDesign.loading.finish();
 });
 
 export default router;
