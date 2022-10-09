@@ -34,16 +34,22 @@
         </thead>
         <tbody>
           <tr>
+            <td>trigger</td>
+            <td>触发方式，可选值为 <code>hover</code>、<code>focus</code>、<code>click</code> 或者不设</td>
+            <td>String</td>
+            <td>hover</td>
+          </tr>
+          <tr>
             <td>visible</td>
             <td>是否可见，可以使用 <code>v-model</code> 双向绑定</td>
             <td>Boolean</td>
             <td>false</td>
           </tr>
           <tr>
-            <td>trigger</td>
-            <td>触发方式，可选值为 <code>hover</code>、<code>focus</code>、<code>click</code> 或者不设</td>
-            <td>String</td>
-            <td>hover</td>
+            <td>disabled</td>
+            <td>是否禁用，禁用后聚焦或点击 Popover 的子元素时将不再弹出气泡卡片</td>
+            <td>Boolean</td>
+            <td>false</td>
           </tr>
           <tr>
             <td>title</td>

@@ -1,6 +1,6 @@
 {
   "name": "vui-design-doc",
-  "version": "1.10.12",
+  "version": "1.10.13",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -11,6 +11,7 @@
   "dependencies": {
     "arale-qrcode": "^3.0.5",
     "async-validator": "^3.2.4",
+    "axios": "^1.1.2",
     "core-js": "^3.17.3",
     "resize-observer-polyfill": "^1.5.1",
     "vue": "^2.6.14",

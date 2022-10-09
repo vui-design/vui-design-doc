@@ -40,6 +40,12 @@
             <td>false</td>
           </tr>
           <tr>
+            <td>disabled</td>
+            <td>是否禁用，禁用后鼠标移入 Tooltip 的子元素时将不再弹出文字提示</td>
+            <td>Boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
             <td>color</td>
             <td>颜色，预设颜色详见示例〔多彩文字提示〕</td>
             <td>String</td>

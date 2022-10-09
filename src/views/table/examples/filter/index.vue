@@ -10,7 +10,7 @@
     </template>
     <template slot="title">筛选</template>
     <template slot="description">
-      <p>通过给 <code>columns</code> 配置项设置 <code>filter</code> 属性即可对相应列数据进行筛选。</p>
+      <p>通过给 <code>columns[n]</code> 列选项添加 <code>filter</code> 属性即可对相应列数据进行筛选。</p>
       <p><code>filter.options</code> 指定筛选下拉菜单的选项。</p>
       <p>必须指定一个筛选函数 <code>filter.method</code> 才可以进行筛选，接收 <code>value</code>、<code>row</code> 作为参数，详见 Demo 和 API。</p>
       <p>如果指定 <code>filter.multiple</code> 为 <code>false</code> 则表示使用单选，默认为多选。</p>

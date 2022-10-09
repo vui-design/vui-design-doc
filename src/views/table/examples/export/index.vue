@@ -13,9 +13,7 @@
     <template slot="title">导出</template>
     <template slot="description">
       <p>通过调用表格 <code>export()</code> 方法，可以将数据导出为 <code>csv</code> 格式的表格文件。<a href="javascript:;">详见下文 API 说明</a>。</p>
-      <p>注意</p>
-      <p>导出自定义数据时，<code>columns</code> 和 <code>data</code> 需同时声明，声明后将导出指定的数据</p>
-      <p>说明</p>
+      <p>注意，导出自定义数据时，<code>columns</code> 和 <code>data</code> 需同时声明，声明后将导出指定的数据。</p>
       <ul>
         <li>支持 IE9~IE11、Edge、Chrome、Safari、Firefox 全系列浏览器。</li>
         <li>IE9、Safari 需要手动修改后缀名为 .csv。</li>

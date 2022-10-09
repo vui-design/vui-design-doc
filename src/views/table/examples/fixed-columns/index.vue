@@ -10,7 +10,7 @@
     </template>
     <template slot="title">固定列</template>
     <template slot="description">
-      <p>通过给数据 <code>columns</code> 的项设置 <code>fixed</code> 为 <code>left</code> 或 <code>right</code>，可以左右固定需要的列。当横向内容过多时可以使用。</p>
+      <p>通过将 <code>columns[n]</code> 列选项的 <code>fixed</code> 属性设置为 <code>left</code> 或 <code>right</code>，可以左右固定需要的列。当横向内容过多时可以使用。</p>
     </template>
   </example>
 </template>

@@ -1,0 +1,34 @@
+
+.example-table-size .vui-radio-group { margin-bottom:16px;
+}
+
+
+.example-table-custom-style h4 { margin-top:16px; margin-bottom:16px;
+}
+.example-table-custom-style h4:first-child { margin-top:0;
+}
+.example-table-custom-style .vui-table > .vui-table-body > table > tbody > tr.vui-table-row-info > td { background-color:#5bc0de; color:#fff;
+}
+.example-table-custom-style .vui-table > .vui-table-body > table > tbody > tr.vui-table-row-danger > td { background-color:#ff4d4f; color:#fff;
+}
+.example-table-custom-style .vui-table > .vui-table-body > table > tbody > tr > td.vui-table-row-column-info { background-color:#5bc0de; color:#fff;
+}
+.example-table-custom-style .vui-table > .vui-table-body > table > tbody > tr > td.vui-table-row-column-danger { background-color:#ff4d4f; color:#fff;
+}
+
+
+.example-table-pagination section { display:flex; justify-content:flex-start; align-items:center;
+}
+.example-table-pagination section label { margin-right:16px;
+}
+
+
+.example-table-loading .vui-switch { margin-bottom:16px;
+}
+
+
+.example-table-export .vui-button-group { margin-bottom:16px;
+}
+.example-table-export .vui-button-group .vui-button { margin-left:1px;
+}
+

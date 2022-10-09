@@ -1,15 +1,28 @@
-const code =
-`<template>
-  <vui-table v-bind:columns="columns" v-bind:data="data" bordered rowKey="id">
-    <vui-space divider slot="action" slot-scope="{ row, rowIndex }">
-      <a href="javascript:;">Edit</a>
-      <a href="javascript:;">Delete</a>
-    </vui-space>
-  </vui-table>
+<template>
+  <example v-bind:code="code" id="example-table-hide-header">
+    <template slot="demo">
+      <vui-table v-bind:columns="columns" v-bind:data="data" v-bind:showHeader="false" rowKey="id">
+        <vui-space divider slot="action" slot-scope="{ row, rowIndex }">
+          <a href="javascript:;">Edit</a>
+          <a href="javascript:;">Delete</a>
+        </vui-space>
+      </vui-table>
+    </template>
+    <template slot="title">隐藏表头</template>
+    <template slot="description">
+      <p>通过将 <code>showHeader</code> 设为 <code>false</code> 来隐藏表格的表头。</p>
+    </template>
+  </example>
 </template>
 
 <script>
+  import Example from "src/components/example";
+  import code from "./code";
+
   export default {
+    components: {
+      Example
+    },
     data() {
       const columns = [
         { key: "name", dataIndex: "name", width: 200, title: "Name" },
@@ -58,12 +71,10 @@ const code =
       ];
 
       return {
+        code,
         columns,
         data
       };
     }
   };
 </script>
-`;
-
-export default code;

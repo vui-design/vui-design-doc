@@ -7,8 +7,8 @@
     </template>
     <template slot="title">表格行/列合并</template>
     <template slot="description">
-      <p>表头只支持列合并，使用 <code>column</code> 的 <code>colSpan</code> 属性进行设置。注意，由于在进行表头分组时，<code>Table</code> 组件将根据嵌套关系自动计算 <code>rowSpan</code> 和 <code>colSpan</code> 等属性，故在该用法中无法支持自定义表头列合并。</p>
-      <p>表格支持行/列合并，利用 <code>column</code> 的 <code>cellProps</code> 属性（也可以定义为方法）返回 <code>{ rowSpan, colSpan }</code> 等单元格属性实现表格行/列合并，当 <code>rowSpan</code> 或 <code>colSpan</code> 取值为 <code>0</code> 时单元格不会渲染。</p>
+      <p>表头只支持列合并，使用 <code>column[n]</code> 的 <code>colSpan</code> 属性进行设置。注意，由于在进行表头分组时，<code>Table</code> 组件将根据嵌套关系自动计算 <code>rowSpan</code> 和 <code>colSpan</code> 等属性，故在该用法中无法支持自定义表头列合并。</p>
+      <p>表格支持行/列合并，利用 <code>column[n]</code> 的 <code>cellProps</code> 属性（也可以定义为方法）返回 <code>{ rowSpan, colSpan }</code> 等单元格属性实现表格行/列合并，当 <code>rowSpan</code> 或 <code>colSpan</code> 取值为 <code>0</code> 时单元格不会渲染。</p>
     </template>
   </example>
 </template>

@@ -1,6 +1,6 @@
 const code =
 `<template>
-  <vui-table v-bind:columns="columns" v-bind:data="data" bordered rowKey="id">
+  <vui-table v-bind:columns="columns" v-bind:data="data" v-bind:showHeader="false" rowKey="id">
     <vui-space divider slot="action" slot-scope="{ row, rowIndex }">
       <a href="javascript:;">Edit</a>
       <a href="javascript:;">Delete</a>

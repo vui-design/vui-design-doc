@@ -39,6 +39,12 @@
             <td>false</td>
           </tr>
           <tr>
+            <td>disabled</td>
+            <td>是否禁用，禁用后点击 Popconfirm 的子元素时将不再弹出气泡确认框</td>
+            <td>Boolean</td>
+            <td>false</td>
+          </tr>
+          <tr>
             <td>icon</td>
             <td>确认框的图标或图标类型</td>
             <td>String | Slot</td>
