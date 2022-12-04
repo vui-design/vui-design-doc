@@ -1,9 +1,11 @@
-import VuiTabs from "./src/tabs";
+import VuiTabs from "./tabs";
 import PropTypes from "../../utils/prop-types";
 import is from "../../utils/is";
-import utils from "./src/utils";
+import withInstall from "../../utils/withInstall";
+import utils from "./utils";
 
-const VuiTabsWrapper = {
+export { createProps } from "./tabs";
+export default withInstall({
   name: VuiTabs.name,
   components: {
     VuiTabs
@@ -54,10 +56,4 @@ const VuiTabsWrapper = {
       <VuiTabs {...attributes} />
     );
   }
-};
-
-VuiTabsWrapper.install = function(Vue) {
-  Vue.component(VuiTabsWrapper.name, VuiTabsWrapper);
-};
-
-export default VuiTabsWrapper;
+});
