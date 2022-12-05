@@ -14,7 +14,7 @@ const code = `
 </script>
 
 <style>
-  .example-qrcode-tag { display:flex; justify-content:flex-start; align-items:flex-start; }
+  .example-qrcode-tag { display:flex; justify-content:flex-start; align-items:flex-start; overflow:hidden; }
   .example-qrcode-tag .vui-qrcode + .vui-qrcode { margin-left:24px; }
 </style>
 `;

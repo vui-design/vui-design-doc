@@ -1,10 +1,10 @@
 import VuiTabs from "./tabs";
-import PropTypes from "../../utils/prop-types";
+import { createProps } from "./tabs";
 import is from "../../utils/is";
 import withInstall from "../../utils/withInstall";
 import utils from "./utils";
 
-export { createProps } from "./tabs";
+export { createProps };
 export default withInstall({
   name: VuiTabs.name,
   components: {
@@ -14,18 +14,7 @@ export default withInstall({
     prop: "activeKey",
     event: "input"
   },
-  props: {
-    classNamePrefix: PropTypes.string,
-    type: PropTypes.oneOf(["line", "card"]).def("line"),
-    size: PropTypes.oneOf(["small", "medium", "large"]),
-    activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    extra: PropTypes.any,
-    addable: PropTypes.bool.def(false),
-    closable: PropTypes.bool.def(false),
-    destroyOnHide: PropTypes.bool.def(false),
-    headerStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    bodyStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
-  },
+  props: createProps(),
   render() {
     const { $slots: slots, $listeners: listeners, $props: props } = this;
 
