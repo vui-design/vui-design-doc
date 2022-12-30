@@ -28,7 +28,7 @@ const code =
 <style>
   .example-image-error { display:flex; }
   .example-image-error li { flex:1; width:50%; text-align:center; }
-  .example-image-error h4 { margin-bottom:20px; }
+  .example-image-error h4 { margin-bottom:16px; }
   .example-image-error .vui-image { width:300px; height:200px; }
 </style>
 `;

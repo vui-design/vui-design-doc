@@ -18,7 +18,7 @@ const code =
   export default {
     data() {
       return {
-        url: "https://zhitu.isux.us/assets/img/imgSample/test-60.jpg"
+        url: "https://file.iviewui.com/images/image-demo-10.jpg"
       };
     }
   };
@@ -27,7 +27,7 @@ const code =
 <style>
   .example-image-placeholder { display:flex; }
   .example-image-placeholder li { flex:1; width:50%; text-align:center; }
-  .example-image-placeholder h4 { margin-bottom:20px; }
+  .example-image-placeholder h4 { margin-bottom:16px; }
   .example-image-placeholder .vui-image { width:300px; height:200px; }
 </style>
 `;

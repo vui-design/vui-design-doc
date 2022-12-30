@@ -1,11 +1,15 @@
-import PropTypes from "../../../utils/prop-types";
-import getClassNamePrefix from "../../../utils/getClassNamePrefix";
+import PropTypes from "../../utils/prop-types";
+import getClassNamePrefix from "../../utils/getClassNamePrefix";
 
-const VuiCardGrid = {
-  name: "vui-card-grid",
-  props: {
+export const createProps = () => {
+  return {
     classNamePrefix: PropTypes.string
-  },
+  };
+};
+
+export default {
+  name: "vui-card-grid",
+  props: createProps(),
   render(h) {
     const { $slots: slots, $props: props } = this;
 
@@ -19,5 +23,3 @@ const VuiCardGrid = {
     );
   }
 };
-
-export default VuiCardGrid;

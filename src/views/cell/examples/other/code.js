@@ -29,7 +29,7 @@ const code =
 </script>
 
 <style>
-  .example-cell-other { background-color:#f6f6f6; padding:20px; }
+  .example-cell-other { background-color:#f6f6f6; padding:24px; }
   .example-cell-other > .vui-card { width:300px; }
 </style>
 `;

@@ -30,7 +30,7 @@ const code =
 </script>
 
 <style>
-  .example-collapse-arrow-align > .vui-collapse { margin-top:20px; }
+  .example-collapse-arrow-align > .vui-collapse { margin-top:24px; }
 </style>
 `;
 

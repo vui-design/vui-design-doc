@@ -30,7 +30,3 @@
     }
   };
 </script>
-
-<style>
-  .example-card-basic-usage .vui-card + .vui-card { margin-top:24px; }
-</style>

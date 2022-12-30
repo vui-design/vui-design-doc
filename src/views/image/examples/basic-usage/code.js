@@ -13,7 +13,7 @@ const code =
     data() {
       return {
         fits: ["fill", "contain", "cover", "none", "scale-down"],
-        url: "https://zhitu.isux.us/assets/img/imgSample/test-60.jpg"
+        url: "https://file.iviewui.com/images/image-demo-10.jpg"
       };
     }
   };
@@ -22,7 +22,7 @@ const code =
 <style>
   .example-image-basic-usage { display:flex; }
   .example-image-basic-usage li { flex:1; width:20%; text-align:center; }
-  .example-image-basic-usage h4 { margin-bottom:20px; }
+  .example-image-basic-usage h4 { margin-bottom:16px; }
   .example-image-basic-usage .vui-image { width:100px; height:100px; }
 </style>
 `;

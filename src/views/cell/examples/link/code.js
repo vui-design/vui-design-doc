@@ -49,7 +49,7 @@ const code =
 </script>
 
 <style>
-  .example-cell-link { background-color:#f6f6f6; padding:20px; }
+  .example-cell-link { background-color:#f6f6f6; padding:24px; }
   .example-cell-link > .vui-card { width:300px; }
 </style>
 `;

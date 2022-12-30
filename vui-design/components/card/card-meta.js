@@ -1,14 +1,18 @@
-import PropTypes from "../../../utils/prop-types";
-import getClassNamePrefix from "../../../utils/getClassNamePrefix";
+import PropTypes from "../../utils/prop-types";
+import getClassNamePrefix from "../../utils/getClassNamePrefix";
 
-const VuiCardMeta = {
-  name: "vui-card-meta",
-  props: {
+export const createProps = () => {
+  return {
     classNamePrefix: PropTypes.string,
     avatar: PropTypes.string,
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     description: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  },
+  };
+};
+
+export default {
+  name: "vui-card-meta",
+  props: createProps(),
   render(h) {
     const { $slots: slots, $props: props } = this;
 
@@ -56,5 +60,3 @@ const VuiCardMeta = {
     );
   }
 };
-
-export default VuiCardMeta;

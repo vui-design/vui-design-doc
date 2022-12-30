@@ -1,18 +1,22 @@
-import Locale from "../../../mixins/locale";
-import PropTypes from "../../../utils/prop-types";
-import is from "../../../utils/is";
-import getClassNamePrefix from "../../../utils/getClassNamePrefix";
+import Locale from "../../mixins/locale";
+import PropTypes from "../../utils/prop-types";
+import is from "../../utils/is";
+import getClassNamePrefix from "../../utils/getClassNamePrefix";
 
-const VuiEmpty = {
+export const createProps = () => {
+  return {
+    classNamePrefix: PropTypes.string,
+    image: PropTypes.string,
+    description: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).def(true)
+  };
+};
+
+export default {
   name: "vui-empty",
   mixins: [
     Locale
   ],
-  props: {
-    classNamePrefix: PropTypes.string,
-    image: PropTypes.string,
-    description: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).def(true)
-  },
+  props: createProps(),
   render() {
     const { $slots: slots, $props: props, t: translate } = this;
 
@@ -80,5 +84,3 @@ const VuiEmpty = {
     );
   }
 };
-
-export default VuiEmpty;

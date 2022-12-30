@@ -1,10 +1,9 @@
-import VuiIcon from "../../icon";
-import VuiRow from "../../row";
-import VuiCol from "../../col";
-import PropTypes from "../../../utils/prop-types";
-import is from "../../../utils/is";
-import getValidElements from "../../../utils/getValidElements";
-import getClassNamePrefix from "../../../utils/getClassNamePrefix";
+import VuiIcon from "../icon";
+import VuiRow from "../row";
+import VuiCol from "../col";
+import PropTypes from "../../utils/prop-types";
+import getValidElements from "../../utils/getValidElements";
+import getClassNamePrefix from "../../utils/getClassNamePrefix";
 
 const gridCardLoadingBlocks = [
   [20],
@@ -14,14 +13,8 @@ const gridCardLoadingBlocks = [
   [8, 8, 8]
 ];
 
-const VuiCard = {
-  name: "vui-card",
-  components: {
-    VuiIcon,
-    VuiRow,
-    VuiCol
-  },
-  props: {
+export const createProps = () => {
+  return {
     classNamePrefix: PropTypes.string,
     icon: PropTypes.string,
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -33,28 +26,20 @@ const VuiCard = {
     bodyStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     footerStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     loading: PropTypes.bool.def(false)
+  };
+};
+
+export default {
+  name: "vui-card",
+  components: {
+    VuiIcon,
+    VuiRow,
+    VuiCol
   },
+  props: createProps(),
   methods: {
     withCardGrids(children = [], tagName = "vui-card-grid") {
-      let bool = false;
-
-      children.forEach(element => {
-        if (!element) {
-          return;
-        }
-
-        const options = element.componentOptions;
-
-        if (!options) {
-          return;
-        }
-
-        if (options && options.tag === tagName) {
-          bool = true;
-        }
-      });
-
-      return bool;
+      return children.some(node => node && node.componentOptions && node.componentOptions.tag === tagName);
     }
   },
   render(h) {
@@ -218,5 +203,3 @@ const VuiCard = {
     );
   }
 };
-
-export default VuiCard;
