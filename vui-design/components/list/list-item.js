@@ -1,17 +1,21 @@
-import PropTypes from "../../../utils/prop-types";
-import getValidElements from "../../../utils/getValidElements";
-import getClassNamePrefix from "../../../utils/getClassNamePrefix";
+import PropTypes from "../../utils/prop-types";
+import getValidElements from "../../utils/getValidElements";
+import getClassNamePrefix from "../../utils/getClassNamePrefix";
 
-const VuiListItem = {
+export const createProps = () => {
+  return {
+    classNamePrefix: PropTypes.string
+  };
+};
+
+export default {
   name: "vui-list-item",
   inject: {
     vuiList: {
       default: undefined
     }
   },
-  props: {
-    classNamePrefix: PropTypes.string
-  },
+  props: createProps(),
   render(h) {
     const { vuiList, $slots: slots, $props: props } = this;
     const { $props: vuiListProps } = vuiList;
@@ -89,5 +93,3 @@ const VuiListItem = {
     );
   }
 };
-
-export default VuiListItem;

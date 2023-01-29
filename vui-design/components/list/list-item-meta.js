@@ -1,18 +1,22 @@
-import VuiAvatar from "../../avatar";
-import PropTypes from "../../../utils/prop-types";
-import getClassNamePrefix from "../../../utils/getClassNamePrefix";
+import VuiAvatar from "../avatar";
+import PropTypes from "../../utils/prop-types";
+import getClassNamePrefix from "../../utils/getClassNamePrefix";
 
-const VuiListItemMeta = {
-  name: "vui-list-item-meta",
-  components: {
-    VuiAvatar
-  },
-  props: {
+export const createProps = () => {
+  return {
     classNamePrefix: PropTypes.string,
     avatar: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string
+  };
+};
+
+export default {
+  name: "vui-list-item-meta",
+  components: {
+    VuiAvatar
   },
+  props: createProps(),
   render(h) {
     const { $slots: slots, $props: props } = this;
 
@@ -65,5 +69,3 @@ const VuiListItemMeta = {
     );
   }
 };
-
-export default VuiListItemMeta;

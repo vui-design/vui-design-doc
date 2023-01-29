@@ -18,22 +18,22 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="140">属性</th>
+            <th width="160">属性</th>
             <th>说明</th>
             <th width="200">类型</th>
-            <th width="140">默认值</th>
+            <th width="160">默认值</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>header</td>
-            <td>列表底部内容</td>
+            <td>列表头部内容</td>
             <td>String | Slot</td>
             <td>--</td>
           </tr>
           <tr>
             <td>footer</td>
-            <td>列表头部内容</td>
+            <td>列表底部内容</td>
             <td>String | Slot</td>
             <td>--</td>
           </tr>
@@ -85,10 +85,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="140">属性</th>
+            <th width="160">属性</th>
             <th>说明</th>
             <th width="200">类型</th>
-            <th width="140">默认值</th>
+            <th width="160">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -110,16 +110,16 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="140">属性</th>
+            <th width="160">属性</th>
             <th>说明</th>
             <th width="200">类型</th>
-            <th width="140">默认值</th>
+            <th width="160">默认值</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>actions</td>
-            <td>列表操作组，根据 <code>List</code> 组件 <code>layout</code> 属性值的不同，位置在卡片底部或者右侧</td>
+            <td>操作组，根据 <code>List</code> 组件 <code>layout</code> 属性值的不同，位置在列表元素底部或者右侧</td>
             <td>Slot</td>
             <td>--</td>
           </tr>
@@ -135,10 +135,10 @@
       <table class="example-api-props">
         <thead>
           <tr>
-            <th width="140">属性</th>
+            <th width="160">属性</th>
             <th>说明</th>
             <th width="200">类型</th>
-            <th width="140">默认值</th>
+            <th width="160">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -185,7 +185,7 @@
       ExampleBasicUsage,
       ExampleLoadMore,
       ExampleVertical,
-      ExampleGrid,
+      ExampleGrid
     }
   };
 </script>
