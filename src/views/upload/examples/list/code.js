@@ -31,8 +31,8 @@ const code =
       };
     },
     methods: {
-      handleChange(file, fileList) {
-        this.list = fileList;
+      handleChange(file, list) {
+        this.list = list;
       }
     }
   };

@@ -8,10 +8,13 @@ const code =
       v-bind:beforeUpload="beforeUpload"
       v-on:change="handleChange"
     >
-      <img v-if="image" v-bind:src="image" alt="avatar" style="width: 90px; height: 90px; object-fit: cover; object-position: center;" />
+      <img v-if="avatar" v-bind:src="avatar" />
       <template v-else>
-        <vui-icon v-bind:type="loading ? 'loading' : 'plus'" style="font-size: 20px;" />
-        <div style="margin-top: 10px; font-size: 14px; white-space: nowrap;">Upload</div>
+        <vui-icon v-bind:type="loading ? 'loading' : 'plus'" v-bind:size="20" />
+        <div style="margin-top: 8px;">
+          <template v-if="loading">Uploading...</template>
+          <template v-else>Upload</template>
+        </div>
       </template>
     </vui-upload>
   </div>
@@ -31,7 +34,7 @@ const code =
         showList: false,
         listType: "picture-card",
         action: "//www.mocky.io/v2/5cc8019d300000980a055e76",
-        image: "",
+        avatar: "",
         loading: false
       };
     },
@@ -51,20 +54,28 @@ const code =
 
         return isJPG && isLt2M;
       },
-      handleChange(file, fileList) {
+      handleChange(file, list) {
         if (file.status === "progress") {
           this.loading = true;
         }
         else if (file.status === "success") {
           getBase64(file.rawFile, url => {
-            this.image = url;
+            this.avatar = url;
             this.loading = false;
           });
+        }
+        else if (file.status === "error") {
+          this.loading = false;
+          this.$message.error("Upload failed!")
         }
       }
     }
   };
 </script>
+
+<style>
+  .example-upload-avatar img { width:82px; height:82px; object-fit:cover; object-position:center; }
+</style>
 `;
 
 export default code;

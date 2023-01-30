@@ -8,7 +8,7 @@ const code =
     v-on:change="handleChange"
   >
     <vui-button icon="image" slot="trigger">Select</vui-button>
-    <vui-button icon="upload" style="margin-left: 10px;" v-bind:disabled="list.length === 0" v-on:click="handleUpload">Upload</vui-button>
+    <vui-button icon="upload" style="margin-left: 16px;" v-bind:disabled="list.length === 0" v-on:click="handleUpload">Upload</vui-button>
   </vui-upload>
 </template>
 
@@ -22,8 +22,8 @@ const code =
       };
     },
     methods: {
-      handleChange(file, fileList) {
-        this.list = fileList;
+      handleChange(file, list) {
+        this.list = list;
       },
       handleUpload() {
         this.$refs.uploader.upload();

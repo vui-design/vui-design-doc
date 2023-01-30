@@ -20,20 +20,20 @@ const code =
       };
     },
     methods: {
-      handleReady(file, fileList) {
+      handleReady(file, list) {
         console.log(file.name + " ready!");
       },
-      handleProgress(progress, file, fileList) {
-        console.log(file.name + "uploaded " + file.percentage + "%!");
+      handleProgress(progress, file, list) {
+        console.log(file.name + " upload " + file.percentage + "%!");
       },
-      handleSuccess(response, file, fileList) {
-        this.$message.success(file.name + "uploaded successfully!");
+      handleSuccess(response, file, list) {
+        this.$message.success(file.name + " upload successfully!");
       },
-      handleError(error, file, fileList) {
-        this.$message.error(file.name + "uploaded failed!");
+      handleError(error, file, list) {
+        this.$message.error(file.name + " upload failed!");
       },
-      handleChange(file, fileList) {
-        console.log(file.name, fileList.length);
+      handleChange(file, list) {
+        console.log(file.name, list.length);
       }
     }
   };
