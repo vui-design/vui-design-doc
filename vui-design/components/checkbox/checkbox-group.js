@@ -1,11 +1,26 @@
-import VuiCheckbox from "../../checkbox";
-import Emitter from "../../../mixins/emitter";
-import PropTypes from "../../../utils/prop-types";
-import is from "../../../utils/is";
-import guid from "../../../utils/guid";
-import getClassNamePrefix from "../../../utils/getClassNamePrefix";
+import VuiCheckbox from "../checkbox";
+import Emitter from "../../mixins/emitter";
+import PropTypes from "../../utils/prop-types";
+import is from "../../utils/is";
+import guid from "../../utils/guid";
+import getClassNamePrefix from "../../utils/getClassNamePrefix";
 
-const VuiCheckboxGroup = {
+export const createProps = () => {
+  return {
+    classNamePrefix: PropTypes.string,
+    name: PropTypes.string.def(() => guid()),
+    layout: PropTypes.oneOf(["horizontal", "vertical"]).def("horizontal"),
+    type: PropTypes.string,
+    size: PropTypes.oneOf(["small", "medium", "large"]),
+    minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    value: PropTypes.array.def([]),
+    options: PropTypes.array.def([]),
+    disabled: PropTypes.bool.def(false),
+    validator: PropTypes.bool.def(true)
+  };
+};
+
+export default {
   name: "vui-checkbox-group",
   inject: {
     vuiForm: {
@@ -27,18 +42,7 @@ const VuiCheckboxGroup = {
     prop: "value",
     event: "input"
   },
-  props: {
-    classNamePrefix: PropTypes.string,
-    name: PropTypes.string.def(() => guid()),
-    layout: PropTypes.oneOf(["horizontal", "vertical"]).def("horizontal"),
-    type: PropTypes.string,
-    size: PropTypes.oneOf(["small", "medium", "large"]),
-    minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    value: PropTypes.array.def(() => []),
-    options: PropTypes.array.def(() => []),
-    disabled: PropTypes.bool.def(false),
-    validator: PropTypes.bool.def(true)
-  },
+  props: createProps(),
   data() {
     const { $props: props } = this;
     const state = {
@@ -51,9 +55,7 @@ const VuiCheckboxGroup = {
   },
   watch: {
     value(value) {
-      const { $props: props, state } = this;
-
-      if (state.value === value) {
+      if (this.state.value === value) {
         return;
       }
 
@@ -82,7 +84,7 @@ const VuiCheckboxGroup = {
     }
   },
   render() {
-    const { $slots: slots, $props: props, state } = this;
+    const { $slots: slots, $props: props } = this;
 
     // class
     const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "checkbox-group");
@@ -119,5 +121,3 @@ const VuiCheckboxGroup = {
     );
   }
 };
-
-export default VuiCheckboxGroup;

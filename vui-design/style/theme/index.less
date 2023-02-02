@@ -124,9 +124,9 @@
 @button-padding-size-md: 14px;
 @button-padding-size-lg: 20px;
 
-@button-font-size-sm: 12px;
-@button-font-size-md: 14px;
-@button-font-size-lg: 16px;
+@button-font-size-sm: @font-size-sm;
+@button-font-size-md: @font-size;
+@button-font-size-lg: @font-size-lg;
 
 @button-default-border-color: @border-color;
 @button-default-background-color: @component-background-color;
@@ -614,16 +614,18 @@
 @checkbox-border-color: @border-color;
 @checkbox-border-radius: @border-radius;
 @checkbox-background-color: @component-background-color;
-@checkbox-color: @primary-color;
+@checkbox-indeterminate-color: @primary-color;
+@checkbox-checkmark-color: @component-background-color;
 @checkbox-font-color: @font-color;
+@checkbox-line-height: @line-height;
 
 @checkbox-size-sm: 14px;
 @checkbox-size-md: 16px;
 @checkbox-size-lg: 18px;
 
-@checkbox-font-size-sm: 12px;
-@checkbox-font-size-md: 14px;
-@checkbox-font-size-lg: 16px;
+@checkbox-font-size-sm: @font-size-sm;
+@checkbox-font-size-md: @font-size;
+@checkbox-font-size-lg: @font-size-lg;
 
 @checkbox-hover-border-color: tint(@primary-color, 10%);
 
@@ -632,10 +634,12 @@
 
 @checkbox-disabled-border-color: @border-color;
 @checkbox-disabled-background-color: shade(@component-background-color, 2%);
-@checkbox-disabled-color: shade(@border-color, 10%);
+@checkbox-disabled-indeterminate-color: shade(@border-color, 20%);
+@checkbox-disabled-checkmark-color: shade(@border-color, 20%);
 @checkbox-disabled-font-color: @font-disabled-color;
 
 // Checkbox Button
+@checkbox-button-border-width: @border-width;
 @checkbox-button-border-color: @border-color;
 @checkbox-button-border-radius: @border-radius;
 @checkbox-button-background-color: @component-background-color;
@@ -645,9 +649,13 @@
 @checkbox-button-size-md: 34px;
 @checkbox-button-size-lg: 44px;
 
-@checkbox-button-font-size-sm: 12px;
-@checkbox-button-font-size-md: 14px;
-@checkbox-button-font-size-lg: 16px;
+@checkbox-button-padding-size-sm: 8px;
+@checkbox-button-padding-size-md: 14px;
+@checkbox-button-padding-size-lg: 20px;
+
+@checkbox-button-font-size-sm: @font-size-sm;
+@checkbox-button-font-size-md: @font-size;
+@checkbox-button-font-size-lg: @font-size-lg;
 
 @checkbox-button-hover-font-color: tint(@primary-color, 10%);
 

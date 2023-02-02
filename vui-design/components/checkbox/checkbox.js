@@ -1,9 +1,27 @@
-import Emitter from "../../../mixins/emitter";
-import PropTypes from "../../../utils/prop-types";
-import is from "../../../utils/is";
-import getClassNamePrefix from "../../../utils/getClassNamePrefix";
+import Emitter from "../../mixins/emitter";
+import PropTypes from "../../utils/prop-types";
+import is from "../../utils/is";
+import getClassNamePrefix from "../../utils/getClassNamePrefix";
 
-const VuiCheckbox = {
+export const createProps = () => {
+  return {
+    classNamePrefix: PropTypes.string,
+    name: PropTypes.string,
+    type: PropTypes.string,
+    size: PropTypes.oneOf(["small", "medium", "large"]),
+    minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    indeterminate: PropTypes.bool.def(false),
+    checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]).def(false),
+    disabled: PropTypes.bool.def(false),
+    checkedValue: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]).def(true),
+    uncheckedValue: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]).def(false),
+    validator: PropTypes.bool.def(true)
+  };
+};
+
+export default {
   name: "vui-checkbox",
   inject: {
     vuiForm: {
@@ -24,21 +42,7 @@ const VuiCheckbox = {
     prop: "checked",
     event: "input"
   },
-  props: {
-    classNamePrefix: PropTypes.string,
-    name: PropTypes.string,
-    type: PropTypes.string,
-    size: PropTypes.oneOf(["small", "medium", "large"]),
-    minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    indeterminate: PropTypes.bool.def(false),
-    checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]).def(false),
-    disabled: PropTypes.bool.def(false),
-    checkedValue: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]).def(true),
-    uncheckedValue: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]).def(false),
-    validator: PropTypes.bool.def(true)
-  },
+  props: createProps(),
   data() {
     const { $props: props } = this;
     const state = {
@@ -52,9 +56,7 @@ const VuiCheckbox = {
   },
   watch: {
     checked(value) {
-      const { $props: props, state } = this;
-
-      if (state.checked === value) {
+      if (this.state.checked === value) {
         return;
       }
 
@@ -237,5 +239,3 @@ const VuiCheckbox = {
     );
   }
 };
-
-export default VuiCheckbox;
