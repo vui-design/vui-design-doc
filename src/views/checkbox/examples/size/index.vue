@@ -90,5 +90,6 @@
 </script>
 
 <style>
-  .example-checkbox-size section + section { margin-top:16px; font-size:0; }
+  .example-checkbox-size section { line-height:1; }
+  .example-checkbox-size section + section { margin-top:16px; }
 </style>

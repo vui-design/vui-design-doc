@@ -55,5 +55,6 @@
 </script>
 
 <style>
+  .example-checkbox-check-all { line-height:1; }
   .example-checkbox-check-all section { margin-top:16px; }
 </style>

@@ -50,6 +50,7 @@ const code =
 </script>
 
 <style>
+  .example-checkbox-group-options section { line-height:1; }
   .example-checkbox-group-options section + section { margin-top:16px; }
 </style>
 `;
