@@ -634,8 +634,8 @@
 
 @checkbox-disabled-border-color: @border-color;
 @checkbox-disabled-background-color: shade(@component-background-color, 2%);
-@checkbox-disabled-indeterminate-color: shade(@border-color, 20%);
-@checkbox-disabled-checkmark-color: shade(@border-color, 20%);
+@checkbox-disabled-indeterminate-color: shade(@component-background-color, 25%);
+@checkbox-disabled-checkmark-color: shade(@component-background-color, 25%);
 @checkbox-disabled-font-color: @font-disabled-color;
 
 // Checkbox Button
@@ -758,7 +758,7 @@
 
 @radio-disabled-border-color: @border-color;
 @radio-disabled-background-color: shade(@component-background-color, 2%);
-@radio-disabled-checkmark-color: shade(@border-color, 20%);
+@radio-disabled-checkmark-color: shade(@component-background-color, 25%);
 @radio-disabled-font-color: @font-disabled-color;
 
 // Radio Button
@@ -794,7 +794,6 @@
 @rate-star-margin-right: @margin-xs;
 @rate-star-color: shade(@component-background-color, 6%);
 @rate-star-checked-color: @warning-color;
-@rate-star-hover-scale: scale(1.1);
 
 // Select
 @select-selection-border-color: @border-color;
@@ -896,10 +895,10 @@
 @slider-dragger-focus-disabled-box-shadow: 0 0 0 5px rgba(202,202,202,0.24);
 
 // Switch
-@switch-background-color: #ccc;
+@switch-background-color: shade(@component-background-color, 25%);
 @switch-checked-background-color: @primary-color;
 @switch-font-color: @font-reverse-color;
-@switch-input-background-color: @font-reverse-color;
+@switch-input-background-color: @component-background-color;
 
 @switch-size-sm: 16px;
 @switch-size-md: 22px;

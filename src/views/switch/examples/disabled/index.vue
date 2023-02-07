@@ -39,5 +39,6 @@
 </script>
 
 <style>
+  .example-switch-disabled { display:flex; justify-content:flex-start; align-items:center; }
   .example-switch-disabled .vui-button { margin-left:16px; }
 </style>

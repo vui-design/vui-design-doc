@@ -14,6 +14,7 @@ const code =
 </script>
 
 <style>
+  .example-switch-size { display:flex; justify-content:flex-start; align-items:center; }
   .example-switch-size .vui-switch + .vui-switch { margin-left:16px; }
 </style>
 `;

@@ -30,5 +30,6 @@
 </script>
 
 <style>
+  .example-switch-loading { display:flex; justify-content:flex-start; align-items:center; }
   .example-switch-loading .vui-switch + .vui-switch { margin-left:16px; }
 </style>

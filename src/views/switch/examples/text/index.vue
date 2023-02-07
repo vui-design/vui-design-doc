@@ -34,5 +34,6 @@
 </script>
 
 <style>
+  .example-switch-text { display:flex; justify-content:flex-start; align-items:center; }
   .example-switch-text .vui-switch + .vui-switch { margin-left:16px; }
 </style>

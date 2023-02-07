@@ -12,16 +12,16 @@
     </document>
     <vui-row v-bind:gutter="16">
       <vui-col v-bind:span="12">
-        <ExampleSwitchBasicUsage />
-        <ExampleSwitchSize />
-        <ExampleSwitchText />
-        <ExampleSwitchDisabled />
+        <example-basic-usage />
+        <example-size />
+        <example-text />
+        <example-disabled />
       </vui-col>
       <vui-col v-bind:span="12">
-        <ExampleSwitchLoading />
-        <ExampleSwitchStateValue />
-        <ExampleSwitchColor />
-        <ExampleSwitchBeforeChange />
+        <example-loading />
+        <example-state-value />
+        <example-color />
+        <example-before-change />
       </vui-col>
     </vui-row>
     <document>
@@ -32,8 +32,8 @@
           <tr>
             <th width="140">属性</th>
             <th>说明</th>
-            <th width="220">类型</th>
-            <th width="248">默认值</th>
+            <th width="240">类型</th>
+            <th width="264">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -41,37 +41,37 @@
             <td>size</td>
             <td>开关尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
             <td>String</td>
-            <td><code>medium</code></td>
+            <td>medium</td>
           </tr>
           <tr>
             <td>checked</td>
             <td>用于指定开关是否打开，可以使用 <code>v-model</code> 双向绑定数据</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>disabled</td>
             <td>是否禁用</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>loading</td>
             <td>是否处于加载状态</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>checkedValue</td>
             <td>用于设置开关打开时的值，例如使用 <code>0</code> 和 <code>1</code> 来标记开关的打开状态</td>
             <td>Boolean | String | Number</td>
-            <td><code>true</code></td>
+            <td>true</td>
           </tr>
           <tr>
             <td>uncheckedValue</td>
             <td>用于设置开关关闭时的值，例如使用 <code>0</code> 和 <code>1</code> 来标记开关的打开状态</td>
             <td>Boolean | String | Number</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>checkedColor</td>
@@ -111,8 +111,8 @@
           <tr>
             <th width="140">事件名</th>
             <th>说明</th>
-            <th width="220">类型</th>
-            <th width="248">回调参数</th>
+            <th width="240">类型</th>
+            <th width="264">回调参数</th>
           </tr>
         </thead>
         <tbody>
@@ -120,13 +120,13 @@
             <td>input</td>
             <td>在开关状态发生变化时触发的事件回调函数，可以使用<code>v-model</code>双向绑定数据</td>
             <td>Function</td>
-            <td><code>checkedValue</code> | <code>uncheckedValue</code></td>
+            <td>checkedValue | uncheckedValue</td>
           </tr>
           <tr>
             <td>change</td>
             <td>在开关状态发生变化时触发的事件回调函数</td>
             <td>Function</td>
-            <td><code>checkedValue</code> | <code>uncheckedValue</code></td>
+            <td>checkedValue | uncheckedValue</td>
           </tr>
         </tbody>
       </table>
@@ -137,30 +137,29 @@
 <script>
   import MixinAnchors from "src/mixins/anchors";
   import Document from "src/components/document";
-  import ExampleSwitchBasicUsage from "./examples/basic-usage";
-  import ExampleSwitchSize from "./examples/size";
-  import ExampleSwitchText from "./examples/text";
-  import ExampleSwitchDisabled from "./examples/disabled";
-  import ExampleSwitchLoading from "./examples/loading";
-  import ExampleSwitchStateValue from "./examples/state-value";
-  import ExampleSwitchColor from "./examples/color";
-  import ExampleSwitchBeforeChange from "./examples/before-change";
+  import ExampleBasicUsage from "./examples/basic-usage";
+  import ExampleSize from "./examples/size";
+  import ExampleText from "./examples/text";
+  import ExampleDisabled from "./examples/disabled";
+  import ExampleLoading from "./examples/loading";
+  import ExampleStateValue from "./examples/state-value";
+  import ExampleColor from "./examples/color";
+  import ExampleBeforeChange from "./examples/before-change";
 
   export default {
-    name: "SwitchZhCN",
     mixins: [
       MixinAnchors
     ],
     components: {
       Document,
-      ExampleSwitchBasicUsage,
-      ExampleSwitchSize,
-      ExampleSwitchText,
-      ExampleSwitchDisabled,
-      ExampleSwitchLoading,
-      ExampleSwitchStateValue,
-      ExampleSwitchColor,
-      ExampleSwitchBeforeChange
+      ExampleBasicUsage,
+      ExampleSize,
+      ExampleText,
+      ExampleDisabled,
+      ExampleLoading,
+      ExampleStateValue,
+      ExampleColor,
+      ExampleBeforeChange
     }
   };
 </script>
