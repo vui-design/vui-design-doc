@@ -30,7 +30,7 @@ export default {
     vuiCheckboxGroup: {
       default: undefined
     },
-    vuiMutexGroup: {
+    vuiChoiceGroup: {
       default: undefined
     }
   },
@@ -73,7 +73,7 @@ export default {
       this.$emit("blur");
     },
     handleChange(e) {
-      const { vuiCheckboxGroup, vuiMutexGroup, $props: props } = this;
+      const { vuiCheckboxGroup, vuiChoiceGroup, $refs: references, $props: props } = this;
       const checked = e.target.checked;
 
       if (props.disabled) {
@@ -81,10 +81,26 @@ export default {
       }
 
       if (vuiCheckboxGroup) {
-        vuiCheckboxGroup.handleChange(checked, props.value);
+        const beforeCheck = vuiCheckboxGroup.beforeSelect || vuiCheckboxGroup.beforeCheck;
+        const callback = () => vuiCheckboxGroup.handleChange(checked, props.value);
+        let hook = true;
+
+        if (is.function(beforeCheck)) {
+          hook = beforeCheck(props.value);
+        }
+
+        if (is.boolean(hook) && hook === false) {
+          references.checkbox.checked = "";
+        }
+        else if (is.promise(hook)) {
+          hook.then(() => callback()).catch(() => references.checkbox.checked = "");
+        }
+        else {
+          callback();
+        }
       }
-      else if (vuiMutexGroup) {
-        vuiMutexGroup.handleChange("checkbox", checked, props.value);
+      else if (vuiChoiceGroup) {
+        vuiChoiceGroup.handleChange("checkbox", checked, props.value);
       }
       else {
         const value = checked ? props.checkedValue : props.uncheckedValue;
@@ -100,7 +116,7 @@ export default {
     }
   },
   render() {
-    const { vuiForm, vuiCheckboxGroup, vuiMutexGroup, $slots: slots, $attrs: attrs, $props: props, state } = this;
+    const { vuiForm, vuiCheckboxGroup, vuiChoiceGroup, $slots: slots, $attrs: attrs, $props: props, state } = this;
     const { handleFocus, handleBlur, handleChange } = this;
 
     // props & state
@@ -110,9 +126,9 @@ export default {
       type = vuiCheckboxGroup.type;
       name = vuiCheckboxGroup.name;
     }
-    else if (vuiMutexGroup) {
-      type = vuiMutexGroup.type;
-      name = vuiMutexGroup.name;
+    else if (vuiChoiceGroup) {
+      type = vuiChoiceGroup.type;
+      name = vuiChoiceGroup.name;
     }
     else {
       type = props.type;
@@ -128,8 +144,8 @@ export default {
     else if (vuiCheckboxGroup && vuiCheckboxGroup.size) {
       size = vuiCheckboxGroup.size;
     }
-    else if (vuiMutexGroup && vuiMutexGroup.size) {
-      size = vuiMutexGroup.size;
+    else if (vuiChoiceGroup && vuiChoiceGroup.size) {
+      size = vuiChoiceGroup.size;
     }
     else if (vuiForm && vuiForm.size) {
       size = vuiForm.size;
@@ -144,8 +160,8 @@ export default {
     else if (vuiCheckboxGroup && vuiCheckboxGroup.minWidth) {
       minWidth = vuiCheckboxGroup.minWidth;
     }
-    else if (vuiMutexGroup && vuiMutexGroup.minWidth) {
-      minWidth = vuiMutexGroup.minWidth;
+    else if (vuiChoiceGroup && vuiChoiceGroup.minWidth) {
+      minWidth = vuiChoiceGroup.minWidth;
     }
 
     focused = state.focused;
@@ -154,8 +170,8 @@ export default {
     if (vuiCheckboxGroup) {
       checked = vuiCheckboxGroup.state.value.indexOf(value) > -1;
     }
-    else if (vuiMutexGroup) {
-      checked = is.array(vuiMutexGroup.state.value) && vuiMutexGroup.state.value.indexOf(value) > -1;
+    else if (vuiChoiceGroup) {
+      checked = is.array(vuiChoiceGroup.state.value) && vuiChoiceGroup.state.value.indexOf(value) > -1;
     }
     else {
       checked = state.checked === props.checkedValue;
@@ -167,8 +183,8 @@ export default {
     else if (vuiCheckboxGroup && vuiCheckboxGroup.disabled) {
       disabled = vuiCheckboxGroup.disabled;
     }
-    else if (vuiMutexGroup && vuiMutexGroup.disabled) {
-      disabled = vuiMutexGroup.disabled;
+    else if (vuiChoiceGroup && vuiChoiceGroup.disabled) {
+      disabled = vuiChoiceGroup.disabled;
     }
     else {
       disabled = props.disabled;
@@ -199,7 +215,8 @@ export default {
     }
 
     // render
-    const checkboxInputProps = {
+    const attributes = {
+      ref: "checkbox",
       attrs: attrs,
       on: {
         focus: handleFocus,
@@ -207,33 +224,30 @@ export default {
         change: handleChange
       }
     };
-    const checkboxInput = [];
-
-    if (!type) {
-      checkboxInput.push(
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
-          <path d="M0.020966 0l1023.958044 0 0 1024-1023.958044 0 0-1024Z"></path>
-        </svg>
-      );
-
-      checkboxInput.push(
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1248 1024">
-          <path d="M123.800257 460.153135l291.677674 232.393077 726.28329-669.078427s48.722384-44.483585 91.293444-9.727389c12.638284 10.392563 27.272086 39.993364-5.653359 86.388252L469.106727 988.380911s-58.120238 79.570536-127.131004-0.831161L14.711914 545.710226s-38.829006-59.865554 9.72861-95.701892c16.463333-11.973111 53.713011-30.763938 99.360954 10.14358z"></path>
-        </svg>
-      );
-    }
-
-    checkboxInput.push(
-      <input type="checkbox" name={name} value={value} checked={checked} disabled={disabled} {...checkboxInputProps} />
-    );
 
     return (
       <label class={classes.el} style={styles.el}>
-        <div class={classes.elInput}>{checkboxInput}</div>
+        <div class={classes.elInput}>
+          {
+            !type ? (
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+                <path d="M0.020966 0l1023.958044 0 0 1024-1023.958044 0 0-1024Z"></path>
+              </svg>
+            ) : null
+          }
+          {
+            !type ? (
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1248 1024">
+                <path d="M123.800257 460.153135l291.677674 232.393077 726.28329-669.078427s48.722384-44.483585 91.293444-9.727389c12.638284 10.392563 27.272086 39.993364-5.653359 86.388252L469.106727 988.380911s-58.120238 79.570536-127.131004-0.831161L14.711914 545.710226s-38.829006-59.865554 9.72861-95.701892c16.463333-11.973111 53.713011-30.763938 99.360954 10.14358z"></path>
+              </svg>
+            ) : null
+          }
+          <input type="checkbox" name={name} value={value} checked={checked} disabled={disabled} {...attributes} />
+        </div>
         {
-          label && (
+          label ? (
             <div class={classes.elLabel}>{label}</div>
-          )
+          ) : null
         }
       </label>
     );

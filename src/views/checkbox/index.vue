@@ -174,6 +174,12 @@
             <td>[]</td>
           </tr>
           <tr>
+            <td>beforeCheck</td>
+            <td>选择某一选项前触发的回调函数，接收该选项的 <code>value</code> 值作为参数，可用于判断是否可选，返回 false 时禁止选择，支持返回 Promise 对象</td>
+            <td>Function</td>
+            <td>--</td>
+          </tr>
+          <tr>
             <td>disabled</td>
             <td>是否禁用多选组合</td>
             <td>Boolean</td>

@@ -645,13 +645,13 @@
 @checkbox-button-background-color: @component-background-color;
 @checkbox-button-font-color: @font-color;
 
-@checkbox-button-size-sm: 24px;
-@checkbox-button-size-md: 34px;
-@checkbox-button-size-lg: 44px;
+@checkbox-button-size-sm: @button-size-sm;
+@checkbox-button-size-md: @button-size-md;
+@checkbox-button-size-lg: @button-size-lg;
 
-@checkbox-button-padding-size-sm: 8px;
-@checkbox-button-padding-size-md: 14px;
-@checkbox-button-padding-size-lg: 20px;
+@checkbox-button-padding-size-sm: @button-padding-size-sm;
+@checkbox-button-padding-size-md: @button-padding-size-md;
+@checkbox-button-padding-size-lg: @button-padding-size-lg;
 
 @checkbox-button-font-size-sm: @font-size-sm;
 @checkbox-button-font-size-md: @font-size;
@@ -740,16 +740,17 @@
 @radio-border-color: @border-color;
 @radio-border-radius: 50%;
 @radio-background-color: @component-background-color;
-@radio-color: @primary-color;
+@radio-checkmark-color: @primary-color;
 @radio-font-color: @font-color;
+@radio-line-height: @line-height;
 
 @radio-size-sm: 14px;
 @radio-size-md: 16px;
 @radio-size-lg: 18px;
 
-@radio-font-size-sm: 12px;
-@radio-font-size-md: 14px;
-@radio-font-size-lg: 16px;
+@radio-font-size-sm: @font-size-sm;
+@radio-font-size-md: @font-size;
+@radio-font-size-lg: @font-size-lg;
 
 @radio-hover-border-color: tint(@primary-color, 10%);
 
@@ -757,22 +758,27 @@
 
 @radio-disabled-border-color: @border-color;
 @radio-disabled-background-color: shade(@component-background-color, 2%);
-@radio-disabled-color: shade(@border-color, 10%);
+@radio-disabled-checkmark-color: shade(@border-color, 20%);
 @radio-disabled-font-color: @font-disabled-color;
 
 // Radio Button
+@radio-button-border-width: @border-width;
 @radio-button-border-color: @border-color;
 @radio-button-border-radius: @border-radius;
 @radio-button-background-color: @component-background-color;
 @radio-button-font-color: @font-color;
 
-@radio-button-size-sm: 24px;
-@radio-button-size-md: 34px;
-@radio-button-size-lg: 44px;
+@radio-button-size-sm: @button-size-sm;
+@radio-button-size-md: @button-size-md;
+@radio-button-size-lg: @button-size-lg;
 
-@radio-button-font-size-sm: 12px;
-@radio-button-font-size-md: 14px;
-@radio-button-font-size-lg: 16px;
+@radio-button-padding-size-sm: @button-padding-size-sm;
+@radio-button-padding-size-md: @button-padding-size-md;
+@radio-button-padding-size-lg: @button-padding-size-lg;
+
+@radio-button-font-size-sm: @font-size-sm;
+@radio-button-font-size-md: @font-size;
+@radio-button-font-size-lg: @font-size-lg;
 
 @radio-button-hover-font-color: tint(@primary-color, 10%);
 

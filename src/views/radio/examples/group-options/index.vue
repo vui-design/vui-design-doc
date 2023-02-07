@@ -64,5 +64,6 @@
 </script>
 
 <style>
-  .example-radio-group-options section + section { margin-top:16px; font-size:0; }
+  .example-radio-group-options section { line-height:1; }
+  .example-radio-group-options section + section { margin-top:16px; }
 </style>

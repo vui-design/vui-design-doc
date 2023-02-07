@@ -90,5 +90,6 @@
 </script>
 
 <style>
-  .example-radio-size section + section { margin-top:16px; font-size:0; }
+  .example-radio-size section { line-height:1; }
+  .example-radio-size section + section { margin-top:16px; }
 </style>

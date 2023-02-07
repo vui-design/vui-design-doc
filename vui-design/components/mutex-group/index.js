@@ -1,7 +1,5 @@
-import VuiMutexGroup from "./src/mutex-group";
+import VuiChoiceGroup from "./choice-group";
+import withInstall from "../../utils/withInstall";
 
-VuiMutexGroup.install = function(Vue) {
-  Vue.component(VuiMutexGroup.name, VuiMutexGroup);
-};
-
-export default VuiMutexGroup;
+export { createProps } from "./choice-group";
+export default withInstall(VuiChoiceGroup);

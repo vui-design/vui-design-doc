@@ -1,11 +1,28 @@
-import VuiRadio from "../../radio";
-import Emitter from "../../../mixins/emitter";
-import PropTypes from "../../../utils/prop-types";
-import is from "../../../utils/is";
-import guid from "../../../utils/guid";
-import getClassNamePrefix from "../../../utils/getClassNamePrefix";
+import VuiRadio from "../radio";
+import Emitter from "../../mixins/emitter";
+import PropTypes from "../../utils/prop-types";
+import is from "../../utils/is";
+import guid from "../../utils/guid";
+import getClassNamePrefix from "../../utils/getClassNamePrefix";
 
-const VuiRadioGroup = {
+export const createProps = () => {
+  return {
+    classNamePrefix: PropTypes.string,
+    name: PropTypes.string.def(() => guid()),
+    layout: PropTypes.oneOf(["horizontal", "vertical"]).def("horizontal"),
+    type: PropTypes.string,
+    size: PropTypes.oneOf(["small", "medium", "large"]),
+    minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
+    options: PropTypes.array.def([]),
+    beforeSelect: PropTypes.func,
+    beforeCheck: PropTypes.func,
+    disabled: PropTypes.bool.def(false),
+    validator: PropTypes.bool.def(true)
+  };
+};
+
+export default {
   name: "vui-radio-group",
   inject: {
     vuiForm: {
@@ -27,19 +44,7 @@ const VuiRadioGroup = {
     prop: "value",
     event: "input"
   },
-  props: {
-    classNamePrefix: PropTypes.string,
-    name: PropTypes.string.def(() => guid()),
-    layout: PropTypes.oneOf(["horizontal", "vertical"]).def("horizontal"),
-    type: PropTypes.string,
-    size: PropTypes.oneOf(["small", "medium", "large"]),
-    minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
-    options: PropTypes.array.def(() => []),
-    disabled: PropTypes.bool.def(false),
-    beforeSelect: PropTypes.func,
-    validator: PropTypes.bool.def(true)
-  },
+  props: createProps(),
   data() {
     const { $props: props } = this;
     const state = {
@@ -52,9 +57,7 @@ const VuiRadioGroup = {
   },
   watch: {
     value(value) {
-      const { $props: props, state } = this;
-
-      if (state.value === value) {
+      if (this.state.value === value) {
         return;
       }
 
@@ -76,7 +79,7 @@ const VuiRadioGroup = {
     }
   },
   render() {
-    const { $slots: slots, $props: props, state } = this;
+    const { $slots: slots, $props: props } = this;
 
     // class
     const classNamePrefix = getClassNamePrefix(props.classNamePrefix, "radio-group");
@@ -91,15 +94,15 @@ const VuiRadioGroup = {
     let children;
 
     if (props.options && props.options.length > 0) {
-      children = props.options.map((option, index) => {
+      children = props.options.map(option => {
         if (is.object(option)) {
           return (
-            <VuiRadio key={is.boolean(option.value) ? index : option.value} value={option.value} disabled={option.disabled}>{option.label}</VuiRadio>
+            <VuiRadio key={option.value} value={option.value} disabled={option.disabled}>{option.label}</VuiRadio>
           );
         }
-        else {
+        else if (is.string(option) || is.number(option)) {
           return (
-            <VuiRadio key={is.boolean(option) ? index : option} value={option}>{option}</VuiRadio>
+            <VuiRadio key={option} value={option}>{option}</VuiRadio>
           );
         }
       });
@@ -113,5 +116,3 @@ const VuiRadioGroup = {
     );
   }
 };
-
-export default VuiRadioGroup;

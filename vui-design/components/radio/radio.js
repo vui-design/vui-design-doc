@@ -1,30 +1,10 @@
-import Emitter from "../../../mixins/emitter";
-import PropTypes from "../../../utils/prop-types";
-import is from "../../../utils/is";
-import getClassNamePrefix from "../../../utils/getClassNamePrefix";
+import Emitter from "../../mixins/emitter";
+import PropTypes from "../../utils/prop-types";
+import is from "../../utils/is";
+import getClassNamePrefix from "../../utils/getClassNamePrefix";
 
-const VuiRadio = {
-  name: "vui-radio",
-  inject: {
-    vuiForm: {
-      default: undefined
-    },
-    vuiRadioGroup: {
-      default: undefined
-    },
-    vuiMutexGroup: {
-      default: undefined
-    }
-  },
-  mixins: [
-    Emitter
-  ],
-  inheritAttrs: false,
-  model: {
-    prop: "checked",
-    event: "input"
-  },
-  props: {
+export const createProps = () => {
+  return {
     classNamePrefix: PropTypes.string,
     name: PropTypes.string,
     type: PropTypes.string,
@@ -37,7 +17,31 @@ const VuiRadio = {
     checkedValue: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]).def(true),
     uncheckedValue: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]).def(false),
     validator: PropTypes.bool.def(true)
+  };
+};
+
+export default {
+  name: "vui-radio",
+  inject: {
+    vuiForm: {
+      default: undefined
+    },
+    vuiRadioGroup: {
+      default: undefined
+    },
+    vuiChoiceGroup: {
+      default: undefined
+    }
   },
+  mixins: [
+    Emitter
+  ],
+  inheritAttrs: false,
+  model: {
+    prop: "checked",
+    event: "input"
+  },
+  props: createProps(),
   data() {
     const { $props: props } = this;
     const state = {
@@ -51,9 +55,7 @@ const VuiRadio = {
   },
   watch: {
     checked(value) {
-      const { $props: props, state } = this;
-
-      if (state.checked === value) {
+      if (this.state.checked === value) {
         return;
       }
 
@@ -70,38 +72,37 @@ const VuiRadio = {
       this.$emit("blur");
     },
     handleChange(e) {
-      const { vuiRadioGroup, vuiMutexGroup, $refs: references, $props: props } = this;
+      const { vuiRadioGroup, vuiChoiceGroup, $refs: references, $props: props } = this;
+      const checked = e.target.checked;
 
       if (props.disabled) {
         return;
       }
 
       if (vuiRadioGroup) {
-        const callback = () => {
-          vuiRadioGroup.handleChange(e.target.checked, props.value);
-        };
-
+        const beforeCheck = vuiRadioGroup.beforeSelect || vuiRadioGroup.beforeCheck;
+        const callback = () => vuiRadioGroup.handleChange(checked, props.value);
         let hook = true;
 
-        if (is.function(vuiRadioGroup.beforeSelect)) {
-          hook = vuiRadioGroup.beforeSelect(props.value);
+        if (is.function(beforeCheck)) {
+          hook = beforeCheck(props.value);
         }
 
         if (is.boolean(hook) && hook === false) {
-          references.input.checked = "";
+          references.radio.checked = "";
         }
         else if (is.promise(hook)) {
-          hook.then(() => callback()).catch(error => references.input.checked = "");
+          hook.then(() => callback()).catch(() => references.radio.checked = "");
         }
         else {
           callback();
         }
       }
-      else if (vuiMutexGroup) {
-        vuiMutexGroup.handleChange("radio", e.target.checked, props.value);
+      else if (vuiChoiceGroup) {
+        vuiChoiceGroup.handleChange("radio", checked, props.value);
       }
       else {
-        const value = e.target.checked ? props.checkedValue : props.uncheckedValue;
+        const value = checked ? props.checkedValue : props.uncheckedValue;
   
         this.state.checked = value;
         this.$emit("input", value);
@@ -114,7 +115,7 @@ const VuiRadio = {
     }
   },
   render() {
-    const { vuiForm, vuiRadioGroup, vuiMutexGroup, $slots: slots, $attrs: attrs, $props: props, state } = this;
+    const { vuiForm, vuiRadioGroup, vuiChoiceGroup, $slots: slots, $attrs: attrs, $props: props, state } = this;
     const { handleFocus, handleBlur, handleChange } = this;
   
     // props & state
@@ -124,9 +125,9 @@ const VuiRadio = {
       type = vuiRadioGroup.type;
       name = vuiRadioGroup.name;
     }
-    else if (vuiMutexGroup) {
-      type = vuiMutexGroup.type;
-      name = vuiMutexGroup.name;
+    else if (vuiChoiceGroup) {
+      type = vuiChoiceGroup.type;
+      name = vuiChoiceGroup.name;
     }
     else {
       type = props.type;
@@ -142,8 +143,8 @@ const VuiRadio = {
     else if (vuiRadioGroup && vuiRadioGroup.size) {
       size = vuiRadioGroup.size;
     }
-    else if (vuiMutexGroup && vuiMutexGroup.size) {
-      size = vuiMutexGroup.size;
+    else if (vuiChoiceGroup && vuiChoiceGroup.size) {
+      size = vuiChoiceGroup.size;
     }
     else if (vuiForm && vuiForm.size) {
       size = vuiForm.size;
@@ -158,8 +159,8 @@ const VuiRadio = {
     else if (vuiRadioGroup && vuiRadioGroup.minWidth) {
       minWidth = vuiRadioGroup.minWidth;
     }
-    else if (vuiMutexGroup && vuiMutexGroup.minWidth) {
-      minWidth = vuiMutexGroup.minWidth;
+    else if (vuiChoiceGroup && vuiChoiceGroup.minWidth) {
+      minWidth = vuiChoiceGroup.minWidth;
     }
 
     focused = state.focused;
@@ -167,8 +168,8 @@ const VuiRadio = {
     if (vuiRadioGroup) {
       checked = value === vuiRadioGroup.state.value;
     }
-    else if (vuiMutexGroup) {
-      checked = !is.array(vuiMutexGroup.state.value) && value === vuiMutexGroup.state.value;
+    else if (vuiChoiceGroup) {
+      checked = !is.array(vuiChoiceGroup.state.value) && value === vuiChoiceGroup.state.value;
     }
     else {
       checked = state.checked === props.checkedValue;
@@ -180,8 +181,8 @@ const VuiRadio = {
     else if (vuiRadioGroup && vuiRadioGroup.disabled) {
       disabled = vuiRadioGroup.disabled;
     }
-    else if (vuiMutexGroup && vuiMutexGroup.disabled) {
-      disabled = vuiMutexGroup.disabled;
+    else if (vuiChoiceGroup && vuiChoiceGroup.disabled) {
+      disabled = vuiChoiceGroup.disabled;
     }
     else {
       disabled = props.disabled;
@@ -211,8 +212,8 @@ const VuiRadio = {
     }
 
     // render
-    const radioInputProps = {
-      ref: "input",
+    const attributes = {
+      ref: "radio",
       attrs: attrs,
       on: {
         focus: handleFocus,
@@ -220,21 +221,18 @@ const VuiRadio = {
         change: handleChange
       }
     };
-    const radioInput = (
-      <input type="radio" name={name} value={value} checked={checked} disabled={disabled} {...radioInputProps} />
-    );
 
     return (
       <label class={classes.el} style={styles.el}>
-        <div class={classes.elInput}>{radioInput}</div>
+        <div class={classes.elInput}>
+          <input type="radio" name={name} value={value} checked={checked} disabled={disabled} {...attributes} />
+        </div>
         {
-          label && (
+          label ? (
             <div class={classes.elLabel}>{label}</div>
-          )
+          ) : null
         }
       </label>
     );
   }
 };
-
-export default VuiRadio;

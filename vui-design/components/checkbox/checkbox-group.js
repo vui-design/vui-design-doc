@@ -15,6 +15,8 @@ export const createProps = () => {
     minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     value: PropTypes.array.def([]),
     options: PropTypes.array.def([]),
+    beforeSelect: PropTypes.func,
+    beforeCheck: PropTypes.func,
     disabled: PropTypes.bool.def(false),
     validator: PropTypes.bool.def(true)
   };

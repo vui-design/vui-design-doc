@@ -12,16 +12,16 @@
     </document>
     <vui-row v-bind:gutter="16">
       <vui-col v-bind:span="12">
-        <ExampleRadioBasicUsage />
-        <ExampleRadioDisabled />
-        <ExampleRadioStateValue />
-        <ExampleRadioGroup />
-        <ExampleRadioGroupVertical />
+        <example-basic-usage />
+        <example-disabled />
+        <example-state-value />
+        <example-group />
+        <example-group-vertical />
       </vui-col>
       <vui-col v-bind:span="12">
-        <ExampleRadioGroupOptions />
-        <ExampleRadioButton />
-        <ExampleRadioSize />
+        <example-group-options />
+        <example-button />
+        <example-size />
       </vui-col>
     </vui-row>
     <document>
@@ -32,8 +32,8 @@
           <tr>
             <th width="140">属性</th>
             <th>说明</th>
-            <th width="220">类型</th>
-            <th width="248">默认值</th>
+            <th width="240">类型</th>
+            <th width="264">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -47,7 +47,7 @@
             <td>size</td>
             <td>单选框尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
             <td>String</td>
-            <td><code>medium</code></td>
+            <td>medium</td>
           </tr>
           <tr>
             <td>minWidth</td>
@@ -71,25 +71,25 @@
             <td>checked</td>
             <td>该属性仅在单独使用时有效，用于指定单选框是否选中，可以使用 <code>v-model</code> 双向绑定数据</td>
             <td>Boolean | String | Number</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>disabled</td>
             <td>是否禁用</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
           <tr>
             <td>checkedValue</td>
             <td>该属性仅在单独使用时有效，用于设置选中时的值，例如使用 <code>0</code> 和 <code>1</code> 来标记单选框的选中状态</td>
             <td>Boolean | String | Number</td>
-            <td><code>true</code></td>
+            <td>true</td>
           </tr>
           <tr>
             <td>uncheckedValue</td>
             <td>该属性仅在单独使用时有效，用于设置未选中时的值，例如使用 <code>0</code> 和 <code>1</code> 来标记单选框的选中状态</td>
             <td>Boolean | String | Number</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
         </tbody>
       </table>
@@ -99,8 +99,8 @@
           <tr>
             <th width="140">事件名</th>
             <th>说明</th>
-            <th width="220">类型</th>
-            <th width="248">回调参数</th>
+            <th width="240">类型</th>
+            <th width="264">回调参数</th>
           </tr>
         </thead>
         <tbody>
@@ -108,13 +108,13 @@
             <td>input</td>
             <td>在单选框的选中状态发生变化时触发的事件回调函数，可以使用 <code>v-model</code> 双向绑定数据</td>
             <td>Function</td>
-            <td><code>checkedValue</code> | <code>uncheckedValue</code></td>
+            <td>checkedValue | uncheckedValue</td>
           </tr>
           <tr>
             <td>change</td>
             <td>在单选框的选中状态发生变化时触发的事件回调函数</td>
             <td>Function</td>
-            <td><code>checkedValue</code> | <code>uncheckedValue</code></td>
+            <td>checkedValue | uncheckedValue</td>
           </tr>
         </tbody>
       </table>
@@ -124,8 +124,8 @@
           <tr>
             <th width="140">属性</th>
             <th>说明</th>
-            <th width="220">类型</th>
-            <th width="248">默认值</th>
+            <th width="240">类型</th>
+            <th width="264">默认值</th>
           </tr>
         </thead>
         <tbody>
@@ -133,7 +133,7 @@
             <td>layout</td>
             <td>单选组合布局方式，可选值为 <code>horizontal</code>、<code>vertical</code> 或者不设</td>
             <td>String</td>
-            <td><code>horizontal</code></td>
+            <td>horizontal</td>
           </tr>
           <tr>
             <td>type</td>
@@ -145,7 +145,7 @@
             <td>size</td>
             <td>单选组合尺寸，可选值为 <code>small</code>、<code>medium</code>、<code>large</code> 或者不设</td>
             <td>String</td>
-            <td><code>medium</code></td>
+            <td>medium</td>
           </tr>
           <tr>
             <td>minWidth</td>
@@ -163,13 +163,19 @@
             <td>options</td>
             <td>以配置形式设置单选组合的选项列表，详见示例〔配置方式〕</td>
             <td>Array</td>
-            <td><code>[]</code></td>
+            <td>[]</td>
+          </tr>
+          <tr>
+            <td>beforeCheck</td>
+            <td>选择某一选项前触发的回调函数，接收该选项的 <code>value</code> 值作为参数，可用于判断是否可选，返回 false 时禁止选择，支持返回 Promise 对象</td>
+            <td>Function</td>
+            <td>--</td>
           </tr>
           <tr>
             <td>disabled</td>
             <td>是否禁用单选组合</td>
             <td>Boolean</td>
-            <td><code>false</code></td>
+            <td>false</td>
           </tr>
         </tbody>
       </table>
@@ -179,8 +185,8 @@
           <tr>
             <th width="140">事件名</th>
             <th>说明</th>
-            <th width="220">类型</th>
-            <th width="248">回调参数</th>
+            <th width="240">类型</th>
+            <th width="264">回调参数</th>
           </tr>
         </thead>
         <tbody>
@@ -188,13 +194,13 @@
             <td>input</td>
             <td>在选项状态发生变化时触发的事件回调函数，可以使用 <code>v-model</code> 双向绑定数据</td>
             <td>Function</td>
-            <td><code>value</code></td>
+            <td>value</td>
           </tr>
           <tr>
             <td>change</td>
             <td>在选项状态发生变化时触发的事件回调函数</td>
             <td>Function</td>
-            <td><code>value</code></td>
+            <td>value</td>
           </tr>
         </tbody>
       </table>
@@ -205,30 +211,29 @@
 <script>
   import MixinAnchors from "src/mixins/anchors";
   import Document from "src/components/document";
-  import ExampleRadioBasicUsage from "./examples/basic-usage";
-  import ExampleRadioDisabled from "./examples/disabled";
-  import ExampleRadioStateValue from "./examples/state-value";
-  import ExampleRadioGroup from "./examples/group";
-  import ExampleRadioGroupVertical from "./examples/group-vertical";
-  import ExampleRadioGroupOptions from "./examples/group-options";
-  import ExampleRadioButton from "./examples/button";
-  import ExampleRadioSize from "./examples/size";
+  import ExampleBasicUsage from "./examples/basic-usage";
+  import ExampleDisabled from "./examples/disabled";
+  import ExampleStateValue from "./examples/state-value";
+  import ExampleGroup from "./examples/group";
+  import ExampleGroupVertical from "./examples/group-vertical";
+  import ExampleGroupOptions from "./examples/group-options";
+  import ExampleButton from "./examples/button";
+  import ExampleSize from "./examples/size";
 
   export default {
-    name: "RadioZhCN",
     mixins: [
       MixinAnchors
     ],
     components: {
       Document,
-      ExampleRadioBasicUsage,
-      ExampleRadioDisabled,
-      ExampleRadioStateValue,
-      ExampleRadioGroup,
-      ExampleRadioGroupVertical,
-      ExampleRadioGroupOptions,
-      ExampleRadioButton,
-      ExampleRadioSize
+      ExampleBasicUsage,
+      ExampleDisabled,
+      ExampleStateValue,
+      ExampleGroup,
+      ExampleGroupVertical,
+      ExampleGroupOptions,
+      ExampleButton,
+      ExampleSize
     }
   };
 </script>

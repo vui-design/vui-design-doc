@@ -66,5 +66,6 @@
 </script>
 
 <style>
-  .example-radio-button section + section { margin-top:16px; font-size:0; }
+  .example-radio-button section { line-height:1; }
+  .example-radio-button section + section { margin-top:16px; }
 </style>
