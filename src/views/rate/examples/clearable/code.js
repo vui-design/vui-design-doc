@@ -2,11 +2,11 @@ const code =
 `<template>
   <div class="example-rate-clearable">
     <section>
-      <vui-rate v-model="value" />
+      <vui-rate v-model="value1" />
       <p>clearable: true</p>
     </section>
     <section>
-      <vui-rate v-model="value" v-bind:clearable="false" />
+      <vui-rate v-model="value2" v-bind:clearable="false" />
       <p>clearable: false</p>
     </section>
   </div>
@@ -16,7 +16,8 @@ const code =
   export default {
     data() {
       return {
-        value: 3
+        value1: 3,
+        value2: 3
       };
     }
   };
