@@ -1,6 +1,6 @@
 {
   "name": "vui-design-doc",
-  "version": "1.10.16",
+  "version": "1.10.17",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",

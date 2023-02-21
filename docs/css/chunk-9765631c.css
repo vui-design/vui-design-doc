@@ -1,16 +1,24 @@
 
+.example-switch-size { display:flex; justify-content:flex-start; align-items:center;
+}
 .example-switch-size .vui-switch + .vui-switch { margin-left:16px;
 }
 
 
+.example-switch-text { display:flex; justify-content:flex-start; align-items:center;
+}
 .example-switch-text .vui-switch + .vui-switch { margin-left:16px;
 }
 
 
+.example-switch-disabled { display:flex; justify-content:flex-start; align-items:center;
+}
 .example-switch-disabled .vui-button { margin-left:16px;
 }
 
 
+.example-switch-loading { display:flex; justify-content:flex-start; align-items:center;
+}
 .example-switch-loading .vui-switch + .vui-switch { margin-left:16px;
 }
 

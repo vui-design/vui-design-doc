@@ -1,7 +1,7 @@
 <template>
 	<example v-bind:code="code" id="example-tree-basic-usage">
 		<template slot="demo">
-			<vui-tree showIcon checkable v-bind:data="data" v-bind:expendedKeys="expendedKeys" />
+			<vui-tree showIcon checkable v-bind:data="data" v-bind:expendedKeys="expendedKeys" v-bind:checkedKeys="checkedKeys" v-on:check="handleCheck" />
 		</template>
 		<template slot="title">基本用法</template>
 		<template slot="description">
@@ -91,8 +91,14 @@
 						]
 					}
 				],
-				expendedKeys: ["1"]
+				expendedKeys: ["1"],
+				checkedKeys: []
 			};
+		},
+		methods: {
+			handleCheck(checkedKeys) {
+				this.checkedKeys = checkedKeys;
+			}
 		}
 	};
 </script>

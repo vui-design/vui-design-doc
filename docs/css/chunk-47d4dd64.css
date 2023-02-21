@@ -1,12 +1,18 @@
 
-.example-radio-group-options section + section { margin-top:16px; font-size:0;
+.example-radio-group-options section { line-height:1;
+}
+.example-radio-group-options section + section { margin-top:16px;
 }
 
 
-.example-radio-button section + section { margin-top:16px; font-size:0;
+.example-radio-button section { line-height:1;
+}
+.example-radio-button section + section { margin-top:16px;
 }
 
 
-.example-radio-size section + section { margin-top:16px; font-size:0;
+.example-radio-size section { line-height:1;
+}
+.example-radio-size section + section { margin-top:16px;
 }
 
