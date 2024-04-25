@@ -11553,6 +11553,9 @@ a.link-disabled:active,
 .vui-upload-picture-card .vui-upload-trigger:hover {
   border-color: #2d8cf0;
 }
+.vui-upload-picture-card .vui-upload-trigger:focus {
+  border-color: #2d8cf0;
+}
 .vui-upload-picture-card .vui-upload-trigger-disabled {
   cursor: not-allowed;
   pointer-events: none;
@@ -11671,6 +11674,10 @@ a.link-disabled:active,
   border-color: #2d8cf0;
   background-color: #fafafa;
 }
+.vui-upload-text.vui-upload-draggable .vui-upload-trigger:focus {
+  border-color: #2d8cf0;
+  background-color: #fafafa;
+}
 .vui-upload-text.vui-upload-draggable .vui-upload-trigger-dragover {
   border-color: #2d8cf0;
   background-color: #f0faff;
@@ -11689,6 +11696,10 @@ a.link-disabled:active,
   text-align: center;
 }
 .vui-upload-picture.vui-upload-draggable .vui-upload-trigger:hover {
+  border-color: #2d8cf0;
+  background-color: #fafafa;
+}
+.vui-upload-picture.vui-upload-draggable .vui-upload-trigger:focus {
   border-color: #2d8cf0;
   background-color: #fafafa;
 }
@@ -11712,6 +11723,10 @@ a.link-disabled:active,
   text-align: center;
 }
 .vui-upload-picture-card.vui-upload-draggable .vui-upload-trigger:hover {
+  border-color: #2d8cf0;
+  background-color: #fafafa;
+}
+.vui-upload-picture-card.vui-upload-draggable .vui-upload-trigger:focus {
   border-color: #2d8cf0;
   background-color: #fafafa;
 }
